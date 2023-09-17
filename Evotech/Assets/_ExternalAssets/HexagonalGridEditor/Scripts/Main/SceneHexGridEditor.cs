@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -37,27 +38,35 @@ namespace HexEditor
             {
                 for (int y = -size.y / 2; y <= size.y / 2; y++)
                 {
-                    GameObject createdPrefab = TryPlaceHexGroundAtPoint(new Vector2Int(x, y), false);
+                    TryPlaceHexGroundAtPoint(new Vector2Int(x, y), false);
                 }
             }
         }
 
-        public GameObject TryPlaceHexGroundAtPoint(Vector2Int point, bool withUndoRegister)
+        public MapHexagon TryPlaceHexGroundAtPoint(Vector2Int point, bool withUndoRegister)
         {
             if (GetHexInfoByAbsoleteCoord(point).HexObject == null)
             {
-                GameObject createdPrefab = PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject;
-                createdPrefab.transform.SetParent(_hexesPrefabsContainer);
-                createdPrefab.transform.position = HexGridUtility.ConvertHexCoordToWorldPoint(point);
+                if (_currentPrefab.GetComponent<MapHexagon>() == null)
+                {
+                    Debug.LogWarning("Not valid prefab!!..");
+                    return null;
+                }
+
+                MapHexagon createdHex = (PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject).GetComponent<MapHexagon>();
+
+                createdHex.transform.SetParent(_hexesPrefabsContainer);
+                createdHex.transform.position = HexGridUtility.ConvertHexCoordToWorldPoint(point);
 
                 if (withUndoRegister)
                 {
-                    Undo.RegisterCreatedObjectUndo(createdPrefab, "Create object");
+                    Undo.RegisterCreatedObjectUndo(createdHex, "Create object");
                 }
 
-                GetHexInfoByAbsoleteCoord(point).HexObject = createdPrefab;
+                GetHexInfoByAbsoleteCoord(point).HexObject = createdHex;
+                GetHexInfoByAbsoleteCoord(point).Obstacles = new List<GameObject>();
 
-                return createdPrefab;
+                return createdHex;
             }
             else
             {
@@ -65,25 +74,57 @@ namespace HexEditor
             }
         }
 
-        public void TryRemoveObjectFromPoint(Vector2Int point, bool withUndoRegister)
+        public void TryRemoveHexFromPoint(Vector2Int point, bool withUndoRegister)
         {
             if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
                 if (withUndoRegister)
                 {
-                    Undo.DestroyObjectImmediate(GetHexInfoByAbsoleteCoord(point).HexObject);
+                    Undo.DestroyObjectImmediate(GetHexInfoByAbsoleteCoord(point).HexObject.gameObject);
                 }
                 else
                 {
-                    DestroyImmediate(GetHexInfoByAbsoleteCoord(point).HexObject);
+                    DestroyImmediate(GetHexInfoByAbsoleteCoord(point).HexObject.gameObject);
                 }
 
                 GetHexInfoByAbsoleteCoord(point).HexObject = null;
+                GetHexInfoByAbsoleteCoord(point).Obstacles.Clear();
             }
             else
             {
                 return;
             }
+        }
+
+        public GameObject AddObstacle(Vector2Int point, bool withUndoRegister)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GameObject createdObstacle = PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject;
+                GetHexInfoByAbsoleteCoord(point).HexObject.AddObstacle(createdObstacle.transform);
+
+                if (withUndoRegister)
+                {
+                    Undo.RegisterCreatedObjectUndo(createdObstacle, "Create obstacle");
+                }
+
+                GetHexInfoByAbsoleteCoord(point).Obstacles.Add(createdObstacle);
+
+                return createdObstacle;
+            }
+
+            return null;
+        }
+
+        public void RemoveObstacle(Vector2Int point, bool withUndoRegister)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null && GetHexInfoByAbsoleteCoord(point).Obstacles.Count != 0)
+            {
+                GetHexInfoByAbsoleteCoord(point).HexObject.RemoveLastObstacle(withUndoRegister);
+                GetHexInfoByAbsoleteCoord(point).Obstacles.RemoveAt(GetHexInfoByAbsoleteCoord(point).Obstacles.Count - 1);
+            }
+
+            return;
         }
 
         public void ClearField()
@@ -102,6 +143,16 @@ namespace HexEditor
                 GetHexInfoByAbsoleteCoord(point).Height += direction;
                 GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * .3f * direction;
                 Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex change height");
+            }
+        }
+        
+        public void FlatHeight(Vector2Int point)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).Height = 0;
+                GetHexInfoByAbsoleteCoord(point).HexObject.transform.position = GetHexInfoByAbsoleteCoord(point).HexObject.transform.position.FlatY();
+                Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex flat height");
             }
         }
 
@@ -123,7 +174,8 @@ namespace HexEditor
         [System.Serializable]
         public class HexPlaceInfo
         {
-            public GameObject HexObject;
+            public MapHexagon HexObject;
+            public List<GameObject> Obstacles;
             public int Height = 0;
         }
     }

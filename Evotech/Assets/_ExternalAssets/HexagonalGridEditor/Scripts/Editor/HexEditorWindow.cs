@@ -7,21 +7,23 @@ namespace HexEditor
 {
     public class HexEditorWindow : EditorWindow
     {
-        [SerializeField] private List<GameObject> _palette = new List<GameObject>();
+        [SerializeField] private List<GameObject> _totalPalette = new List<GameObject>();
         [SerializeField] private int _paletteIndex;
 
-        [SerializeField] private DefaultAsset _targetFolder = null;
+        [SerializeField] private DefaultAsset _hexagonsFolder = null;
+        [SerializeField] private DefaultAsset _obstaclesFolder = null;
 
         private Vector2Int _selectedSize;
         private SceneGridView _sceneGridView;
         private SceneHexGridEditor _sceneHexGridEditor;
         private Vector2Int _lastSelectedHexID;
-        private Vector2Int _selectedHexID;
+        private Vector2Int _selectedHexCoord;
         private Vector2 scrollPos;
         private bool _isShowGrid;
         private bool _isChangedGridView;
         private bool _isHeightEditMode = false;
-        private bool _isPaintMode = false;
+        private bool _isHexagonsPaintMode = false;
+        private bool _isObstaclesPaintMode = false;
         private bool _isDrawingPrefabs = false;
         private bool _isChangingHeight = false;
         private int _targetHeight;
@@ -41,8 +43,9 @@ namespace HexEditor
 
             EditorGUILayout.LabelField("-------------Global grid settings-------------");
 
-            _selectedSize = EditorGUILayout.Vector2IntField("Size for generation", _selectedSize);
+            _selectedSize = EditorGUILayout.Vector2IntField("Size for generation", _selectedSize, GUILayout.Width(200f));
 
+            GUILayout.BeginHorizontal();
             if (GUILayout.Button("Regenerate grid"))
             {
                 RegenerateGrid();
@@ -52,6 +55,7 @@ namespace HexEditor
             {
                 ClearGrid();
             }
+            GUILayout.EndHorizontal();
 
             if (GUILayout.Button("Switch grid view"))
             {
@@ -61,13 +65,23 @@ namespace HexEditor
             DefaultSpace();
             EditorGUILayout.LabelField("-------------Palette-------------");
 
-            bool paintOld = _isPaintMode;
-            _isPaintMode = GUILayout.Toggle(_isPaintMode, "Paint mode", "Button", GUILayout.Height(60f));
+            bool hexagonsPaintOld = _isHexagonsPaintMode;
+            bool obstaclesPaintOld = _isObstaclesPaintMode;
+            GUILayout.BeginHorizontal();
+            _isHexagonsPaintMode = GUILayout.Toggle(_isHexagonsPaintMode, "Hexagons paint mode", "Button", GUILayout.Height(60f));
+            _isObstaclesPaintMode = GUILayout.Toggle(_isObstaclesPaintMode, "Obstacles paint mode", "Button", GUILayout.Height(60f));
+            GUILayout.EndHorizontal();
 
-            if (_isPaintMode != paintOld && _isPaintMode)
+            if (_isHexagonsPaintMode != hexagonsPaintOld && _isHexagonsPaintMode)
             {
                 ToggleModes();
-                _isPaintMode = true;
+                _isHexagonsPaintMode = true;
+            }
+
+            if (_isObstaclesPaintMode != obstaclesPaintOld && _isObstaclesPaintMode)
+            {
+                ToggleModes();
+                _isObstaclesPaintMode = true;
             }
 
             HandleTargetFolder();
@@ -95,7 +109,7 @@ namespace HexEditor
 
         private void OnSceneGUI(SceneView sceneView)
         {
-            if (_isPaintMode || _isHeightEditMode)
+            if (_isHexagonsPaintMode || _isHeightEditMode || _isObstaclesPaintMode)
             {
                 CalculateSelectedHex();
                 HandleSceneViewInputs();
@@ -104,21 +118,28 @@ namespace HexEditor
                 {
                     if (Event.current.shift)
                     {
-                        GetSceneEditor().TryRemoveObjectFromPoint(_selectedHexID, true);
+                        GetSceneEditor().TryRemoveHexFromPoint(_selectedHexCoord, true);
                     }
                     else
                     {
-                        GetSceneEditor().TryPlaceHexGroundAtPoint(_selectedHexID, true);
+                        GetSceneEditor().TryPlaceHexGroundAtPoint(_selectedHexCoord, true);
                     }
                 }
 
-                if (_lastSelectedHexID != _selectedHexID)
+                if (_lastSelectedHexID != _selectedHexCoord)
                 {
-                    _lastSelectedHexID = _selectedHexID;
+                    _lastSelectedHexID = _selectedHexCoord;
 
                     if (_isChangingHeight)
                     {
-                        GetSceneEditor().ChangeHeight(_selectedHexID, Event.current.shift ? -1 : 1);
+                        if (Event.current.control)
+                        {
+                            GetSceneEditor().FlatHeight(_selectedHexCoord);
+                        }
+                        else
+                        {
+                            GetSceneEditor().ChangeHeight(_selectedHexCoord, Event.current.shift ? -1 : 1);
+                        }
                     }
                 }
 
@@ -143,8 +164,8 @@ namespace HexEditor
             Ray guiRay = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
             Vector3 mousePosition = guiRay.origin - guiRay.direction * (guiRay.origin.y / guiRay.direction.y);
 
-            _selectedHexID = HexGridUtility.ConvertWorldPointToGridID(mousePosition);
-            DrawSelectedHexel(_selectedHexID);
+            _selectedHexCoord = HexGridUtility.ConvertWorldPointToGridID(mousePosition);
+            DrawSelectedHexel(_selectedHexCoord);
         }
 
         private void DrawSelectedHexel(Vector2Int hexID)
@@ -238,24 +259,43 @@ namespace HexEditor
                 HandleUtility.AddDefaultControl(0);
             }
 
-            if (_isPaintMode)
+            if (_isHexagonsPaintMode)
             {
-                if (!_isDrawingPrefabs && _paletteIndex < _palette.Count && Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                if (!_isDrawingPrefabs && _paletteIndex < _totalPalette.Count && Event.current.type == EventType.MouseDown && Event.current.button == 0)
                 {
                     _isDrawingPrefabs = true;
                 }
-                else if (_isDrawingPrefabs && _paletteIndex < _palette.Count && Event.current.type == EventType.MouseUp && Event.current.button == 0)
+                else if (_isDrawingPrefabs && _paletteIndex < _totalPalette.Count && Event.current.type == EventType.MouseUp && Event.current.button == 0)
                 {
                     _isDrawingPrefabs = false;
+                }
+            }
+            else if (_isObstaclesPaintMode)
+            {
+                if (_paletteIndex < _totalPalette.Count && Event.current.type == EventType.MouseDown && Event.current.button == 0 && !Event.current.shift)
+                {
+                    GetSceneEditor().AddObstacle(_selectedHexCoord, true);
+                }
+                else if (_paletteIndex < _totalPalette.Count && Event.current.type == EventType.MouseDown && Event.current.button == 0 && Event.current.shift)
+                {
+                    GetSceneEditor().RemoveObstacle(_selectedHexCoord, true);
                 }
             }
             else if (_isHeightEditMode)
             {
                 if (!_isChangingHeight && Event.current.type == EventType.MouseDown && Event.current.button == 0)
                 {
-                    _targetHeight = Event.current.shift ? -1 : 1;
                     _isChangingHeight = true;
-                    GetSceneEditor().ChangeHeight(_selectedHexID, _targetHeight);
+
+                    if (Event.current.control)
+                    {
+                        GetSceneEditor().FlatHeight(_selectedHexCoord);
+                    }
+                    else
+                    {
+                        _targetHeight = Event.current.shift ? -1 : 1;
+                        GetSceneEditor().ChangeHeight(_selectedHexCoord, _targetHeight);
+                    }
                 }
                 else if (_isChangingHeight && Event.current.type == EventType.MouseUp && Event.current.button == 0)
                 {
@@ -287,13 +327,19 @@ namespace HexEditor
 
         private void HandleTargetFolder()
         {
-            _targetFolder = (DefaultAsset)EditorGUILayout.ObjectField(
-                "Palette Folder",
-                _targetFolder,
+            _hexagonsFolder = (DefaultAsset)EditorGUILayout.ObjectField(
+                "Hexagons palette folder",
+                _hexagonsFolder,
                 typeof(DefaultAsset),
                 false);
 
-            if (_targetFolder == null)
+            _obstaclesFolder = (DefaultAsset)EditorGUILayout.ObjectField(
+                "Obstacles palette folder",
+                _obstaclesFolder,
+                typeof(DefaultAsset),
+                false);
+
+            if (_hexagonsFolder == null || _obstaclesFolder == null)
             {
                 EditorGUILayout.HelpBox(
                     "Not valid!",
@@ -305,7 +351,7 @@ namespace HexEditor
         private void HandlePaletteGrid()
         {
             List<GUIContent> paletteIcons = new List<GUIContent>();
-            foreach (GameObject prefab in _palette)
+            foreach (GameObject prefab in _totalPalette)
             {
                 Texture2D texture = AssetPreview.GetAssetPreview(prefab);
                 paletteIcons.Add(new GUIContent(texture));
@@ -313,7 +359,7 @@ namespace HexEditor
 
             _paletteIndex = GUILayout.SelectionGrid(_paletteIndex, paletteIcons.ToArray(), 6, GUILayout.Width(position.width * .9f));
 
-            GetSceneEditor().PinCurrentPrefab(_palette[_paletteIndex]);
+            GetSceneEditor().PinCurrentPrefab(_totalPalette[_paletteIndex]);
         }
 
         private void DefaultSpace()
@@ -323,21 +369,28 @@ namespace HexEditor
 
         private void RefreshPalette()
         {
-            _palette.Clear();
+            _totalPalette.Clear();
 
-            if (_targetFolder != null)
+            if (_hexagonsFolder != null)
             {
-                string[] prefabFiles = Directory.GetFiles(AssetDatabase.GetAssetPath(_targetFolder), "*.prefab");
+                string[] prefabFiles = Directory.GetFiles(AssetDatabase.GetAssetPath(_hexagonsFolder), "*.prefab");
                 foreach (string prefabFile in prefabFiles)
-                    _palette.Add(AssetDatabase.LoadAssetAtPath(prefabFile, typeof(GameObject)) as GameObject);
+                    _totalPalette.Add(AssetDatabase.LoadAssetAtPath(prefabFile, typeof(GameObject)) as GameObject);
+            }
+            if (_obstaclesFolder != null)
+            {
+                string[] prefabFiles = Directory.GetFiles(AssetDatabase.GetAssetPath(_obstaclesFolder), "*.prefab");
+                foreach (string prefabFile in prefabFiles)
+                    _totalPalette.Add(AssetDatabase.LoadAssetAtPath(prefabFile, typeof(GameObject)) as GameObject);
             }
         }
 
         private void ToggleModes()
         {
             DeselectAll();
-            _isPaintMode = false;
+            _isHexagonsPaintMode = false;
             _isHeightEditMode = false;
+            _isObstaclesPaintMode = false;
         }
 
         private SceneHexGridEditor GetSceneEditor()
