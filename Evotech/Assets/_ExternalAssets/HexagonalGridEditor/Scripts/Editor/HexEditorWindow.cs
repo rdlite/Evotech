@@ -2,6 +2,7 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 namespace HexEditor
 {
@@ -13,16 +14,21 @@ namespace HexEditor
         [SerializeField] private DefaultAsset _hexagonsFolder = null;
         [SerializeField] private DefaultAsset _obstaclesFolder = null;
 
+        private List<string> _tags = new List<string>();
         private Vector2Int _selectedSize;
         private SceneGridView _sceneGridView;
         private SceneHexGridEditor _sceneHexGridEditor;
         private Vector2Int _lastSelectedHexID;
         private Vector2Int _selectedHexCoord;
-        private Vector2 scrollPos;
+        private Vector2 _scrollPos;
+        private string _currentTextTag;
+        private int _tagIndex;
+        private bool _isShowTags;
         private bool _isShowGrid;
         private bool _isChangedGridView;
         private bool _isHeightEditMode = false;
         private bool _isHexagonsPaintMode = false;
+        private bool _isTagsEditorMode = false;
         private bool _isObstaclesPaintMode = false;
         private bool _isDrawingPrefabs = false;
         private bool _isChangingHeight = false;
@@ -36,71 +42,92 @@ namespace HexEditor
 
         private void OnGUI()
         {
-            scrollPos =
-                EditorGUILayout.BeginScrollView(scrollPos, false, false);
+            _scrollPos =
+                EditorGUILayout.BeginScrollView(_scrollPos, false, false);
 
             DefaultSpace();
 
-            EditorGUILayout.LabelField("-------------Global grid editor-------------");
+            GUIStyle headerStyle = new GUIStyle();
+            headerStyle.fontSize = 20;
+            headerStyle.fontStyle = FontStyle.Bold;
 
-            _selectedSize = EditorGUILayout.Vector2IntField("Size for generation", _selectedSize, GUILayout.Width(200f));
-
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button("Regenerate grid"))
+            EditorGUILayout.LabelField("Global grid editor", headerStyle);
+            HalfDefaultSpace();
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
             {
-                RegenerateGrid();
-            }
-            
-            if (GUILayout.Button("Clear grid"))
-            {
-                ClearGrid();
-            }
-            GUILayout.EndHorizontal();
+                _selectedSize = EditorGUILayout.Vector2IntField("Size for generation", _selectedSize, GUILayout.Width(200f));
 
-            if (GUILayout.Button("Switch grid view"))
-            {
-                SwitchGridView();
-            }
+                GUILayout.BeginHorizontal();
+                if (GUILayout.Button("Regenerate grid"))
+                {
+                    RegenerateGrid();
+                }
 
-            DefaultSpace();
-            EditorGUILayout.LabelField("-------------Palette-------------");
+                if (GUILayout.Button("Clear grid"))
+                {
+                    ClearGrid();
+                }
 
-            bool hexagonsPaintOld = _isHexagonsPaintMode;
-            bool obstaclesPaintOld = _isObstaclesPaintMode;
-            GUILayout.BeginHorizontal();
-            _isHexagonsPaintMode = GUILayout.Toggle(_isHexagonsPaintMode, "Hexagons paint mode", "Button", GUILayout.Height(60f));
-            _isObstaclesPaintMode = GUILayout.Toggle(_isObstaclesPaintMode, "Obstacles paint mode", "Button", GUILayout.Height(60f));
-            GUILayout.EndHorizontal();
-
-            if (_isHexagonsPaintMode != hexagonsPaintOld && _isHexagonsPaintMode)
-            {
-                ToggleModes();
-                _isHexagonsPaintMode = true;
-            }
-
-            if (_isObstaclesPaintMode != obstaclesPaintOld && _isObstaclesPaintMode)
-            {
-                ToggleModes();
-                _isObstaclesPaintMode = true;
-            }
-
-            HandleTargetFolder();
-            HandlePaletteGrid();
-
-            DefaultSpace();
-            EditorGUILayout.LabelField("-------------Height editor-------------");
-
-            bool oldHeightEditMode = _isHeightEditMode;
-            _isHeightEditMode = GUILayout.Toggle(_isHeightEditMode, "Height edit mode", "Button", GUILayout.Height(60f));
-
-            if (oldHeightEditMode != _isHeightEditMode && _isHeightEditMode)
-            {
-                ToggleModes();
-                _isHeightEditMode = true;
+                if (GUILayout.Button("Switch grid view"))
+                {
+                    SwitchGridView();
+                }
+                GUILayout.EndHorizontal();
             }
 
             DefaultSpace();
-            EditorGUILayout.LabelField("-------------Tags editor-------------");
+            EditorGUILayout.LabelField("Palette", headerStyle);
+            HalfDefaultSpace();
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                bool hexagonsPaintOld = _isHexagonsPaintMode;
+                bool obstaclesPaintOld = _isObstaclesPaintMode;
+                GUILayout.BeginHorizontal();
+                _isHexagonsPaintMode = GUILayout.Toggle(_isHexagonsPaintMode, "Hexagons paint mode", "Button", GUILayout.Height(60f));
+                _isObstaclesPaintMode = GUILayout.Toggle(_isObstaclesPaintMode, "Obstacles paint mode", "Button", GUILayout.Height(60f));
+                GUILayout.EndHorizontal();
+
+                if (_isHexagonsPaintMode != hexagonsPaintOld && _isHexagonsPaintMode)
+                {
+                    ToggleModes();
+                    _isHexagonsPaintMode = true;
+                }
+
+                if (_isObstaclesPaintMode != obstaclesPaintOld && _isObstaclesPaintMode)
+                {
+                    ToggleModes();
+                    _isObstaclesPaintMode = true;
+                }
+
+                HandleTargetFolder();
+                HandlePaletteGrid();
+            }
+
+            DefaultSpace();
+            EditorGUILayout.LabelField("Height editor", headerStyle);
+            HalfDefaultSpace();
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                bool oldHeightEditMode = _isHeightEditMode;
+                _isHeightEditMode = GUILayout.Toggle(_isHeightEditMode, "Height edit mode", "Button", GUILayout.Height(60f));
+
+                if (oldHeightEditMode != _isHeightEditMode && _isHeightEditMode)
+                {
+                    ToggleModes();
+                    _isHeightEditMode = true;
+                }
+            }
+
+            DefaultSpace();
+            EditorGUILayout.LabelField("Tags editor", headerStyle);
+            HalfDefaultSpace();
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                HandleTagsEditor();
+            }
 
             DefaultSpace();
             DefaultSpace();
@@ -112,7 +139,7 @@ namespace HexEditor
 
         private void OnSceneGUI(SceneView sceneView)
         {
-            if (_isHexagonsPaintMode || _isHeightEditMode || _isObstaclesPaintMode)
+            if (_isHexagonsPaintMode || _isHeightEditMode || _isObstaclesPaintMode || _isTagsEditorMode)
             {
                 CalculateSelectedHex();
                 HandleSceneViewInputs();
@@ -380,6 +407,11 @@ namespace HexEditor
             GUILayout.Space(20);
         }
 
+        private void HalfDefaultSpace()
+        {
+            GUILayout.Space(10);
+        }
+
         private void RefreshPalette()
         {
             _totalPalette.Clear();
@@ -398,9 +430,86 @@ namespace HexEditor
             }
         }
 
+        private void HandleTagsEditor()
+        {
+            RefillDefaultTags();
+
+            _currentTextTag = EditorGUILayout.TextField(_currentTextTag);
+
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Add new tag"))
+            {
+                AddNewTag(_currentTextTag);
+            }
+            if (GUILayout.Button("Remove existing tag"))
+            {
+                RemoveTag(_currentTextTag);
+            }
+            if (GUILayout.Button("Reset"))
+            {
+                ResetTags();
+            }
+            EditorGUILayout.EndHorizontal();
+
+            bool oldTagsEditing = _isTagsEditorMode;
+            _isTagsEditorMode = GUILayout.Toggle(_isTagsEditorMode, "Tags editor mode", "Button", GUILayout.Height(60f));
+            if (_isTagsEditorMode != oldTagsEditing && _isTagsEditorMode)
+            {
+                ToggleModes();
+                _isTagsEditorMode = true;
+            }
+
+            _isShowTags = EditorGUILayout.Foldout(_isShowTags, new GUIContent("Tags"));
+
+            if (_isShowTags)
+            {
+                _tagIndex = GUILayout.SelectionGrid(_tagIndex, _tags.ToArray(), 3, GUILayout.Width(position.width * .93f));
+                //for (int i = 0; i < _tags.Count; i++)
+                //{
+                //    EditorGUILayout.LabelField("    - " + _tags[i]);
+                //}
+            }
+        }
+
+        private void RefillDefaultTags()
+        {
+            if (!_tags.Contains("playerHex"))
+            {
+                _tags.Add("playerHex");
+            }
+
+            if (!_tags.Contains("enemyHex"))
+            {
+                _tags.Add("enemyHex");
+            }
+        }
+
+        private void AddNewTag(string tag)
+        {
+            if (!_tags.Contains(tag))
+            {
+                _tags.Add(tag);
+            }
+        }
+
+        private void RemoveTag(string tag)
+        {
+            if (_tags.Contains(tag))
+            {
+                _tags.Remove(tag);
+            }
+        }
+        
+        private void ResetTags()
+        {
+            _currentTextTag = "";
+            _tags.Clear();
+        }
+
         private void ToggleModes()
         {
             DeselectAll();
+            _isTagsEditorMode = false;
             _isHexagonsPaintMode = false;
             _isHeightEditMode = false;
             _isObstaclesPaintMode = false;

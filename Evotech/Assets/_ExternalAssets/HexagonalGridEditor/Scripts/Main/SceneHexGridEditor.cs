@@ -4,30 +4,23 @@ using UnityEngine;
 
 namespace HexEditor
 {
+    [ExecuteInEditMode]
     public class SceneHexGridEditor : MonoBehaviour
     {
         [field: SerializeField] public int RectangularGridSize { get; private set; } = 100;
 
         [SerializeField] private Transform _hexesPrefabsContainer;
         [SerializeField] private float _heightStep = .3f;
-        [HideInInspector, SerializeField] private HexPlaceInfo[,] _hexPlaces;
+        [HideInInspector, SerializeField] private HexPlaceInfo[] _hexPlaces;
         [HideInInspector, SerializeField] private GameObject _currentPrefab;
 
         public void PinCurrentPrefab(GameObject prefab)
         {
             _currentPrefab = prefab;
 
-            if (_hexPlaces == null || (_hexPlaces.GetLength(0) != RectangularGridSize))
+            if (_hexPlaces == null || (_hexPlaces.Length != (RectangularGridSize * RectangularGridSize)))
             {
                 ClearField();
-                _hexPlaces = new HexPlaceInfo[RectangularGridSize, RectangularGridSize];
-                for (int x = 0; x < RectangularGridSize; x++)
-                {
-                    for (int y = 0; y < RectangularGridSize; y++)
-                    {
-                        _hexPlaces[x, y] = new HexPlaceInfo();
-                    }
-                }
             }
         }
 
@@ -135,6 +128,17 @@ namespace HexEditor
             {
                 DestroyImmediate(_hexesPrefabsContainer.GetChild(0).gameObject);
             }
+
+            int iterator = 0;
+            _hexPlaces = new HexPlaceInfo[RectangularGridSize * RectangularGridSize];
+            for (int x = 0; x < RectangularGridSize; x++)
+            {
+                for (int y = 0; y < RectangularGridSize; y++)
+                {
+                    _hexPlaces[iterator] = new HexPlaceInfo();
+                    iterator++;
+                }
+            }
         }
 
         public void ChangeHeight(Vector2Int point, int direction)
@@ -174,7 +178,14 @@ namespace HexEditor
 
         public bool HaveHexInCoord(Vector2Int coord)
         {
-            return GetHexInfoByAbsoleteCoord(coord).HexObject != null;
+            if (GetHexInfoByAbsoleteCoord(coord) != null)
+            {
+                return GetHexInfoByAbsoleteCoord(coord).HexObject != null;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public HexPlaceInfo GetHexByCoord(Vector2Int coord)
@@ -184,7 +195,17 @@ namespace HexEditor
 
         private HexPlaceInfo GetHexInfoByAbsoleteCoord(Vector2Int notAbsoleteCoord)
         {
-            return _hexPlaces[notAbsoleteCoord.x + RectangularGridSize / 2, notAbsoleteCoord.y + RectangularGridSize / 2];
+            int xID = notAbsoleteCoord.x + RectangularGridSize / 2;
+            int yID = notAbsoleteCoord.y + RectangularGridSize / 2;
+             
+            if (xID >= 0 && yID >= 0 && _hexPlaces.Length > (xID + yID))
+            { 
+                return _hexPlaces[xID * RectangularGridSize + yID];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         [System.Serializable]
@@ -193,6 +214,7 @@ namespace HexEditor
             public MapHexagon HexObject;
             public List<GameObject> Obstacles;
             public int Height = 0;
+            public List<string> Tags;
         }
     }
 }
