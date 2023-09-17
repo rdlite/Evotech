@@ -41,7 +41,7 @@ namespace HexEditor
 
             DefaultSpace();
 
-            EditorGUILayout.LabelField("-------------Global grid settings-------------");
+            EditorGUILayout.LabelField("-------------Global grid editor-------------");
 
             _selectedSize = EditorGUILayout.Vector2IntField("Size for generation", _selectedSize, GUILayout.Width(200f));
 
@@ -88,7 +88,7 @@ namespace HexEditor
             HandlePaletteGrid();
 
             DefaultSpace();
-            EditorGUILayout.LabelField("-------------Height edit-------------");
+            EditorGUILayout.LabelField("-------------Height editor-------------");
 
             bool oldHeightEditMode = _isHeightEditMode;
             _isHeightEditMode = GUILayout.Toggle(_isHeightEditMode, "Height edit mode", "Button", GUILayout.Height(60f));
@@ -98,6 +98,9 @@ namespace HexEditor
                 ToggleModes();
                 _isHeightEditMode = true;
             }
+
+            DefaultSpace();
+            EditorGUILayout.LabelField("-------------Tags editor-------------");
 
             DefaultSpace();
             DefaultSpace();
@@ -178,65 +181,75 @@ namespace HexEditor
                 0f,
                 HexGridUtility.ConvertYToWorldPos(hexID.y));
 
-            Handles.color = Color.yellow;
+            float height = 0f;
+
+            if (GetSceneEditor().HaveHexInCoord(hexID))
+            {
+                height = GetSceneEditor().GetHexByCoord(hexID).Height * GetSceneEditor().GetHeightStep();
+                Handles.color = Color.green;
+            }
+            else
+            {
+                Handles.color = Color.yellow;
+            }
 
             Vector3[] lines = new Vector3[] {
                 // bottom
-                        hexPos + new Vector3(-halfSqrt, -1f, -.5f) * hexSize,
-                        hexPos + new Vector3(-halfSqrt, -1f, .5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + -1f, -.5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + -1f, .5f) * hexSize,
 
-                        hexPos + new Vector3(-halfSqrt, -1f, .5f) * hexSize,
-                        hexPos + new Vector3(0f, -1f, 1f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + -1f, .5f) * hexSize,
+                        hexPos + new Vector3(0f, height + -1f, 1f) * hexSize,
 
-                        hexPos + new Vector3(0f, -1f, 1f) * hexSize,
-                        hexPos + new Vector3(halfSqrt, -1f, .5f) * hexSize,
+                        hexPos + new Vector3(0f, height + -1f, 1f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + -1f, .5f) * hexSize,
 
-                        hexPos + new Vector3(halfSqrt, -1f, .5f) * hexSize,
-                        hexPos + new Vector3(halfSqrt, -1f, -.5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + -1f, .5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + -1f, -.5f) * hexSize,
 
-                        hexPos + new Vector3(halfSqrt, -1f, -.5f) * hexSize,
-                        hexPos + new Vector3(0f, -1f, -1f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + -1f, -.5f) * hexSize,
+                        hexPos + new Vector3(0f, height + -1f, -1f) * hexSize,
 
-                        hexPos + new Vector3(0f, -1f, -1f) * hexSize,
-                        hexPos + new Vector3(-halfSqrt, -1f, -.5f) * hexSize,
+                        hexPos + new Vector3(0f, height + -1f, -1f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + -1f, -.5f) * hexSize,
                         
                 // top
-                        hexPos + new Vector3(-halfSqrt, 1f, -.5f) * hexSize,
-                        hexPos + new Vector3(-halfSqrt, 1f, .5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + 1f, -.5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + 1f, .5f) * hexSize,
 
-                        hexPos + new Vector3(-halfSqrt, 1f, .5f) * hexSize,
-                        hexPos + new Vector3(0f, 1f, 1f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + 1f, .5f) * hexSize,
+                        hexPos + new Vector3(0f, height + 1f, 1f) * hexSize,
 
-                        hexPos + new Vector3(0f, 1f, 1f) * hexSize,
-                        hexPos + new Vector3(halfSqrt, 1f, .5f) * hexSize,
+                        hexPos + new Vector3(0f, height + 1f, 1f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + 1f, .5f) * hexSize,
 
-                        hexPos + new Vector3(halfSqrt, 1f, .5f) * hexSize,
-                        hexPos + new Vector3(halfSqrt, 1f, -.5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + 1f, .5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + 1f, -.5f) * hexSize,
 
-                        hexPos + new Vector3(halfSqrt, 1f, -.5f) * hexSize,
-                        hexPos + new Vector3(0f, 1f, -1f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + 1f, -.5f) * hexSize,
+                        hexPos + new Vector3(0f, height + 1f, -1f) * hexSize,
 
-                        hexPos + new Vector3(0f, 1f, -1f) * hexSize,
-                        hexPos + new Vector3(-halfSqrt, 1f, -.5f) * hexSize,
+                        hexPos + new Vector3(0f, height + 1f, -1f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + 1f, -.5f) * hexSize,
                         
                 // edges
-                        hexPos + new Vector3(-halfSqrt, -1f, -.5f) * hexSize,
-                        hexPos + new Vector3(-halfSqrt, 1f, -.5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + -1f, -.5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + 1f, -.5f) * hexSize,
 
-                        hexPos + new Vector3(-halfSqrt, -1f, .5f) * hexSize,
-                        hexPos + new Vector3(-halfSqrt, 1f, .5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + -1f, .5f) * hexSize,
+                        hexPos + new Vector3(-halfSqrt, height + 1f, .5f) * hexSize,
 
-                        hexPos + new Vector3(0f, -1f, 1f) * hexSize,
-                        hexPos + new Vector3(0f, 1f, 1f) * hexSize,
+                        hexPos + new Vector3(0f, height + -1f, 1f) * hexSize,
+                        hexPos + new Vector3(0f, height + 1f, 1f) * hexSize,
 
-                        hexPos + new Vector3(halfSqrt, -1f, .5f) * hexSize,
-                        hexPos + new Vector3(halfSqrt, 1f, .5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + -1f, .5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + 1f, .5f) * hexSize,
 
-                        hexPos + new Vector3(halfSqrt, -1f, -.5f) * hexSize,
-                        hexPos + new Vector3(halfSqrt, 1f, -.5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + -1f, -.5f) * hexSize,
+                        hexPos + new Vector3(halfSqrt, height + 1f, -.5f) * hexSize,
 
-                        hexPos + new Vector3(0f, -1f, -1f) * hexSize,
-                        hexPos + new Vector3(0f, 1f, -1f) * hexSize,
+                        hexPos + new Vector3(0f, height + -1f, -1f) * hexSize,
+                        hexPos + new Vector3(0f, height + 1f, -1f) * hexSize,
                     };
 
             Handles.DrawLines(lines);

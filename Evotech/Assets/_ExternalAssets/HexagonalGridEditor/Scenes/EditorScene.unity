@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RectangularGridSize>k__BackingField: 100
   _hexesPrefabsContainer: {fileID: 180710832}
+  _heightStep: 0.3
   _currentPrefab: {fileID: 8977196297903249679, guid: e6c4494f119be1c4e92fa52c738085ca,
     type: 3}
 --- !u!1 &880660387

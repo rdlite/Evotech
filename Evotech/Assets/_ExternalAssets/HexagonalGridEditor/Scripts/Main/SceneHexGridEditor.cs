@@ -9,6 +9,7 @@ namespace HexEditor
         [field: SerializeField] public int RectangularGridSize { get; private set; } = 100;
 
         [SerializeField] private Transform _hexesPrefabsContainer;
+        [SerializeField] private float _heightStep = .3f;
         [HideInInspector, SerializeField] private HexPlaceInfo[,] _hexPlaces;
         [HideInInspector, SerializeField] private GameObject _currentPrefab;
 
@@ -141,7 +142,7 @@ namespace HexEditor
             if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
                 GetHexInfoByAbsoleteCoord(point).Height += direction;
-                GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * .3f * direction;
+                GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * _heightStep * direction;
                 Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex change height");
             }
         }
@@ -165,6 +166,21 @@ namespace HexEditor
             }
         }
 #endif
+
+        public float GetHeightStep()
+        {
+            return _heightStep;
+        }
+
+        public bool HaveHexInCoord(Vector2Int coord)
+        {
+            return GetHexInfoByAbsoleteCoord(coord).HexObject != null;
+        }
+
+        public HexPlaceInfo GetHexByCoord(Vector2Int coord)
+        {
+            return GetHexInfoByAbsoleteCoord(coord);
+        }
 
         private HexPlaceInfo GetHexInfoByAbsoleteCoord(Vector2Int notAbsoleteCoord)
         {
