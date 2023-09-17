@@ -11,19 +11,20 @@ namespace HexEditor
         [SerializeField] private int _paletteIndex;
 
         [SerializeField] private DefaultAsset _targetFolder = null;
-        [SerializeField] private Vector2Int _selectedSize;
-        [SerializeField] private SceneGridView _sceneGridView;
-        [SerializeField] private SceneHexGridEditor _sceneHexGridEditor;
-        [SerializeField] private Vector2Int _selectedHexID;
-        [SerializeField] private Vector2 scrollPos;
-        [SerializeField] private bool _isShowGrid;
-        [SerializeField] private bool _isChangedGridView;
-        [SerializeField] private bool _isHeightEditMode = false;
-        [SerializeField] private bool _isPaintMode = false;
-        [SerializeField] private bool _isDrawingPrefabs = false;
-        [SerializeField] private bool _isGrowingHeight = false;
-        [SerializeField] private bool _isLoweringHeight = false;
-        [SerializeField] private Vector3 _mousePosWhenPressed;
+
+        private Vector2Int _selectedSize;
+        private SceneGridView _sceneGridView;
+        private SceneHexGridEditor _sceneHexGridEditor;
+        private Vector2Int _lastSelectedHexID;
+        private Vector2Int _selectedHexID;
+        private Vector2 scrollPos;
+        private bool _isShowGrid;
+        private bool _isChangedGridView;
+        private bool _isHeightEditMode = false;
+        private bool _isPaintMode = false;
+        private bool _isDrawingPrefabs = false;
+        private bool _isChangingHeight = false;
+        private int _targetHeight;
 
         [MenuItem("Window/HexEditor")]
         public static void Open()
@@ -91,18 +92,36 @@ namespace HexEditor
 
             HandleGridView();
         }
-        
-        private void OnSceneGUI(SceneView sceneView) 
+
+        private void OnSceneGUI(SceneView sceneView)
         {
             if (_isPaintMode || _isHeightEditMode)
             {
                 CalculateSelectedHex();
-                HandleSceneViewInputs(_selectedHexID);
+                HandleSceneViewInputs();
 
                 if (_isDrawingPrefabs)
                 {
-                    GetSceneEditor().PlaceHexGroundAtPoint(_selectedHexID, true);
+                    if (Event.current.shift)
+                    {
+                        GetSceneEditor().TryRemoveObjectFromPoint(_selectedHexID, true);
+                    }
+                    else
+                    {
+                        GetSceneEditor().TryPlaceHexGroundAtPoint(_selectedHexID, true);
+                    }
                 }
+
+                if (_lastSelectedHexID != _selectedHexID)
+                {
+                    _lastSelectedHexID = _selectedHexID;
+
+                    if (_isChangingHeight)
+                    {
+                        GetSceneEditor().ChangeHeight(_selectedHexID, Event.current.shift ? -1 : 1);
+                    }
+                }
+
                 sceneView.Repaint();
             }
         }
@@ -212,7 +231,7 @@ namespace HexEditor
             GetSceneEditor().ClearField();
         }
 
-        private void HandleSceneViewInputs(Vector2Int hexCoord)
+        private void HandleSceneViewInputs()
         {
             if (Event.current.type == EventType.Layout)
             {
@@ -229,27 +248,18 @@ namespace HexEditor
                 {
                     _isDrawingPrefabs = false;
                 }
-                else if (Event.current.type == EventType.MouseDown && Event.current.button == 1)
-                {
-                    _mousePosWhenPressed = Event.current.mousePosition;
-                }
-                else if (Event.current.type == EventType.MouseUp && Event.current.button == 1)
-                {
-                    if (Vector3.Distance(_mousePosWhenPressed, Event.current.mousePosition) < 10f)
-                    {
-                        GetSceneEditor().TryRemoveObjectFromPoint(hexCoord, true);
-                    }
-                }
             }
             else if (_isHeightEditMode)
             {
-                if (!_isGrowingHeight && Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                if (!_isChangingHeight && Event.current.type == EventType.MouseDown && Event.current.button == 0)
                 {
-                    _isGrowingHeight = true;
+                    _targetHeight = Event.current.shift ? -1 : 1;
+                    _isChangingHeight = true;
+                    GetSceneEditor().ChangeHeight(_selectedHexID, _targetHeight);
                 }
-                else if (_isGrowingHeight && Event.current.type == EventType.MouseUp && Event.current.button == 0)
+                else if (_isChangingHeight && Event.current.type == EventType.MouseUp && Event.current.button == 0)
                 {
-                    _isGrowingHeight = false;
+                    _isChangingHeight = false;
                 }
             }
         }

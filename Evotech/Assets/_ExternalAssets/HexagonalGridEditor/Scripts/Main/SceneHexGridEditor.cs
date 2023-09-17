@@ -14,6 +14,19 @@ namespace HexEditor
         public void PinCurrentPrefab(GameObject prefab)
         {
             _currentPrefab = prefab;
+
+            if (_hexPlaces == null || (_hexPlaces.GetLength(0) != RectangularGridSize))
+            {
+                ClearField();
+                _hexPlaces = new HexPlaceInfo[RectangularGridSize, RectangularGridSize];
+                for (int x = 0; x < RectangularGridSize; x++)
+                {
+                    for (int y = 0; y < RectangularGridSize; y++)
+                    {
+                        _hexPlaces[x, y] = new HexPlaceInfo();
+                    }
+                }
+            }
         }
 
         public void ClearAndGenerateGrid(Vector2Int size)
@@ -24,12 +37,12 @@ namespace HexEditor
             {
                 for (int y = -size.y / 2; y <= size.y / 2; y++)
                 {
-                    GameObject createdPrefab = PlaceHexGroundAtPoint(new Vector2Int(x, y), false);
+                    GameObject createdPrefab = TryPlaceHexGroundAtPoint(new Vector2Int(x, y), false);
                 }
             }
         }
 
-        public GameObject PlaceHexGroundAtPoint(Vector2Int point, bool withUndoRegister)
+        public GameObject TryPlaceHexGroundAtPoint(Vector2Int point, bool withUndoRegister)
         {
             if (GetHexInfoByAbsoleteCoord(point).HexObject == null)
             {
@@ -51,7 +64,6 @@ namespace HexEditor
                 return GetHexInfoByAbsoleteCoord(point).HexObject;
             }
         }
-
 
         public void TryRemoveObjectFromPoint(Vector2Int point, bool withUndoRegister)
         {
@@ -83,25 +95,22 @@ namespace HexEditor
             }
         }
 
+        public void ChangeHeight(Vector2Int point, int direction)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).Height += direction;
+                GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * .3f * direction;
+                Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex change height");
+            }
+        }
+
 #if UNITY_EDITOR
         private void OnValidate()
         {
             if (_hexesPrefabsContainer.transform.position != Vector3.zero)
             {
                 _hexesPrefabsContainer.transform.position = Vector3.zero;
-            }
-
-            if (_hexPlaces == null || (_hexPlaces.GetLength(0) != RectangularGridSize))
-            {
-                ClearField();
-                _hexPlaces = new HexPlaceInfo[RectangularGridSize, RectangularGridSize];
-                for (int x = 0; x < RectangularGridSize; x++)
-                {
-                    for (int y = 0; y < RectangularGridSize; y++)
-                    {
-                        _hexPlaces[x, y] = new HexPlaceInfo();
-                    }
-                }
             }
         }
 #endif
@@ -112,9 +121,10 @@ namespace HexEditor
         }
 
         [System.Serializable]
-        private class HexPlaceInfo
+        public class HexPlaceInfo
         {
             public GameObject HexObject;
+            public int Height = 0;
         }
     }
 }
