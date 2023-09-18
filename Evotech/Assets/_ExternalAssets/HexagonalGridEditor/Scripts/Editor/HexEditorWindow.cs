@@ -342,6 +342,18 @@ namespace HexEditor
                     _isChangingHeight = false;
                 }
             }
+            else if (_isTagsEditorMode)
+            {
+                if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && Event.current.shift)
+                {
+                    GetSceneEditor().RemoveTag(_selectedHexCoord, _tags[_tagIndex]);
+                }
+                else if (Event.current.type == EventType.MouseDown && Event.current.button == 0 && !Event.current.shift)
+                {
+                    GetSceneEditor().AddTag(_selectedHexCoord, _tags[_tagIndex]);
+                }
+            }
+
         }
 
         static void DeselectAll()
@@ -457,6 +469,16 @@ namespace HexEditor
             {
                 ToggleModes();
                 _isTagsEditorMode = true;
+                GetSceneEditor().SetTagsMode(true);
+            }
+            else if (_isTagsEditorMode != oldTagsEditing && !_isTagsEditorMode)
+            {
+                GetSceneEditor().SetTagsMode(false);
+            }
+
+            if (GUILayout.Button("Clear all tags"))
+            {
+                ClearObjectsTag();
             }
 
             _isShowTags = EditorGUILayout.Foldout(_isShowTags, new GUIContent("Tags"));
@@ -504,6 +526,11 @@ namespace HexEditor
         {
             _currentTextTag = "";
             _tags.Clear();
+        }
+        
+        private void ClearObjectsTag()
+        {
+            GetSceneEditor().ClearAllTags(_isTagsEditorMode);
         }
 
         private void ToggleModes()

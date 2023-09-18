@@ -6,6 +6,7 @@ namespace HexEditor
     public class MapHexagon : MonoBehaviour
     {
         [SerializeField] private Transform _obstaclesContainer;
+        [SerializeField] private GameObject _tagPoint;
 
         public void AddObstacle(Transform obstacle)
         {
@@ -23,6 +24,12 @@ namespace HexEditor
             {
                 Undo.DestroyObjectImmediate(_obstaclesContainer.GetChild(_obstaclesContainer.childCount - 1).gameObject);
             }
+        }
+
+        public void SetTag(string tagName, Texture2D texture)
+        {
+            EditorGUIUtility.SetIconForObject(_tagPoint.gameObject, texture);
+            _tagPoint.gameObject.name = tagName;
         }
     }
 }
