@@ -61,7 +61,12 @@ namespace HexEditor
                 }
 
                 GetHexInfoByAbsoleteCoord(point).HexObject = createdHex;
+                GetHexInfoByAbsoleteCoord(point).HexagonName = createdHex.transform.name;
+                GetHexInfoByAbsoleteCoord(point).HexX = point.x;
+                GetHexInfoByAbsoleteCoord(point).HexY = point.y;
                 GetHexInfoByAbsoleteCoord(point).Obstacles = new List<GameObject>();
+                GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets = new Vector3Container();
+                GetHexInfoByAbsoleteCoord(point).ObstacleNames = new StringsContainer();
 
                 return createdHex;
             }
@@ -86,7 +91,9 @@ namespace HexEditor
 
                 GetHexInfoByAbsoleteCoord(point).HexObject = null;
                 GetHexInfoByAbsoleteCoord(point).Obstacles.Clear();
-                GetHexInfoByAbsoleteCoord(point).Tags.Clear();
+                GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets.Vectors.Clear();
+                GetHexInfoByAbsoleteCoord(point).ObstacleNames.Strings.Clear();
+                GetHexInfoByAbsoleteCoord(point).Tags.Strings.Clear();
             }
             else
             {
@@ -107,6 +114,8 @@ namespace HexEditor
                 }
 
                 GetHexInfoByAbsoleteCoord(point).Obstacles.Add(createdObstacle);
+                GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets.Vectors.Add(createdObstacle.transform.localPosition);
+                GetHexInfoByAbsoleteCoord(point).ObstacleNames.Strings.Add(createdObstacle.name);
 
                 return createdObstacle;
             }
@@ -120,6 +129,8 @@ namespace HexEditor
             {
                 GetHexInfoByAbsoleteCoord(point).HexObject.RemoveLastObstacle(withUndoRegister);
                 GetHexInfoByAbsoleteCoord(point).Obstacles.RemoveAt(GetHexInfoByAbsoleteCoord(point).Obstacles.Count - 1);
+                GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets.Vectors.RemoveAt(GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets.Vectors.Count - 1);
+                GetHexInfoByAbsoleteCoord(point).ObstacleNames.Strings.RemoveAt(GetHexInfoByAbsoleteCoord(point).ObstacleNames.Strings.Count - 1);
             }
 
             return;
@@ -165,6 +176,16 @@ namespace HexEditor
             }
         }
 
+        public void SetHeight(Vector2Int point, int value)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).Height = value;
+                GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * _heightStep * value;
+                Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex flat height");
+            }
+        }
+
         public void SetTagsMode(bool value)
         {
             for (int i = 0; i < _hexPlaces.Length; i++)
@@ -173,7 +194,7 @@ namespace HexEditor
                 {
                     string tagName = "";
 
-                    foreach (var item in _hexPlaces[i].Tags)
+                    foreach (var item in _hexPlaces[i].Tags.Strings)
                     {
                         tagName += item;
                         tagName += "_";
@@ -182,7 +203,7 @@ namespace HexEditor
                     SetTagIconForHex(
                         _hexPlaces[i].HexObject,
                         tagName,
-                        _hexPlaces[i].Tags.Count > 0 ? 6 : -1,
+                        _hexPlaces[i].Tags.Strings.Count > 0 ? 6 : -1,
                         value);
                 }
             }
@@ -192,9 +213,9 @@ namespace HexEditor
         {
             if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
-                if (!GetHexInfoByAbsoleteCoord(point).Tags.Contains(tag))
+                if (!GetHexInfoByAbsoleteCoord(point).Tags.Strings.Contains(tag))
                 {
-                    GetHexInfoByAbsoleteCoord(point).Tags.Add(tag);
+                    GetHexInfoByAbsoleteCoord(point).Tags.Strings.Add(tag);
                 }
             }
 
@@ -205,9 +226,9 @@ namespace HexEditor
         {
             if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
-                if (GetHexInfoByAbsoleteCoord(point).Tags.Contains(tag))
+                if (GetHexInfoByAbsoleteCoord(point).Tags.Strings.Contains(tag))
                 {
-                    GetHexInfoByAbsoleteCoord(point).Tags.Remove(tag);
+                    GetHexInfoByAbsoleteCoord(point).Tags.Strings.Remove(tag);
                 }
             }
 
@@ -245,12 +266,33 @@ namespace HexEditor
             {
                 if (_hexPlaces[i] != null && _hexPlaces[i].HexObject != null)
                 {
-                    _hexPlaces[i].Tags.Clear();
+                    _hexPlaces[i].Tags.Strings.Clear();
                     SetTagIconForHex(
                         _hexPlaces[i].HexObject,
                         "",
                         -1,
                         isInTagsMode);
+                }
+            }
+        }
+
+        public void SetObstaclesNames(Vector2Int point, List<string> strings)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).ObstacleNames.Strings = strings;
+            }
+        }
+        
+        public void SetObstaclesOffset(Vector2Int point, List<Vector3> offsets)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets.Vectors = offsets;
+
+                for (int i = 0; i < offsets.Count; i++)
+                {
+                    GetHexInfoByAbsoleteCoord(point).Obstacles[i].transform.localPosition = offsets[i];
                 }
             }
         }
@@ -302,13 +344,42 @@ namespace HexEditor
             }
         }
 
+        public HexPlaceInfo[] GetAllHexes()
+        {
+            return _hexPlaces;
+        }
+
+        [System.Serializable]
+        public class HexesWrapper
+        {
+            public HexPlaceInfo[] Places;
+            public string[] GlobalTags;
+        }
+
         [System.Serializable]
         public class HexPlaceInfo
         {
-            public MapHexagon HexObject;
-            public List<GameObject> Obstacles;
+            [NonSerialized] public MapHexagon HexObject;
+            public string HexagonName;
+            public int HexX;
+            public int HexY;
+            [NonSerialized] public List<GameObject> Obstacles = new List<GameObject>();
             public int Height = 0;
-            public List<string> Tags = new List<string>();
+            public Vector3Container ObstaclesOffsets = new Vector3Container();
+            public StringsContainer Tags = new StringsContainer();
+            public StringsContainer ObstacleNames = new StringsContainer();
+        }
+
+        [System.Serializable]
+        public class Vector3Container
+        {
+            public List<Vector3> Vectors = new List<Vector3>();
+        }
+
+        [System.Serializable]
+        public class StringsContainer
+        {
+            public List<string> Strings = new List<string>();
         }
     }
 }

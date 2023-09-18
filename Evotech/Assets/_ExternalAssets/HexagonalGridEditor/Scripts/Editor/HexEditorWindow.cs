@@ -2,7 +2,9 @@ using System.IO;
 using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
+using static HexEditor.SceneHexGridEditor;
+using System.Linq;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 
 namespace HexEditor
 {
@@ -13,6 +15,8 @@ namespace HexEditor
 
         [SerializeField] private DefaultAsset _hexagonsFolder = null;
         [SerializeField] private DefaultAsset _obstaclesFolder = null;
+        [SerializeField] private DefaultAsset _saveFolder = null;
+        [SerializeField] private TextAsset _saveFileToProcess = null;
 
         private List<string> _tags = new List<string>();
         private Vector2Int _selectedSize;
@@ -22,6 +26,7 @@ namespace HexEditor
         private Vector2Int _selectedHexCoord;
         private Vector2 _scrollPos;
         private string _currentTextTag;
+        private string _currentFileSaveName;
         private int _tagIndex;
         private bool _isShowTags;
         private bool _isShowGrid;
@@ -127,6 +132,15 @@ namespace HexEditor
             using (new GUILayout.VerticalScope(EditorStyles.helpBox))
             {
                 HandleTagsEditor();
+            }
+
+            DefaultSpace();
+            EditorGUILayout.LabelField("Saving editor", headerStyle);
+            HalfDefaultSpace();
+
+            using (new GUILayout.VerticalScope(EditorStyles.helpBox))
+            {
+                HandleSaveLoadSystem();
             }
 
             DefaultSpace();
@@ -533,6 +547,172 @@ namespace HexEditor
             GetSceneEditor().ClearAllTags(_isTagsEditorMode);
         }
 
+        private void HandleSaveLoadSystem()
+        {
+            _currentFileSaveName = EditorGUILayout.TextField(_currentFileSaveName);
+
+            EditorGUILayout.BeginHorizontal();
+            if (GUILayout.Button("Save to file or create new"))
+            {
+                Save();
+            }
+            if (GUILayout.Button("Load selected file"))
+            {
+                Load();
+            }
+            EditorGUILayout.EndHorizontal();
+
+            _saveFolder = (DefaultAsset)EditorGUILayout.ObjectField(
+                "Folder",
+                _saveFolder,
+                typeof(DefaultAsset),
+                false);
+
+            if (_saveFolder == null)
+            {
+                EditorGUILayout.HelpBox(
+                    "Not valid!",
+                    MessageType.Warning,
+                    true);
+            }
+
+            _saveFileToProcess = (TextAsset)EditorGUILayout.ObjectField(
+                "File",
+                _saveFileToProcess,
+                typeof(TextAsset),
+                false);
+        }
+
+        private void Save()
+        {
+            string mapData = GetJsonDataOfHexes();
+
+            if (_saveFileToProcess != null)
+            {
+                File.WriteAllText(AssetDatabase.GetAssetPath(_saveFileToProcess), mapData);
+            }
+            else if (_saveFolder != null)
+            {
+                if (_currentFileSaveName == "")
+                {
+                    int filesCounter = 0;
+
+                    while (File.Exists(AssetDatabase.GetAssetPath(_saveFolder) + "/New file " + filesCounter))
+                    {
+                        filesCounter++;
+                    }
+
+                    File.WriteAllText(AssetDatabase.GetAssetPath(_saveFolder) + "/New file " + filesCounter + ".json", mapData);
+                }
+                else
+                {
+                    File.WriteAllText(AssetDatabase.GetAssetPath(_saveFolder) + "/" + _currentFileSaveName + ".json", mapData);
+                }
+            }
+            else
+            {
+                Debug.LogError("NO PATH TO SAVE!!!");
+            }
+
+            AssetDatabase.Refresh();
+        }
+
+        private string GetJsonDataOfHexes()
+        {
+            HexPlaceInfo[] hexPlaces = GetSceneEditor().GetAllHexes();
+            List<HexPlaceInfo> hexPlaceInfos = new List<HexPlaceInfo>();
+            HexesWrapper hexesSaveContainer = new HexesWrapper();
+
+            for (int i = 0; i < hexPlaces.Length; i++)
+            {
+                if (hexPlaces[i] != null && hexPlaces[i].HexObject != null)
+                {
+                    hexPlaceInfos.Add(hexPlaces[i]);
+                }
+            }
+
+            hexesSaveContainer.Places = hexPlaceInfos.ToArray();
+            hexesSaveContainer.GlobalTags = _tags.ToArray();
+
+            return JsonUtility.ToJson(hexesSaveContainer, true);
+        }
+
+        private void Load()
+        {
+            if (_saveFileToProcess != null)
+            {
+                RecreateField(File.ReadAllText(AssetDatabase.GetAssetPath(_saveFileToProcess)));
+            }
+            else
+            {
+                Debug.LogError("Please, set file!..");
+            }
+        }
+
+        public void RecreateField(string jsonData)
+        {
+            HexesWrapper hexesWrapper = JsonUtility.FromJson<HexesWrapper>(jsonData);
+
+            GetSceneEditor().ClearField();
+
+            for (int i = 0; i < hexesWrapper.Places.Length; i++)
+            {
+                int hexPaletteID = FindAssetIndexByName(hexesWrapper.Places[i].HexagonName);
+
+                if (hexPaletteID == -1)
+                {
+                    for (int j = 0; j < _totalPalette.Count; j++)
+                    {
+                        if (_totalPalette[j].GetComponent<MapHexagon>() != null)
+                        {
+                            hexPaletteID = j;
+                            break;
+                        }
+                    }
+
+                    if (hexPaletteID == -1)
+                    {
+                        Debug.LogError($"There is no asset in palette with name " + hexesWrapper.Places[i].HexagonName);
+                        return;
+                    }
+                }
+
+                Vector2Int point = new Vector2Int(hexesWrapper.Places[i].HexX, hexesWrapper.Places[i].HexY);
+
+                GetSceneEditor().PinCurrentPrefab(_totalPalette[hexPaletteID]);
+
+                GetSceneEditor().TryPlaceHexGroundAtPoint(point, true);
+                GetSceneEditor().SetHeight(point, hexesWrapper.Places[i].Height);
+
+                if (hexesWrapper.Places[i].ObstacleNames != null && hexesWrapper.Places[i].ObstacleNames.Strings.Count != 0)
+                {
+                    for (int j = 0; j < hexesWrapper.Places[i].ObstacleNames.Strings.Count; j++)
+                    {
+                        int paletteID = FindAssetIndexByName(hexesWrapper.Places[i].ObstacleNames.Strings[j]);
+                        GetSceneEditor().PinCurrentPrefab(_totalPalette[paletteID]);
+                        GetSceneEditor().AddObstacle(point, true);
+                    }
+
+                    GetSceneEditor().SetObstaclesNames(point, hexesWrapper.Places[i].ObstacleNames.Strings);
+                    GetSceneEditor().SetObstaclesOffset(point, hexesWrapper.Places[i].ObstaclesOffsets.Vectors);
+                }
+
+                if (hexesWrapper.Places[i].Tags != null && hexesWrapper.Places[i].Tags.Strings.Count != 0)
+                {
+                    for (int j = 0; j < hexesWrapper.Places[i].Tags.Strings.Count; j++)
+                    {
+                        GetSceneEditor().AddTag(point, hexesWrapper.Places[i].Tags.Strings[j]);
+                    }
+                }
+            }
+
+            ResetTags();
+            for (int i = 0; i < hexesWrapper.GlobalTags.Length; i++)
+            {
+                AddNewTag(hexesWrapper.GlobalTags[i]);
+            }
+        }
+
         private void ToggleModes()
         {
             DeselectAll();
@@ -540,6 +720,19 @@ namespace HexEditor
             _isHexagonsPaintMode = false;
             _isHeightEditMode = false;
             _isObstaclesPaintMode = false;
+        }
+
+        private int FindAssetIndexByName(string name)
+        {
+            for (int i = 0; i < _totalPalette.Count; i++)
+            {
+                if (name != null && (name.Contains(_totalPalette[i].name) || _totalPalette[i].name.Contains(name)))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
         }
 
         private SceneHexGridEditor GetSceneEditor()
