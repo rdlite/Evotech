@@ -1,14 +1,16 @@
+using Qnject;
+
 namespace Core.Infrastructure
 {
     public class GameStateMachineLoader
     {
         private GameStateMachine _gameStateMachine;
 
-        public GameStateMachineLoader()
+        public GameStateMachineLoader(Container projectInstaller)
         {
-            _gameStateMachine = new GameStateMachine();
+            _gameStateMachine = new GameStateMachine(projectInstaller);
 
-            //_gameStateMachine.Enter<BootstrapState>();
+            _gameStateMachine.Enter<StartupState>();
         }
 
         public void GameUpdate()

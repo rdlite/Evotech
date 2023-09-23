@@ -2,20 +2,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class SceneLoader
+namespace Utils
 {
-    public static void Load(string sceneName, Action onLoaded = null)
+    public static class SceneLoader
     {
-        if (SceneManager.GetActiveScene().name == sceneName)
+        public static void LoadAsync(string sceneName, Action onLoaded = null)
         {
-            onLoaded?.Invoke();
-            return;
-        }
+            if (SceneManager.GetActiveScene().name == sceneName)
+            {
+                onLoaded?.Invoke();
+                return;
+            }
 
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-        asyncOperation.completed += asyncOperation =>
-        {
-            onLoaded?.Invoke();
-        };
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+            asyncOperation.completed += asyncOperation =>
+            {
+                onLoaded?.Invoke();
+            };
+        }
     }
 }

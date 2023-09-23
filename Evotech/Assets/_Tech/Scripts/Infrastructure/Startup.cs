@@ -1,4 +1,5 @@
 using Core.Settings;
+using Qnject;
 using UnityEngine;
 
 namespace Core.Infrastructure
@@ -7,12 +8,12 @@ namespace Core.Infrastructure
     {
         private GameStateMachineLoader _gameStateMachine;
 
-        private void Awake()
+        public void Init(Container projectInstaller)
         {
             BuildSettings buildSettings = new BuildSettings();
             buildSettings.Set();
 
-            _gameStateMachine = new GameStateMachineLoader();
+            _gameStateMachine = new GameStateMachineLoader(projectInstaller);
         }
 
         private void Update()

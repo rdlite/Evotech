@@ -1,28 +1,21 @@
 using System;
 using Core.StateMachine;
 using System.Collections.Generic;
+using Qnject;
 
 namespace Core.Infrastructure
 {
     public class GameStateMachine : UpdateStateMachine
     {
-        public GameStateMachine()
+        public GameStateMachine(Container projectInstaller)
         {
             _states = new Dictionary<Type, IExitableState>();
-            //_states = new Dictionary<Type, IExitableState>()
-            //{
-            //    [typeof(BootstrapState)] = new BootstrapState(
-            //        this, coroutineService, uiRoot,
-            //        assetsContainer),
-            //    [typeof(LoadLevelState)] = new LoadLevelState(
-            //        ServicesContainer.Instance.Get<LevelsLoadingService>(), this, configsContainer,
-            //        assetsContainer, coroutineService, ServicesContainer.Instance.Get<InputService>()),
-            //    [typeof(WordWalkingState)] = new WordWalkingState(
-            //        this, uiRoot),
-            //    [typeof(BattleState)] = new BattleState(
-            //        uiRoot, assetsContainer, coroutineService,
-            //        ServicesContainer.Instance.Get<InputService>())
-            //};
+            _states = new Dictionary<Type, IExitableState>()
+            {
+                [typeof(StartupState)] = new StartupState(
+                    projectInstaller, this),
+                [typeof(LoadFightState)] = new LoadFightState(),
+            };
         }
     }
 }

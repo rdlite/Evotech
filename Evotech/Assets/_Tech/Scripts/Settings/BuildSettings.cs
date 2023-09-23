@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Settings
 {
-    public class BuildSettings : MonoBehaviour
+    public class BuildSettings 
     {
         public void Set()
         {

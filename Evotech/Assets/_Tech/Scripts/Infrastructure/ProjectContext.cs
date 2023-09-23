@@ -1,5 +1,4 @@
 using Qnject;
-using UnityEngine;
 
 namespace Core.Infrastructure 
 {
@@ -7,7 +6,8 @@ namespace Core.Infrastructure
     {
         public override void Install()
         {
-
+            Startup startup = FindObjectOfType<Startup>();
+            startup.Init(_container);
         }
     }
 }
