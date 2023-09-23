@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e50d19bbccc5894c9e6e2249c2b4403, type: 3}
+  m_Name: AssetsContainer
+  m_EditorClassIdentifier: 
+  HexagonsContainer:
+    Landscapes:
+    - {fileID: 11400000, guid: b7e33fafb07b25144be16e193d943af8, type: 2}
+  MapTextsContainer: {fileID: 11400000, guid: 749b7080ca91c3f478e241178bdccbd3, type: 2}

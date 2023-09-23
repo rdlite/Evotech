@@ -24,6 +24,11 @@ namespace Qnject
                 _container.BindRange(_scriptableObjectsToInstall);
             }
 
+            for (int i = 0; i < _monoToInstall.Length; i++)
+            {
+                MonoObjectsResolver.ResolveObject(_monoToInstall[i]);
+            }
+
             Install();
         }
 

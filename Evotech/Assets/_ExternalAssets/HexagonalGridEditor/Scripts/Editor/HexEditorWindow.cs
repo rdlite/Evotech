@@ -500,10 +500,6 @@ namespace HexEditor
             if (_isShowTags)
             {
                 _tagIndex = GUILayout.SelectionGrid(_tagIndex, _tags.ToArray(), 3, GUILayout.Width(position.width * .93f));
-                //for (int i = 0; i < _tags.Count; i++)
-                //{
-                //    EditorGUILayout.LabelField("    - " + _tags[i]);
-                //}
             }
         }
 

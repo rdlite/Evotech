@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7271022542414845476}
   - component: {fileID: 1555382574613715578}
   m_Layer: 0
-  m_Name: ProjectContext
+  m_Name: ProjectInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _monoToInstall:
   - {fileID: 5190637141206181830}
-  _scriptableObjectsToInstall: []
+  _scriptableObjectsToInstall:
+  - {fileID: 11400000, guid: 7847c3495d77bb842a2d058b431d04b6, type: 2}
+  - {fileID: 11400000, guid: 51978cb6cf306d2409941447cc4b2759, type: 2}
+  - {fileID: 11400000, guid: 749b7080ca91c3f478e241178bdccbd3, type: 2}
 --- !u!1 &7790713114102913567
 GameObject:
   m_ObjectHideFlags: 0

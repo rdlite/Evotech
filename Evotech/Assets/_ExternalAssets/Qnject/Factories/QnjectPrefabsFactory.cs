@@ -16,7 +16,7 @@ namespace Qnject
             newObject.transform.position = position;
             newObject.transform.rotation = rotation;
             newObject.transform.SetParent(parent);
-            ResolveMonosOnObject(newObject.GetComponent<MonoBehaviour>());
+            ResolveMonosOnObject(newObject);
             return newObject;
         }
 
@@ -30,11 +30,11 @@ namespace Qnject
             newObject.transform.position = position;
             newObject.transform.rotation = rotation;
             newObject.transform.SetParent(parent);
-            ResolveMonosOnObject(newObject);
+            ResolveMonosOnObject(newObject.gameObject);
             return newObject;
         }
 
-        private static void ResolveMonosOnObject(MonoBehaviour obj)
+        private static void ResolveMonosOnObject(GameObject obj)
         {
             List<MonoBehaviour> monosToResolve = obj.GetComponentsInChildren<MonoBehaviour>(true).ToList();
             monosToResolve.AddRange(obj.GetComponents<MonoBehaviour>());
