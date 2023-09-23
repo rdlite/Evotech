@@ -24,10 +24,10 @@ namespace Qnject
                 _container.BindRange(_scriptableObjectsToInstall);
             }
 
-            Bind();
+            Install();
         }
 
-        public abstract void Bind();
+        public abstract void Install();
 
         private void OnDestroy()
         {

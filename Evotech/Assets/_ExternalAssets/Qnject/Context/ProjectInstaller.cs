@@ -14,6 +14,6 @@ namespace Qnject
             DontDestroyOnLoad(gameObject);
         }
 
-        public override void Bind() {}
+        public override void Install() {}
     }
 }

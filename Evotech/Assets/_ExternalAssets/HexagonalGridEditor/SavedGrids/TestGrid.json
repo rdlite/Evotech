@@ -1,0 +1,2003 @@
+{
+    "Places": [
+        {
+            "HexagonName": "TestHex",
+            "HexX": -13,
+            "HexY": -3,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -13,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -13,
+            "HexY": 2,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -13,
+            "HexY": 3,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -13,
+            "HexY": 4,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -13,
+            "HexY": 5,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": -5,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": -4,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": -3,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": -2,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": -1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": 0,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": 2,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": 4,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": 6,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -12,
+            "HexY": 7,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": -6,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": -5,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": -4,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": -2,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": -1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": 0,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": 8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -11,
+            "HexY": 9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -10,
+            "HexY": 0,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -10,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -10,
+            "HexY": 10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -10,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -9,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -9,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -8,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -8,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -8,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -7,
+            "HexY": -9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -7,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -7,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -6,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -6,
+            "HexY": 14,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -5,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -5,
+            "HexY": 14,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -5,
+            "HexY": 15,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -4,
+            "HexY": 15,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -3,
+            "HexY": -9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -3,
+            "HexY": 16,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -3,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -2,
+            "HexY": -10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -2,
+            "HexY": -9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -2,
+            "HexY": -8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -2,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -1,
+            "HexY": -10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -1,
+            "HexY": -9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -1,
+            "HexY": -8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -1,
+            "HexY": -7,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": -1,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 0,
+            "HexY": -10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 0,
+            "HexY": -9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 0,
+            "HexY": -8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 0,
+            "HexY": -7,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 0,
+            "HexY": 16,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 0,
+            "HexY": 18,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 1,
+            "HexY": -10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 1,
+            "HexY": -9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 1,
+            "HexY": -8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 1,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 1,
+            "HexY": 18,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 2,
+            "HexY": -8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 2,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 2,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 2,
+            "HexY": 18,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 2,
+            "HexY": 19,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 3,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 3,
+            "HexY": 18,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 3,
+            "HexY": 19,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 4,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 4,
+            "HexY": 18,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 5,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 5,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 5,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 5,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 5,
+            "HexY": 18,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 6,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 6,
+            "HexY": 9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 6,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 6,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 6,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 6,
+            "HexY": 18,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 7,
+            "HexY": 1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 7,
+            "HexY": 8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 7,
+            "HexY": 9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 7,
+            "HexY": 10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 7,
+            "HexY": 15,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 7,
+            "HexY": 16,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 7,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 8,
+            "HexY": 2,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 8,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 8,
+            "HexY": 14,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 8,
+            "HexY": 15,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 8,
+            "HexY": 16,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 2,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 3,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 14,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 15,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 16,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 9,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 4,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 5,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 6,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 7,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 14,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 15,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 16,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 10,
+            "HexY": 17,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 6,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 14,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 15,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 11,
+            "HexY": 16,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 12,
+            "HexY": 12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 12,
+            "HexY": 13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "TestHex",
+            "HexX": 12,
+            "HexY": 14,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        }
+    ],
+    "GlobalTags": [
+        "playerHex",
+        "enemyHex"
+    ]
+}
