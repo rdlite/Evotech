@@ -54,6 +54,10 @@ namespace Core.Data
                 //        GetSceneEditor().AddTag(point, hexesWrapper.Places[i].Tags.Strings[j]);
                 //    }
                 //}
+
+                nodes.Add(new Node(
+                    hex.transform.position,
+                    point));
             }
 
             MapData map = new MapData(nodes);

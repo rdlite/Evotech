@@ -12,5 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736bd439dd61b20408f224b0386e58ef, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  CameraSettings:
+    MovementSpeed: 15
+    MovementSmooth: 10
+    ZoomSmooth: 5
+    RotationSmooth: 30
+    RotationSpeed: 10
+    MinZoom: 0.5
+    MaxZoom: 1.5
+    DefaultFOV: 40
+    MaxRotationCameraOnZoom: -10
+    PositionOffset: {x: -6, y: 16.5, z: -11}
+    RotationOffset: {x: 50, y: 30, z: 0}
   MapSettings:
     HeightOffset: 0.2

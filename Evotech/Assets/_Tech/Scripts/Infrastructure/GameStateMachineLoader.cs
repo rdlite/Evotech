@@ -1,4 +1,5 @@
 using Core.Data;
+using Core.Factories;
 using Core.Settings;
 using Qnject;
 
@@ -10,11 +11,11 @@ namespace Core.Infrastructure
 
         public GameStateMachineLoader(
             Container projectInstaller, AssetsContainer assetsContainer, GameSettings gameSettings,
-            MapTextsContainer mapsContainer)
+            MapTextsContainer mapsContainer, IGameFactory gameFactory)
         {
             _gameStateMachine = new GameStateMachine(
                 projectInstaller, assetsContainer, gameSettings,
-                mapsContainer);
+                mapsContainer, gameFactory);
 
             _gameStateMachine.Enter<StartupState>();
         }

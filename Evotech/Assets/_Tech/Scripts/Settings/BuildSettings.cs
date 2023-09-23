@@ -7,6 +7,7 @@ namespace Core.Settings
         public void Set()
         {
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            Application.targetFrameRate = 240;
         }
     }
 }

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e50d19bbccc5894c9e6e2249c2b4403, type: 3}
   m_Name: AssetsContainer
   m_EditorClassIdentifier: 
+  CameraPrefab: {fileID: 5095227811058008549, guid: 134391273ec04574e8f439849e8a07cc,
+    type: 3}
   HexagonsContainer:
     Landscapes:
     - {fileID: 11400000, guid: b7e33fafb07b25144be16e193d943af8, type: 2}

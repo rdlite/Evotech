@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Qnject;
 using Core.Data;
 using Core.Settings;
+using Core.Factories;
 
 namespace Core.Infrastructure
 {
@@ -11,7 +12,7 @@ namespace Core.Infrastructure
     {
         public GameStateMachine(
             Container projectInstaller, AssetsContainer assetsContainer, GameSettings gameSettings,
-            MapTextsContainer mapsContainer)
+            MapTextsContainer mapsContainer, IGameFactory gameFactory)
         {
             _states = new Dictionary<Type, IExitableState>();
             _states = new Dictionary<Type, IExitableState>()
@@ -19,7 +20,8 @@ namespace Core.Infrastructure
                 [typeof(StartupState)] = new StartupState(
                     projectInstaller, this),
                 [typeof(LoadFightState)] = new LoadFightState(
-                    assetsContainer, gameSettings, mapsContainer),
+                    assetsContainer, gameSettings, mapsContainer,
+                    gameFactory, projectInstaller),
             };
         }
     }
