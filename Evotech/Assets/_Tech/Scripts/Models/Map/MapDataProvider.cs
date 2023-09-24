@@ -26,6 +26,11 @@ namespace Core.Data
             return _borders;
         }
 
+        public NodeBase GetNodeOfWorldPoint(Vector3 point)
+        {
+            return MapData.GetNodeByWPos(point);
+        }
+
         public float GetHeightOfWorldPoint(Vector3 point)
         {
             NodeBase node = MapData.GetNodeByWPos(point);

@@ -13,6 +13,7 @@ namespace Hexnav.Core
         public Vector3 WorldPos;
         public Vector2Int Point;
         public float Height;
+        public bool IsWalkable { get; private set; }
 
         public NodeBase(Vector3 worldPos, Vector2Int point, float height)
         {
@@ -20,6 +21,7 @@ namespace Hexnav.Core
             Point = point;
             Height = height;
             Neighbours = new List<NodeBase>();
+            IsWalkable = true;
         }
 
         public void SetConnection(NodeBase nodeBase)
@@ -40,6 +42,11 @@ namespace Hexnav.Core
         public void SetH(float h)
         {
             H = h;
+        }
+
+        public float GetDistance(NodeBase node)
+        {
+            return Vector3.Distance(node.WorldPos, WorldPos);
         }
     }
 }

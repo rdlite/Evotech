@@ -98,7 +98,7 @@ namespace Hexnav.Core
                 {
                     if (nodesGrid[x, y] != null)
                     {
-                        int rowEven = (y) % 2;
+                        int rowEven = y % 2;
 
                         for (int i = 0; i < _neighbourOffsets.GetLength(1); i++)
                         {

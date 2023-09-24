@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Hexnav.Core
 {
@@ -23,7 +24,7 @@ namespace Hexnav.Core
                 }
 
                 processed.Add(current);
-                toSearch.Add(current);
+                toSearch.Remove(current);
 
                 if (current == targetNode)
                 {
@@ -36,6 +37,24 @@ namespace Hexnav.Core
                     }
 
                     return path;
+                }
+
+                foreach (NodeBase neighbour in current.Neighbours.Where(t => t.IsWalkable && !processed.Contains(t)))
+                {
+                    bool inSearch = toSearch.Contains(neighbour);
+                    float costToNeighbour = current.G + current.GetDistance(neighbour);
+
+                    if (!inSearch || costToNeighbour < neighbour.G)
+                    {
+                        neighbour.SetG(costToNeighbour);
+                        neighbour.SetConnection(current);
+
+                        if (!inSearch)
+                        {
+                            neighbour.SetH(neighbour.GetDistance(targetNode));
+                            toSearch.Add(neighbour);
+                        }
+                    }
                 }
             }
 

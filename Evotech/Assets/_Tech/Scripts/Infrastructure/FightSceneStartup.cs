@@ -1,12 +1,10 @@
-using Core.Cameras;
-using Core.Curtains;
-using Core.Data;
-using Core.Factories;
-using Core.Settings;
-using Cysharp.Threading.Tasks;
-using Hexnav.Core;
 using Qnject;
+using Core.Data;
 using UnityEngine;
+using Core.Cameras;
+using Core.Settings;
+using Core.Factories;
+using Cysharp.Threading.Tasks;
 
 public class FightSceneStartup : MonoBehaviour
 {
