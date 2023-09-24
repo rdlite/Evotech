@@ -4,6 +4,7 @@ using Core.Data;
 using Core.Factories;
 using Core.Settings;
 using Cysharp.Threading.Tasks;
+using Hexnav.Core;
 using Qnject;
 using UnityEngine;
 
@@ -42,7 +43,7 @@ public class FightSceneStartup : MonoBehaviour
 
         CameraController camera = CreateCamera(Vector3.zero);
 
-        await UniTask.Delay(500);
+        await UniTask.Delay(100);
 
         _curtain.TriggerCurtain(false, false);
     }

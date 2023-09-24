@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Hexnav.Core;
+using System.Collections.Generic;
 using UnityEngine;
 using Utils;
 
@@ -6,9 +7,9 @@ namespace Core.Data
 {
     public struct MapData
     {
-        public List<Node> Nodes;
+        public List<NodeBase> Nodes;
 
-        public MapData(List<Node> nodes)
+        public MapData(List<NodeBase> nodes)
         {
             Nodes = nodes;
         }
@@ -50,13 +51,13 @@ namespace Core.Data
             return borders;
         }
 
-        public Node GetNodeByWPos(Vector3 pos)
+        public NodeBase GetNodeByWPos(Vector3 pos)
         {
             Vector2Int hexID = HexGridUtility.ConvertWorldPointToGridID(pos);
             return GetNodeByID(hexID);
         }
 
-        public Node GetNodeByID(Vector2Int id)
+        public NodeBase GetNodeByID(Vector2Int id)
         {
             for (int i = 0; i < Nodes.Count; i++)
             {
@@ -67,20 +68,6 @@ namespace Core.Data
             }
 
             return null;
-        }
-    }
-
-    public class Node
-    {
-        public Vector3 WorldPos;
-        public Vector2Int Point;
-        public float Height;
-
-        public Node(Vector3 worldPos, Vector2Int point, float height)
-        {
-            WorldPos = worldPos;
-            Point = point;
-            Height = height;
         }
     }
 }

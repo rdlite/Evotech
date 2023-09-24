@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using Core.Settings;
 using System.Collections.Generic;
+using Hexnav.Core;
 
 namespace Core.Data
 {
@@ -21,7 +22,7 @@ namespace Core.Data
 
         public override MapData LoadMap(string jsonData, Vector3 worldPos)
         {
-            List<Node> nodes = new List<Node>();
+            List<NodeBase> nodes = new List<NodeBase>();
             GameObject mapParent = new GameObject("MapParent");
             mapParent.transform.position = worldPos;
 
@@ -47,15 +48,7 @@ namespace Core.Data
                 //    GetSceneEditor().SetObstaclesOffset(point, hexesWrapper.Places[i].ObstaclesOffsets.Vectors);
                 //}
 
-                //if (hexesWrapper.Places[i].Tags != null && hexesWrapper.Places[i].Tags.Strings.Count != 0)
-                //{
-                //    for (int j = 0; j < hexesWrapper.Places[i].Tags.Strings.Count; j++)
-                //    {
-                //        GetSceneEditor().AddTag(point, hexesWrapper.Places[i].Tags.Strings[j]);
-                //    }
-                //}
-
-                nodes.Add(new Node(
+                nodes.Add(new NodeBase(
                     hex.transform.position,
                     point,
                     hexesWrapper.Places[i].Height));

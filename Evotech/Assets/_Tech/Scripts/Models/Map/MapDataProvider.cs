@@ -1,4 +1,5 @@
 using Core.Settings;
+using Hexnav.Core;
 using UnityEngine;
 
 namespace Core.Data
@@ -9,12 +10,15 @@ namespace Core.Data
 
         private (Vector3 LD, Vector3 RU) _borders;
         private MapSettings _mapSettings;
+        private HexPathfindingGrid _pathfindingGrid;
 
         public void Init(MapData mapData, MapSettings mapSettings)
         {
             MapData = mapData;
             _borders = mapData.CalculateMapBorders();
             _mapSettings = mapSettings;
+            _pathfindingGrid = new HexPathfindingGrid();
+            _pathfindingGrid.LoadNodesArray(MapData.Nodes.ToArray());
         }
 
         public (Vector3, Vector3) GetBorders()
@@ -24,7 +28,7 @@ namespace Core.Data
 
         public float GetHeightOfWorldPoint(Vector3 point)
         {
-            Node node = MapData.GetNodeByWPos(point);
+            NodeBase node = MapData.GetNodeByWPos(point);
 
             if (node != null)
             {
