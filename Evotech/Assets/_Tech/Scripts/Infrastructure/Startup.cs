@@ -1,9 +1,10 @@
+using Utils;
 using Qnject;
 using Core.Data;
 using UnityEngine;
 using Core.Settings;
+using Core.Curtains;
 using Core.Factories;
-using Utils;
 using Core.InputSystem;
 
 namespace Core.Infrastructure
@@ -35,7 +36,9 @@ namespace Core.Infrastructure
             IGameFactory gameFactory = CreateGameFactory();
             IInput input = CreateInput();
             ICursorController cursorController = CreateCursorController(input);
-            LoadGlobalStateMachine(gameFactory);
+            ICurtain curtain = CreateCurtain();
+            _projectInstaller.BindAsSingle<ICurtain>(curtain);
+            LoadGlobalStateMachine(gameFactory, curtain);
         }
 
         private void Update()
@@ -83,6 +86,17 @@ namespace Core.Infrastructure
             return input;
         }
 
+        private ICurtain CreateCurtain()
+        {
+            Curtain curtainPrefab = Instantiate(_assetsContainer.CurtainPrefab);
+            curtainPrefab.transform.SetParent(transform);
+
+            ICurtain curtain = curtainPrefab;
+            curtain.TriggerCurtain(true, true);
+
+            return curtain;
+        }
+
         private ICursorController CreateCursorController(IInput input)
         {
             CursorController cursorController = new CursorController(input);
@@ -90,11 +104,11 @@ namespace Core.Infrastructure
             return cursorController;
         }
 
-        private void LoadGlobalStateMachine(IGameFactory gameFactory)
+        private void LoadGlobalStateMachine(IGameFactory gameFactory, ICurtain curtain)
         {
             _gameStateMachine = new GameStateMachineLoader(
                 _projectInstaller, _assetsContainer, _gameSettings,
-                _mapsContainer, gameFactory);
+                _mapsContainer, gameFactory, curtain);
         }
     }
 }

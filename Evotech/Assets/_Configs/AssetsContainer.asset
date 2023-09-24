@@ -18,3 +18,5 @@ MonoBehaviour:
     Landscapes:
     - {fileID: 11400000, guid: b7e33fafb07b25144be16e193d943af8, type: 2}
   MapTextsContainer: {fileID: 11400000, guid: 749b7080ca91c3f478e241178bdccbd3, type: 2}
+  CurtainPrefab: {fileID: 946266216107205087, guid: ecdcf7abe87e2af4a8ae6680e5a86dab,
+    type: 3}

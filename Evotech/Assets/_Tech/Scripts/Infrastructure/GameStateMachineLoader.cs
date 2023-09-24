@@ -11,11 +11,11 @@ namespace Core.Infrastructure
 
         public GameStateMachineLoader(
             Container projectInstaller, AssetsContainer assetsContainer, GameSettings gameSettings,
-            MapTextsContainer mapsContainer, IGameFactory gameFactory)
+            MapTextsContainer mapsContainer, IGameFactory gameFactory, ICurtain curtain)
         {
             _gameStateMachine = new GameStateMachine(
                 projectInstaller, assetsContainer, gameSettings,
-                mapsContainer, gameFactory);
+                mapsContainer, gameFactory, curtain);
 
             _gameStateMachine.Enter<StartupState>();
         }

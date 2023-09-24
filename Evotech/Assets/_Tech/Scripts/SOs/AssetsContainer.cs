@@ -1,4 +1,5 @@
 using Core.Cameras;
+using Core.Curtains;
 using UnityEngine;
 
 namespace Core.Data
@@ -9,5 +10,6 @@ namespace Core.Data
         public CameraController CameraPrefab;
         public HexagonsContainer HexagonsContainer;
         public MapTextsContainer MapTextsContainer;
+        public Curtain CurtainPrefab;
     }
 }

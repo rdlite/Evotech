@@ -7,9 +7,16 @@ namespace Core.Infrastructure
 {
     public class LoadFightState : IState
     {
+        private ICurtain _curtain;
+
+        public LoadFightState(ICurtain curtain)
+        {
+            _curtain = curtain;
+        }
+
         public void Enter()
         {
-            SceneLoader.LoadAsync(SceneNames.FIGHT_SCENE);
+            _curtain.TriggerCurtain(true, false, () => SceneLoader.LoadAsync(SceneNames.FIGHT_SCENE));
         }
 
         public void Exit() { }

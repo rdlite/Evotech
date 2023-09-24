@@ -1,12 +1,14 @@
 using Qnject;
 using UnityEngine;
 
-public class FightSceneInstaller : SceneInstaller
+namespace Core.Infrastructure
 {
-    [SerializeField] private FightSceneStartup _sceneStartup;
-
-    public override void Install()
+    public class FightSceneInstaller : SceneInstaller
     {
-        _sceneStartup.CreateFightScene(_container);
+        public override void Install()
+        {
+            FightSceneStartup sceneStartup = FindObjectOfType<FightSceneStartup>();
+            sceneStartup.CreateFightScene(_container);
+        }
     }
 }

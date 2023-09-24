@@ -12,14 +12,15 @@ namespace Core.Infrastructure
     {
         public GameStateMachine(
             Container projectInstaller, AssetsContainer assetsContainer, GameSettings gameSettings,
-            MapTextsContainer mapsContainer, IGameFactory gameFactory)
+            MapTextsContainer mapsContainer, IGameFactory gameFactory, ICurtain curtain)
         {
             _states = new Dictionary<Type, IExitableState>();
             _states = new Dictionary<Type, IExitableState>()
             {
                 [typeof(StartupState)] = new StartupState(
                     projectInstaller, this),
-                [typeof(LoadFightState)] = new LoadFightState(),
+                [typeof(LoadFightState)] = new LoadFightState(
+                    curtain),
             };
         }
     }

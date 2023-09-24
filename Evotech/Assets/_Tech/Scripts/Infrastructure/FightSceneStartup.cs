@@ -1,7 +1,9 @@
 using Core.Cameras;
+using Core.Curtains;
 using Core.Data;
 using Core.Factories;
 using Core.Settings;
+using Cysharp.Threading.Tasks;
 using Qnject;
 using UnityEngine;
 
@@ -11,17 +13,19 @@ public class FightSceneStartup : MonoBehaviour
     private GameSettings _gameSettings;
     private MapTextsContainer _mapsContainer;
     private IGameFactory _gameFactory;
+    private ICurtain _curtain;
     private Container _sceneInstaller;
 
     [Inject]
     private void Construct(
         AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
-        IGameFactory gameFactory)
+        IGameFactory gameFactory, ICurtain curtain)
     {
         _assetsContainer = assetsContainer;
         _gameSettings = gameSettings;
         _mapsContainer = mapsContainer;
         _gameFactory = gameFactory;
+        _curtain = curtain;
     }
 
     public void CreateFightScene(Container sceneInstaller)
@@ -30,13 +34,17 @@ public class FightSceneStartup : MonoBehaviour
         Init();
     }
 
-    private void Init()
+    private async void Init()
     {
         LandscapeSettings landscapeSettings = _assetsContainer.HexagonsContainer.GetSettingsOfType(LandscapeTypes.DefaultGrass);
 
         CreateMap(landscapeSettings);
 
         CameraController camera = CreateCamera(Vector3.zero);
+
+        await UniTask.Delay(500);
+
+        _curtain.TriggerCurtain(false, false);
     }
 
     private void CreateMap(LandscapeSettings landscapeSettings)
