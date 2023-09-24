@@ -58,6 +58,10 @@ namespace Core.Cameras
             HandleZoom();
             HandleMovement();
             HandleRotation();
+            if (_cameraSettings.IsChangeHeight)
+            {
+                HandleHeight();
+            }
             ClampPosition();
         }
 
@@ -110,6 +114,17 @@ namespace Core.Cameras
             transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, _cameraSettings.RotationSpeed * Time.deltaTime);
         }
 
+        private void HandleHeight()
+        {
+            transform.position = Vector3.Lerp(
+                transform.position,
+                new Vector3(
+                    transform.position.x,
+                    _mapDataProvider.GetHeightOfWorldPoint(transform.position),
+                    transform.position.z),
+                _cameraSettings.HeightChangeSmooth * Time.deltaTime);
+        }
+
         private void ClampPosition()
         {
             Vector3 ldPos = _mapDataProvider.GetBorders().Item1;
@@ -117,7 +132,7 @@ namespace Core.Cameras
 
             transform.position = new Vector3(
                 Mathf.Clamp(transform.position.x, ldPos.x, ruPos.x),
-                0f,
+                transform.position.y,
                 Mathf.Clamp(transform.position.z, ldPos.z, ruPos.z));
         }
 

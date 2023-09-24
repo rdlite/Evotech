@@ -20,6 +20,8 @@ namespace Core.Settings
     {
         public float MovementSpeed = 10f;
         public float MovementSmooth = 10f;
+        public bool IsChangeHeight = true;
+        public float HeightChangeSmooth = 2f;
         public float ZoomSmooth = 2f;
         public float RotationSmooth = 5f;
         public float RotationSpeed = 20f;

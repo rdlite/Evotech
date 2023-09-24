@@ -13,15 +13,15 @@ namespace Qnject
         {
             if (!IsProjectContextExists())
             {
-                ProjectInstaller pIPrefab = Resources.Load<ProjectInstaller>("ProjectContext");
+                ProjectInstaller[] projectInstallers = Resources.LoadAll<ProjectInstaller>("");
 
-                if (pIPrefab == null)
+                if (projectInstallers.Length == 0)
                 {
                     Debug.LogError("There is no ProjectContext prefab in Resources folder!.. Maybe you forgot to create one?");
                 }
                 else
                 {
-                    Object.Instantiate(pIPrefab);
+                    Object.Instantiate(projectInstallers[0]);
                 }
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using Utils;
 
 namespace Core.Data
 {
@@ -48,17 +49,38 @@ namespace Core.Data
 
             return borders;
         }
+
+        public Node GetNodeByWPos(Vector3 pos)
+        {
+            Vector2Int hexID = HexGridUtility.ConvertWorldPointToGridID(pos);
+            return GetNodeByID(hexID);
+        }
+
+        public Node GetNodeByID(Vector2Int id)
+        {
+            for (int i = 0; i < Nodes.Count; i++)
+            {
+                if (Nodes[i].Point == id)
+                {
+                    return Nodes[i];
+                }
+            }
+
+            return null;
+        }
     }
 
-    public struct Node
+    public class Node
     {
         public Vector3 WorldPos;
         public Vector2Int Point;
+        public float Height;
 
-        public Node(Vector3 worldPos, Vector2Int point)
+        public Node(Vector3 worldPos, Vector2Int point, float height)
         {
             WorldPos = worldPos;
             Point = point;
+            Height = height;
         }
     }
 }

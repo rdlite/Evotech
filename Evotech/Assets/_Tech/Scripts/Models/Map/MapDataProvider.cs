@@ -1,3 +1,4 @@
+using Core.Settings;
 using UnityEngine;
 
 namespace Core.Data
@@ -7,16 +8,32 @@ namespace Core.Data
         public MapData MapData { get; private set; }
 
         private (Vector3 LD, Vector3 RU) _borders;
+        private MapSettings _mapSettings;
 
-        public void Init(MapData mapData)
+        public void Init(MapData mapData, MapSettings mapSettings)
         {
             MapData = mapData;
             _borders = mapData.CalculateMapBorders();
+            _mapSettings = mapSettings;
         }
 
         public (Vector3, Vector3) GetBorders()
         {
             return _borders;
+        }
+
+        public float GetHeightOfWorldPoint(Vector3 point)
+        {
+            Node node = MapData.GetNodeByWPos(point);
+
+            if (node != null)
+            {
+                return node.Height * _mapSettings.HeightOffset;
+            }
+            else
+            {
+                return 0f;
+            }
         }
     }
 }

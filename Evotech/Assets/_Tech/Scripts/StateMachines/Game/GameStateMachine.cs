@@ -19,9 +19,7 @@ namespace Core.Infrastructure
             {
                 [typeof(StartupState)] = new StartupState(
                     projectInstaller, this),
-                [typeof(LoadFightState)] = new LoadFightState(
-                    assetsContainer, gameSettings, mapsContainer,
-                    gameFactory, projectInstaller),
+                [typeof(LoadFightState)] = new LoadFightState(),
             };
         }
     }

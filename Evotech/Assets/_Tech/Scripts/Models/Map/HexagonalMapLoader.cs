@@ -57,7 +57,8 @@ namespace Core.Data
 
                 nodes.Add(new Node(
                     hex.transform.position,
-                    point));
+                    point,
+                    hexesWrapper.Places[i].Height));
             }
 
             MapData map = new MapData(nodes);
