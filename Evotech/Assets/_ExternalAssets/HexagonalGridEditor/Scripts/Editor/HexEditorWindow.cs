@@ -548,9 +548,16 @@ namespace HexEditor
             _currentFileSaveName = EditorGUILayout.TextField(_currentFileSaveName);
 
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Save to file or create new"))
+            if (GUILayout.Button("Create new"))
             {
-                Save();
+                CreateNewFileAndSave();
+            }
+            if (_saveFileToProcess != null)
+            {
+                if (GUILayout.Button("Save to file"))
+                {
+                    Save();
+                }
             }
             if (GUILayout.Button("Load selected file"))
             {
@@ -577,6 +584,36 @@ namespace HexEditor
                 _saveFileToProcess,
                 typeof(TextAsset),
                 false);
+        }
+
+        private void CreateNewFileAndSave()
+        {
+            string mapData = GetJsonDataOfHexes();
+
+            if (_saveFolder != null)
+            {
+                if (_currentFileSaveName == "")
+                {
+                    int filesCounter = 0;
+
+                    while (File.Exists(AssetDatabase.GetAssetPath(_saveFolder) + "/New file " + filesCounter + ".json"))
+                    {
+                        filesCounter++;
+                    }
+
+                    File.WriteAllText(AssetDatabase.GetAssetPath(_saveFolder) + "/New file " + filesCounter + ".json", mapData);
+                }
+                else
+                {
+                    File.WriteAllText(AssetDatabase.GetAssetPath(_saveFolder) + "/" + _currentFileSaveName + ".json", mapData);
+                }
+            }
+            else
+            {
+                Debug.LogError("NO PATH TO SAVE!!!");
+            }
+
+            AssetDatabase.Refresh();
         }
 
         private void Save()

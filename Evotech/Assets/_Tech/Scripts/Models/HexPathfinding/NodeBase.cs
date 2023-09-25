@@ -7,13 +7,14 @@ namespace Hexnav.Core
     {
         public List<NodeBase> Neighbours { get; private set; }
         public NodeBase Connection { get; private set; }
-        public float G { get; private set; }
-        public float H { get; private set; }
-        public float F => G + H;
+        public float G;
+        public float H;
+        public float F;
         public Vector3 WorldPos;
         public Vector2Int Point;
         public float Height;
-        public bool IsWalkable { get; private set; }
+        public bool IsWalkable;
+        private float _g, _h;
 
         public NodeBase(Vector3 worldPos, Vector2Int point, float height)
         {
@@ -37,11 +38,15 @@ namespace Hexnav.Core
         public void SetG(float g)
         {
             G = g;
+            _g = g;
+            F = g + _h;
         }
 
         public void SetH(float h)
         {
             H = h;
+            _h = h;
+            F = h + _g;
         }
 
         public float GetDistance(NodeBase node)

@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using Object = UnityEngine.Object;
 using UnityEngine.AddressableAssets;
+using Cysharp.Threading.Tasks;
 
 namespace Core.Data
 {
@@ -11,7 +11,7 @@ namespace Core.Data
     {
         private Dictionary<int, Object> _cachedObjects = new Dictionary<int, Object>();
 
-        protected async Task<T> LoadInternal<T>(string assetID) where T : Object
+        protected async UniTask<T> LoadInternal<T>(string assetID) where T : Object
         {
             var handle = Addressables.InstantiateAsync(assetID);
             Object cahcedAsset = await handle.Task;

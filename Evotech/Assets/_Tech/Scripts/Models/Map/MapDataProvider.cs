@@ -1,4 +1,5 @@
 using Core.Settings;
+using Extensions;
 using Hexnav.Core;
 using UnityEngine;
 
@@ -26,9 +27,32 @@ namespace Core.Data
             return _borders;
         }
 
-        public NodeBase GetNodeOfWorldPoint(Vector3 point)
+        public NodeBase GetNearestNodeOfWorldPoint(Vector3 point)
         {
-            return MapData.GetNodeByWPos(point);
+            NodeBase node = MapData.GetNodeByWPos(point);
+
+            if (node != null)
+            {
+                return node;
+            }
+            else
+            {
+                float nearestDistance = Mathf.Infinity;
+                NodeBase nearestNode = null;
+
+                for (int i = 0; i < MapData.Nodes.Count; i++)
+                {
+                    float distance = Vector3.Distance(point.FlatY(), MapData.Nodes[i].WorldPos.FlatY());
+
+                    if (distance < nearestDistance)
+                    {
+                        nearestDistance = distance;
+                        nearestNode = MapData.Nodes[i];
+                    }
+                }
+
+                return nearestNode;
+            }
         }
 
         public float GetHeightOfWorldPoint(Vector3 point)
@@ -43,6 +67,11 @@ namespace Core.Data
             {
                 return 0f;
             }
+        }
+
+        public float GetHeightDistanceMultiplier()
+        {
+            return _mapSettings.HeightDistanceMultiplier;
         }
     }
 }

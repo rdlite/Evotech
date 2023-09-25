@@ -5,6 +5,7 @@ using Core.Cameras;
 using Core.Settings;
 using Core.Factories;
 using Cysharp.Threading.Tasks;
+using Hexnav.Core;
 
 public class FightSceneStartup : MonoBehaviour
 {
@@ -49,11 +50,13 @@ public class FightSceneStartup : MonoBehaviour
     private void CreateMap(LandscapeSettings landscapeSettings)
     {
         MapLoader mapLoader = new HexagonalMapLoader(_gameSettings.MapSettings, landscapeSettings);
-        MapData mapData = mapLoader.LoadMap(_mapsContainer.GetMapData("TestFight"), Vector3.zero);
+        MapData mapData = mapLoader.LoadMap(_mapsContainer.GetMapData("GradientHeight"), Vector3.zero);
 
         MapDataProvider mapDataProvider = new MapDataProvider();
         mapDataProvider.Init(mapData, _gameSettings.MapSettings);
         _sceneInstaller.BindAsSingle<IMapDataProvider>(mapDataProvider);
+
+        HexPathfinfing hexPathfinding = new HexPathfinfing(mapDataProvider);
     }
 
     private CameraController CreateCamera(Vector3 position)

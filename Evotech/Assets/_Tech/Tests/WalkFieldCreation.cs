@@ -5,18 +5,17 @@ using Qnject;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestPathfinder : MonoBehaviour
+public class WalkFieldCreation : MonoBehaviour
 {
     [SerializeField] private Transform _startPoint;
-    [SerializeField] private Transform _endPoint;
 
     [Inject] private IMapDataProvider _mapProvider;
 
-    private List<NodeBase> path;
+    private List<NodeBase> possibleWalkNodes;
 
     private void Start()
     {
-        path = new List<NodeBase>();
+        possibleWalkNodes = new List<NodeBase>();
     }
 
     private void Update()
@@ -24,18 +23,15 @@ public class TestPathfinder : MonoBehaviour
         if (_mapProvider != null)
         {
             _startPoint.transform.position = _startPoint.transform.position.FlatY() + Vector3.up * _mapProvider.GetHeightOfWorldPoint(_startPoint.position) + Vector3.up;
-            _endPoint.transform.position = _endPoint.transform.position.FlatY() + Vector3.up * _mapProvider.GetHeightOfWorldPoint(_endPoint.position) + Vector3.up;
-
-            path = HexPathfinfing.SetDesination(_startPoint.position, _endPoint.position);
         }
     }
 
     private void OnDrawGizmos()
     {
-        if (path != null && path.Count != 0)
+        if (possibleWalkNodes != null && possibleWalkNodes.Count != 0)
         {
             Gizmos.color = Color.green;
-            foreach (var pathPoint in path)
+            foreach (var pathPoint in possibleWalkNodes)
             {
                 Gizmos.DrawWireSphere(pathPoint.WorldPos + Vector3.up, .4f);
             }

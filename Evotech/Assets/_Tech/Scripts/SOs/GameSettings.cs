@@ -13,6 +13,7 @@ namespace Core.Settings
     public class MapSettings
     {
         public float HeightOffset = .2f;
+        public float HeightDistanceMultiplier = 2f;
     }
 
     [System.Serializable]
