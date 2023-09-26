@@ -5,6 +5,7 @@ using UnityEngine;
 using Core.Settings;
 using System.Collections.Generic;
 using Hexnav.Core;
+using Core.Map;
 
 namespace Core.Data
 {
@@ -35,23 +36,23 @@ namespace Core.Data
                 HexagonNode hex = CreateMainHex(point, mapParent.transform);
                 SetHexagonHeight(hex, hexesWrapper.Places[i].Height);
 
-                //if (hexesWrapper.Places[i].ObstacleNames != null && hexesWrapper.Places[i].ObstacleNames.Strings.Count != 0)
-                //{
-                //    for (int j = 0; j < hexesWrapper.Places[i].ObstacleNames.Strings.Count; j++)
-                //    {
-                //        int paletteID = FindAssetIndexByName(hexesWrapper.Places[i].ObstacleNames.Strings[j]);
-                //        GetSceneEditor().PinCurrentPrefab(_totalPalette[paletteID]);
-                //        GetSceneEditor().AddObstacle(point, true);
-                //    }
+                bool isWalkable = true;
+                bool hasNonwalkableObstacles = false;
 
-                //    GetSceneEditor().SetObstaclesNames(point, hexesWrapper.Places[i].ObstacleNames.Strings);
-                //    GetSceneEditor().SetObstaclesOffset(point, hexesWrapper.Places[i].ObstaclesOffsets.Vectors);
-                //}
+                if (hexesWrapper.Places[i].ObstacleNames != null && hexesWrapper.Places[i].ObstacleNames.Strings.Count != 0)
+                {
+                    hasNonwalkableObstacles = CreateObstaclesOnHex(
+                        hex, hexesWrapper.Places[i].ObstacleNames.Strings, hexesWrapper.Places[i].ObstaclesOffsets.Vectors);
+                }
 
                 nodes.Add(new NodeBase(
                     hex.transform.position,
                     point,
-                    hexesWrapper.Places[i].Height));
+                    hexesWrapper.Places[i].Height,
+                    hex.transform,
+                    hexesWrapper.Places[i].Tags.Strings,
+                    hexesWrapper.Places[i].ObstacleNames.Strings,
+                    isWalkable && !hasNonwalkableObstacles));
             }
 
             MapData map = new MapData(nodes);
@@ -65,6 +66,41 @@ namespace Core.Data
             newHex.transform.SetParent(parent);
             newHex.transform.localPosition = HexGridUtility.ConvertHexCoordToWorldPoint(point);
             return newHex;
+        }
+
+        private bool CreateObstaclesOnHex(HexagonNode hex, List<string> obstacles, List<Vector3> localOffsets)
+        {
+            bool hasNonwalkableObstacles = false;
+
+            for (int i = 0; i < obstacles.Count; i++)
+            {
+                foreach (var nonwalkableObstacle in _landscapeSettings.NonwalkableObstacles)
+                {
+                    if (obstacles[i].Contains(nonwalkableObstacle.name))
+                    {
+                        hasNonwalkableObstacles = true;
+                        CreatePrefabOnHex(hex, nonwalkableObstacle.gameObject, localOffsets[i]);
+                    }
+                }
+
+                foreach (var walkableObstacle in _landscapeSettings.WalkableObstacles)
+                {
+                    if (obstacles[i].Contains(walkableObstacle.name))
+                    {
+                        CreatePrefabOnHex(hex, walkableObstacle.gameObject, localOffsets[i]);
+                    }
+                }
+            }
+
+            return hasNonwalkableObstacles;
+        }
+
+        private GameObject CreatePrefabOnHex(HexagonNode hex, GameObject prefab, Vector3 localOffsets)
+        {
+            GameObject newPrefab = UnityEngine.Object.Instantiate(prefab);
+            newPrefab.transform.SetParent(hex.GetObstaclesContainer());
+            newPrefab.transform.localPosition = localOffsets;
+            return newPrefab;
         }
 
         private void SetHexagonHeight(HexagonNode hex, int height)

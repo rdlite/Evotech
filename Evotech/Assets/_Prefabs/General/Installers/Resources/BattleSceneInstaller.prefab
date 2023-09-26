@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5975422879801861939}
   - component: {fileID: 2159058533404179402}
   m_Layer: 0
-  m_Name: FightStartup
+  m_Name: BattleStartup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 864612504389859264}
   - component: {fileID: 5350189003155975899}
   m_Layer: 0
-  m_Name: FightSceneInstaller
+  m_Name: BattleSceneInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,4 +92,3 @@ MonoBehaviour:
   _monoToInstall:
   - {fileID: 2159058533404179402}
   _scriptableObjectsToInstall: []
-  _sceneStartup: {fileID: 2159058533404179402}

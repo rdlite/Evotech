@@ -1,0 +1,65 @@
+using Core.Data;
+using Hexnav.Core;
+using UnityEngine;
+using Core.Factories;
+using Core.Cameras;
+using Constants;
+using Extensions;
+
+namespace Core.StateMachines.Battle
+{
+    public class StartBattleState : IState
+    {
+        private readonly BattleStateMachine _battleSM;
+        private readonly IUnitsFactory _unitsFactory;
+        private readonly IMapDataProvider _mapDataProvider;
+        private readonly CameraController _camera;
+
+        private Transform _playerNodeToLookup;
+
+        public StartBattleState(
+            BattleStateMachine battleSM, IUnitsFactory unitsFactory, IMapDataProvider mapDataProvider,
+            CameraController camera)
+        {
+            _battleSM = battleSM;
+            _unitsFactory = unitsFactory;
+            _mapDataProvider = mapDataProvider;
+            _camera = camera;
+        }
+
+        public void Enter()
+        {
+            CreateUnits();
+            _camera.SetInstanLookupPoint(_playerNodeToLookup.position.FlatY());
+        }
+
+        public void Exit() { }
+
+        private void CreateUnits()
+        {
+            foreach (NodeBase node in _mapDataProvider.GetNodes())
+            {
+                if (node != null && node.Tags != null && node.Tags.Count != 0)
+                {
+                    foreach (string tag in node.Tags)
+                    {
+                        ResolveTag(tag, node);
+                    }
+                }
+            }
+        }
+
+        private void ResolveTag(string tag, NodeBase node)
+        {
+            if (tag == StringConstants.PLAYER_MAP_TAG)
+            {
+                _unitsFactory.Create(node);
+                _playerNodeToLookup = node.WorldObject;
+            }
+            else if (tag == StringConstants.DEFAULT_ENEMY_MAP_TAG)
+            {
+                _unitsFactory.Create(node);
+            }
+        }
+    }
+}

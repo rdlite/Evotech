@@ -415,7 +415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1834126666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,7 +510,7 @@ PrefabInstance:
     - target: {fileID: 8978275355708263509, guid: 9f0bc51d6e88ef845801c06a7fcf888e,
         type: 3}
       propertyPath: m_Name
-      value: FightSceneInstaller
+      value: BattleSceneInstaller
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

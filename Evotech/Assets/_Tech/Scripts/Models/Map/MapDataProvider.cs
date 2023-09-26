@@ -1,6 +1,7 @@
 using Core.Settings;
 using Extensions;
 using Hexnav.Core;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.Data
@@ -72,6 +73,11 @@ namespace Core.Data
         public float GetHeightDistanceMultiplier()
         {
             return _mapSettings.HeightDistanceMultiplier;
+        }
+
+        public List<NodeBase> GetNodes()
+        {
+            return new List<NodeBase>(MapData.Nodes);
         }
     }
 }

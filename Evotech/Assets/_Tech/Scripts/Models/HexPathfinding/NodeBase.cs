@@ -7,6 +7,10 @@ namespace Hexnav.Core
     {
         public List<NodeBase> Neighbours { get; private set; }
         public NodeBase Connection { get; private set; }
+        public List<string> Tags { get; private set; }
+        public List<string> ObstacleNames { get; private set; }
+        public Transform WorldObject { get; }
+
         public float G;
         public float H;
         public float F;
@@ -14,15 +18,22 @@ namespace Hexnav.Core
         public Vector2Int Point;
         public float Height;
         public bool IsWalkable;
+
         private float _g, _h;
 
-        public NodeBase(Vector3 worldPos, Vector2Int point, float height)
+        public NodeBase(
+            Vector3 worldPos, Vector2Int point, float height,
+            Transform worldRepresent, List<string> tags, List<string> obstacleNames,
+            bool isWalkable)
         {
             WorldPos = worldPos;
             Point = point;
             Height = height;
             Neighbours = new List<NodeBase>();
-            IsWalkable = true;
+            IsWalkable = isWalkable;
+            WorldObject = worldRepresent;
+            Tags = tags;
+            ObstacleNames = obstacleNames;
         }
 
         public void SetConnection(NodeBase nodeBase)

@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.StateMachine
+namespace Core.StateMachines
 {
     public class UpdateStateMachine : StateMachine
     {

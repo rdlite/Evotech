@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LandType: 1
   MainHex: {fileID: 3022001466833101237, guid: 8c8fd598b51115c4090f7d6d2470b418, type: 3}
+  NonwalkableObstacles:
+  - {fileID: -1472955478897205267, guid: 7234deea2e5dd1e45a4abdeee84d777f, type: 3}
+  WalkableObstacles:
+  - {fileID: -3551835919345401629, guid: e9de224e9833c014e83645eb8fd2a51d, type: 3}

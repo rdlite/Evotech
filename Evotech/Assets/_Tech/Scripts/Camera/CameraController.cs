@@ -65,6 +65,11 @@ namespace Core.Cameras
             ClampPosition();
         }
 
+        public void SetInstanLookupPoint(Vector3 point)
+        {
+            transform.position = point;
+        }
+
         private void HandleZoom()
         {
             _currentZooming -= _input.GetMouseWheel();

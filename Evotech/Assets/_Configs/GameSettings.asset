@@ -17,7 +17,7 @@ MonoBehaviour:
     MovementSmooth: 10
     IsChangeHeight: 1
     HeightChangeSmooth: 2
-    ZoomSmooth: 5
+    ZoomSmooth: 3.2
     RotationSmooth: 30
     RotationSpeed: 10
     MinZoom: 0.5
@@ -28,3 +28,4 @@ MonoBehaviour:
     RotationOffset: {x: 50, y: 30, z: 0}
   MapSettings:
     HeightOffset: 0.3
+    HeightDistanceMultiplier: 2

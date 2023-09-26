@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Core.Map;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.Data
@@ -8,6 +9,8 @@ namespace Core.Data
     {
         public LandscapeTypes LandType;
         public HexagonNode MainHex;
+        public MapObstacle[] NonwalkableObstacles;
+        public MapObstacle[] WalkableObstacles;
     }
 
     [System.Serializable]

@@ -1,4 +1,4 @@
-namespace Core.StateMachine
+namespace Core.StateMachines
 {
     public interface IFixedUpdateState : IExitableState
     {

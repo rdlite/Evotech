@@ -1,5 +1,6 @@
 using Core.Cameras;
 using Core.Curtains;
+using Core.Units;
 using UnityEngine;
 
 namespace Core.Data
@@ -11,5 +12,12 @@ namespace Core.Data
         public HexagonsContainer HexagonsContainer;
         public MapTextsContainer MapTextsContainer;
         public Curtain CurtainPrefab;
+        public UnitAssets UnitAssets;
+    }
+
+    [System.Serializable]
+    public class UnitAssets
+    {
+        public BaseUnit TestUnit;
     }
 }

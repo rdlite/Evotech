@@ -1,4 +1,4 @@
-using Core.StateMachine;
+using Core.StateMachines;
 using Qnject;
 
 namespace Core.Infrastructure
@@ -19,7 +19,7 @@ namespace Core.Infrastructure
         {
             Install();
 
-            _gameSM.Enter<LoadFightState>();
+            _gameSM.Enter<LoadBattleState>();
         }
 
         private void Install()

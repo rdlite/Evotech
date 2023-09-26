@@ -1,5 +1,5 @@
 using System;
-using Core.StateMachine;
+using Core.StateMachines;
 using System.Collections.Generic;
 using Qnject;
 using Core.Data;
@@ -19,7 +19,7 @@ namespace Core.Infrastructure
             {
                 [typeof(StartupState)] = new StartupState(
                     projectInstaller, this),
-                [typeof(LoadFightState)] = new LoadFightState(
+                [typeof(LoadBattleState)] = new LoadBattleState(
                     curtain),
             };
         }

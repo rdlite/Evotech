@@ -1,22 +1,22 @@
 using Utils;
 using Core.Data;
 using UnityEngine;
-using Core.StateMachine;
+using Core.StateMachines;
 
 namespace Core.Infrastructure
 {
-    public class LoadFightState : IState
+    public class LoadBattleState : IState
     {
         private ICurtain _curtain;
 
-        public LoadFightState(ICurtain curtain)
+        public LoadBattleState(ICurtain curtain)
         {
             _curtain = curtain;
         }
 
         public void Enter()
         {
-            _curtain.TriggerCurtain(true, false, () => SceneLoader.LoadAsync(SceneNames.FIGHT_SCENE));
+            _curtain.TriggerCurtain(true, false, () => SceneLoader.LoadAsync(SceneNames.BATTLE_SCENE));
         }
 
         public void Exit() { }

@@ -1,6 +1,14 @@
 using UnityEngine;
 
-public class HexagonNode : MonoBehaviour
+namespace Core.Map
 {
-    [SerializeField] private Transform _obstaclesContainer;
+    public class HexagonNode : MonoBehaviour
+    {
+        [SerializeField] private Transform _obstaclesContainer;
+
+        public Transform GetObstaclesContainer()
+        {
+            return _obstaclesContainer;
+        }
+    }
 }
