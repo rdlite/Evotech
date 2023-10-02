@@ -11,17 +11,26 @@ namespace Utils
 
         public void AddUpdate(Action callback)
         {
-            _updates.Add(callback);
+            if (!_updates.Contains(callback))
+            {
+                _updates.Add(callback);
+            }
         }
 
         public void AddFixedUpdate(Action callback)
         {
-            _fixedUpdates.Add(callback);
+            if (!_fixedUpdates.Contains(callback))
+            {
+                _fixedUpdates.Add(callback);
+            }
         }
 
         public void AddLateUpdate(Action callback)
         {
-            _lateUpdates.Add(callback);
+            if (!_lateUpdates.Contains(callback))
+            {
+                _lateUpdates.Add(callback);
+            }
         }
 
         public void RemoveUpdate(Action callback)

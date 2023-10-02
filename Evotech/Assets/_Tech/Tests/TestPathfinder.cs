@@ -26,7 +26,7 @@ public class TestPathfinder : MonoBehaviour
             _startPoint.transform.position = _startPoint.transform.position.FlatY() + Vector3.up * _mapProvider.GetHeightOfWorldPoint(_startPoint.position) + Vector3.up;
             _endPoint.transform.position = _endPoint.transform.position.FlatY() + Vector3.up * _mapProvider.GetHeightOfWorldPoint(_endPoint.position) + Vector3.up;
 
-            path = HexPathfinfing.SetDesination(_startPoint.position, _endPoint.position);
+            path = HexPathfindingGrid.SetDesination(_startPoint.position, _endPoint.position);
         }
     }
 

@@ -17,7 +17,7 @@ namespace Core.Factories
         public BaseUnit Create(NodeBase spawnNode)
         {
             BaseUnit newUnit = Object.Instantiate(_assetsContainer.UnitAssets.TestUnit);
-            newUnit.transform.position = spawnNode.WorldPos + Vector3.up;
+            newUnit.transform.position = spawnNode.WorldPos + spawnNode.SurfaceOffset;
             newUnit.transform.forward = spawnNode.WorldObject.forward;
             return newUnit;
         }

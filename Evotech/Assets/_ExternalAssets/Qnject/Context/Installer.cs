@@ -13,6 +13,7 @@ namespace Qnject
         {
             _container = new Container();
             MonoObjectsResolver.RegisterContainer(_container);
+            MonoObjectsResolver.RegisterInstallerBehaviours(_monoToInstall);
 
             if (_monoToInstall != null && _monoToInstall.Length != 0)
             {
@@ -42,6 +43,7 @@ namespace Qnject
         protected void UnloadLocalDependencies()
         {
             MonoObjectsResolver.UnregisterContainer(_container);
+            MonoObjectsResolver.UnregisterInstallerBehaviours(_monoToInstall);
             _container.Clear();
         }
     }

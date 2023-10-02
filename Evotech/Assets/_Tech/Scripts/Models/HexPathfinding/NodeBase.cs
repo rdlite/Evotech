@@ -10,6 +10,7 @@ namespace Hexnav.Core
         public List<string> Tags { get; private set; }
         public List<string> ObstacleNames { get; private set; }
         public Transform WorldObject { get; }
+        public Vector3 SurfaceOffset { get; }
 
         public float G;
         public float H;
@@ -23,8 +24,8 @@ namespace Hexnav.Core
 
         public NodeBase(
             Vector3 worldPos, Vector2Int point, float height,
-            Transform worldRepresent, List<string> tags, List<string> obstacleNames,
-            bool isWalkable)
+            Transform worldRepresent, Vector3 surfaceOffset, List<string> tags, 
+            List<string> obstacleNames, bool isWalkable)
         {
             WorldPos = worldPos;
             Point = point;
@@ -32,6 +33,7 @@ namespace Hexnav.Core
             Neighbours = new List<NodeBase>();
             IsWalkable = isWalkable;
             WorldObject = worldRepresent;
+            SurfaceOffset = surfaceOffset;
             Tags = tags;
             ObstacleNames = obstacleNames;
         }

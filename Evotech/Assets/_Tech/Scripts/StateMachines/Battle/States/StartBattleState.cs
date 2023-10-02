@@ -5,6 +5,8 @@ using Core.Factories;
 using Core.Cameras;
 using Constants;
 using Extensions;
+using Core.Battle;
+using Core.Units;
 
 namespace Core.StateMachines.Battle
 {
@@ -14,23 +16,25 @@ namespace Core.StateMachines.Battle
         private readonly IUnitsFactory _unitsFactory;
         private readonly IMapDataProvider _mapDataProvider;
         private readonly CameraController _camera;
-
+        private readonly BattleObserver _battleObserver;
         private Transform _playerNodeToLookup;
 
         public StartBattleState(
             BattleStateMachine battleSM, IUnitsFactory unitsFactory, IMapDataProvider mapDataProvider,
-            CameraController camera)
+            CameraController camera, BattleObserver battleObserver)
         {
             _battleSM = battleSM;
             _unitsFactory = unitsFactory;
             _mapDataProvider = mapDataProvider;
             _camera = camera;
+            _battleObserver = battleObserver;
         }
 
         public void Enter()
         {
             CreateUnits();
             _camera.SetInstanLookupPoint(_playerNodeToLookup.position.FlatY());
+            _battleSM.Enter<WaitingForTurnState>();
         }
 
         public void Exit() { }
@@ -53,12 +57,14 @@ namespace Core.StateMachines.Battle
         {
             if (tag == StringConstants.PLAYER_MAP_TAG)
             {
-                _unitsFactory.Create(node);
+                BaseUnit unit = _unitsFactory.Create(node);
+                _battleObserver.AddUnit(unit);
                 _playerNodeToLookup = node.WorldObject;
             }
             else if (tag == StringConstants.DEFAULT_ENEMY_MAP_TAG)
             {
-                _unitsFactory.Create(node);
+                BaseUnit unit = _unitsFactory.Create(node);
+                _battleObserver.AddUnit(unit);
             }
         }
     }

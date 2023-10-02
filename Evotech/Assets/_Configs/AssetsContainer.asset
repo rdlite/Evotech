@@ -23,3 +23,6 @@ MonoBehaviour:
   UnitAssets:
     TestUnit: {fileID: 8314331509494137211, guid: 239cb15288907404989a1819ca1d7c95,
       type: 3}
+  BattlePrefabs:
+    HexagonalDefaultDecal: {fileID: 6013305342398799963, guid: 0c48b232cafefb548935d8a19894fcf9,
+      type: 3}

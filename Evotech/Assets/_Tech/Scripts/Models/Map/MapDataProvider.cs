@@ -19,7 +19,7 @@ namespace Core.Data
             MapData = mapData;
             _borders = mapData.CalculateMapBorders();
             _mapSettings = mapSettings;
-            _pathfindingGrid = new HexPathfindingGrid();
+            _pathfindingGrid = new HexPathfindingGrid(this);
             _pathfindingGrid.LoadNodesArray(MapData.Nodes.ToArray());
         }
 

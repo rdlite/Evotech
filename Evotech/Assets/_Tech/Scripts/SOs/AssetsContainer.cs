@@ -2,6 +2,7 @@ using Core.Cameras;
 using Core.Curtains;
 using Core.Units;
 using UnityEngine;
+using Utils.Decal;
 
 namespace Core.Data
 {
@@ -13,11 +14,18 @@ namespace Core.Data
         public MapTextsContainer MapTextsContainer;
         public Curtain CurtainPrefab;
         public UnitAssets UnitAssets;
+        public BattlePrefabs BattlePrefabs;
     }
 
     [System.Serializable]
     public class UnitAssets
     {
         public BaseUnit TestUnit;
+    }
+
+    [System.Serializable]
+    public class BattlePrefabs
+    {
+        public DecalWrapper HexagonalDefaultDecal;
     }
 }

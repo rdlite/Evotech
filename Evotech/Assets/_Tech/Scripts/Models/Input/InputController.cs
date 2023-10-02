@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Utils;
 
@@ -5,6 +6,11 @@ namespace Core.InputSystem
 {
     public class InputController : IInput
     {
+        public event Action OnLMBDown;
+        public event Action OnLMBUp;
+        public event Action OnRMBDown;
+        public event Action OnRMBUp;
+
         private const string HORIZONTAL_AXIS = "Horizontal";
         private const string VERTICAL_AXIS = "Vertical";
         private const string MOUSE_X_OFFSET = "Mouse X";
@@ -31,6 +37,26 @@ namespace Core.InputSystem
             _isWheelPressed = Input.GetMouseButton(2);
             _mouseVelocity = new Vector2(Input.GetAxis(MOUSE_X_OFFSET), Input.GetAxis(MOUSE_Y_OFFSET)) * MOUSE_VELOCITY_ACCELERATION;
             _mousePos = Input.mousePosition;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnLMBDown?.Invoke();
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                OnLMBUp?.Invoke();
+            }
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                OnRMBDown?.Invoke();
+            }
+
+            if (Input.GetMouseButtonUp(1))
+            {
+                OnRMBUp?.Invoke();
+            }
         }
 
         public Vector2 GetMouseVelocity()

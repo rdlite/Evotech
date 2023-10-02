@@ -6,6 +6,11 @@ namespace Core.Map
     {
         [SerializeField] private Transform _obstaclesContainer;
 
+        public Vector3 GetSurfaceOffset()
+        {
+            return _obstaclesContainer.transform.position - transform.position;
+        }
+
         public Transform GetObstaclesContainer()
         {
             return _obstaclesContainer;

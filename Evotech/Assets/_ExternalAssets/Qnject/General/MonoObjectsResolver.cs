@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Qnject
 {
@@ -12,6 +13,7 @@ namespace Qnject
                                                   BindingFlags.NonPublic;
 
         private static List<Container> _containers = new List<Container>();
+        private static List<MonoBehaviour> _monosInInstallers = new List<MonoBehaviour>();
 
         public static void ResolveCurrentScene()
         {
@@ -19,23 +21,26 @@ namespace Qnject
             {
                 foreach (var item in UnityEngine.SceneManagement.SceneManager.GetActiveScene().GetRootGameObjects()[i].transform.GetComponentsInChildren<MonoBehaviour>())
                 {
-                    MonoBehaviour[] monobehs = item.GetComponents<MonoBehaviour>();
+                    MonoBehaviour[] monos = item.GetComponents<MonoBehaviour>();
 
-                    if (monobehs != null && monobehs.Length > 0)
+                    if (monos != null && monos.Length > 0)
                     {
-                        foreach (var monoObject in monobehs)
+                        foreach (var mono in monos)
                         {
-                            ResolveObject(monoObject);
+                            if (!_monosInInstallers.Contains(mono))
+                            {
+                                ResolveObject(mono);
+                            }
                         }
                     }
                 }
             }
         }
-        
-        public static void ResolveObject(MonoBehaviour monoObject)
+
+        public static void ResolveObject(MonoBehaviour mono)
         {
-            ResolveFields(monoObject);
-            ResolveMethods(monoObject);
+            ResolveFields(mono);
+            ResolveMethods(mono);
         }
 
         private static void ResolveMethods(MonoBehaviour target)
@@ -93,6 +98,19 @@ namespace Qnject
         public static void UnregisterContainer(Container container)
         {
             _containers.Remove(container);
+        }
+        
+        public static void RegisterInstallerBehaviours(MonoBehaviour[] monos)
+        {
+            _monosInInstallers.AddRange(monos.ToList());
+        }
+
+        public static void UnregisterInstallerBehaviours(MonoBehaviour[] monos)
+        {
+            foreach (var mono in monos)
+            {
+                _monosInInstallers.Remove(mono);
+            }
         }
 
         private static object TryGetObjFromContainers(Type fieldType)

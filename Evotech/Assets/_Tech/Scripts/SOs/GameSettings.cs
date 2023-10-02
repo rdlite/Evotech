@@ -7,6 +7,7 @@ namespace Core.Settings
     {
         public CameraSettings CameraSettings;
         public MapSettings MapSettings;
+        public LayersSettings LayersSettings;
     }
 
     [System.Serializable]
@@ -32,5 +33,12 @@ namespace Core.Settings
         public float MaxRotationCameraOnZoom = 30f;
         public Vector3 PositionOffset;
         public Vector3 RotationOffset;
+    }
+
+    [System.Serializable]
+    public class LayersSettings
+    {
+        public LayerMask UnitsMask;
+        public LayerMask GroundMask;
     }
 }

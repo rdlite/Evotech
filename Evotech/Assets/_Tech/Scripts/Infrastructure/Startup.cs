@@ -35,9 +35,9 @@ namespace Core.Infrastructure
             IUpdateProvider updateProvider = CreateUpdateProvider();
             IGameFactory gameFactory = CreateGameFactory();
             IInput input = CreateInput();
+            IRaycaster raycaster = CreateRaycaster(input);
             ICursorController cursorController = CreateCursorController(input);
             ICurtain curtain = CreateCurtain();
-            _projectInstaller.BindAsSingle<ICurtain>(curtain);
             LoadGlobalStateMachine(gameFactory, curtain);
         }
 
@@ -93,6 +93,7 @@ namespace Core.Infrastructure
 
             ICurtain curtain = curtainPrefab;
             curtain.TriggerCurtain(true, true);
+            _projectInstaller.BindAsSingle<ICurtain>(curtain);
 
             return curtain;
         }
@@ -109,6 +110,13 @@ namespace Core.Infrastructure
             _gameStateMachine = new GameStateMachineLoader(
                 _projectInstaller, _assetsContainer, _gameSettings,
                 _mapsContainer, gameFactory, curtain);
+        }
+
+        private IRaycaster CreateRaycaster(IInput input)
+        {
+            Raycaster newRaycaster = new Raycaster(_gameSettings.LayersSettings, input);
+            _projectInstaller.BindAsSingle<IRaycaster>(newRaycaster);
+            return newRaycaster;
         }
     }
 }

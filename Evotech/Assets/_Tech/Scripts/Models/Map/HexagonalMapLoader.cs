@@ -50,6 +50,7 @@ namespace Core.Data
                     point,
                     hexesWrapper.Places[i].Height,
                     hex.transform,
+                    hex.GetSurfaceOffset(),
                     hexesWrapper.Places[i].Tags.Strings,
                     hexesWrapper.Places[i].ObstacleNames.Strings,
                     isWalkable && !hasNonwalkableObstacles));

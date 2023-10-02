@@ -8,6 +8,9 @@ using Cysharp.Threading.Tasks;
 using Hexnav.Core;
 using Core.StateMachines;
 using Core.StateMachines.Battle;
+using Core.Battle;
+using Utils;
+using Core.InputSystem;
 
 namespace Core.Infrastructure
 {
@@ -18,19 +21,46 @@ namespace Core.Infrastructure
         private MapTextsContainer _mapsContainer;
         private IGameFactory _gameFactory;
         private ICurtain _curtain;
+        private IRaycaster _raycaster;
+        private IUpdateProvider _updateProvider;
+        private IInput _input;
         private Container _sceneInstaller;
         private IMapDataProvider _mapDataProvider;
+        private IWalkFieldVisualizer _walkFieldVisualizer;
+        private BattleStateMachine _battleSM;
 
         [Inject]
         private void Construct(
             AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
-            IGameFactory gameFactory, ICurtain curtain)
+            IGameFactory gameFactory, ICurtain curtain, IRaycaster raycaster,
+            IUpdateProvider updateProvider, IInput input)
         {
             _assetsContainer = assetsContainer;
             _gameSettings = gameSettings;
             _mapsContainer = mapsContainer;
             _gameFactory = gameFactory;
             _curtain = curtain;
+            _raycaster = raycaster;
+            _updateProvider = updateProvider;
+            _input = input;
+
+            _updateProvider.AddUpdate(Tick);
+            _updateProvider.AddFixedUpdate(FixedTick);
+            _updateProvider.AddLateUpdate(LateTick);
+        }
+
+        private void OnEnable()
+        {
+            _updateProvider.AddUpdate(Tick);
+            _updateProvider.AddFixedUpdate(FixedTick);
+            _updateProvider.AddLateUpdate(LateTick);
+        }
+
+        private void OnDisable()
+        {
+            _updateProvider.RemoveUpdate(Tick);
+            _updateProvider.RemoveFixedUpdate(FixedTick);
+            _updateProvider.RemoveLateUpdate(LateTick);
         }
 
         public void CreateBattleScene(Container sceneInstaller)
@@ -47,15 +77,35 @@ namespace Core.Infrastructure
 
             _mapDataProvider = CreateMap(landscapeSettings);
 
+            _walkFieldVisualizer = new WalkFieldVisualizer(_assetsContainer);
+
             CameraController camera = CreateCamera(Vector3.zero);
 
-            BattleStateMachine battleSM = CreateStateMachine(unitsFactory, camera);
+            BattleObserver battleObserver = new BattleObserver();
 
-            battleSM.Enter<StartBattleState>();
+            _battleSM = CreateStateMachine(
+                unitsFactory, camera, battleObserver);
+
+            _battleSM.Enter<StartBattleState>();
 
             await UniTask.Delay(100);
 
             _curtain.TriggerCurtain(false, false);
+        }
+
+        private void Tick()
+        {
+            _battleSM.UpdateState();
+        }
+
+        private void FixedTick()
+        {
+            _battleSM.FixedUpdateState();
+        }
+
+        private void LateTick()
+        {
+            _battleSM.LateUpdateState();
         }
 
         private IMapDataProvider CreateMap(LandscapeSettings landscapeSettings)
@@ -67,15 +117,16 @@ namespace Core.Infrastructure
             mapDataProvider.Init(mapData, _gameSettings.MapSettings);
             _sceneInstaller.BindAsSingle<IMapDataProvider>(mapDataProvider);
 
-            HexPathfinfing hexPathfinding = new HexPathfinfing(_mapDataProvider);
-
             return mapDataProvider;
         }
 
-        private BattleStateMachine CreateStateMachine(IUnitsFactory unitsFactory, CameraController camera)
+        private BattleStateMachine CreateStateMachine(
+            IUnitsFactory unitsFactory, CameraController camera, BattleObserver battleObserver)
         {
             return new BattleStateMachine(
-                unitsFactory, _mapDataProvider, camera);
+                unitsFactory, _mapDataProvider, camera,
+                battleObserver, _raycaster, _input,
+                _walkFieldVisualizer);
         }
 
         private CameraController CreateCamera(Vector3 position)

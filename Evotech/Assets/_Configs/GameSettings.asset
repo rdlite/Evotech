@@ -29,3 +29,10 @@ MonoBehaviour:
   MapSettings:
     HeightOffset: 0.3
     HeightDistanceMultiplier: 2
+  LayersSettings:
+    UnitsMask:
+      serializedVersion: 2
+      m_Bits: 8
+    GroundMask:
+      serializedVersion: 2
+      m_Bits: 64
