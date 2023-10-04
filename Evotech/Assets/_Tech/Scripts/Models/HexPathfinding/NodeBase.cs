@@ -18,20 +18,26 @@ namespace Hexnav.Core
         public Vector3 WorldPos;
         public Vector2Int Point;
         public float Height;
-        public bool IsWalkable;
+        public int NonwalkableFactors = 0;
+        public bool IsWalkable
+        {
+            get
+            {
+                return NonwalkableFactors == 0;
+            }
+        }
 
         private float _g, _h;
 
         public NodeBase(
             Vector3 worldPos, Vector2Int point, float height,
             Transform worldRepresent, Vector3 surfaceOffset, List<string> tags, 
-            List<string> obstacleNames, bool isWalkable)
+            List<string> obstacleNames)
         {
             WorldPos = worldPos;
             Point = point;
             Height = height;
             Neighbours = new List<NodeBase>();
-            IsWalkable = isWalkable;
             WorldObject = worldRepresent;
             SurfaceOffset = surfaceOffset;
             Tags = tags;

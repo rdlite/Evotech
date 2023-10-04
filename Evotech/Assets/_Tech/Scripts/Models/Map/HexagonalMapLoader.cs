@@ -36,7 +36,6 @@ namespace Core.Data
                 HexagonNode hex = CreateMainHex(point, mapParent.transform);
                 SetHexagonHeight(hex, hexesWrapper.Places[i].Height);
 
-                bool isWalkable = true;
                 bool hasNonwalkableObstacles = false;
 
                 if (hexesWrapper.Places[i].ObstacleNames != null && hexesWrapper.Places[i].ObstacleNames.Strings.Count != 0)
@@ -52,8 +51,12 @@ namespace Core.Data
                     hex.transform,
                     hex.GetSurfaceOffset(),
                     hexesWrapper.Places[i].Tags.Strings,
-                    hexesWrapper.Places[i].ObstacleNames.Strings,
-                    isWalkable && !hasNonwalkableObstacles));
+                    hexesWrapper.Places[i].ObstacleNames.Strings));
+
+                if (hasNonwalkableObstacles)
+                {
+                    nodes[nodes.Count - 1].NonwalkableFactors++;
+                }
             }
 
             MapData map = new MapData(nodes);

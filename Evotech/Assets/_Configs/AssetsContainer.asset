@@ -26,3 +26,5 @@ MonoBehaviour:
   BattlePrefabs:
     HexagonalDefaultDecal: {fileID: 6013305342398799963, guid: 0c48b232cafefb548935d8a19894fcf9,
       type: 3}
+    SelectionHexagon: {fileID: 718981043506986378, guid: c4b80e72bf07ef9479b65507efc7c730,
+      type: 3}

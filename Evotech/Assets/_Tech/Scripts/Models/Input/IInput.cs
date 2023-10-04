@@ -9,6 +9,8 @@ namespace Core.InputSystem
         event Action OnLMBUp;
         event Action OnRMBDown;
         event Action OnRMBUp;
+        event Action OnMMBDown;
+        event Action OnMMBUp;
         Vector2 GetAxis();
         Vector2 GetMouseVelocity();
         Vector2 GetMousePos();

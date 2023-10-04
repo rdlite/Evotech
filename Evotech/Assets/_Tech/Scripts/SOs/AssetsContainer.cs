@@ -27,5 +27,6 @@ namespace Core.Data
     public class BattlePrefabs
     {
         public DecalWrapper HexagonalDefaultDecal;
+        public GameObject SelectionHexagon;
     }
 }

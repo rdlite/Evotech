@@ -10,6 +10,8 @@ namespace Core.InputSystem
         public event Action OnLMBUp;
         public event Action OnRMBDown;
         public event Action OnRMBUp;
+        public event Action OnMMBDown;
+        public event Action OnMMBUp;
 
         private const string HORIZONTAL_AXIS = "Horizontal";
         private const string VERTICAL_AXIS = "Vertical";
@@ -56,6 +58,16 @@ namespace Core.InputSystem
             if (Input.GetMouseButtonUp(1))
             {
                 OnRMBUp?.Invoke();
+            }
+
+            if (Input.GetMouseButtonDown(2))
+            {
+                OnMMBDown?.Invoke();
+            }
+
+            if (Input.GetMouseButtonUp(2))
+            {
+                OnMMBUp?.Invoke();
             }
         }
 

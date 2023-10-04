@@ -52,6 +52,11 @@ public class UnitWalkingResolver
 
             List<NodeBase> path = HexPathfindingGrid.SetDesination(startPoint, endPoint);
             _walkFieldVisualizer.ProcessPathScale(path);
+
+            if (path.Count > 0)
+            {
+                RotateUnitToPointer(path[path.Count - 1].WorldPos);
+            }
         }
     }
 
@@ -72,5 +77,18 @@ public class UnitWalkingResolver
         }
 
         return nearestPoint;
+    }
+
+    private void RotateUnitToPointer(Vector3 endPoint)
+    {
+        float yRotation = Quaternion.LookRotation((endPoint - _currentUnit.transform.position).FlatY().normalized, Vector2.up).eulerAngles.y;
+        yRotation = (int)yRotation / 60;
+        yRotation = (int)yRotation * 60;
+
+        _currentUnit.transform.rotation =
+            Quaternion.Slerp(
+                _currentUnit.transform.rotation,
+                Quaternion.Euler(_currentUnit.transform.rotation.eulerAngles.x, yRotation, _currentUnit.transform.rotation.eulerAngles.z),
+                10f * Time.deltaTime);
     }
 }

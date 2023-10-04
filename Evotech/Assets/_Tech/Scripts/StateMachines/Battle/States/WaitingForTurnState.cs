@@ -45,6 +45,8 @@ namespace Core.StateMachines.Battle
         {
             _input.OnLMBDown += LMBDown;
             _input.OnLMBUp += LMBUp;
+            _input.OnRMBUp += ResetWalkSelection;
+            _input.OnMMBDown += ResetWalkSelection;
         }
 
         public void Update()
@@ -63,6 +65,8 @@ namespace Core.StateMachines.Battle
         {
             _input.OnLMBDown -= LMBDown;
             _input.OnLMBUp -= LMBUp;
+            _input.OnRMBUp -= ResetWalkSelection;
+            _input.OnMMBDown -= ResetWalkSelection;
         }
 
         private void LMBDown()
@@ -101,6 +105,12 @@ namespace Core.StateMachines.Battle
 
                 _unitWalkingResolver.SetCurrentWalkingUnit(_currentHoverUnit, nodesWalkingRange);
             }
+        }
+
+        private void ResetWalkSelection()
+        {
+            _unitWalkingResolver.SetCurrentWalkingUnit(null, null);
+            _walkFieldVisualizer.Hide();
         }
     }
 }

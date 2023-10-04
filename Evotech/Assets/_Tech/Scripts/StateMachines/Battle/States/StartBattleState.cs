@@ -60,11 +60,13 @@ namespace Core.StateMachines.Battle
                 BaseUnit unit = _unitsFactory.Create(node);
                 _battleObserver.AddUnit(unit);
                 _playerNodeToLookup = node.WorldObject;
+                node.NonwalkableFactors++;
             }
             else if (tag == StringConstants.DEFAULT_ENEMY_MAP_TAG)
             {
                 BaseUnit unit = _unitsFactory.Create(node);
                 _battleObserver.AddUnit(unit);
+                node.NonwalkableFactors++;
             }
         }
     }
