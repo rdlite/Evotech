@@ -2,10 +2,10 @@ using Core.Battle;
 using Core.Cameras;
 using Core.Units;
 using Extensions;
-using Hexnav.Core;
-using System.Collections.Generic;
-using UnityEngine;
 using Utils;
+using Hexnav.Core;
+using UnityEngine;
+using System.Collections.Generic;
 
 public class UnitWalkingResolver
 {
@@ -15,6 +15,7 @@ public class UnitWalkingResolver
     private IRaycaster _raycaster;
     private CameraController _camera;
     private Vector3 _lastRaycastPos;
+    private Vector3 _lastEndPoint;
 
     public UnitWalkingResolver(
         IRaycaster raycaster, CameraController camera, IWalkFieldVisualizer walkFieldVisualizer)
@@ -50,13 +51,18 @@ public class UnitWalkingResolver
             Vector3 startPoint = _currentUnit.transform.position;
             Vector3 endPoint = GetNearestPointOfWalkableField(pointToSearch);
 
+            if (startPoint != endPoint)
+            {
+                _lastEndPoint = endPoint;
+            }
+
             List<NodeBase> path = HexPathfindingGrid.SetDesination(startPoint, endPoint);
             _walkFieldVisualizer.ProcessPathScale(path);
+        }
 
-            if (path.Count > 0)
-            {
-                RotateUnitToPointer(path[path.Count - 1].WorldPos);
-            }
+        if (_currentUnit != null)
+        {
+            RotateUnitToPointer(_lastEndPoint);
         }
     }
 
@@ -81,14 +87,34 @@ public class UnitWalkingResolver
 
     private void RotateUnitToPointer(Vector3 endPoint)
     {
-        float yRotation = Quaternion.LookRotation((endPoint - _currentUnit.transform.position).FlatY().normalized, Vector2.up).eulerAngles.y;
-        yRotation = (int)yRotation / 60;
-        yRotation = (int)yRotation * 60;
+        Vector3 lookDirection = (endPoint - _currentUnit.transform.position).FlatY().normalized;
 
-        _currentUnit.transform.rotation =
-            Quaternion.Slerp(
-                _currentUnit.transform.rotation,
-                Quaternion.Euler(_currentUnit.transform.rotation.eulerAngles.x, yRotation, _currentUnit.transform.rotation.eulerAngles.z),
-                10f * Time.deltaTime);
+        if (lookDirection != Vector3.zero)
+        {
+            float yRotation = Quaternion.LookRotation(lookDirection, Vector3.up).eulerAngles.y;
+            yRotation = (int)yRotation / 60;
+            yRotation = (int)yRotation * 60;
+
+            _currentUnit.transform.rotation =
+                Quaternion.Slerp(
+                    _currentUnit.transform.rotation,
+                    Quaternion.Euler(_currentUnit.transform.rotation.eulerAngles.x, yRotation, _currentUnit.transform.rotation.eulerAngles.z),
+                    10f * Time.deltaTime);
+        }
+    }
+
+    public bool IsHaveUnitToWalk()
+    {
+        return _currentUnit != null;
+    }
+
+    public BaseUnit GetCurrenUnit()
+    {
+        return _currentUnit;
+    }
+
+    public Vector3 GetLastWalkPoint()
+    {
+        return _lastEndPoint;
     }
 }

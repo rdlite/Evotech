@@ -93,7 +93,7 @@ namespace Core.StateMachines.Battle
         {
             _isClicked = false;
 
-            if (_currentHoverUnit != null && _timeForClick <= 1f)
+            if (!_unitWalkingResolver.IsHaveUnitToWalk() && _currentHoverUnit != null && _timeForClick <= 1f)
             {
                 _walkFieldVisualizer.Hide();
 
@@ -104,6 +104,17 @@ namespace Core.StateMachines.Battle
                     nodesWalkingRange);
 
                 _unitWalkingResolver.SetCurrentWalkingUnit(_currentHoverUnit, nodesWalkingRange);
+            }
+            else if (_unitWalkingResolver.IsHaveUnitToWalk() && _timeForClick <= 1f)
+            {
+                UnitMovementState.MovementData movementData = new UnitMovementState.MovementData(
+                    _unitWalkingResolver.GetCurrenUnit(),
+                    _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetCurrenUnit().transform.position),
+                    _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint()));
+
+                _battleSM.Enter<UnitMovementState, UnitMovementState.MovementData>(movementData);
+             
+                ResetWalkSelection();
             }
         }
 

@@ -8,6 +8,7 @@ namespace Core.Settings
         public CameraSettings CameraSettings;
         public MapSettings MapSettings;
         public LayersSettings LayersSettings;
+        public BattleSettings BattleSettings;
     }
 
     [System.Serializable]
@@ -40,5 +41,15 @@ namespace Core.Settings
     {
         public LayerMask UnitsMask;
         public LayerMask GroundMask;
+    }
+
+    [System.Serializable]
+    public class BattleSettings
+    {
+        public float MovementDuration = .6f;
+        public float MaxUpMovementHeight = 3f;
+        public AnimationCurve MovementSmoothToUp;
+        public AnimationCurve MovementSmoothToDown;
+        public ParticleSystem PlacingParticle;
     }
 }

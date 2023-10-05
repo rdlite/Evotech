@@ -126,7 +126,7 @@ namespace Core.Infrastructure
             return new BattleStateMachine(
                 unitsFactory, _mapDataProvider, camera,
                 battleObserver, _raycaster, _input,
-                _walkFieldVisualizer);
+                _walkFieldVisualizer, _gameSettings.BattleSettings);
         }
 
         private CameraController CreateCamera(Vector3 position)

@@ -21,8 +21,10 @@ namespace Core.Cameras
         private IInput _input;
         private Vector3 _targetVelocityMovement;
         private Vector3 _targetMovement;
+        private Vector3 _smoothLookupPoint;
         private float _currentZooming;
         private float _currentZoomingVelocity;
+        private bool _hasSmoothBreakableLookupPoint;
 
         [Inject]
         private void Contruct(
@@ -70,6 +72,12 @@ namespace Core.Cameras
             transform.position = point;
         }
 
+        public void SetSmoothLookupPoint(Vector3 point)
+        {
+            _hasSmoothBreakableLookupPoint = true;
+            _smoothLookupPoint = point;
+        }
+
         private void HandleZoom()
         {
             _currentZooming -= _input.GetMouseWheel();
@@ -94,16 +102,44 @@ namespace Core.Cameras
 
         private void HandleMovement()
         {
-            _targetMovement = Quaternion.Euler(_camera.transform.eulerAngles.FlatX()) * new Vector3(_input.GetAxis().x, 0f, _input.GetAxis().y);
-            _targetVelocityMovement = Vector3.Lerp(_targetVelocityMovement, _targetMovement, _cameraSettings.MovementSmooth * Time.deltaTime);
+            Vector3 inputAxis = new Vector3(_input.GetAxis().x, 0f, _input.GetAxis().y);
 
-            transform.position += _targetVelocityMovement.FlatY() * _cameraSettings.MovementSpeed * _currentZoomingVelocity * Time.deltaTime;
+            _targetMovement = Quaternion.Euler(_camera.transform.eulerAngles.FlatX()) * inputAxis;
+
+            if (inputAxis != Vector3.zero && _hasSmoothBreakableLookupPoint)
+            {
+                BreakSmoothLookup();
+            }
+            
+            if (inputAxis == Vector3.zero && _hasSmoothBreakableLookupPoint)
+            {
+                HandleSmoothMovementToPoint();
+            }
+            else if (!_hasSmoothBreakableLookupPoint)
+            {
+                _targetVelocityMovement = Vector3.Lerp(_targetVelocityMovement, _targetMovement, _cameraSettings.MovementSmooth * Time.deltaTime);
+                transform.position += _targetVelocityMovement.FlatY() * _cameraSettings.MovementSpeed * _currentZoomingVelocity * Time.deltaTime;
+            }
+        }
+
+        private void HandleSmoothMovementToPoint()
+        {
+            Vector3 movemetnDirection = (_smoothLookupPoint - transform.position).FlatY().normalized;
+            _targetVelocityMovement = Vector3.Lerp(_targetVelocityMovement, movemetnDirection, _cameraSettings.MovementSmooth * Time.deltaTime);
+            transform.position += _targetVelocityMovement.FlatY() * _cameraSettings.MovementSpeed * _currentZoomingVelocity * Time.deltaTime * 2f;
+
+            if (Vector3.Distance(transform.position.FlatY(), _smoothLookupPoint.FlatY()) < .5f)
+            {
+                BreakSmoothLookup();
+            }
         }
 
         private void HandleRotation()
         {
             if (_input.IsWheelPressed())
             {
+                BreakSmoothLookup();
+
                 _cursorController.SetLockedCursor(true);
 
                 _targetRotation *= Quaternion.Euler(
@@ -139,6 +175,11 @@ namespace Core.Cameras
                 Mathf.Clamp(transform.position.x, ldPos.x, ruPos.x),
                 transform.position.y,
                 Mathf.Clamp(transform.position.z, ldPos.z, ruPos.z));
+        }
+
+        private void BreakSmoothLookup()
+        {
+            _hasSmoothBreakableLookupPoint = false;
         }
 
         public Camera GetCamera()
