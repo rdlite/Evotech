@@ -55,18 +55,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AO: 4.19
+    - _AO: 1
     - _Alpha: 2.75
     - _BottomHeight: 1.4
     - _BottomHeight1: 0.15
     - _BottomHeight2: 0.6
     - _NoiseTexturePower: 0.3
-    - _QueueControl: 0
+    - _QueueControl: 1
     - _QueueOffset: 0
     - _Smoothness: 0.2
     - _TextureMovementSpeed: 0.02
-    - _TextureScale: 10
+    - _TextureScale: 20
     m_Colors:
+    - _AddColor: {r: 0, g: 0, b: 0, a: 0}
     - _EyesColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 0, g: 0.86100054, b: 1, a: 1}
+    - _WavesColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

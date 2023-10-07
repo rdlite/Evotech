@@ -247,7 +247,7 @@ namespace Hexnav.Core
 
         public static float GetDistanceBetweenNodes(NodeBase startNode, NodeBase endNode)
         {
-            if (startNode.Height > endNode.Height)
+            if (startNode.Height < endNode.Height)
             {
                 return 1f * _mapProvider.GetHeightDistanceMultiplier();
             }

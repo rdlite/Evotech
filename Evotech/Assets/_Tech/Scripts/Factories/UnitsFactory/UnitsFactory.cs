@@ -1,6 +1,7 @@
 using Core.Data;
 using Core.Units;
 using Hexnav.Core;
+using Qnject;
 using UnityEngine;
 
 namespace Core.Factories
@@ -16,9 +17,10 @@ namespace Core.Factories
 
         public BaseUnit Create(NodeBase spawnNode)
         {
-            BaseUnit newUnit = Object.Instantiate(_assetsContainer.UnitAssets.TestUnit);
+            BaseUnit newUnit = QnjectPrefabsFactory.CreatePrefab(_assetsContainer.UnitAssets.TestUnit);
             newUnit.transform.position = spawnNode.WorldPos + spawnNode.SurfaceOffset;
             newUnit.transform.forward = spawnNode.WorldObject.forward;
+            newUnit.Init();
             return newUnit;
         }
     }

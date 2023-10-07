@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8314331509494137211}
   - component: {fileID: 5876737501054596442}
   m_Layer: 0
-  m_Name: TestUnit Figure
+  m_Name: HumanoidUnit Figure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77741212604ee684eb0d67a6610d39a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitSettings: {fileID: 11400000, guid: 52be3b5ef95e6b940a53489777617e14, type: 2}
 --- !u!114 &5876737501054596442
 MonoBehaviour:
   m_ObjectHideFlags: 0

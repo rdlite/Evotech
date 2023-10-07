@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Qnject
 {
@@ -45,48 +46,62 @@ namespace Qnject
 
         private static void ResolveMethods(MonoBehaviour target)
         {
-            Type targetType = target.GetType();
-            MethodInfo[] methods = targetType.GetMethods(bindingAttrs);
+            Type currentCheckType = target.GetType();
 
-            foreach (MethodInfo method in methods)
+            while (currentCheckType != typeof(MonoBehaviour))
             {
-                foreach (Attribute attribute in method.GetCustomAttributes())
+                Type targetType = currentCheckType;
+                MethodInfo[] methods = targetType.GetMethods(bindingAttrs);
+
+                foreach (MethodInfo method in methods)
                 {
-                    if (attribute is not Inject)
+                    foreach (Attribute attribute in method.GetCustomAttributes())
                     {
-                        continue;
+                        if (attribute is not Inject)
+                        {
+                            continue;
+                        }
+
+                        int it = 0;
+                        object[] parameters = new object[method.GetParameters().Length];
+
+                        foreach (var parameter in method.GetParameters())
+                        {
+                            parameters[it] = TryGetObjFromContainers(parameter.ParameterType);
+                            it++;
+                        }
+
+                        method.Invoke(target, parameters);
                     }
-
-                    int it = 0;
-                    object[] parameters = new object[method.GetParameters().Length];
-
-                    foreach (var parameter in method.GetParameters())
-                    {
-                        parameters[it] = TryGetObjFromContainers(parameter.ParameterType);
-                        it++;
-                    }
-
-                    method.Invoke(target, parameters);
                 }
+
+                currentCheckType = currentCheckType.BaseType;
             }
         }
 
         private static void ResolveFields(MonoBehaviour target)
         {
-            Type targetType = target.GetType();
-            FieldInfo[] fields = targetType.GetFields(bindingAttrs);
+            Type currentCheckType = target.GetType();
 
-            foreach (FieldInfo fi in fields)
+            while (currentCheckType != typeof(MonoBehaviour))
             {
-                foreach (Attribute attribute in fi.GetCustomAttributes())
-                {
-                    if (attribute is not Inject)
-                    {
-                        continue;
-                    }
+                Type targetType = currentCheckType;
+                FieldInfo[] fields = targetType.GetFields(bindingAttrs);
 
-                    fi.SetValue(target, TryGetObjFromContainers(fi.FieldType));
+                foreach (FieldInfo fi in fields)
+                {
+                    foreach (Attribute attribute in fi.GetCustomAttributes())
+                    {
+                        if (attribute is not Inject)
+                        {
+                            continue;
+                        }
+
+                        fi.SetValue(target, TryGetObjFromContainers(fi.FieldType));
+                    }
                 }
+
+                currentCheckType = currentCheckType.BaseType;
             }
         }
 
