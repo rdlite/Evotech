@@ -57,14 +57,14 @@ namespace Core.StateMachines.Battle
         {
             if (tag == StringConstants.PLAYER_MAP_TAG)
             {
-                BaseUnit unit = _unitsFactory.Create(node);
+                BaseUnit unit = _unitsFactory.Create(node, Enums.UnitType.PlayerAlly);
                 _battleObserver.AddUnit(unit);
                 _playerNodeToLookup = node.WorldObject;
                 node.NonwalkableFactors++;
             }
             else if (tag == StringConstants.DEFAULT_ENEMY_MAP_TAG)
             {
-                BaseUnit unit = _unitsFactory.Create(node);
+                BaseUnit unit = _unitsFactory.Create(node, Enums.UnitType.EnemyRed);
                 _battleObserver.AddUnit(unit);
                 node.NonwalkableFactors++;
             }

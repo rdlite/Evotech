@@ -7,6 +7,8 @@ namespace Core.Units
     [RequireComponent(typeof(BaseUnitAnimator))]
     public abstract class BaseUnit : MonoBehaviour
     {
+        public Enums.UnitType UnitType { get; private set; }
+
         [SerializeField] protected UnitSettings _unitSettings;
 
         protected BaseUnitAnimator _baseAnimator;
@@ -18,8 +20,9 @@ namespace Core.Units
             _stylesContainer = stylesContainer;
         }
 
-        public virtual void Init()
+        public virtual void Init(Enums.UnitType unitType)
         {
+            UnitType = unitType;
             _baseAnimator = GetComponent<BaseUnitAnimator>();
         }
 

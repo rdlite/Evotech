@@ -17,3 +17,13 @@ MonoBehaviour:
     AnimatorID: 1
     WeaponPrefab: {fileID: 1844574920131073422, guid: 1bd7a12828c70e947a65eb2d86c16083,
       type: 3}
+  SpiritStyles:
+  - Type: 0
+    UnitColor: {r: 0.3820755, g: 0.9248797, b: 1, a: 1}
+    WavesColor: {r: 1, g: 1, b: 1, a: 1}
+  - Type: 1
+    UnitColor: {r: 1, g: 0, b: 0.22122145, a: 1}
+    WavesColor: {r: 0.5137255, g: 1, b: 0, a: 1}
+  - Type: 2
+    UnitColor: {r: 0.7830189, g: 0.21791564, b: 0.7474237, a: 1}
+    WavesColor: {r: 1, g: 0, b: 0, a: 1}

@@ -7,6 +7,7 @@ namespace Core.Data
     public class StylesContainer : ScriptableObject
     {
         public List<WeaponStyle> WeaponStyles;
+        public List<UnitSpiritStyle> SpiritStyles;
 
         public WeaponStyle GetStyleOfWeaponType(Enums.WeaponType weaponType)
         {
@@ -20,6 +21,27 @@ namespace Core.Data
 
             return null;
         }
+
+        public UnitSpiritStyle GetStyleOfUnitSpirit(Enums.UnitType unitType)
+        {
+            foreach (UnitSpiritStyle style in SpiritStyles)
+            {
+                if (style.Type == unitType)
+                {
+                    return style;
+                }
+            }
+
+            return null;
+        }
+    }
+
+    [System.Serializable]
+    public class UnitSpiritStyle
+    {
+        public Enums.UnitType Type;
+        public Color UnitColor;
+        public Color WavesColor;
     }
 
     [System.Serializable]

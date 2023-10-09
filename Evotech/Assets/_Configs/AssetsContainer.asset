@@ -28,3 +28,29 @@ MonoBehaviour:
       type: 3}
     SelectionHexagon: {fileID: 718981043506986378, guid: c4b80e72bf07ef9479b65507efc7c730,
       type: 3}
+  ArmorPrebafs:
+    _maps:
+    - ArmorType: 0
+      Prefabs:
+      - {fileID: 7048670115272048775, guid: fa820928b03ffaf408477fbc11826e0f, type: 3}
+    - ArmorType: 1
+      Prefabs:
+      - {fileID: -176168290162189825, guid: 966c89f481ab38943a8b60ab89b8d8a8, type: 3}
+    - ArmorType: 5
+      Prefabs:
+      - {fileID: -1354284001736005355, guid: 7f51952b645f40c48851b23fe390054c, type: 3}
+    - ArmorType: 6
+      Prefabs:
+      - {fileID: -1693490739827894103, guid: 25935ba34d5449d41a4900a92f8e30f1, type: 3}
+    - ArmorType: 2
+      Prefabs:
+      - {fileID: -8875399836213632643, guid: 8b5ff4bb6d2f44043a155b9ec3169e75, type: 3}
+    - ArmorType: 7
+      Prefabs:
+      - {fileID: 1111281197641621861, guid: f966234a0053a3c4eb572cad1534c6ba, type: 3}
+    - ArmorType: 8
+      Prefabs:
+      - {fileID: -4828780493942317146, guid: 806d50c91f0f1714a835b7578338020c, type: 3}
+    - ArmorType: 3
+      Prefabs:
+      - {fileID: 4123885764736634246, guid: 1c3d8714251e2d74b815164f0d95d5c2, type: 3}

@@ -79,7 +79,9 @@ namespace Core.StateMachines.Battle
         {
             UnitRaycastTrigger unitUnderPointer = _raycaster.GetUnitTrigger(_camera.GetCamera());
 
-            if (unitUnderPointer != null && !_input.IsWheelPressed())
+            if (unitUnderPointer != null && 
+                !_input.IsWheelPressed() && 
+                unitUnderPointer.ParentUnit.UnitType == Enums.UnitType.PlayerAlly)
             {
                 _currentHoverUnit = unitUnderPointer.ParentUnit;
             }
