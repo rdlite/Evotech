@@ -37,18 +37,19 @@ namespace Core.Data
     }
 
     [System.Serializable]
+    public class WeaponStyle
+    {
+        public Enums.WeaponType WeaponType;
+        public int AnimatorID = 0;
+        public int AnimationsAmount = 1;
+        public GameObject WeaponPrefab;
+    }
+
+    [System.Serializable]
     public class UnitSpiritStyle
     {
         public Enums.UnitType Type;
         public Color UnitColor;
         public Color WavesColor;
-    }
-
-    [System.Serializable]
-    public class WeaponStyle
-    {
-        public Enums.WeaponType WeaponType;
-        public int AnimatorID = 0;
-        public GameObject WeaponPrefab;
     }
 }

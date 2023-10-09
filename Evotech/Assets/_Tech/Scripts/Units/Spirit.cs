@@ -26,10 +26,10 @@ namespace Core.Units
             _assetsContainer = assetsContainer;
         }
 
-        public void Init(int animatorWeaponID, Enums.UnitType unitType)
+        public void Init(WeaponStyle weaponStyle, Enums.UnitType unitType)
         {
             _animator = GetComponentInChildren<SpiritAnimator>();
-            _animator.Init(animatorWeaponID);
+            _animator.Init(weaponStyle);
 
             _oneWeaponLeftHandPoint = GetComponentInChildren<OneWeaponLeftHandPoint>();
 

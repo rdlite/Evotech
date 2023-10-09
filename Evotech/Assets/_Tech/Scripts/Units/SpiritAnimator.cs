@@ -1,3 +1,5 @@
+using System;
+using Core.Data;
 using UnityEngine;
 
 namespace Core.Units
@@ -6,14 +8,25 @@ namespace Core.Units
     public class SpiritAnimator : MonoBehaviour
     {
         private int WEAPON_ID_HASH = Animator.StringToHash("WeaponID");
+        private int ATTACK_ID_HASH = Animator.StringToHash("AttackID");
+        private int ATTACK_TRIGGER_HASH = Animator.StringToHash("AttackTrigger");
 
+        private WeaponStyle _weaponStyle;
         private Animator _animator;
 
-        public void Init(int weaponID)
+        public void Init(WeaponStyle weaponStyle)
         {
+            _weaponStyle = weaponStyle;
+
             _animator = GetComponent<Animator>();
             _animator.keepAnimatorStateOnDisable = true;
-            _animator.SetFloat(WEAPON_ID_HASH, weaponID);
+            _animator.SetFloat(WEAPON_ID_HASH, weaponStyle.AnimatorID);
+        }
+
+        public void PlayAttack(Action finishCallback)
+        {
+            _animator.SetFloat(ATTACK_ID_HASH, UnityEngine.Random.Range(0f, _weaponStyle.AnimationsAmount));
+            _animator.SetTrigger(ATTACK_TRIGGER_HASH);
         }
     }
 }

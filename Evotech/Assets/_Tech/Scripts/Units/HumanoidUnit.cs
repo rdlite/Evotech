@@ -24,7 +24,7 @@ namespace Core.Units
             _weaponStyle = _stylesContainer.GetStyleOfWeaponType(_unitSettings.WeaponID);
 
             _spirit = GetComponentInChildren<Spirit>();
-            _spirit.Init(_weaponStyle.AnimatorID, unitType);
+            _spirit.Init(_weaponStyle, unitType);
             _spirit.CreateWeapon(_weaponStyle.WeaponPrefab);
 
             _armor = _spirit.CreateArmor();
