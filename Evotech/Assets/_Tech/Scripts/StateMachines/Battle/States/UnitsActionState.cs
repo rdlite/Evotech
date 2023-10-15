@@ -22,10 +22,7 @@ namespace Core.StateMachines.Battle
             _actionResolver.Resolve(actionDesc);
         }
 
-        public void Update()
-        {
-            _actionResolver.Tick();
-        }
+        public void Update() { }
 
         public void Exit() { }
 

@@ -21,6 +21,7 @@ namespace Core.Units
         protected bool _isRotateToTarget;
         protected bool _isRotateWithChildFigure;
         protected Vector3 _targetToRotate;
+        private UnitAnimationEventsCatcher _animationEventsCatcher;
         private float _lastRotationTarget;
 
         [Inject]
@@ -31,6 +32,7 @@ namespace Core.Units
             _updatesProvider.AddUpdate(Tick);
             _baseAnimator = GetComponent<BaseUnitAnimator>();
             _ghostCreator = GetComponent<GhostCreator>();
+            _animationEventsCatcher = GetComponentInChildren<UnitAnimationEventsCatcher>();
         }
 
         public virtual void Init(Enums.UnitType unitType)
@@ -86,6 +88,8 @@ namespace Core.Units
             }
         }
 
+        public abstract void PerformMeleeAttack();
+
         public float GetWalkRange()
         {
             return _unitSettings.WalkDistance;
@@ -99,6 +103,11 @@ namespace Core.Units
         public GhostCopy CreateGhostCopy()
         {
             return _ghostCreator.CreateGhostCopy();
+        }
+
+        public UnitAnimationEventsCatcher GetEventsCatcher()
+        {
+            return _animationEventsCatcher;
         }
     }
 }

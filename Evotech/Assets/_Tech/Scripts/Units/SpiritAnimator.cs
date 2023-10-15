@@ -1,4 +1,3 @@
-using System;
 using Core.Data;
 using UnityEngine;
 
@@ -23,9 +22,9 @@ namespace Core.Units
             _animator.SetFloat(WEAPON_ID_HASH, weaponStyle.AnimatorID);
         }
 
-        public void PlayAttack(Action finishCallback)
+        public void PlayMeleeAttack()
         {
-            _animator.SetFloat(ATTACK_ID_HASH, UnityEngine.Random.Range(0f, _weaponStyle.AnimationsAmount));
+            _animator.SetFloat(ATTACK_ID_HASH, Random.Range(0, _weaponStyle.AnimationsAmount));
             _animator.SetTrigger(ATTACK_TRIGGER_HASH);
         }
     }

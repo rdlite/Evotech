@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponStyles:
   - WeaponType: 0
-    AnimatorID: 1
+    AnimatorID: 0
     AnimationsAmount: 2
     WeaponPrefab: {fileID: 1844574920131073422, guid: 1bd7a12828c70e947a65eb2d86c16083,
       type: 3}

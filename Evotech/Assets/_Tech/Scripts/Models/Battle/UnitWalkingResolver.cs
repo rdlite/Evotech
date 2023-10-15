@@ -15,6 +15,7 @@ public class UnitWalkingResolver
     private BaseUnit _currentUnit;
     private BaseUnit _hoverUnit;
     private IBattleLinesFactory _battleLinesFactory;
+    private IMapDataProvider _mapDataProvider;
     private IWalkFieldVisualizer _walkFieldVisualizer;
     private IRaycaster _raycaster;
     private CameraController _camera;
@@ -26,12 +27,13 @@ public class UnitWalkingResolver
 
     public UnitWalkingResolver(
         IRaycaster raycaster, CameraController camera, IWalkFieldVisualizer walkFieldVisualizer,
-        IBattleLinesFactory battleLinesFactory)
+        IBattleLinesFactory battleLinesFactory, IMapDataProvider mapDataProvider)
     {
         _walkFieldVisualizer = walkFieldVisualizer;
         _raycaster = raycaster;
         _camera = camera;
         _battleLinesFactory = battleLinesFactory;
+        _mapDataProvider = mapDataProvider;
     }
 
     public void SetCurrentWalkingUnit(BaseUnit unit, List<NodeBase> nodesToWalk)
@@ -86,7 +88,7 @@ public class UnitWalkingResolver
                     ShowAttackLine(_currentUnit.transform.position, _hoverUnit.transform.position);
                     ClearGhost();
                 }
-                else
+                else if (path[path.Count - 1].Neighbours.Contains(_mapDataProvider.GetNearestNodeOfWorldPoint(_hoverUnit.transform.position)))
                 {
                     CreateGhost();
 

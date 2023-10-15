@@ -3,6 +3,7 @@ using Hexnav.Core;
 using UnityEngine;
 using Core.Settings;
 using Core.Cameras;
+using System;
 
 namespace Core.StateMachines.Battle
 {
@@ -11,6 +12,7 @@ namespace Core.StateMachines.Battle
         private readonly StateMachine _battleSM;
         private readonly BattleSettings _battleSettings;
         private readonly CameraController _camera;
+        private MovementData _movementData;
         private BaseUnit _unitToAnimate;
         private NodeBase _startNode, _endNode;
         private float _t;
@@ -27,9 +29,10 @@ namespace Core.StateMachines.Battle
 
         public void Enter(MovementData data)
         {
-            _unitToAnimate = data.Unit;
-            _startNode = data.Start;
-            _endNode = data.End;
+            _movementData = data;
+            _unitToAnimate = _movementData.Unit;
+            _startNode = _movementData.Start;
+            _endNode = _movementData.End;
 
             _startNode.NonwalkableFactors--;
             _endNode.NonwalkableFactors++;
@@ -101,20 +104,23 @@ namespace Core.StateMachines.Battle
         private void FinishMovement()
         {
             _battleSM.Enter<WaitingForTurnState>();
-            ParticleSystem dustFX = Object.Instantiate(_battleSettings.PlacingParticle);
+            ParticleSystem dustFX = UnityEngine.Object.Instantiate(_battleSettings.PlacingParticle);
             dustFX.transform.position = _unitToAnimate.transform.position;
+            _movementData.Callback?.Invoke();
         }
 
         public class MovementData
         {
             public BaseUnit Unit;
             public NodeBase Start, End;
+            public Action Callback;
 
-            public MovementData(BaseUnit unit, NodeBase start, NodeBase end)
+            public MovementData(BaseUnit unit, NodeBase start, NodeBase end, Action callback)
             {
                 Unit = unit;
                 Start = start;
                 End = end;
+                Callback = callback;
             }
         }
     }

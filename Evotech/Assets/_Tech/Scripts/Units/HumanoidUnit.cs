@@ -58,5 +58,10 @@ namespace Core.Units
                     Quaternion.Euler(_spirit.transform.rotation.eulerAngles.x, _lastLocalRotationTarget, _spirit.transform.rotation.eulerAngles.z),
                     15f * Time.deltaTime);
         }
+
+        public override void PerformMeleeAttack()
+        {
+            _spirit.GetAnimator().PlayMeleeAttack();
+        }
     }
 }

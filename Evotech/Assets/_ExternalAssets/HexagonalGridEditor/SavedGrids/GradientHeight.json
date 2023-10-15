@@ -3243,7 +3243,7 @@
             "HexagonName": "TestHex",
             "HexX": -1,
             "HexY": -4,
-            "Height": 3,
+            "Height": 5,
             "ObstaclesOffsets": {
                 "Vectors": []
             },

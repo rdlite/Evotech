@@ -64,6 +64,11 @@ namespace Core.Units
 
             return objects;
         }
+
+        public SpiritAnimator GetAnimator()
+        {
+            return _animator;
+        }
     }
 
     [System.Serializable]

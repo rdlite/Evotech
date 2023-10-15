@@ -41,7 +41,7 @@ namespace Core.StateMachines.Battle
             _battleLinesFactory = battleLinesFactory;
             _unitWalkingResolver = new UnitWalkingResolver(
                 raycaster, camera, walkFieldVisualizer,
-                battleLinesFactory);
+                battleLinesFactory, mapDataProvider);
         }
 
         public void Enter()
@@ -110,15 +110,38 @@ namespace Core.StateMachines.Battle
             if (IsWalkingAndClickedOnEnemy())
             {
                 BaseUnit currentWalkingUnit = _unitWalkingResolver.GetCurrenUnit();
+                BaseUnit currentHoverUnit = _currentHoverUnit;
 
-                ResetWalkSelection();
+                System.Action attackCallback = () => 
+                {
+                    ActionMeleeAttack actionInfo = new ActionMeleeAttack();
+                    actionInfo.Actor = currentWalkingUnit;
+                    actionInfo.Damage = 10f;
+                    actionInfo.SubjectUnits = new List<BaseUnit>() { currentHoverUnit };
 
-                ActionMeleeAttack actionInfo = new ActionMeleeAttack();
-                actionInfo.Actor = currentWalkingUnit;
-                actionInfo.Damage = 10f;
-                actionInfo.SubjectUnits = new List<BaseUnit>() { _currentHoverUnit };
+                    _battleSM.Enter<UnitsActionState, ActionInfo>(actionInfo);
+                };
 
-                _battleSM.Enter<UnitsActionState, ActionInfo>(actionInfo);
+                bool isNearEnemy = IsPointsAreNeighbours(
+                    currentWalkingUnit.transform.position, 
+                    _currentHoverUnit.transform.position);
+
+                if (!isNearEnemy)
+                {
+                    if (IsLastWalkPointNearEnemy())
+                    {
+                        MoveUnit(attackCallback);
+                    }
+                    else
+                    {
+                        MoveUnit(null);
+                    }
+                }
+                else
+                {
+                    attackCallback.Invoke();
+                    ResetWalkSelection();
+                }
             }
             else
             {
@@ -136,16 +159,22 @@ namespace Core.StateMachines.Battle
                 }
                 else if (IsClickedOnFieldWithSelectedWalkingUnit())
                 {
-                    UnitMovementState.MovementData movementData = new UnitMovementState.MovementData(
-                        _unitWalkingResolver.GetCurrenUnit(),
-                        _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetCurrenUnit().transform.position),
-                        _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint()));
-
-                    _battleSM.Enter<UnitMovementState, UnitMovementState.MovementData>(movementData);
-
-                    ResetWalkSelection();
+                    MoveUnit(null);
                 }
             }
+        }
+
+        private void MoveUnit(System.Action callback)
+        {
+            UnitMovementState.MovementData movementData = new UnitMovementState.MovementData(
+                _unitWalkingResolver.GetCurrenUnit(),
+                _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetCurrenUnit().transform.position),
+                _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint()),
+                callback);
+
+            _battleSM.Enter<UnitMovementState, UnitMovementState.MovementData>(movementData);
+
+            ResetWalkSelection();
         }
 
         private bool IsWalkingAndClickedOnEnemy()
@@ -170,6 +199,17 @@ namespace Core.StateMachines.Battle
                 _unitWalkingResolver.IsHaveUnitToWalk() && 
                 _currentHoverUnit == null && 
                 _timeForClick <= 1f;
+        }
+
+        private bool IsLastWalkPointNearEnemy()
+        {
+            return IsPointsAreNeighbours(_currentHoverUnit.transform.position, _unitWalkingResolver.GetLastWalkPoint());
+        }
+
+        private bool IsPointsAreNeighbours(Vector3 point1, Vector3 point2)
+        {
+            return _mapDataProvider.GetNearestNodeOfWorldPoint(point1).Neighbours.Contains(
+                _mapDataProvider.GetNearestNodeOfWorldPoint(point2));
         }
 
         private void ResetWalkSelection()
