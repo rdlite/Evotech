@@ -3,11 +3,11 @@ using System;
 using Core.Data;
 using Core.Battle;
 using Core.Cameras;
+using Core.Settings;
 using Core.Factories;
 using Core.InputSystem;
 using Core.StateMachines.Battle;
 using System.Collections.Generic;
-using Core.Settings;
 
 namespace Core.StateMachines
 {
@@ -29,6 +29,8 @@ namespace Core.StateMachines
                     mapDataProvider),
                 [typeof(UnitMovementState)] = new UnitMovementState(
                     this, battleSettings, camera),
+                [typeof(UnitsActionState)] = new UnitsActionState(
+                    battleObserver, this),
             };
         }
     }

@@ -57,7 +57,7 @@ namespace Core.StateMachines.Battle
         {
             if (tag == StringConstants.PLAYER_MAP_TAG)
             {
-                BaseUnit unit = _unitsFactory.Create(node, Enums.UnitType.PlayerAlly);
+                BaseUnit unit = _unitsFactory.Create(node, Enums.UnitType.Player);
                 _battleObserver.AddUnit(unit);
                 _playerNodeToLookup = node.WorldObject;
                 node.NonwalkableFactors++;

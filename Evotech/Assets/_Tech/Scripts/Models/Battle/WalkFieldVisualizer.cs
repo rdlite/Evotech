@@ -60,6 +60,21 @@ namespace Core.Battle
 
         public void ProcessPathScale(List<NodeBase> path)
         {
+            if (path == null)
+            {
+                if (SelectionFX().activeSelf)
+                {
+                    for (int i = 0; i < _walkFieldDecals.Count; i++)
+                    {
+                        _walkFieldDecals[i].DecalWrapper.SetMinScale();
+                    }
+
+                    SelectionFX().SetActive(false);
+                }
+
+                return;
+            }
+
             for (int i = 0; i < _walkFieldDecals.Count; i++)
             {
                 _walkFieldDecals[i].DecalWrapper.SetMinScale();

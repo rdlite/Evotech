@@ -6,9 +6,10 @@ namespace Hexnav.Core
 {
     public class HexPathfindingGrid
     {
+        public static float DistanceBetweenNodes = 1f;
+
         private static NodeBase[,] _nodesGrid;
         private static Vector2Int[,] _neighbourOffsets;
-
         private static IMapDataProvider _mapProvider;
 
         public HexPathfindingGrid(IMapDataProvider mapProvider)
@@ -245,19 +246,27 @@ namespace Hexnav.Core
             return result;
         }
 
+        public static int GetDistanceBetweenPointsInNodes(Vector3 point1, Vector3 point2)
+        {
+            point1.y = 0f;
+            point2.y = 0f;
+
+            return (int)Vector3.Distance(point1, point2);
+        }
+
         public static float GetDistanceBetweenNodes(NodeBase startNode, NodeBase endNode)
         {
             if (startNode.Height < endNode.Height)
             {
-                return 1f * _mapProvider.GetHeightDistanceMultiplier();
+                return DistanceBetweenNodes * _mapProvider.GetHeightDistanceMultiplier();
             }
             else if (startNode.Height == endNode.Height)
             {
-                return 1f;
+                return DistanceBetweenNodes;
             }
             else
             {
-                return 1f / _mapProvider.GetHeightDistanceMultiplier();
+                return DistanceBetweenNodes / _mapProvider.GetHeightDistanceMultiplier();
             }
         }
     }

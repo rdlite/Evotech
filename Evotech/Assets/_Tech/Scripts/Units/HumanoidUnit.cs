@@ -2,6 +2,8 @@ using System;
 using Core.Data;
 using Core.Particles;
 using System.Collections.Generic;
+using Extensions;
+using UnityEngine;
 
 namespace Core.Units
 {
@@ -13,6 +15,7 @@ namespace Core.Units
         private UnitRaycastTrigger _raycastTrigger;
         private Spirit _spirit;
         private WeaponStyle _weaponStyle;
+        private float _lastLocalRotationTarget;
 
         public override void Init(Enums.UnitType unitType)
         {
@@ -28,6 +31,32 @@ namespace Core.Units
             _spirit.CreateWeapon(_weaponStyle.WeaponPrefab);
 
             _armor = _spirit.CreateArmor();
+            _lastLocalRotationTarget = _spirit.transform.localRotation.eulerAngles.y;
+        }
+
+        protected override void Tick()
+        {
+            base.Tick();
+            
+            if (_isRotateToTarget && _isRotateWithChildFigure)
+            {
+                Vector3 lookDirection = (_targetToRotate - _spirit.transform.position).FlatY().normalized;
+
+                if (lookDirection != Vector3.zero)
+                {
+                    _lastLocalRotationTarget = Quaternion.LookRotation(lookDirection, Vector3.up).eulerAngles.y;
+                }
+            }
+            else
+            {
+                _lastLocalRotationTarget = transform.eulerAngles.y;
+            }
+
+            _spirit.transform.rotation =
+                Quaternion.Slerp(
+                    _spirit.transform.rotation,
+                    Quaternion.Euler(_spirit.transform.rotation.eulerAngles.x, _lastLocalRotationTarget, _spirit.transform.rotation.eulerAngles.z),
+                    15f * Time.deltaTime);
         }
     }
 }

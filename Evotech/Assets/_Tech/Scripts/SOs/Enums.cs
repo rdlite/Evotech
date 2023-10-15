@@ -14,6 +14,14 @@
             PlayerAlly = 0,
             EnemyRed = 1,
             EnemyNeutral = 2,
+            Player = 3,
+        }
+
+        public enum UnitRelation
+        {
+            None = -1,
+            Ally = 0,
+            Enemy = 1,
         }
 
         public enum SpiritArmorPointType

@@ -6,7 +6,7 @@ namespace Core.Infrastructure
     {
         public override void Install()
         {
-            Startup startup = FindObjectOfType<Startup>();
+            GameStartup startup = FindObjectOfType<GameStartup>();
             startup.Init(_container);
         }
     }

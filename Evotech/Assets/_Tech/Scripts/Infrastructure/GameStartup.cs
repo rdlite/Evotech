@@ -9,7 +9,7 @@ using Core.InputSystem;
 
 namespace Core.Infrastructure
 {
-    public class Startup : MonoBehaviour
+    public class GameStartup : MonoBehaviour
     {
         private AssetsContainer _assetsContainer;
         private GameSettings _gameSettings;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4250087815982947632}
   - component: {fileID: 8314331509494137211}
   - component: {fileID: 5876737501054596442}
+  - component: {fileID: 7758351002436368343}
   m_Layer: 0
   m_Name: HumanoidUnit Figure
   m_TagString: Untagged
@@ -61,6 +62,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3415914049317232917}
+--- !u!114 &7758351002436368343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2356956235336893297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aca99541345ea643af0a65f48297c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ghostMaterial: {fileID: 2100000, guid: 0a82163067a2efb45a6051621b6d937e, type: 2}
 --- !u!1 &4252499311514935751
 GameObject:
   m_ObjectHideFlags: 0
