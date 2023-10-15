@@ -31,3 +31,7 @@ MonoBehaviour:
   - Type: 2
     UnitColor: {r: 0.7830189, g: 0.21791564, b: 0.7474237, a: 1}
     WavesColor: {r: 1, g: 0, b: 0, a: 1}
+  PointedLineStyles:
+  - Type: 0
+    Color: {r: 0.5119784, g: 1, b: 0.495283, a: 1}
+    IsMoving: 1

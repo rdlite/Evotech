@@ -38,5 +38,11 @@
             Torso0 = 8,
             Torso1 = 9,
         }
+
+        public enum PointedLineType
+        {
+            None = -1,
+            Attack = 0,
+        }
     }
 }

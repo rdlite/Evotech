@@ -31,7 +31,7 @@ namespace Core.Units
         {
             if (_isChangeAlpha)
             {
-                _currentAlpha = Mathf.MoveTowards(_currentAlpha, _targetAlpha, Time.deltaTime * 2f);
+                _currentAlpha = Mathf.MoveTowards(_currentAlpha, _targetAlpha, Time.deltaTime * 5f);
 
                 foreach (var renderer in _renderers)
                 {

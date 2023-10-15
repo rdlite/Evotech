@@ -1,10 +1,10 @@
-using Core.Particles;
-using Core.Cameras;
-using Core.Curtains;
 using Core.Units;
-using System.Collections.Generic;
 using UnityEngine;
 using Utils.Decal;
+using Core.Cameras;
+using Core.Curtains;
+using Core.Particles;
+using Core.Battle;
 
 namespace Core.Data
 {
@@ -31,6 +31,7 @@ namespace Core.Data
     {
         public DecalWrapper HexagonalDefaultDecal;
         public GameObject SelectionHexagon;
+        public BattlePointedLine Line;
     }
 
     [System.Serializable]

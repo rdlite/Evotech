@@ -16,7 +16,7 @@ namespace Core.StateMachines
         public BattleStateMachine(
             IUnitsFactory unitsFactory, IMapDataProvider mapDataProvider, CameraController camera,
             BattleObserver battleObserver, IRaycaster raycaster, IInput input,
-            IWalkFieldVisualizer walkFieldVisualizer, BattleSettings battleSettings)
+            IWalkFieldVisualizer walkFieldVisualizer, BattleSettings battleSettings, IBattleLinesFactory battleLinesFactory)
         {
             _states = new Dictionary<Type, IExitableState>()
             {
@@ -26,7 +26,7 @@ namespace Core.StateMachines
                 [typeof(WaitingForTurnState)] = new WaitingForTurnState(
                     battleObserver, raycaster, camera,
                     input, this, walkFieldVisualizer,
-                    mapDataProvider),
+                    mapDataProvider, battleLinesFactory),
                 [typeof(UnitMovementState)] = new UnitMovementState(
                     this, battleSettings, camera),
                 [typeof(UnitsActionState)] = new UnitsActionState(

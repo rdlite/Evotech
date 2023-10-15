@@ -19,6 +19,7 @@ namespace Core.StateMachines.Battle
         private readonly StateMachine _battleSM;
         private readonly IWalkFieldVisualizer _walkFieldVisualizer;
         private readonly IMapDataProvider _mapDataProvider;
+        private readonly IBattleLinesFactory _battleLinesFactory;
 
         private BaseUnit _currentHoverUnit;
         private UnitWalkingResolver _unitWalkingResolver;
@@ -28,7 +29,7 @@ namespace Core.StateMachines.Battle
         public WaitingForTurnState(
             BattleObserver battleObserver, IRaycaster raycaster, CameraController camera, 
             IInput input, StateMachine battleSM, IWalkFieldVisualizer walkFieldVisualizer,
-            IMapDataProvider mapDataProvider)
+            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory)
         {
             _battleObserver = battleObserver;
             _raycaster = raycaster;
@@ -37,8 +38,10 @@ namespace Core.StateMachines.Battle
             _battleSM = battleSM;
             _walkFieldVisualizer = walkFieldVisualizer;
             _mapDataProvider = mapDataProvider;
+            _battleLinesFactory = battleLinesFactory;
             _unitWalkingResolver = new UnitWalkingResolver(
-                raycaster, camera, walkFieldVisualizer);
+                raycaster, camera, walkFieldVisualizer,
+                battleLinesFactory);
         }
 
         public void Enter()
@@ -67,6 +70,7 @@ namespace Core.StateMachines.Battle
             _input.OnLMBUp -= LMBUp;
             _input.OnRMBUp -= ResetWalkSelection;
             _input.OnMMBDown -= ResetWalkSelection;
+            _battleLinesFactory.ClearLines();
         }
 
         private void LMBDown()

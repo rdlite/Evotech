@@ -8,6 +8,7 @@ namespace Core.Data
     {
         public List<WeaponStyle> WeaponStyles;
         public List<UnitSpiritStyle> SpiritStyles;
+        public List<PointedLineStyle> PointedLineStyles;
 
         public WeaponStyle GetStyleOfWeaponType(Enums.WeaponType weaponType)
         {
@@ -34,6 +35,19 @@ namespace Core.Data
 
             return null;
         }
+
+        public PointedLineStyle GetStyleOfLineType(Enums.PointedLineType lineType)
+        {
+            foreach (PointedLineStyle style in PointedLineStyles)
+            {
+                if (style.Type == lineType)
+                {
+                    return style;
+                }
+            }
+
+            return null;
+        }
     }
 
     [System.Serializable]
@@ -51,5 +65,13 @@ namespace Core.Data
         public Enums.UnitType Type;
         public Color UnitColor;
         public Color WavesColor;
+    }
+
+    [System.Serializable]
+    public class PointedLineStyle
+    {
+        public Enums.PointedLineType Type;
+        public Color Color;
+        public bool IsMoving = true;
     }
 }

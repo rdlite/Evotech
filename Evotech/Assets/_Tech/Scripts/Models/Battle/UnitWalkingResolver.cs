@@ -8,14 +8,13 @@ using Core.Battle;
 using Core.Cameras;
 using Utils.Battle;
 using System.Collections.Generic;
-using System.Net;
-using System.Drawing;
 
 public class UnitWalkingResolver
 {
     private List<NodeBase> _nodesToWalk;
     private BaseUnit _currentUnit;
     private BaseUnit _hoverUnit;
+    private IBattleLinesFactory _battleLinesFactory;
     private IWalkFieldVisualizer _walkFieldVisualizer;
     private IRaycaster _raycaster;
     private CameraController _camera;
@@ -23,13 +22,16 @@ public class UnitWalkingResolver
     private Vector3 _lastEndPoint;
     private GhostCopy _currentWalkingUnitGhost;
     private bool _isCurrentlyPointingOnEnemy;
+    private bool _isCreatedLines;
 
     public UnitWalkingResolver(
-        IRaycaster raycaster, CameraController camera, IWalkFieldVisualizer walkFieldVisualizer)
+        IRaycaster raycaster, CameraController camera, IWalkFieldVisualizer walkFieldVisualizer,
+        IBattleLinesFactory battleLinesFactory)
     {
         _walkFieldVisualizer = walkFieldVisualizer;
         _raycaster = raycaster;
         _camera = camera;
+        _battleLinesFactory = battleLinesFactory;
     }
 
     public void SetCurrentWalkingUnit(BaseUnit unit, List<NodeBase> nodesToWalk)
@@ -38,6 +40,7 @@ public class UnitWalkingResolver
         {
             SetUnitRotationTarget(Vector3.zero, true);
             ClearGhost();
+            ClearAllLines();
         }
 
         _currentUnit = unit;
@@ -70,7 +73,7 @@ public class UnitWalkingResolver
 
             List<NodeBase> path = HexPathfindingGrid.SetDesination(startPoint, endPoint);
 
-            if (_hoverUnit != null)
+            if (_hoverUnit != null && _currentUnit != _hoverUnit)
             {
                 int distanceBetweenUtinsInNodes = HexPathfindingGrid.GetDistanceBetweenPointsInNodes(_currentUnit.transform.position, _hoverUnit.transform.position);
 
@@ -79,6 +82,8 @@ public class UnitWalkingResolver
                     _isCurrentlyPointingOnEnemy = BattleUtils.GetRelationForUnits(Enums.UnitType.Player, _hoverUnit.UnitType) == Enums.UnitRelation.Enemy;
                     _lastEndPoint = _hoverUnit.transform.position;
                     _walkFieldVisualizer.ProcessPathScale(null);
+
+                    ShowAttackLine(_currentUnit.transform.position, _hoverUnit.transform.position);
                     ClearGhost();
                 }
                 else
@@ -96,12 +101,17 @@ public class UnitWalkingResolver
                     }
 
                     _walkFieldVisualizer.ProcessPathScale(path);
+
+                    ClearAllLines();
+                    ShowAttackLine(_currentWalkingUnitGhost.transform.position, _hoverUnit.transform.position);
                 }
             }
             else
             {
                 _isCurrentlyPointingOnEnemy = false;
                 _walkFieldVisualizer.ProcessPathScale(path);
+
+                ClearAllLines();
                 ClearGhost();
             }
         }
@@ -160,6 +170,24 @@ public class UnitWalkingResolver
         {
             _currentWalkingUnitGhost.Destroy();
             _currentWalkingUnitGhost = null;
+        }
+    }
+
+    private void ShowAttackLine(Vector3 start, Vector3 end)
+    {
+        if (!_isCreatedLines)
+        {
+            _isCreatedLines = true;
+            _battleLinesFactory.CreateLine(start + Vector3.up * 2.4f, end + Vector3.up * 2.4f, Enums.PointedLineType.Attack);
+        }
+    }
+
+    private void ClearAllLines()
+    {
+        if (_isCreatedLines)
+        {
+            _isCreatedLines = false;
+            _battleLinesFactory.ClearLines();
         }
     }
 

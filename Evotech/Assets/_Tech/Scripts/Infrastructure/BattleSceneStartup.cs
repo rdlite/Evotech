@@ -15,6 +15,7 @@ namespace Core.Infrastructure
 {
     public class BattleSceneStartup : MonoBehaviour
     {
+        private StylesContainer _stylesContainer;
         private AssetsContainer _assetsContainer;
         private GameSettings _gameSettings;
         private MapTextsContainer _mapsContainer;
@@ -26,14 +27,16 @@ namespace Core.Infrastructure
         private Container _sceneInstaller;
         private IMapDataProvider _mapDataProvider;
         private IWalkFieldVisualizer _walkFieldVisualizer;
+        private IBattleLinesFactory _battleLinesFactory;
         private BattleStateMachine _battleSM;
 
         [Inject]
         private void Construct(
             AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
             IGameFactory gameFactory, ICurtain curtain, IRaycaster raycaster,
-            IUpdateProvider updateProvider, IInput input)
+            IUpdateProvider updateProvider, IInput input, StylesContainer stylesContainer)
         {
+            _stylesContainer = stylesContainer;
             _assetsContainer = assetsContainer;
             _gameSettings = gameSettings;
             _mapsContainer = mapsContainer;
@@ -82,8 +85,11 @@ namespace Core.Infrastructure
 
             BattleObserver battleObserver = new BattleObserver();
 
+            _battleLinesFactory = CreateBattleLinesFactory(_stylesContainer, _assetsContainer);
+
             _battleSM = CreateStateMachine(
-                unitsFactory, camera, battleObserver);
+                unitsFactory, camera, battleObserver,
+                _battleLinesFactory);
 
             _battleSM.Enter<StartBattleState>();
 
@@ -120,12 +126,19 @@ namespace Core.Infrastructure
         }
 
         private BattleStateMachine CreateStateMachine(
-            IUnitsFactory unitsFactory, CameraController camera, BattleObserver battleObserver)
+            IUnitsFactory unitsFactory, CameraController camera, BattleObserver battleObserver,
+            IBattleLinesFactory battleLinesFactory)
         {
             return new BattleStateMachine(
                 unitsFactory, _mapDataProvider, camera,
                 battleObserver, _raycaster, _input,
-                _walkFieldVisualizer, _gameSettings.BattleSettings);
+                _walkFieldVisualizer, _gameSettings.BattleSettings, _battleLinesFactory);
+        }
+
+        private IBattleLinesFactory CreateBattleLinesFactory(StylesContainer stylesContainer, AssetsContainer assetsContainer)
+        {
+            BattleLinesFactory battleLinesFactory = new BattleLinesFactory(stylesContainer, assetsContainer);
+            return battleLinesFactory;
         }
 
         private CameraController CreateCamera(Vector3 position)
