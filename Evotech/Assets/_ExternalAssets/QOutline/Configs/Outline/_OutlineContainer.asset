@@ -21,4 +21,4 @@ MonoBehaviour:
     OutlineConfig: {fileID: 11400000, guid: a407fb0d0e1d56f4aba3c4e49fe5a410, type: 2}
   DisposeBatchMask:
     serializedVersion: 2
-    m_Bits: 2147483648
+    m_Bits: 134217728

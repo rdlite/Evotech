@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Build.Pipeline.Injector;
 using UnityEngine;
 
 namespace Core.Units
@@ -73,6 +74,8 @@ namespace Core.Units
 
             foreach (var item in GetComponentsInChildren<Renderer>())
             {
+                if (item is not MeshRenderer && item is not SkinnedMeshRenderer) continue;
+
                 Material[] mats = new Material[item.materials.Length];
                 for (int i = 0; i < mats.Length; i++)
                 {
@@ -80,6 +83,8 @@ namespace Core.Units
                     mats[i].SetFloat(ALPHA_SHADER_HASH, 0f);
                 }
                 item.materials = mats;
+
+                item.gameObject.layer = LayerMask.NameToLayer("Default");
 
                 _renderers.Add(item);
                 item.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;

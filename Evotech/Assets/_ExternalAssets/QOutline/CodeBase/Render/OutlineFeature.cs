@@ -13,6 +13,7 @@ namespace QOutline.Render
         public class RenderSettings
         {
             public bool ShowInSceneView = true;
+            public bool IsClipDepth = true;
         }
 
         [Serializable]
@@ -57,7 +58,7 @@ namespace QOutline.Render
 
         public override void Create()
         {
-            _renderPass = new RenderMultipleObjectsPass(ref _renderTexture, ref _batchesToRender);
+            _renderPass = new RenderMultipleObjectsPass(ref _renderTexture, ref _batchesToRender, _renderSettings.IsClipDepth);
             _blurPass = new BlurPass(ref _bluredTexture, _blurSettings.BlurMaterial, _blurSettings.DownSample, _blurSettings.PassesCount, _renderPass);
             _outlinePass = new OutlinePass(_outlineMaterial, _renderPass, _blurPass);
 

@@ -1,8 +1,8 @@
-using QOutline.Configs;
-using QOutline.Core;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using QOutline.Core;
+using QOutline.Configs;
+using System.Collections.Generic;
 
 namespace Core.Battle.Outline
 {
@@ -13,23 +13,17 @@ namespace Core.Battle.Outline
         private int _defaultLayer;
         private int _currentBatchID;
         private bool _isActive;
+        private bool _isSnapped;
 
         public void Init(OutlineConfigs outlineConfig)
         {
             _outlineConfig = outlineConfig;
             _childRenderers = GetComponentsInChildren<Renderer>().Where(renderer => (renderer is MeshRenderer || renderer is SkinnedMeshRenderer)).ToList();
-
-            Invoke(nameof(EnableOutline), .2f);
-        }
-
-        private void EnableOutline()
-        {
-            AddObjectsToBatch();
         }
 
         public void AddObjectsToBatch()
         {
-            if (_isActive) return;
+            if (_isActive || _isSnapped) return;
 
             _isActive = true;
 
@@ -39,11 +33,16 @@ namespace Core.Battle.Outline
 
         public void RemoveObjectsFromBatch()
         {
-            if (!_isActive) return;
+            if (!_isActive || _isSnapped) return;
 
             _isActive = false;
 
             OutlineBatchesResolver.RemoveBatch(_currentBatchID);
+        }
+
+        public void SnapOutline(bool isSnap)
+        {
+            _isSnapped = isSnap;
         }
     }
 }

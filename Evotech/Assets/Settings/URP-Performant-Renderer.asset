@@ -78,6 +78,7 @@ MonoBehaviour:
   _renderTextureName: _OutlineRenderTexture
   _renderSettings:
     ShowInSceneView: 1
+    IsClipDepth: 0
   _bluredTextureName: _OutlineBluredTexture
   _blurSettings:
     BlurMaterial: {fileID: 2100000, guid: f4e6dcba2f0ef224eb3bb1841331ebfe, type: 2}

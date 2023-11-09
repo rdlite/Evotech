@@ -1,9 +1,9 @@
-﻿using Core.Units;
+﻿using System;
+using Core.Units;
 using Hexnav.Core;
 using UnityEngine;
-using Core.Settings;
 using Core.Cameras;
-using System;
+using Core.Settings;
 
 namespace Core.StateMachines.Battle
 {

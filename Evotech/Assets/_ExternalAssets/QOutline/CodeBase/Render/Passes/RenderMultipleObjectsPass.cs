@@ -13,11 +13,14 @@ public class RenderMultipleObjectsPass : ScriptableRenderPass
     private List<FilteringSettings> _filteringSettings;
     private RenderStateBlock _renderStateBlock;
     private List<OutlineBatchesResolver.OutlineBatch> _batchesToRender = new List<OutlineBatchesResolver.OutlineBatch>(10);
+    private bool _isClipDepth;
 
-    public RenderMultipleObjectsPass(ref RTHandle destination, ref List<OutlineBatchesResolver.OutlineBatch> batchesToRender)
+    public RenderMultipleObjectsPass(ref RTHandle destination, ref List<OutlineBatchesResolver.OutlineBatch> batchesToRender, bool isClipDepth)
     {
         _destination = destination;
         _batchesToRender = batchesToRender;
+
+        _isClipDepth = isClipDepth;
 
         _filteringSettings = new List<FilteringSettings>(10);
     }
@@ -44,7 +47,16 @@ public class RenderMultipleObjectsPass : ScriptableRenderPass
         RTHandle rtCameraDepth = renderingData.cameraData.renderer.cameraDepthTargetHandle;
 
         cmd.GetTemporaryRT(0, colorDesc);
-        ConfigureTarget(_destination, rtCameraDepth);
+
+        if (_isClipDepth)
+        {
+            ConfigureTarget(_destination, rtCameraDepth);
+        }
+        else
+        {
+            ConfigureTarget(_destination);
+        }
+
         ConfigureClear(ClearFlag.Color, new Color(0, 0, 0, 0));
     }
 

@@ -71,6 +71,7 @@ namespace Core.StateMachines.Battle
             _input.OnRMBUp -= ResetWalkSelection;
             _input.OnMMBDown -= ResetWalkSelection;
             _battleLinesFactory.ClearLines();
+            _currentHoverUnit?.SetActiveOutline(false, false);
         }
 
         private void LMBDown()
@@ -87,9 +88,11 @@ namespace Core.StateMachines.Battle
                 !_input.IsWheelPressed())
             {
                 _currentHoverUnit = unitUnderPointer.ParentUnit;
+                _currentHoverUnit.SetActiveOutline(true, false);
             }
-            else
+            else if (_currentHoverUnit != null)
             {
+                _currentHoverUnit.SetActiveOutline(false, false);
                 _currentHoverUnit = null;
             }
 

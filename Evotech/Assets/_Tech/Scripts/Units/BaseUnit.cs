@@ -22,11 +22,11 @@ namespace Core.Units
         protected IUpdateProvider _updatesProvider;
         protected GhostCreator _ghostCreator;
         protected UnitOutlineController _unitOutlineController;
-        protected bool _isRotateToTarget;
-        protected bool _isRotateWithChildFigure;
         protected Vector3 _targetToRotate;
         private UnitAnimationEventsCatcher _animationEventsCatcher;
         private float _lastRotationTarget;
+        protected bool _isRotateToTarget;
+        protected bool _isRotateWithChildFigure;
 
         [Inject]
         private void Construct(
@@ -120,6 +120,28 @@ namespace Core.Units
         public UnitAnimationEventsCatcher GetEventsCatcher()
         {
             return _animationEventsCatcher;
+        }
+
+        public void SetActiveOutline(bool value, bool interactWithSnap)
+        {
+            if (interactWithSnap && !value)
+            {
+                _unitOutlineController.SnapOutline(false);
+            }
+
+            if (value)
+            {
+                _unitOutlineController.AddObjectsToBatch();
+            }
+            else
+            {
+                _unitOutlineController.RemoveObjectsFromBatch();
+            }
+
+            if (interactWithSnap && value)
+            {
+                _unitOutlineController.SnapOutline(true);
+            }
         }
     }
 }

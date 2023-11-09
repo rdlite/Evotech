@@ -32,11 +32,11 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - DisposedOutline
   - OutlineBlue
   - OutlineRed
   - OutlineGreen
-  - DisposedOutline
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

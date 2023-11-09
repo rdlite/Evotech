@@ -1,8 +1,12 @@
 {
-    "name": "com.Qnject",
+    "name": "com.Qnject.Editor",
     "rootNamespace": "",
-    "references": [],
-    "includePlatforms": [],
+    "references": [
+        "GUID:c2289b05286c4a44baec02a0e3acb516"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

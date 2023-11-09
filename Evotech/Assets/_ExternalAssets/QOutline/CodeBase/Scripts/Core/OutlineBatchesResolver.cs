@@ -15,13 +15,13 @@ namespace QOutline.Core
         private static int ALPHA_COLOR_HASH = Shader.PropertyToID("_AlphaPercentage");
 
         private static OutlineFeature _renderFeature;
-        private static LayerMask _disposeOutlineLayerMaskk;
+        private static LayerMask _disposeOutlineLayerMask;
 
         public OutlineBatchesResolver(
             OutlineFeature renderFeature, LayerMask disposeOutlineLayer)
         {
             _renderFeature = renderFeature;
-            _disposeOutlineLayerMaskk = disposeOutlineLayer;
+            _disposeOutlineLayerMask = disposeOutlineLayer;
         }
 
         public static int AddBacth(OutlineDataToStore data)
@@ -66,9 +66,9 @@ namespace QOutline.Core
             OutlineBatch batch = GetBatchOfID(id);
 
             batch.IsDisposing = true;
-            batch.CurrentRenderLayer = _disposeOutlineLayerMaskk;
+            batch.CurrentRenderLayer = _disposeOutlineLayerMask;
 
-            SetRenderersLayer(batch.Data.Renderers, GetLayerID(_disposeOutlineLayerMaskk));
+            SetRenderersLayer(batch.Data.Renderers, GetLayerID(_disposeOutlineLayerMask));
         }
 
         public void Tick()
@@ -119,7 +119,7 @@ namespace QOutline.Core
             _batches.Remove(batch);
         }
 
-        private static void SetRenderersLayer(List<Renderer> renderers, LayerMask layer)
+        private static void SetRenderersLayer(List<Renderer> renderers, int layer)
         {
             for (int i = 0; i < renderers.Count; i++)
             {

@@ -40,6 +40,8 @@ public class UnitWalkingResolver
     {
         if (unit == null && _currentUnit != null)
         {
+            _currentUnit.SetActiveOutline(false, true);
+
             SetUnitRotationTarget(Vector3.zero, true);
             ClearGhost();
             ClearAllLines();
@@ -47,6 +49,8 @@ public class UnitWalkingResolver
 
         _currentUnit = unit;
         _nodesToWalk = nodesToWalk;
+
+        _currentUnit?.SetActiveOutline(true, true);
     }
 
     public void Update()
