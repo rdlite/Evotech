@@ -3,6 +3,8 @@ using Utils;
 using Qnject;
 using Extensions;
 using UnityEngine;
+using Core.Battle.Outline;
+using QOutline.Configs;
 
 namespace Core.Units
 {
@@ -11,6 +13,7 @@ namespace Core.Units
     public abstract class BaseUnit : MonoBehaviour
     {
         public Enums.UnitType UnitType { get; private set; }
+        public Enums.OutlineType OutlineType { get; private set; }
 
         [SerializeField] protected UnitSettings _unitSettings;
 
@@ -18,6 +21,7 @@ namespace Core.Units
         protected StylesContainer _stylesContainer;
         protected IUpdateProvider _updatesProvider;
         protected GhostCreator _ghostCreator;
+        protected UnitOutlineController _unitOutlineController;
         protected bool _isRotateToTarget;
         protected bool _isRotateWithChildFigure;
         protected Vector3 _targetToRotate;
@@ -25,19 +29,27 @@ namespace Core.Units
         private float _lastRotationTarget;
 
         [Inject]
-        private void Construct(StylesContainer stylesContainer, IUpdateProvider updatesProvider)
+        private void Construct(
+            StylesContainer stylesContainer, IUpdateProvider updatesProvider, OutlinesContainer outlinesContainer)
         {
             _stylesContainer = stylesContainer;
             _updatesProvider = updatesProvider;
-            _updatesProvider.AddUpdate(Tick);
+
             _baseAnimator = GetComponent<BaseUnitAnimator>();
             _ghostCreator = GetComponent<GhostCreator>();
             _animationEventsCatcher = GetComponentInChildren<UnitAnimationEventsCatcher>();
+            _unitOutlineController = GetComponentInChildren<UnitOutlineController>();
+
+            _unitOutlineController.Init(outlinesContainer.GetOutlineOfType(OutlineType));
+
+            _updatesProvider.AddUpdate(Tick);
         }
 
-        public virtual void Init(Enums.UnitType unitType)
+        public virtual void Init(
+            Enums.UnitType unitType, Enums.OutlineType outlineType)
         {
             UnitType = unitType;
+            OutlineType = outlineType;
             _lastRotationTarget = transform.eulerAngles.y;
         }
 

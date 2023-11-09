@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8305560771601076319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652a4c07ec3ba1e4b8c7a90cc4551780, type: 3}
+  m_Name: OutlineFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  _renderTextureName: _OutlineRenderTexture
+  _renderSettings:
+    ShowInSceneView: 1
+  _bluredTextureName: _OutlineBluredTexture
+  _blurSettings:
+    BlurMaterial: {fileID: 2100000, guid: f4e6dcba2f0ef224eb3bb1841331ebfe, type: 2}
+    DownSample: 2
+    PassesCount: 4
+  _outlineMaterial: {fileID: 2100000, guid: 88d7b72ebd3eb3147a28af1e2d1b946e, type: 2}
+  _renderPassEvent: 550
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +77,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 5522593218922709444}
-  m_RendererFeatureMap: adc0de57c6d2eee5c481decc4531a44c
+  - {fileID: -8305560771601076319}
+  m_RendererFeatureMap: adc0de57c6d2eee5c481decc4531a44ca16f4ca47bb8bc8c
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}

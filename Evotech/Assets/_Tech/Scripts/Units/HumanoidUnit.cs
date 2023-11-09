@@ -17,9 +17,9 @@ namespace Core.Units
         private WeaponStyle _weaponStyle;
         private float _lastLocalRotationTarget;
 
-        public override void Init(Enums.UnitType unitType)
+        public override void Init(Enums.UnitType unitType, Enums.OutlineType outlineType)
         {
-            base.Init(unitType);
+            base.Init(unitType, outlineType);
 
             _raycastTrigger = GetComponentInChildren<UnitRaycastTrigger>();
             _raycastTrigger.OnClicked += () => OnUnitClicked?.Invoke();

@@ -14,18 +14,18 @@ namespace Core.Factories
             _assetsContainer = assetsContainer;
         }
 
-        public BaseUnit Create(NodeBase spawnNode, Enums.UnitType unitType)
+        public BaseUnit Create(NodeBase spawnNode, Enums.UnitType unitType, Enums.OutlineType outlineType)
         {
             BaseUnit newUnit = QnjectPrefabsFactory.CreatePrefab(_assetsContainer.UnitAssets.TestUnit);
             newUnit.transform.position = spawnNode.WorldPos + spawnNode.SurfaceOffset;
             newUnit.transform.forward = spawnNode.WorldObject.forward;
-            newUnit.Init(unitType);
+            newUnit.Init(unitType, outlineType);
             return newUnit;
         }
     }
 
     public interface IUnitsFactory
     {
-        BaseUnit Create(NodeBase spawnNode, Enums.UnitType unitType);
+        BaseUnit Create(NodeBase spawnNode, Enums.UnitType unitType, Enums.OutlineType outlineType);
     }
 }

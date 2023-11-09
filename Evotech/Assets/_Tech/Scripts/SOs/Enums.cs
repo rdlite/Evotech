@@ -17,6 +17,14 @@
             Player = 3,
         }
 
+        public enum OutlineType
+        {
+            None = -1,
+            PlayerAlly = 0,
+            Enemy = 1,
+            Player = 3,
+        }
+
         public enum UnitRelation
         {
             None = -1,
