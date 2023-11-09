@@ -8,6 +8,7 @@ using Core.Battle;
 using Core.Cameras;
 using Utils.Battle;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 
 public class UnitWalkingResolver
 {
@@ -42,7 +43,7 @@ public class UnitWalkingResolver
         {
             _currentUnit.SetActiveOutline(false, true);
 
-            SetUnitRotationTarget(Vector3.zero, true);
+            SetUnitRotationTarget(Vector3.zero, false);
             ClearGhost();
             ClearAllLines();
         }

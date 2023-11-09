@@ -63,5 +63,10 @@ namespace Core.Units
         {
             _spirit.GetAnimator().PlayMeleeAttack();
         }
+
+        public override void PerformAttackedImpact()
+        {
+            _spirit.GetAnimator().PlayAttackedImpact();
+        }
     }
 }

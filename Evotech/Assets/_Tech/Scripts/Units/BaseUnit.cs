@@ -102,6 +102,8 @@ namespace Core.Units
 
         public abstract void PerformMeleeAttack();
 
+        public abstract void PerformAttackedImpact();
+
         public float GetWalkRange()
         {
             return _unitSettings.WalkDistance;

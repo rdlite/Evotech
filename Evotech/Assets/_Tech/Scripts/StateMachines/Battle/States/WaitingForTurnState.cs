@@ -142,8 +142,8 @@ namespace Core.StateMachines.Battle
                 }
                 else
                 {
-                    attackCallback.Invoke();
                     ResetWalkSelection();
+                    attackCallback?.Invoke();
                 }
             }
             else
@@ -175,9 +175,9 @@ namespace Core.StateMachines.Battle
                 _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint()),
                 callback);
 
-            _battleSM.Enter<UnitMovementState, UnitMovementState.MovementData>(movementData);
-
             ResetWalkSelection();
+
+            _battleSM.Enter<UnitMovementState, UnitMovementState.MovementData>(movementData);
         }
 
         private bool IsWalkingAndClickedOnEnemy()

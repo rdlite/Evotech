@@ -1,6 +1,4 @@
 using Utils;
-using Core.Data;
-using UnityEngine;
 using Core.StateMachines;
 
 namespace Core.Infrastructure

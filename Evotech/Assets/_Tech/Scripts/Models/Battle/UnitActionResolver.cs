@@ -13,7 +13,6 @@ namespace Core.Battle
         {
             _actionDesc = actionDesc;
             SetActorRotationSnap();
-            _actionDesc.Actor.GetEventsCatcher().OnAttacked += ActionEvent;
             _actionDesc.Actor.GetEventsCatcher().OnAnimationFinished += FinishAction;
             PerformAction();
         }
@@ -22,6 +21,7 @@ namespace Core.Battle
         {
             if (_actionDesc is ActionMeleeAttack)
             {
+                _actionDesc.Actor.GetEventsCatcher().OnAttacked += ActionEvent;
                 _actionDesc.Actor.PerformMeleeAttack();
             }
         }
@@ -29,7 +29,12 @@ namespace Core.Battle
         private void FinishAction()
         {
             UnsnapActorRotation();
-            _actionDesc.Actor.GetEventsCatcher().OnAttacked -= ActionEvent;
+
+            if (_actionDesc is ActionMeleeAttack)
+            {
+                _actionDesc.Actor.GetEventsCatcher().OnAttacked -= ActionEvent;
+            }
+
             _actionDesc.Actor.GetEventsCatcher().OnAnimationFinished -= FinishAction;
             OnFinished?.Invoke();
         }
@@ -49,6 +54,13 @@ namespace Core.Battle
 
         private void ActionEvent()
         {
+            if (_actionDesc is ActionMeleeAttack)
+            {
+                foreach (var unitsInAttack in _actionDesc.SubjectUnits)
+                {
+                    unitsInAttack.PerformAttackedImpact();
+                }
+            }
         }
     }
 }
