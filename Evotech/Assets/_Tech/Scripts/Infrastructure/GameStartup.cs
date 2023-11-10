@@ -41,7 +41,7 @@ namespace Core.Infrastructure
             IRaycaster raycaster = CreateRaycaster(input);
             ICursorController cursorController = CreateCursorController(input);
             ICurtain curtain = CreateCurtain();
-            IUnitStatsProvider statsProvider = CreateStatsProvider();
+            IUnitStaticStatsProvider statsProvider = CreateStatsProvider();
             LoadGlobalStateMachine(gameFactory, curtain);
         }
 
@@ -109,10 +109,10 @@ namespace Core.Infrastructure
             return cursorController;
         }
 
-        private IUnitStatsProvider CreateStatsProvider()
+        private IUnitStaticStatsProvider CreateStatsProvider()
         {
-            UnitStatsProvider statsProvider = new UnitStatsProvider(_unitSettingsContainer);
-            _projectInstaller.BindAsSingle<IUnitStatsProvider>(statsProvider);
+            UnitStaticStatsProvider statsProvider = new UnitStaticStatsProvider(_unitSettingsContainer);
+            _projectInstaller.BindAsSingle<IUnitStaticStatsProvider>(statsProvider);
             return statsProvider;
         }
 

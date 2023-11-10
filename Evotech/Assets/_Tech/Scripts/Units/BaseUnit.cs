@@ -15,6 +15,8 @@ namespace Core.Units
         public Enums.UnitType UnitType { get; private set; }
         public Enums.UnitClass UnitClass { get; private set; }
         public Enums.OutlineType OutlineType { get; private set; }
+        public IUnitDynamicStatsProvider DynamicStatsProvider { get; private set; }
+        public IUnitStaticStatsProvider StaticStatsProvider { get; private set; }
 
         [SerializeField] private Enums.UnitGeneralType _unitGeneralType;
 
@@ -24,7 +26,6 @@ namespace Core.Units
         protected IUpdateProvider _updatesProvider;
         protected GhostCreator _ghostCreator;
         protected UnitOutlineController _unitOutlineController;
-        protected IUnitStatsProvider _statsProvider;
         protected Vector3 _targetToRotate;
         private UnitAnimationEventsCatcher _animationEventsCatcher;
         private UnitSettingsContainer _unitSettingsContainer;
@@ -35,12 +36,12 @@ namespace Core.Units
         [Inject]
         private void Construct(
             StylesContainer stylesContainer, IUpdateProvider updatesProvider, OutlinesContainer outlinesContainer,
-            UnitSettingsContainer unitSettingsContainer, IUnitStatsProvider statsProvider)
+            UnitSettingsContainer unitSettingsContainer, IUnitStaticStatsProvider statsProvider)
         {
             _stylesContainer = stylesContainer;
             _updatesProvider = updatesProvider;
             _unitSettingsContainer = unitSettingsContainer;
-            _statsProvider = statsProvider;
+            StaticStatsProvider = statsProvider;
 
             _baseAnimator = GetComponent<BaseUnitAnimator>();
             _ghostCreator = GetComponent<GhostCreator>();
@@ -62,6 +63,8 @@ namespace Core.Units
             _unitSettings = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass);
 
             _lastRotationTarget = transform.eulerAngles.y;
+
+            CreateStatsModel();
         }
 
         private void OnEnable()
@@ -133,13 +136,38 @@ namespace Core.Units
             }
         }
 
+        public virtual void KillUnit()
+        {
+            Destroy(gameObject);
+        }
+
         public abstract void PerformMeleeAttack();
 
         public abstract void PerformAttackedImpact();
 
+        private void CreateStatsModel()
+        {
+            UnitStatsModel statsModel = new UnitStatsModel
+            {
+                MaxHealth = StaticStatsProvider.GetMaxHealth(_unitGeneralType, UnitClass),
+                CurrentHealth = StaticStatsProvider.GetMaxHealth(_unitGeneralType, UnitClass),
+                MaxArmor = 10f,
+                CurrentArmor = 10f,
+                WalkRange = StaticStatsProvider.GetWalkRange(_unitGeneralType, UnitClass)
+            };
+
+            DynamicStatsProvider = new UnitDynamicStatsProvider(statsModel);
+            DynamicStatsProvider.OnHealthZeroed += KillUnit;
+        }
+
         public float GetWalkRange()
         {
-            return _statsProvider.GetWalkRange(_unitGeneralType, UnitClass);
+            return StaticStatsProvider.GetWalkRange(_unitGeneralType, UnitClass);
+        }
+
+        public float GetAtackDamage()
+        {
+            return StaticStatsProvider.GetAtackDamage(_unitGeneralType, UnitClass);
         }
 
         public BaseUnitAnimator GetBaseAnimator()

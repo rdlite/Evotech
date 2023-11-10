@@ -1,3 +1,4 @@
+using Core.Data;
 using System;
 using UnityEngine;
 
@@ -66,6 +67,10 @@ namespace Core.Battle
             {
                 foreach (var unitsInAttack in _actionDesc.SubjectUnits)
                 {
+                    unitsInAttack.DynamicStatsProvider.TakeDamage(new InstantDamageInfo
+                    {
+                        Damage = (_actionDesc as ActionMeleeAttack).Damage
+                    });
                     unitsInAttack.PerformAttackedImpact();
                 }
             }

@@ -119,7 +119,7 @@ namespace Core.StateMachines.Battle
                 {
                     ActionMeleeAttack actionInfo = new ActionMeleeAttack();
                     actionInfo.Actor = currentWalkingUnit;
-                    actionInfo.Damage = 10f;
+                    actionInfo.Damage = currentWalkingUnit.GetAtackDamage();
                     actionInfo.SubjectUnits = new List<BaseUnit>() { currentHoverUnit };
 
                     _battleSM.Enter<UnitsActionState, ActionInfo>(actionInfo);

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: MeleeOneHandSword
   m_EditorClassIdentifier: 
   WeaponID: 0
-  WalkDistance: 5
+  HealthMultiplier: 1
+  MoveRangeMultiplier: 1
+  AttackDamage: 5

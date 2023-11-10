@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18622a9258535ae4a9693a3b2ac932d0, type: 3}
   m_Name: Spirit
   m_EditorClassIdentifier: 
-  DefaultHealth: 100
+  DefaultHealth: 20
   DefaultWalkRange: 5
