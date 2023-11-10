@@ -23,6 +23,10 @@ namespace Core.Battle
             {
                 _actionDesc.Actor.GetEventsCatcher().OnAttacked += ActionEvent;
                 _actionDesc.Actor.PerformMeleeAttack();
+                if (_actionDesc.SubjectUnits.Count == 1)
+                {
+                    _actionDesc.SubjectUnits[0].SetTargetRotation(_actionDesc.Actor.transform.position, false);
+                }
             }
         }
 
@@ -33,6 +37,10 @@ namespace Core.Battle
             if (_actionDesc is ActionMeleeAttack)
             {
                 _actionDesc.Actor.GetEventsCatcher().OnAttacked -= ActionEvent;
+                if (_actionDesc.SubjectUnits.Count == 1)
+                {
+                    _actionDesc.SubjectUnits[0].SetTargetRotation(Vector3.zero, false);
+                }
             }
 
             _actionDesc.Actor.GetEventsCatcher().OnAnimationFinished -= FinishAction;

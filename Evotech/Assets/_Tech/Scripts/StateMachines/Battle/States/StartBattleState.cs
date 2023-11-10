@@ -57,15 +57,23 @@ namespace Core.StateMachines.Battle
         {
             if (tag == StringConstants.PLAYER_MAP_TAG)
             {
-                BaseUnit unit = _unitsFactory.Create(node, Enums.UnitType.Player, Enums.OutlineType.Player);
+                BaseUnit unit = _unitsFactory.Create(
+                    node, Enums.UnitType.Player, Enums.UnitClass.MeleeOneHandSword, 
+                    Enums.OutlineType.Player);
+
                 _battleObserver.AddUnit(unit);
+
                 _playerNodeToLookup = node.WorldObject;
                 node.NonwalkableFactors++;
             }
             else if (tag == StringConstants.DEFAULT_ENEMY_MAP_TAG)
             {
-                BaseUnit unit = _unitsFactory.Create(node, Enums.UnitType.EnemyRed, Enums.OutlineType.Enemy);
+                BaseUnit unit = _unitsFactory.Create(
+                    node, Enums.UnitType.EnemyRed, Enums.UnitClass.MeleeOneHandSword, 
+                    Enums.OutlineType.Enemy);
+
                 _battleObserver.AddUnit(unit);
+
                 node.NonwalkableFactors++;
             }
         }

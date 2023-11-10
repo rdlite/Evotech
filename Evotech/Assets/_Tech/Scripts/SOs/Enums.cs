@@ -8,6 +8,11 @@
             OneHandSword = 0,
         }
 
+        public enum UnitGeneralType
+        {
+            HumanoidSpirit = 0,
+        }
+
         public enum UnitType
         {
             None = -1,
@@ -51,6 +56,12 @@
         {
             None = -1,
             Attack = 0,
+        }
+
+        public enum UnitClass
+        {
+            None = -1,
+            MeleeOneHandSword = 0,
         }
     }
 }

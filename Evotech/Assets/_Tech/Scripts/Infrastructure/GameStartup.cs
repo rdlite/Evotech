@@ -14,17 +14,20 @@ namespace Core.Infrastructure
         private AssetsContainer _assetsContainer;
         private GameSettings _gameSettings;
         private MapTextsContainer _mapsContainer;
+        private UnitSettingsContainer _unitSettingsContainer;
         private GameStateMachineLoader _gameStateMachine;
         private UpdatesProvider _updateProvider;
         private Container _projectInstaller;
 
         [Inject]
         private void Contruct(
-            AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer)
+            AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
+            UnitSettingsContainer unitSettingsContainer)
         {
             _assetsContainer = assetsContainer;
             _gameSettings = gameSettings;
             _mapsContainer = mapsContainer;
+            _unitSettingsContainer = unitSettingsContainer;
         }
 
         public void Init(Container projectInstaller)
@@ -38,6 +41,7 @@ namespace Core.Infrastructure
             IRaycaster raycaster = CreateRaycaster(input);
             ICursorController cursorController = CreateCursorController(input);
             ICurtain curtain = CreateCurtain();
+            IUnitStatsProvider statsProvider = CreateStatsProvider();
             LoadGlobalStateMachine(gameFactory, curtain);
         }
 
@@ -103,6 +107,13 @@ namespace Core.Infrastructure
             CursorController cursorController = new CursorController(input);
             _projectInstaller.BindAsSingle<ICursorController>(cursorController);
             return cursorController;
+        }
+
+        private IUnitStatsProvider CreateStatsProvider()
+        {
+            UnitStatsProvider statsProvider = new UnitStatsProvider(_unitSettingsContainer);
+            _projectInstaller.BindAsSingle<IUnitStatsProvider>(statsProvider);
+            return statsProvider;
         }
 
         private void LoadGlobalStateMachine(IGameFactory gameFactory, ICurtain curtain)

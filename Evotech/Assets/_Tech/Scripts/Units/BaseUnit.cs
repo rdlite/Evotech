@@ -1,10 +1,10 @@
-﻿using Core.Data;
-using Utils;
+﻿using Utils;
 using Qnject;
+using Core.Data;
 using Extensions;
 using UnityEngine;
-using Core.Battle.Outline;
 using QOutline.Configs;
+using Core.Battle.Outline;
 
 namespace Core.Units
 {
@@ -13,27 +13,34 @@ namespace Core.Units
     public abstract class BaseUnit : MonoBehaviour
     {
         public Enums.UnitType UnitType { get; private set; }
+        public Enums.UnitClass UnitClass { get; private set; }
         public Enums.OutlineType OutlineType { get; private set; }
 
-        [SerializeField] protected UnitSettings _unitSettings;
+        [SerializeField] private Enums.UnitGeneralType _unitGeneralType;
 
+        protected ClassSettings _unitSettings;
         protected BaseUnitAnimator _baseAnimator;
         protected StylesContainer _stylesContainer;
         protected IUpdateProvider _updatesProvider;
         protected GhostCreator _ghostCreator;
         protected UnitOutlineController _unitOutlineController;
+        protected IUnitStatsProvider _statsProvider;
         protected Vector3 _targetToRotate;
         private UnitAnimationEventsCatcher _animationEventsCatcher;
+        private UnitSettingsContainer _unitSettingsContainer;
         private float _lastRotationTarget;
         protected bool _isRotateToTarget;
         protected bool _isRotateWithChildFigure;
 
         [Inject]
         private void Construct(
-            StylesContainer stylesContainer, IUpdateProvider updatesProvider, OutlinesContainer outlinesContainer)
+            StylesContainer stylesContainer, IUpdateProvider updatesProvider, OutlinesContainer outlinesContainer,
+            UnitSettingsContainer unitSettingsContainer, IUnitStatsProvider statsProvider)
         {
             _stylesContainer = stylesContainer;
             _updatesProvider = updatesProvider;
+            _unitSettingsContainer = unitSettingsContainer;
+            _statsProvider = statsProvider;
 
             _baseAnimator = GetComponent<BaseUnitAnimator>();
             _ghostCreator = GetComponent<GhostCreator>();
@@ -46,10 +53,14 @@ namespace Core.Units
         }
 
         public virtual void Init(
-            Enums.UnitType unitType, Enums.OutlineType outlineType)
+            Enums.UnitType unitType, Enums.UnitClass unitClass, Enums.OutlineType outlineType)
         {
             UnitType = unitType;
+            UnitClass = unitClass;
             OutlineType = outlineType;
+
+            _unitSettings = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass);
+
             _lastRotationTarget = transform.eulerAngles.y;
         }
 
@@ -100,30 +111,6 @@ namespace Core.Units
             }
         }
 
-        public abstract void PerformMeleeAttack();
-
-        public abstract void PerformAttackedImpact();
-
-        public float GetWalkRange()
-        {
-            return _unitSettings.WalkDistance;
-        }
-
-        public BaseUnitAnimator GetBaseAnimator()
-        {
-            return _baseAnimator;
-        }
-
-        public GhostCopy CreateGhostCopy()
-        {
-            return _ghostCreator.CreateGhostCopy();
-        }
-
-        public UnitAnimationEventsCatcher GetEventsCatcher()
-        {
-            return _animationEventsCatcher;
-        }
-
         public void SetActiveOutline(bool value, bool interactWithSnap)
         {
             if (interactWithSnap && !value)
@@ -144,6 +131,30 @@ namespace Core.Units
             {
                 _unitOutlineController.SnapOutline(true);
             }
+        }
+
+        public abstract void PerformMeleeAttack();
+
+        public abstract void PerformAttackedImpact();
+
+        public float GetWalkRange()
+        {
+            return _statsProvider.GetWalkRange(_unitGeneralType, UnitClass);
+        }
+
+        public BaseUnitAnimator GetBaseAnimator()
+        {
+            return _baseAnimator;
+        }
+
+        public GhostCopy CreateGhostCopy()
+        {
+            return _ghostCreator.CreateGhostCopy();
+        }
+
+        public UnitAnimationEventsCatcher GetEventsCatcher()
+        {
+            return _animationEventsCatcher;
         }
     }
 }
