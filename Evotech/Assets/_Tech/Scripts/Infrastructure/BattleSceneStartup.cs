@@ -10,6 +10,7 @@ using Core.InputSystem;
 using Core.StateMachines;
 using Cysharp.Threading.Tasks;
 using Core.StateMachines.Battle;
+using Core.UI;
 
 namespace Core.Infrastructure
 {
@@ -24,6 +25,7 @@ namespace Core.Infrastructure
         private IRaycaster _raycaster;
         private IUpdateProvider _updateProvider;
         private IInput _input;
+        private IUICanvasesResolver _canvasesResolver;
         private Container _sceneInstaller;
         private IMapDataProvider _mapDataProvider;
         private IWalkFieldVisualizer _walkFieldVisualizer;
@@ -34,7 +36,8 @@ namespace Core.Infrastructure
         private void Construct(
             AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
             IGameFactory gameFactory, ICurtain curtain, IRaycaster raycaster,
-            IUpdateProvider updateProvider, IInput input, StylesContainer stylesContainer)
+            IUpdateProvider updateProvider, IInput input, StylesContainer stylesContainer,
+            IUICanvasesResolver canvasesResolver)
         {
             _stylesContainer = stylesContainer;
             _assetsContainer = assetsContainer;
@@ -45,6 +48,7 @@ namespace Core.Infrastructure
             _raycaster = raycaster;
             _updateProvider = updateProvider;
             _input = input;
+            _canvasesResolver = canvasesResolver;
 
             _updateProvider.AddUpdate(Tick);
             _updateProvider.AddFixedUpdate(FixedTick);
@@ -96,6 +100,10 @@ namespace Core.Infrastructure
             await UniTask.Delay(100);
 
             _curtain.TriggerCurtain(false, false);
+
+            await UniTask.Delay(1000);
+
+            _canvasesResolver.OpenCanvas(Enums.UICanvasType.Battle, false);
         }
 
         private void Tick()

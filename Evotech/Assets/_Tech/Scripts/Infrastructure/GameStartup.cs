@@ -6,6 +6,7 @@ using Core.Settings;
 using Core.Curtains;
 using Core.Factories;
 using Core.InputSystem;
+using Core.UI;
 
 namespace Core.Infrastructure
 {
@@ -42,6 +43,7 @@ namespace Core.Infrastructure
             ICursorController cursorController = CreateCursorController(input);
             ICurtain curtain = CreateCurtain();
             IUnitStaticStatsProvider statsProvider = CreateStatsProvider();
+            IUICanvasesResolver canvasesResolver = CreateCanvasesResolver();
             LoadGlobalStateMachine(gameFactory, curtain);
         }
 
@@ -114,6 +116,13 @@ namespace Core.Infrastructure
             UnitStaticStatsProvider statsProvider = new UnitStaticStatsProvider(_unitSettingsContainer);
             _projectInstaller.BindAsSingle<IUnitStaticStatsProvider>(statsProvider);
             return statsProvider;
+        }
+        
+        private IUICanvasesResolver CreateCanvasesResolver()
+        {
+            UICanvasesResolver canvasesResolver = new UICanvasesResolver();
+            _projectInstaller.BindAsSingle<IUICanvasesResolver>(canvasesResolver);
+            return canvasesResolver;
         }
 
         private void LoadGlobalStateMachine(IGameFactory gameFactory, ICurtain curtain)

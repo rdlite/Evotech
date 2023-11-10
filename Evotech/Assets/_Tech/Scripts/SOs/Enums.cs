@@ -63,5 +63,13 @@
             None = -1,
             MeleeOneHandSword = 0,
         }
+
+        public enum UICanvasType
+        {
+            None = -1,
+            Menu = 0,
+            Novel = 1,
+            Battle = 2,
+        }
     }
 }
