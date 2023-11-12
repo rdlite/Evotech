@@ -89,12 +89,12 @@ namespace Core.StateMachines.Battle
             {
                 _currentHoverUnit = unitUnderPointer.ParentUnit;
                 _currentHoverUnit.SetActiveOutline(true, false);
-                _battleObserver.ShowUIStatsInfo(_currentHoverUnit, true);
+                _battleObserver.HighlightUIStatsInfo(_currentHoverUnit, true);
             }
             else if (_currentHoverUnit != null)
             {
                 _currentHoverUnit.SetActiveOutline(false, false);
-                _battleObserver.HideStatsInfo(_currentHoverUnit, false);
+                _battleObserver.HideStatsInfo(_currentHoverUnit, false, false);
                 _currentHoverUnit = null;
             }
 

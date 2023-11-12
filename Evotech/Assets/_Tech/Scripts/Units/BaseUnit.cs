@@ -1,12 +1,11 @@
 ﻿using Utils;
 using Qnject;
+using System;
 using Core.Data;
 using Extensions;
 using UnityEngine;
 using QOutline.Configs;
 using Core.Battle.Outline;
-using System;
-using Unity.VisualScripting;
 
 namespace Core.Units
 {
@@ -16,6 +15,7 @@ namespace Core.Units
     {
         public event Action OnDead;
 
+        public bool IsDead { get; private set; }
         public Enums.UnitType UnitType { get; private set; }
         public Enums.UnitClass UnitClass { get; private set; }
         public Enums.OutlineType OutlineType { get; private set; }
@@ -144,6 +144,7 @@ namespace Core.Units
         public virtual void KillUnit()
         {
             OnDead?.Invoke();
+            IsDead = true;
             Destroy(gameObject);
         }
 

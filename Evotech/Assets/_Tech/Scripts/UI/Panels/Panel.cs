@@ -4,6 +4,11 @@ namespace Core.UI
 {
     public abstract class Panel : MonoBehaviour
     {
+        protected virtual void Awake()
+        {
+
+        }
+
         public virtual void Show()
         {
             gameObject.SetActive(true);

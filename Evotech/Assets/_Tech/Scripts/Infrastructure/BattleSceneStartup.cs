@@ -109,6 +109,7 @@ namespace Core.Infrastructure
 
             _canvasesResolver.OpenCanvas(Enums.UICanvasType.Battle, false);
             _uiStatsController.Init();
+            _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<MainBattlePanel>().InitBattleObserver(_battleObserver);
         }
 
         private void Tick()
