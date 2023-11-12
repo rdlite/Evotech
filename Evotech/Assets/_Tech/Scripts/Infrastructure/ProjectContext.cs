@@ -1,4 +1,5 @@
 using Qnject;
+using UnityEngine;
 
 namespace Core.Infrastructure 
 {
@@ -8,6 +9,14 @@ namespace Core.Infrastructure
         {
             GameStartup startup = FindObjectOfType<GameStartup>();
             startup.Init(_container);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
     }
 }

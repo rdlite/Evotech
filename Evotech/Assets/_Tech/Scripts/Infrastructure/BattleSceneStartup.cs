@@ -101,7 +101,7 @@ namespace Core.Infrastructure
 
             _curtain.TriggerCurtain(false, false);
 
-            await UniTask.Delay(1000);
+            await UniTask.Delay(500);
 
             _canvasesResolver.OpenCanvas(Enums.UICanvasType.Battle, false);
         }
@@ -140,7 +140,8 @@ namespace Core.Infrastructure
             return new BattleStateMachine(
                 unitsFactory, _mapDataProvider, camera,
                 battleObserver, _raycaster, _input,
-                _walkFieldVisualizer, _gameSettings.BattleSettings, _battleLinesFactory);
+                _walkFieldVisualizer, _gameSettings.BattleSettings, _battleLinesFactory,
+                _canvasesResolver);
         }
 
         private IBattleLinesFactory CreateBattleLinesFactory(StylesContainer stylesContainer, AssetsContainer assetsContainer)

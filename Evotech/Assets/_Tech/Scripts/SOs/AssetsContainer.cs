@@ -5,6 +5,7 @@ using Core.Cameras;
 using Core.Curtains;
 using Core.Particles;
 using Core.Battle;
+using Core.UI.Elements;
 
 namespace Core.Data
 {
@@ -18,6 +19,7 @@ namespace Core.Data
         public UnitAssets UnitAssets;
         public BattlePrefabs BattlePrefabs;
         public ArmorPrebafs ArmorPrebafs;
+        public UIElements UIElements;
     }
 
     [System.Serializable]
@@ -58,5 +60,11 @@ namespace Core.Data
             public Enums.SpiritArmorPointType ArmorType;
             public ThreeDObjectExploder[] Prefabs;
         }
+    }
+
+    [System.Serializable]
+    public class UIElements
+    {
+        public UnitStatsInfo UnitStatsInfo;
     }
 }

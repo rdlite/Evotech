@@ -7,8 +7,9 @@ namespace Core.UI
     {
         [SerializeField] private CanvasGroup _canvasGroup;
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 

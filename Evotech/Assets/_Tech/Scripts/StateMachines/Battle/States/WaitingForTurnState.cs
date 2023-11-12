@@ -7,6 +7,7 @@ using UnityEngine;
 using Core.Data;
 using Hexnav.Core;
 using System.Collections.Generic;
+using Core.UI;
 
 namespace Core.StateMachines.Battle
 {
@@ -23,13 +24,14 @@ namespace Core.StateMachines.Battle
 
         private BaseUnit _currentHoverUnit;
         private UnitWalkingResolver _unitWalkingResolver;
+        private IUICanvasesResolver _uICanvasesResolver;
         private float _timeForClick;
         private bool _isClicked;
 
         public WaitingForTurnState(
             BattleObserver battleObserver, IRaycaster raycaster, CameraController camera, 
             IInput input, StateMachine battleSM, IWalkFieldVisualizer walkFieldVisualizer,
-            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory)
+            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory, IUICanvasesResolver uICanvasesResolver)
         {
             _battleObserver = battleObserver;
             _raycaster = raycaster;
@@ -42,6 +44,7 @@ namespace Core.StateMachines.Battle
             _unitWalkingResolver = new UnitWalkingResolver(
                 raycaster, camera, walkFieldVisualizer,
                 battleLinesFactory, mapDataProvider);
+            _uICanvasesResolver = uICanvasesResolver;
         }
 
         public void Enter()

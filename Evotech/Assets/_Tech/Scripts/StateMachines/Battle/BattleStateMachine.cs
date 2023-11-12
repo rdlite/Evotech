@@ -1,5 +1,6 @@
 using Utils;
 using System;
+using Core.UI;
 using Core.Data;
 using Core.Battle;
 using Core.Cameras;
@@ -16,7 +17,8 @@ namespace Core.StateMachines
         public BattleStateMachine(
             IUnitsFactory unitsFactory, IMapDataProvider mapDataProvider, CameraController camera,
             BattleObserver battleObserver, IRaycaster raycaster, IInput input,
-            IWalkFieldVisualizer walkFieldVisualizer, BattleSettings battleSettings, IBattleLinesFactory battleLinesFactory)
+            IWalkFieldVisualizer walkFieldVisualizer, BattleSettings battleSettings, IBattleLinesFactory battleLinesFactory,
+            IUICanvasesResolver canvasesResolver)
         {
             _states = new Dictionary<Type, IExitableState>()
             {
@@ -26,7 +28,7 @@ namespace Core.StateMachines
                 [typeof(WaitingForTurnState)] = new WaitingForTurnState(
                     battleObserver, raycaster, camera,
                     input, this, walkFieldVisualizer,
-                    mapDataProvider, battleLinesFactory),
+                    mapDataProvider, battleLinesFactory, canvasesResolver),
                 [typeof(UnitMovementState)] = new UnitMovementState(
                     this, battleSettings, camera),
                 [typeof(UnitsActionState)] = new UnitsActionState(

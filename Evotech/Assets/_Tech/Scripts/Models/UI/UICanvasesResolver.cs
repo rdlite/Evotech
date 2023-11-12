@@ -33,6 +33,19 @@ namespace Core.UI
             }
         }
 
+        public AbstractCanvas GetCanvas<TCanvas>() where TCanvas : AbstractCanvas
+        {
+            foreach (var canvas in _currentCanvases)
+            {
+                if (canvas.Value.GetType() == typeof(TCanvas))
+                {
+                    return canvas.Value as TCanvas;
+                }
+            }
+
+            return null;
+        }
+
         public void Clear()
         {
             foreach (var canvas in _currentCanvases)
@@ -47,6 +60,7 @@ namespace Core.UI
     public interface IUICanvasesResolver
     {
         void OpenCanvas(Enums.UICanvasType canvasType, bool withDontDestroy);
+        AbstractCanvas GetCanvas<TCanvas>() where TCanvas : AbstractCanvas;
         void Clear();
     }
 }
