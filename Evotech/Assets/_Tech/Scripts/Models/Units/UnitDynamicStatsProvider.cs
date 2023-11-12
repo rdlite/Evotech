@@ -6,6 +6,7 @@ namespace Core.Data
     public class UnitDynamicStatsProvider : IUnitDynamicStatsProvider
     {
         public event Action OnHealthZeroed;
+        public event Action<UnitStatsModel> OnModelChanged;
 
         private UnitStatsModel _stats;
 
@@ -23,6 +24,8 @@ namespace Core.Data
 
             float damage = damageInfo.Damage;
             _stats.CurrentHealth -= damage;
+
+            OnModelChanged?.Invoke(_stats);
 
             if (_stats.CurrentHealth <= 0f)
             {
@@ -44,6 +47,7 @@ namespace Core.Data
     public interface IUnitDynamicStatsProvider
     {
         public event Action OnHealthZeroed;
+        public event Action<UnitStatsModel> OnModelChanged;
 
         public void TakeDamage(InstantDamageInfo damageInfo);
         public float GetHealthPercentage();

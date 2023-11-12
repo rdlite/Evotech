@@ -11,6 +11,7 @@ using Core.StateMachines;
 using Cysharp.Threading.Tasks;
 using Core.StateMachines.Battle;
 using Core.UI;
+using Core.UI.Models;
 
 namespace Core.Infrastructure
 {
@@ -28,7 +29,9 @@ namespace Core.Infrastructure
         private IUICanvasesResolver _canvasesResolver;
         private Container _sceneInstaller;
         private IMapDataProvider _mapDataProvider;
+        private IUnitsUIStatsController _uiStatsController;
         private IWalkFieldVisualizer _walkFieldVisualizer;
+        private BattleObserver _battleObserver;
         private IBattleLinesFactory _battleLinesFactory;
         private BattleStateMachine _battleSM;
 
@@ -82,17 +85,18 @@ namespace Core.Infrastructure
             IUnitsFactory unitsFactory = new UnitsFactory(_assetsContainer);
 
             _mapDataProvider = CreateMap(landscapeSettings);
+            _uiStatsController = CreateUIStatsController();
 
             _walkFieldVisualizer = new WalkFieldVisualizer(_assetsContainer);
 
             CameraController camera = CreateCamera(Vector3.zero);
 
-            BattleObserver battleObserver = new BattleObserver();
+            _battleObserver = new BattleObserver(_uiStatsController);
 
             _battleLinesFactory = CreateBattleLinesFactory(_stylesContainer, _assetsContainer);
 
             _battleSM = CreateStateMachine(
-                unitsFactory, camera, battleObserver,
+                unitsFactory, camera, _battleObserver,
                 _battleLinesFactory);
 
             _battleSM.Enter<StartBattleState>();
@@ -104,11 +108,13 @@ namespace Core.Infrastructure
             await UniTask.Delay(500);
 
             _canvasesResolver.OpenCanvas(Enums.UICanvasType.Battle, false);
+            _uiStatsController.Init();
         }
 
         private void Tick()
         {
             _battleSM.UpdateState();
+            _battleObserver?.Tick();
         }
 
         private void FixedTick()
@@ -148,6 +154,12 @@ namespace Core.Infrastructure
         {
             BattleLinesFactory battleLinesFactory = new BattleLinesFactory(stylesContainer, assetsContainer);
             return battleLinesFactory;
+        }
+
+        private IUnitsUIStatsController CreateUIStatsController()
+        {
+            IUnitsUIStatsController unitsUIStatsController = new UnitUIStatsController(_canvasesResolver, _assetsContainer);
+            return unitsUIStatsController;
         }
 
         private CameraController CreateCamera(Vector3 position)

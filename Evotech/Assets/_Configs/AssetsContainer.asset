@@ -55,3 +55,6 @@ MonoBehaviour:
     - ArmorType: 3
       Prefabs:
       - {fileID: 4123885764736634246, guid: 1c3d8714251e2d74b815164f0d95d5c2, type: 3}
+  UIElements:
+    UnitStatsInfo: {fileID: 2092498214348931260, guid: 557039b9acf013f4c898a7e7a96bc594,
+      type: 3}

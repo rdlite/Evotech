@@ -5,6 +5,8 @@ using Extensions;
 using UnityEngine;
 using QOutline.Configs;
 using Core.Battle.Outline;
+using System;
+using Unity.VisualScripting;
 
 namespace Core.Units
 {
@@ -12,6 +14,8 @@ namespace Core.Units
     [RequireComponent(typeof(BaseUnitAnimator))]
     public abstract class BaseUnit : MonoBehaviour
     {
+        public event Action OnDead;
+
         public Enums.UnitType UnitType { get; private set; }
         public Enums.UnitClass UnitClass { get; private set; }
         public Enums.OutlineType OutlineType { get; private set; }
@@ -19,6 +23,7 @@ namespace Core.Units
         public IUnitStaticStatsProvider StaticStatsProvider { get; private set; }
 
         [SerializeField] private Enums.UnitGeneralType _unitGeneralType;
+        [SerializeField] private Transform _upperHeadPoint;
 
         protected ClassSettings _unitSettings;
         protected BaseUnitAnimator _baseAnimator;
@@ -27,9 +32,9 @@ namespace Core.Units
         protected GhostCreator _ghostCreator;
         protected UnitOutlineController _unitOutlineController;
         protected Vector3 _targetToRotate;
-        private UnitAnimationEventsCatcher _animationEventsCatcher;
-        private UnitSettingsContainer _unitSettingsContainer;
-        private float _lastRotationTarget;
+        protected UnitAnimationEventsCatcher _animationEventsCatcher;
+        protected UnitSettingsContainer _unitSettingsContainer;
+        protected float _lastRotationTarget;
         protected bool _isRotateToTarget;
         protected bool _isRotateWithChildFigure;
 
@@ -138,6 +143,7 @@ namespace Core.Units
 
         public virtual void KillUnit()
         {
+            OnDead?.Invoke();
             Destroy(gameObject);
         }
 
@@ -183,6 +189,11 @@ namespace Core.Units
         public UnitAnimationEventsCatcher GetEventsCatcher()
         {
             return _animationEventsCatcher;
+        }
+
+        public Transform GetUpperHeadPoint()
+        {
+            return _upperHeadPoint;
         }
     }
 }

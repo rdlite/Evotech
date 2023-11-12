@@ -1,13 +1,12 @@
 using Utils;
+using Core.Data;
 using Core.Units;
+using Hexnav.Core;
 using Core.Battle;
+using UnityEngine;
 using Core.Cameras;
 using Core.InputSystem;
-using UnityEngine;
-using Core.Data;
-using Hexnav.Core;
 using System.Collections.Generic;
-using Core.UI;
 
 namespace Core.StateMachines.Battle
 {
@@ -24,14 +23,13 @@ namespace Core.StateMachines.Battle
 
         private BaseUnit _currentHoverUnit;
         private UnitWalkingResolver _unitWalkingResolver;
-        private IUICanvasesResolver _uICanvasesResolver;
         private float _timeForClick;
         private bool _isClicked;
 
         public WaitingForTurnState(
             BattleObserver battleObserver, IRaycaster raycaster, CameraController camera, 
             IInput input, StateMachine battleSM, IWalkFieldVisualizer walkFieldVisualizer,
-            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory, IUICanvasesResolver uICanvasesResolver)
+            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory)
         {
             _battleObserver = battleObserver;
             _raycaster = raycaster;
@@ -44,7 +42,6 @@ namespace Core.StateMachines.Battle
             _unitWalkingResolver = new UnitWalkingResolver(
                 raycaster, camera, walkFieldVisualizer,
                 battleLinesFactory, mapDataProvider);
-            _uICanvasesResolver = uICanvasesResolver;
         }
 
         public void Enter()
@@ -92,10 +89,12 @@ namespace Core.StateMachines.Battle
             {
                 _currentHoverUnit = unitUnderPointer.ParentUnit;
                 _currentHoverUnit.SetActiveOutline(true, false);
+                _battleObserver.ShowUIStatsInfo(_currentHoverUnit, true);
             }
             else if (_currentHoverUnit != null)
             {
                 _currentHoverUnit.SetActiveOutline(false, false);
+                _battleObserver.HideStatsInfo(_currentHoverUnit, false);
                 _currentHoverUnit = null;
             }
 

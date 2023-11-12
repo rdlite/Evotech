@@ -28,7 +28,7 @@ namespace Core.StateMachines
                 [typeof(WaitingForTurnState)] = new WaitingForTurnState(
                     battleObserver, raycaster, camera,
                     input, this, walkFieldVisualizer,
-                    mapDataProvider, battleLinesFactory, canvasesResolver),
+                    mapDataProvider, battleLinesFactory),
                 [typeof(UnitMovementState)] = new UnitMovementState(
                     this, battleSettings, camera),
                 [typeof(UnitsActionState)] = new UnitsActionState(
