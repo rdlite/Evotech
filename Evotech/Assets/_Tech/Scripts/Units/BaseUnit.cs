@@ -172,9 +172,14 @@ namespace Core.Units
             return StaticStatsProvider.GetWalkRange(_unitGeneralType, UnitClass);
         }
 
-        public float GetAtackDamage()
+        public float GetAttackDamage()
         {
-            return StaticStatsProvider.GetAtackDamage(_unitGeneralType, UnitClass);
+            return StaticStatsProvider.GetRandomizedAttackDamage(_unitGeneralType, UnitClass);
+        }
+
+        public (float, float) GetDecomposedAttackDamage()
+        {
+            return StaticStatsProvider.GetDecomposedDamage(_unitGeneralType, UnitClass);
         }
 
         public BaseUnitAnimator GetBaseAnimator()

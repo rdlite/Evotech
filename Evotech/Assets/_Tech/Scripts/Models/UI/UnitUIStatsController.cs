@@ -83,6 +83,7 @@ namespace Core.UI.Models
                 if (_isAlwaysShowStats && !forceHide)
                 {
                     _currentStats[unit].transform.DOScale(Vector3.one / 1.4f, .1f);
+                    DeactivateDamageInfo(unit);
                 }
                 else
                 {
@@ -98,6 +99,22 @@ namespace Core.UI.Models
 
                     _currentStats.Remove(unit);
                 }
+            }
+        }
+
+        public void ActivateDamageInfo(BaseUnit unit, (float, float) damage)
+        {
+            if (_currentStats.ContainsKey(unit))
+            {
+                _currentStats[unit].ActivateDamageInfo(Mathf.RoundToInt(damage.Item1), Mathf.RoundToInt(damage.Item2));
+            }
+        }
+
+        public void DeactivateDamageInfo(BaseUnit unit)
+        {
+            if (_currentStats.ContainsKey(unit))
+            {
+                _currentStats[unit].DeactivateDamageInfo();
             }
         }
 
@@ -124,6 +141,8 @@ namespace Core.UI.Models
         void HighlightStatsInfo(BaseUnit unit, bool withScale);
         void HideStatsInfo(BaseUnit unit, bool withScale, bool forceHide);
         void SetAlwaysShowStats(bool value);
+        void ActivateDamageInfo(BaseUnit unit, (float, float) damage);
+        void DeactivateDamageInfo(BaseUnit unit);
         void Tick();
     }
 }

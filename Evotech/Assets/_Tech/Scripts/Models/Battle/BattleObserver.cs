@@ -1,4 +1,3 @@
-using UnityEngine;
 using Core.Units;
 using Core.UI.Models;
 using System.Collections.Generic;
@@ -34,6 +33,11 @@ namespace Core.Battle
             newUnit.OnDead -= () => HideStatsInfo(newUnit, false, true);
         }
 
+        public void ClearAdditionalInfo()
+        {
+            _unitsOnMap.ForEach(unit => DeactivateDamageInfo(unit));
+        }
+
         public void HighlightUIStatsInfo(BaseUnit unit, bool withScale)
         {
             if (!unit.IsDead)
@@ -44,6 +48,22 @@ namespace Core.Battle
                 }
 
                 _uiStatsController.HighlightStatsInfo(unit, withScale);
+            }
+        }
+
+        public void ActivateDamageInfo(BaseUnit unit, (float, float) damage)
+        {
+            if (_currentShowingUnitsStatsInfo.Contains(unit))
+            {
+                _uiStatsController.ActivateDamageInfo(unit, damage);
+            }
+        }
+        
+        public void DeactivateDamageInfo(BaseUnit unit)
+        {
+            if (_currentShowingUnitsStatsInfo.Contains(unit))
+            {
+                _uiStatsController.DeactivateDamageInfo(unit);
             }
         }
 

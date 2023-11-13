@@ -7,6 +7,7 @@ using UnityEngine;
 using Core.Cameras;
 using Core.InputSystem;
 using System.Collections.Generic;
+using Utils.Battle;
 
 namespace Core.StateMachines.Battle
 {
@@ -72,6 +73,7 @@ namespace Core.StateMachines.Battle
             _input.OnMMBDown -= ResetWalkSelection;
             _battleLinesFactory.ClearLines();
             _currentHoverUnit?.SetActiveOutline(false, false);
+            _battleObserver.ClearAdditionalInfo();
         }
 
         private void LMBDown()
@@ -83,19 +85,29 @@ namespace Core.StateMachines.Battle
         private void HandleHover()
         {
             UnitRaycastTrigger unitUnderPointer = _raycaster.GetUnitTrigger(_camera.GetCamera());
-               
-            if (unitUnderPointer != null && 
-                !_input.IsWheelPressed())
-            {
-                _currentHoverUnit = unitUnderPointer.ParentUnit;
-                _currentHoverUnit.SetActiveOutline(true, false);
-                _battleObserver.HighlightUIStatsInfo(_currentHoverUnit, true);
-            }
-            else if (_currentHoverUnit != null)
+             
+            if (_currentHoverUnit != null && (unitUnderPointer != null && unitUnderPointer.ParentUnit != _currentHoverUnit || unitUnderPointer == null))
             {
                 _currentHoverUnit.SetActiveOutline(false, false);
                 _battleObserver.HideStatsInfo(_currentHoverUnit, false, false);
                 _currentHoverUnit = null;
+            }
+            else if (unitUnderPointer != null && _currentHoverUnit != unitUnderPointer.ParentUnit && !_input.IsWheelPressed())
+            {
+                _currentHoverUnit = unitUnderPointer.ParentUnit;
+                _currentHoverUnit.SetActiveOutline(true, false);
+                _battleObserver.HighlightUIStatsInfo(_currentHoverUnit, true);
+
+                if (_unitWalkingResolver.GetCurrenUnit() != null)
+                {
+                    BaseUnit currentWalkingUnit = _unitWalkingResolver.GetCurrenUnit();
+                    (float, float) damage = currentWalkingUnit.GetDecomposedAttackDamage();
+
+                    if (BattleUtils.GetRelationForUnits(_currentHoverUnit.UnitType, Enums.UnitType.Player) == Enums.UnitRelation.Enemy)
+                    {
+                        _battleObserver.ActivateDamageInfo(_currentHoverUnit, damage);
+                    }
+                }
             }
 
             if (_unitWalkingResolver.IsHaveUnitToWalk())
@@ -121,7 +133,7 @@ namespace Core.StateMachines.Battle
                 {
                     ActionMeleeAttack actionInfo = new ActionMeleeAttack();
                     actionInfo.Actor = currentWalkingUnit;
-                    actionInfo.Damage = currentWalkingUnit.GetAtackDamage();
+                    actionInfo.Damage = currentWalkingUnit.GetAttackDamage();
                     actionInfo.SubjectUnits = new List<BaseUnit>() { currentHoverUnit };
 
                     _battleSM.Enter<UnitsActionState, ActionInfo>(actionInfo);

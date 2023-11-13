@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Core.Data
 {
     public class UnitStaticStatsProvider : IUnitStaticStatsProvider
@@ -23,11 +25,19 @@ namespace Core.Data
             return defaultHealth * healthMultiplier;
         }
 
-        public float GetAtackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
+        public float GetRandomizedAttackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
         {
             float attack = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).AttackDamage;
             float attackRandom = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).AttackRandom;
             return attack + UnityEngine.Random.Range(-attackRandom, attackRandom);
+        }
+
+        public (float, float) GetDecomposedDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
+        {
+            float attack = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).AttackDamage;
+            float attackRandom = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).AttackRandom;
+
+            return (attack, attackRandom);
         }
     }
 
@@ -35,6 +45,7 @@ namespace Core.Data
     {
         public float GetWalkRange(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public float GetMaxHealth(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
-        public float GetAtackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
+        public float GetRandomizedAttackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
+        public (float, float) GetDecomposedDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
     }
 }

@@ -23,7 +23,18 @@ namespace Core.Data
             }
 
             float damage = damageInfo.Damage;
-            _stats.CurrentHealth -= damage;
+
+            float damageToHealth = (damage - _stats.CurrentArmor);
+
+            damageToHealth = Mathf.Max(0, damageToHealth);
+
+            _stats.CurrentArmor -= (damage - damageToHealth);
+            _stats.CurrentArmor = Mathf.Max(0, _stats.CurrentArmor);
+
+            if (damageToHealth > 0f)
+            {
+                _stats.CurrentHealth -= damage;
+            }
 
             OnModelChanged?.Invoke(_stats);
 
@@ -42,6 +53,11 @@ namespace Core.Data
         {
             return Mathf.Clamp01(_stats.CurrentArmor / _stats.MaxArmor);
         }
+
+        public UnitStatsModel GetStatsModel()
+        {
+            return _stats;
+        }
     }
 
     public interface IUnitDynamicStatsProvider
@@ -52,6 +68,7 @@ namespace Core.Data
         public void TakeDamage(InstantDamageInfo damageInfo);
         public float GetHealthPercentage();
         public float GetArmorPercentage();
+        public UnitStatsModel GetStatsModel();
     }
 
     public struct UnitStatsModel
