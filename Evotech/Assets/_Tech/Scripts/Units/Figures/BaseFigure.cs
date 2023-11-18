@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core.Units
 {
-    public class AbstractFigure : MonoBehaviour
+    public class BaseFigure : MonoBehaviour
     {
         [SerializeField] protected Renderer _mainSkinRenderer;
 

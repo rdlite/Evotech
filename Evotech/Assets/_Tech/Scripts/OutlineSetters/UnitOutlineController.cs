@@ -21,7 +21,7 @@ namespace Core.Battle.Outline
             _outlineConfig = outlineConfig;
             _childRendererLayers = new List<int>();
 
-            _childRenderers = GetComponentsInChildren<Renderer>().Where(renderer => (renderer is MeshRenderer || renderer is SkinnedMeshRenderer)).ToList();
+            _childRenderers = GetComponentsInChildren<Renderer>(true).Where(renderer => (renderer is MeshRenderer || renderer is SkinnedMeshRenderer)).ToList();
             _childRenderers.ForEach((renderer) => _childRendererLayers.Add(renderer.gameObject.layer));
         }
 

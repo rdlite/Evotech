@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3135608575689084235}
   m_LocalRotation: {x: 0.7188956, y: 0.19929858, z: -0.0273382, w: 0.6653735}
-  m_LocalPosition: {x: 0.00083, y: 0.00128, z: 0.00016}
+  m_LocalPosition: {x: 0.003, y: 0.02, z: 0.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,12 +287,12 @@ Transform:
   m_GameObject: {fileID: 6181528777280492567}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.890799, y: 0, z: -11.552014}
-  m_LocalScale: {x: 0.7749795, y: 0.7749795, z: 0.7749795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5523778560670988914}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5597561858750843579
 MonoBehaviour:
@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5b42275de87da42ba72465fec11be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainSkinRenderer: {fileID: 3212424360364293357}
   _points:
   - PointType: 0
     Point: {fileID: 7312991234185819634}
@@ -323,7 +324,6 @@ MonoBehaviour:
     Point: {fileID: 8131555114826006836}
   - PointType: 3
     Point: {fileID: 650452670213728236}
-  _mainSkinRenderer: {fileID: 3212424360364293357}
 --- !u!1 &8293986062865417204
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.011510849
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
         type: 3}
@@ -394,7 +394,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.033233404
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
         type: 3}
@@ -440,6 +440,56 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: View
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748359892381204692, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748359892381204692, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748359892381204692, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748359892381204692, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.424
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8879528566716807029, guid: f8e7a1ebddd95ec449f0c6b45ecab4a5,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

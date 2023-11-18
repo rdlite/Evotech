@@ -5,7 +5,6 @@ using UnityEngine;
 using Core.Particles;
 using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
 
 namespace Core.Units
 {
@@ -29,11 +28,13 @@ namespace Core.Units
             _weaponStyle = _stylesContainer.GetStyleOfWeaponType(_unitSettings.WeaponID);
 
             _spirit = GetComponentInChildren<Spirit>();
-            _spirit.Init(_weaponStyle, unitType);
+            _spirit.Init(_weaponStyle, unitType, this);
             _spirit.CreateWeapon(_weaponStyle.WeaponPrefab);
 
             _armor = _spirit.CreateArmor();
             _lastLocalRotationTarget = _spirit.transform.localRotation.eulerAngles.y;
+
+            _unitOutlineController.Init(_outlinesContainer.GetOutlineOfType(OutlineType));
         }
 
         protected override void Tick()
@@ -144,6 +145,26 @@ namespace Core.Units
             }
 
             _spirit.DestroyWeapon();
+
+            await UniTask.Delay(1000);
+
+            _stand.transform.SetParent(null);
+
+            t = 0f;
+
+            Vector3 defaultStandScale = _stand.transform.localScale;
+
+            while (t <= 1f)
+            {
+                t += Time.deltaTime * 2f;
+
+                _stand.transform.position -= Vector3.up * Time.deltaTime / 2f;
+                _stand.transform.localScale = defaultStandScale * (1f - t);
+
+                await UniTask.DelayFrame(1);
+            }
+
+            Destroy(gameObject);
         }
 
         private void ShakeArmor(List<Vector3> defaultPoses, float t)

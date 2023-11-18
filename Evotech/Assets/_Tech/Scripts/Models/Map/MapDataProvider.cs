@@ -70,6 +70,11 @@ namespace Core.Data
             }
         }
 
+        public NodeBase GetNodeOfPosition(Vector3 point)
+        {
+            return MapData.GetNodeByWPos(point);
+        }
+
         public float GetHeightDistanceMultiplier()
         {
             return _mapSettings.HeightDistanceMultiplier;

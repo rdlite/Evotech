@@ -11,5 +11,6 @@ namespace Core.Data
         float GetHeightOfWorldPoint(Vector3 point);
         float GetHeightDistanceMultiplier();
         List<NodeBase> GetNodes();
+        NodeBase GetNodeOfPosition(Vector3 pos);
     }
 }

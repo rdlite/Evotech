@@ -57,7 +57,7 @@ namespace Core.Units
         {
             Destroy(GetComponent<BaseUnit>());
 
-            AbstractFigure childFigure = GetComponentInChildren<AbstractFigure>();
+            BaseFigure childFigure = GetComponentInChildren<BaseFigure>();
 
             if (childFigure != null)
             {

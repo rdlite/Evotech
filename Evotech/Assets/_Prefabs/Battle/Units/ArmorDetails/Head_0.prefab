@@ -27,12 +27,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061875571201523988}
-  m_LocalRotation: {x: 0.00000005215404, y: -0.000000037252885, z: 0.32028753, w: 0.94732034}
-  m_LocalPosition: {x: 0.0001, y: 0.00408, z: 0.00048}
-  m_LocalScale: {x: 0.0028353217, y: 0.0033041402, z: 0.004836885}
+  m_LocalRotation: {x: 0.000000052154043, y: -0.00000003725289, z: 0.32028756, w: 0.9473204}
+  m_LocalPosition: {x: 0.03526936, y: 1.43899, z: 0.16929294}
+  m_LocalScale: {x: 1, y: 1.1653492, z: 1.7059385}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 4274388770175478703}
+  m_Father: {fileID: 6684667193676848213}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 37.361}
 --- !u!33 &6401400080216605864
@@ -160,12 +160,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 662686928787099148}
-  - {fileID: 7568621289605197810}
+  - {fileID: 6684667193676848213}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7048670115272048775
 MonoBehaviour:
@@ -179,6 +178,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80f0ae29ac2f8249a56479dc5e53e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1815719234428808051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2932413548715684998}
+  m_Layer: 7
+  m_Name: View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2932413548715684998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815719234428808051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6684667193676848213}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6183032257628029660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6684667193676848213}
+  m_Layer: 7
+  m_Name: View
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6684667193676848213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6183032257628029660}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 662686928787099148}
+  - {fileID: 7568621289605197810}
+  - {fileID: 2932413548715684998}
+  m_Father: {fileID: 4274388770175478703}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6466299916438236008
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,11 +271,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6466299916438236008}
   m_LocalRotation: {x: -0.40874243, y: 0.000000007450576, z: -0, w: 0.9126498}
-  m_LocalPosition: {x: 0.0006400029, y: 0.002290054, z: 0.00044999542}
-  m_LocalScale: {x: 0.0018570353, y: 0.0054542664, z: 0.0043662074}
+  m_LocalPosition: {x: 0.22572495, y: 0.80768746, z: 0.15871052}
+  m_LocalScale: {x: 0.65496457, y: 1.9236851, z: 1.5399334}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 4274388770175478703}
+  m_Father: {fileID: 6684667193676848213}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: -48.252, y: 0, z: 0}
 --- !u!33 &8538826020398003773

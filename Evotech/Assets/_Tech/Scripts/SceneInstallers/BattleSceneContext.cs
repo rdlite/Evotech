@@ -2,9 +2,9 @@ using Qnject;
 
 namespace Core.Infrastructure
 {
-    public class BattleSceneInstaller : SceneInstaller
+    public class BattleSceneContext : SceneInstaller
     {
-        public override void Install()
+        protected override void InstallScene()
         {
             BattleSceneStartup sceneStartup = FindObjectOfType<BattleSceneStartup>();
             sceneStartup.CreateBattleScene(_container);

@@ -91,7 +91,7 @@ namespace Core.Infrastructure
 
             CameraController camera = CreateCamera(Vector3.zero);
 
-            _battleObserver = new BattleObserver(_uiStatsController);
+            _battleObserver = new BattleObserver(_uiStatsController, _mapDataProvider);
 
             _battleLinesFactory = CreateBattleLinesFactory(_stylesContainer, _assetsContainer);
 

@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Active: 1
   _renderTextureName: _OutlineRenderTexture
   _renderSettings:
-    ShowInSceneView: 1
+    ShowInSceneView: 0
     IsClipDepth: 0
   _bluredTextureName: _OutlineBluredTexture
   _blurSettings:

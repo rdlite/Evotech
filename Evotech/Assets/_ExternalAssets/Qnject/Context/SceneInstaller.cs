@@ -12,7 +12,12 @@ namespace Qnject
             base.Awake();
 
             ResolveScene();
+            InstallScene();
         }
+
+        public override void Install() {}
+
+        protected abstract void InstallScene();
 
         private void ResolveScene()
         {

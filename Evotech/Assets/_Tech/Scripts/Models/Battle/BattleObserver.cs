@@ -1,6 +1,8 @@
+using Core.Data;
 using Core.Units;
 using Core.UI.Models;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Core.Battle
 {
@@ -9,11 +11,13 @@ namespace Core.Battle
         private List<BaseUnit> _unitsOnMap = new List<BaseUnit>();
         private List<BaseUnit> _currentShowingUnitsStatsInfo = new List<BaseUnit>();
         private IUnitsUIStatsController _uiStatsController;
+        private IMapDataProvider _mapDataProvider;
         private bool _isAlwaysShowStats;
 
-        public BattleObserver(IUnitsUIStatsController uiStatsController)
+        public BattleObserver(IUnitsUIStatsController uiStatsController, IMapDataProvider mapDataProvider)
         {
             _uiStatsController = uiStatsController;
+            _mapDataProvider = mapDataProvider;
         }
 
         public void Tick()
@@ -25,12 +29,17 @@ namespace Core.Battle
         {
             _unitsOnMap.Add(newUnit);
             newUnit.OnDead += (unit) => HideStatsInfo(unit, false, true);
+            newUnit.OnDead += (unit) => RemoveUnit(unit);
         }
         
         public void RemoveUnit(BaseUnit newUnit)
         {
             _unitsOnMap.Remove(newUnit);
+
+            _mapDataProvider.GetNodeOfPosition(newUnit.transform.position).NonwalkableFactors--;
+
             newUnit.OnDead -= (unit) => HideStatsInfo(unit, false, true);
+            newUnit.OnDead -= (unit) => RemoveUnit(unit);
         }
 
         public void ClearAdditionalInfo()

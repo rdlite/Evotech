@@ -23,6 +23,7 @@ namespace Core.Units
 
         [SerializeField] private Enums.UnitGeneralType _unitGeneralType;
         [SerializeField] private Transform _upperHeadPoint;
+        [SerializeField] protected Transform _stand;
 
         protected ClassSettings _unitSettings;
         protected BaseUnitAnimator _baseAnimator;
@@ -33,6 +34,7 @@ namespace Core.Units
         protected Vector3 _targetToRotate;
         protected UnitAnimationEventsCatcher _animationEventsCatcher;
         protected UnitSettingsContainer _unitSettingsContainer;
+        protected OutlinesContainer _outlinesContainer;
         protected bool _isRotateChildFigure;
 
         [Inject]
@@ -43,14 +45,13 @@ namespace Core.Units
             _stylesContainer = stylesContainer;
             _updatesProvider = updatesProvider;
             _unitSettingsContainer = unitSettingsContainer;
+            _outlinesContainer = outlinesContainer;
             StaticStatsProvider = statsProvider;
 
             _baseAnimator = GetComponent<BaseUnitAnimator>();
             _ghostCreator = GetComponent<GhostCreator>();
             _animationEventsCatcher = GetComponentInChildren<UnitAnimationEventsCatcher>();
             _unitOutlineController = GetComponentInChildren<UnitOutlineController>();
-
-            _unitOutlineController.Init(outlinesContainer.GetOutlineOfType(OutlineType));
 
             _updatesProvider.AddUpdate(Tick);
         }
