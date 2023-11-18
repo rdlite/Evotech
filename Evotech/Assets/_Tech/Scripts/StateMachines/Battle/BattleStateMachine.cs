@@ -18,7 +18,7 @@ namespace Core.StateMachines
             IUnitsFactory unitsFactory, IMapDataProvider mapDataProvider, CameraController camera,
             BattleObserver battleObserver, IRaycaster raycaster, IInput input,
             IWalkFieldVisualizer walkFieldVisualizer, BattleSettings battleSettings, IBattleLinesFactory battleLinesFactory,
-            IUICanvasesResolver canvasesResolver)
+            IUICanvasesResolver canvasesResolver, ICameraShaker cameraShaker)
         {
             _states = new Dictionary<Type, IExitableState>()
             {
@@ -32,7 +32,7 @@ namespace Core.StateMachines
                 [typeof(UnitMovementState)] = new UnitMovementState(
                     this, battleSettings, camera),
                 [typeof(UnitsActionState)] = new UnitsActionState(
-                    battleObserver, this),
+                    battleObserver, this, cameraShaker),
             };
         }
     }

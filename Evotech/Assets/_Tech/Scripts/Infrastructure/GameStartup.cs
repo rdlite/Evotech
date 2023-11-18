@@ -7,6 +7,8 @@ using Core.Curtains;
 using Core.Factories;
 using Core.InputSystem;
 using Core.UI;
+using Core.Cameras;
+using Core.Data.Camera;
 
 namespace Core.Infrastructure
 {
@@ -16,6 +18,7 @@ namespace Core.Infrastructure
         private GameSettings _gameSettings;
         private MapTextsContainer _mapsContainer;
         private UnitSettingsContainer _unitSettingsContainer;
+        private CameraShakesContainer _cameraShakesContainer;
         private GameStateMachineLoader _gameStateMachine;
         private UpdatesProvider _updateProvider;
         private Container _projectInstaller;
@@ -23,12 +26,13 @@ namespace Core.Infrastructure
         [Inject]
         private void Contruct(
             AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
-            UnitSettingsContainer unitSettingsContainer)
+            UnitSettingsContainer unitSettingsContainer, CameraShakesContainer cameraShakesContainer)
         {
             _assetsContainer = assetsContainer;
             _gameSettings = gameSettings;
             _mapsContainer = mapsContainer;
             _unitSettingsContainer = unitSettingsContainer;
+            _cameraShakesContainer = cameraShakesContainer;
         }
 
         public void Init(Container projectInstaller)
@@ -44,6 +48,8 @@ namespace Core.Infrastructure
             ICurtain curtain = CreateCurtain();
             IUnitStaticStatsProvider statsProvider = CreateStatsProvider();
             IUICanvasesResolver canvasesResolver = CreateCanvasesResolver();
+            ICameraShaker cameraShaker = CreateCameraShaker(gameFactory, updateProvider);
+
             LoadGlobalStateMachine(gameFactory, curtain);
         }
 
@@ -123,6 +129,13 @@ namespace Core.Infrastructure
             UICanvasesResolver canvasesResolver = new UICanvasesResolver();
             _projectInstaller.BindAsSingle<IUICanvasesResolver>(canvasesResolver);
             return canvasesResolver;
+        }
+        
+        private ICameraShaker CreateCameraShaker(IGameFactory gameFactory, IUpdateProvider updateProvider)
+        {
+            ICameraShaker cameraShaker = new CameraShaker(_cameraShakesContainer, updateProvider, gameFactory);
+            _projectInstaller.BindAsSingle<ICameraShaker>(cameraShaker);
+            return cameraShaker;
         }
 
         private void LoadGlobalStateMachine(IGameFactory gameFactory, ICurtain curtain)

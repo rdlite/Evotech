@@ -15,11 +15,11 @@ namespace Core.Data
             _stats = stats;
         }
 
-        public void TakeDamage(InstantDamageInfo damageInfo)
+        public bool TakeDamage(InstantDamageInfo damageInfo)
         {
             if (_stats.CurrentHealth <= 0f)
             {
-                return;
+                return false;
             }
 
             float damage = damageInfo.Damage;
@@ -42,6 +42,8 @@ namespace Core.Data
             {
                 OnHealthZeroed?.Invoke();
             }
+
+            return true;
         }
 
         public float GetHealthPercentage()
@@ -65,7 +67,7 @@ namespace Core.Data
         public event Action OnHealthZeroed;
         public event Action<UnitStatsModel> OnModelChanged;
 
-        public void TakeDamage(InstantDamageInfo damageInfo);
+        public bool TakeDamage(InstantDamageInfo damageInfo);
         public float GetHealthPercentage();
         public float GetArmorPercentage();
         public UnitStatsModel GetStatsModel();

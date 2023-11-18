@@ -1,3 +1,4 @@
+using Core.Cameras;
 using Core.Data;
 using System;
 using UnityEngine;
@@ -9,6 +10,12 @@ namespace Core.Battle
         public event Action OnFinished;
 
         private ActionInfo _actionDesc;
+        private ICameraShaker _cameraShaker;
+
+        public UnitActionResolver(ICameraShaker cameraShaker)
+        {
+            _cameraShaker = cameraShaker;
+        }
 
         public void Resolve(ActionInfo actionDesc)
         {
@@ -67,10 +74,16 @@ namespace Core.Battle
             {
                 foreach (var unitsInAttack in _actionDesc.SubjectUnits)
                 {
-                    unitsInAttack.DynamicStatsProvider.TakeDamage(new InstantDamageInfo
+                    bool isHit = unitsInAttack.DynamicStatsProvider.TakeDamage(new InstantDamageInfo
                     {
                         Damage = (_actionDesc as ActionMeleeAttack).Damage
                     });
+
+                    if (isHit)
+                    {
+                        _cameraShaker.Shake("AttackImpact_Soft");
+                    }
+
                     unitsInAttack.PerformAttackedImpact();
                 }
             }

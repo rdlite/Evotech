@@ -1,4 +1,6 @@
 using Core.Battle;
+using Core.Cameras;
+
 namespace Core.StateMachines.Battle
 {
     public class UnitsActionState : IUpdateState, IPayloadState<ActionInfo>
@@ -9,11 +11,11 @@ namespace Core.StateMachines.Battle
         private UnitActionResolver _actionResolver;
 
         public UnitsActionState(
-            BattleObserver battleObserver, StateMachine battleSM)
+            BattleObserver battleObserver, StateMachine battleSM, ICameraShaker cameraShaker)
         {
             _battleObserver = battleObserver;
             _battleSM = battleSM;
-            _actionResolver = new UnitActionResolver();
+            _actionResolver = new UnitActionResolver(cameraShaker);
             _actionResolver.OnFinished += ActionFinish;
         }
 

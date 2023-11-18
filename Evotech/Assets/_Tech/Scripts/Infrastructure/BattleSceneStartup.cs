@@ -17,30 +17,31 @@ namespace Core.Infrastructure
 {
     public class BattleSceneStartup : MonoBehaviour
     {
-        private StylesContainer _stylesContainer;
-        private AssetsContainer _assetsContainer;
-        private GameSettings _gameSettings;
-        private MapTextsContainer _mapsContainer;
-        private IGameFactory _gameFactory;
-        private ICurtain _curtain;
-        private IRaycaster _raycaster;
-        private IUpdateProvider _updateProvider;
-        private IInput _input;
-        private IUICanvasesResolver _canvasesResolver;
-        private Container _sceneInstaller;
-        private IMapDataProvider _mapDataProvider;
         private IUnitsUIStatsController _uiStatsController;
         private IWalkFieldVisualizer _walkFieldVisualizer;
-        private BattleObserver _battleObserver;
         private IBattleLinesFactory _battleLinesFactory;
+        private IUICanvasesResolver _canvasesResolver;
+        private IMapDataProvider _mapDataProvider;
+        private StylesContainer _stylesContainer;
+        private AssetsContainer _assetsContainer;
+        private MapTextsContainer _mapsContainer;
+        private IUpdateProvider _updateProvider;
+        private BattleObserver _battleObserver;
         private BattleStateMachine _battleSM;
+        private ICameraShaker _cameraShaker;
+        private GameSettings _gameSettings;
+        private Container _sceneInstaller;
+        private IGameFactory _gameFactory;
+        private IRaycaster _raycaster;
+        private ICurtain _curtain;
+        private IInput _input;
 
         [Inject]
         private void Construct(
             AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
             IGameFactory gameFactory, ICurtain curtain, IRaycaster raycaster,
             IUpdateProvider updateProvider, IInput input, StylesContainer stylesContainer,
-            IUICanvasesResolver canvasesResolver)
+            IUICanvasesResolver canvasesResolver, ICameraShaker cameraShaker)
         {
             _stylesContainer = stylesContainer;
             _assetsContainer = assetsContainer;
@@ -52,6 +53,7 @@ namespace Core.Infrastructure
             _updateProvider = updateProvider;
             _input = input;
             _canvasesResolver = canvasesResolver;
+            _cameraShaker = cameraShaker;
 
             _updateProvider.AddUpdate(Tick);
             _updateProvider.AddFixedUpdate(FixedTick);
@@ -97,7 +99,7 @@ namespace Core.Infrastructure
 
             _battleSM = CreateStateMachine(
                 unitsFactory, camera, _battleObserver,
-                _battleLinesFactory);
+                _battleLinesFactory, _cameraShaker);
 
             _battleSM.Enter<StartBattleState>();
 
@@ -142,13 +144,13 @@ namespace Core.Infrastructure
 
         private BattleStateMachine CreateStateMachine(
             IUnitsFactory unitsFactory, CameraController camera, BattleObserver battleObserver,
-            IBattleLinesFactory battleLinesFactory)
+            IBattleLinesFactory battleLinesFactory, ICameraShaker cameraShaker)
         {
             return new BattleStateMachine(
                 unitsFactory, _mapDataProvider, camera,
                 battleObserver, _raycaster, _input,
                 _walkFieldVisualizer, _gameSettings.BattleSettings, _battleLinesFactory,
-                _canvasesResolver);
+                _canvasesResolver, cameraShaker);
         }
 
         private IBattleLinesFactory CreateBattleLinesFactory(StylesContainer stylesContainer, AssetsContainer assetsContainer)

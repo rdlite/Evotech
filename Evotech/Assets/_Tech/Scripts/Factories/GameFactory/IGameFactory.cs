@@ -5,6 +5,8 @@ namespace Core.Factories
 {
     public interface IGameFactory
     {
-        public CameraController CreateCamera(Vector3 position);
+        CameraController MainCamera { get; }
+        CameraBaseContainer CameraBaseContainer { get; }
+        CameraController CreateCamera(Vector3 position);
     }
 }
