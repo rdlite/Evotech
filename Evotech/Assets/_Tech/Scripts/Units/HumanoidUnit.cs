@@ -79,9 +79,6 @@ namespace Core.Units
             base.KillUnit();
 
             DestructionRoutine(false);
-
-            // free hexagon (maybe make it in external place)
-            // destroy figure plane
         }
 
         private async void DestructionRoutine(bool isExplodeDeath)
