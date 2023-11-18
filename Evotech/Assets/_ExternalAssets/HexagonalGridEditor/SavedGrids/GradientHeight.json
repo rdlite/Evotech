@@ -2534,7 +2534,9 @@
                 "Vectors": []
             },
             "Tags": {
-                "Strings": []
+                "Strings": [
+                    "playerAllyHex"
+                ]
             },
             "ObstacleNames": {
                 "Strings": []
@@ -7226,6 +7228,7 @@
     ],
     "GlobalTags": [
         "playerHex",
-        "enemyHex"
+        "enemyHex",
+        "playerAllyHex"
     ]
 }

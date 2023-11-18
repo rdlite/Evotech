@@ -1,9 +1,11 @@
 using System;
 using Core.Data;
-using Core.Particles;
-using System.Collections.Generic;
 using Extensions;
 using UnityEngine;
+using Core.Particles;
+using Cysharp.Threading.Tasks;
+using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 namespace Core.Units
 {
@@ -38,7 +40,7 @@ namespace Core.Units
         {
             base.Tick();
             
-            if (_isRotateToTarget && _isRotateWithChildFigure)
+            if (_isRotateChildFigure)
             {
                 Vector3 lookDirection = (_targetToRotate - _spirit.transform.position).FlatY().normalized;
 
@@ -47,16 +49,16 @@ namespace Core.Units
                     _lastLocalRotationTarget = Quaternion.LookRotation(lookDirection, Vector3.up).eulerAngles.y;
                 }
             }
-            else
-            {
-                _lastLocalRotationTarget = transform.eulerAngles.y;
-            }
+            //else
+            //{
+            //    _lastLocalRotationTarget = transform.eulerAngles.y;
+            //}
 
             _spirit.transform.rotation =
                 Quaternion.Slerp(
                     _spirit.transform.rotation,
                     Quaternion.Euler(_spirit.transform.rotation.eulerAngles.x, _lastLocalRotationTarget, _spirit.transform.rotation.eulerAngles.z),
-                    15f * Time.deltaTime);
+                    7f * Time.deltaTime);
         }
 
         public override void PerformMeleeAttack()
@@ -67,6 +69,103 @@ namespace Core.Units
         public override void PerformAttackedImpact()
         {
             _spirit.GetAnimator().PlayAttackedImpact();
+        }
+
+        public override void KillUnit()
+        {
+            base.KillUnit();
+
+            DestructionRoutine(false);
+
+            // free hexagon (maybe make it in external place)
+            // destroy figure plane
+        }
+
+        private async void DestructionRoutine(bool isExplodeDeath)
+        {
+            Destroy(_raycastTrigger);
+
+            await UniTask.Delay(500);
+
+            _spirit.SetDead();
+
+            await UniTask.Delay(400);
+
+            _spirit.PlayDeathParticle();
+
+            float t = 0f;
+
+            List<Vector3> _defaultArmorPositions = new List<Vector3>();
+
+            foreach (ThreeDObjectExploder armorItem in _armor)
+            {
+                _defaultArmorPositions.Add(armorItem.transform.localPosition);
+            }
+
+            while (t <= 1f)
+            {
+                t += Time.deltaTime;
+
+                _spirit.SetSpiritTransparency(1f - t);
+
+                if (isExplodeDeath)
+                {
+                    ShakeArmor(_defaultArmorPositions, t / 2f);
+                }
+
+                await UniTask.DelayFrame(1);
+            }
+
+            t = 0f;
+
+            while (t <= 1f)
+            {
+                t += Time.deltaTime * 2f;
+
+                if (isExplodeDeath)
+                {
+                    ShakeArmor(_defaultArmorPositions, t / 2f + .5f);
+                }
+
+                await UniTask.DelayFrame(1);
+            }
+
+            foreach (ThreeDObjectExploder armorItem in _armor)
+            {
+                if (isExplodeDeath)
+                {
+                    armorItem.Explode(UnityEngine.Random.insideUnitSphere.normalized.FlatY(), true, 5f);
+                }
+                else
+                {
+                    armorItem.SmoothGravityFalling(true, 5f);
+                    await UniTask.Delay(UnityEngine.Random.Range(0, 200));
+                }
+            }
+
+            _spirit.DestroyWeapon();
+        }
+
+        private void ShakeArmor(List<Vector3> defaultPoses, float t)
+        {
+            float shakeIntencity = .0025f;
+            float shadeSpeed = 20f;
+
+            int counter = 0;
+            float pos = 0;
+            foreach (ThreeDObjectExploder armorItem in _armor)
+            {
+                float time = Time.time * shadeSpeed;
+                armorItem.transform.localPosition = defaultPoses[counter] + new Vector3
+                    (
+                        Mathf.PerlinNoise(pos + time, pos + time) * shakeIntencity,
+                        Mathf.PerlinNoise((pos + 100f) + time, (pos + 100f) + time) * shakeIntencity,
+                        Mathf.PerlinNoise((pos + 200f) + time, (pos + 200f) + time) * shakeIntencity
+                    ) * (t / 2f);
+
+                pos += .4f;
+                counter++;
+            }
         }
     }
 }

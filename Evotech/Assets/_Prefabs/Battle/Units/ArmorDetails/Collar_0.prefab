@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3781004753288932971}
   - component: {fileID: 6816039464335557373}
   - component: {fileID: 8769281577094582599}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 1114442178419092974}
   - component: {fileID: 6190600615572642335}
   - component: {fileID: 183722655688911624}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5248505558468294810}
   - component: {fileID: -176168290162189825}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collar_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

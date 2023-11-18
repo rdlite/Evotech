@@ -4,7 +4,6 @@ using UnityEditor;
 using System.Collections.Generic;
 using static HexEditor.SceneHexGridEditor;
 using System.Linq;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 
 namespace HexEditor
 {

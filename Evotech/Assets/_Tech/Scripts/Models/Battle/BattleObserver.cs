@@ -24,13 +24,13 @@ namespace Core.Battle
         public void AddUnit(BaseUnit newUnit)
         {
             _unitsOnMap.Add(newUnit);
-            newUnit.OnDead += () => HideStatsInfo(newUnit, false, true);
+            newUnit.OnDead += (unit) => HideStatsInfo(unit, false, true);
         }
         
         public void RemoveUnit(BaseUnit newUnit)
         {
             _unitsOnMap.Remove(newUnit);
-            newUnit.OnDead -= () => HideStatsInfo(newUnit, false, true);
+            newUnit.OnDead -= (unit) => HideStatsInfo(unit, false, true);
         }
 
         public void ClearAdditionalInfo()

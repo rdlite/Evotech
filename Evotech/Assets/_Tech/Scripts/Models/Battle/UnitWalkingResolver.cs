@@ -43,7 +43,7 @@ public class UnitWalkingResolver
         {
             _currentUnit.SetActiveOutline(false, true);
 
-            SetUnitRotationTarget(Vector3.zero, false);
+            SetUnitRotationTarget(Vector3.zero);
             ClearGhost();
             ClearAllLines();
         }
@@ -56,6 +56,8 @@ public class UnitWalkingResolver
 
     public void Update()
     {
+        int pathCount = 0;
+
         if (_currentUnit != null && _nodesToWalk != null && _nodesToWalk.Count > 0)
         {
             Vector3 pointToSearch = Vector3.zero;
@@ -80,11 +82,13 @@ public class UnitWalkingResolver
 
             List<NodeBase> path = HexPathfindingGrid.SetDesination(startPoint, endPoint);
 
-            if (_hoverUnit != null && _currentUnit != _hoverUnit)
-            {
-                int distanceBetweenUtinsInNodes = HexPathfindingGrid.GetDistanceBetweenPointsInNodes(_currentUnit.transform.position, _hoverUnit.transform.position);
+            pathCount = path.Count;
 
-                if (distanceBetweenUtinsInNodes < 2)
+            if (_hoverUnit != null && _currentUnit != _hoverUnit && BattleUtils.GetRelationForUnits(_currentUnit.UnitType, _hoverUnit.UnitType) == Enums.UnitRelation.Enemy)
+            {
+                int distanceBetweenUnitsInNodes = HexPathfindingGrid.GetDistanceBetweenPointsInNodes(_currentUnit.transform.position, _hoverUnit.transform.position);
+
+                if (distanceBetweenUnitsInNodes < 2)
                 {
                     _isCurrentlyPointingOnEnemy = BattleUtils.GetRelationForUnits(Enums.UnitType.Player, _hoverUnit.UnitType) == Enums.UnitRelation.Enemy;
                     _lastEndPoint = _hoverUnit.transform.position;
@@ -123,9 +127,9 @@ public class UnitWalkingResolver
             }
         }
 
-        if (_currentUnit != null)
+        if (_currentUnit != null && pathCount != 0)
         {
-            SetUnitRotationTarget(_lastEndPoint, _isCurrentlyPointingOnEnemy);
+            SetUnitRotationTarget(_lastEndPoint);
         }
     }
 
@@ -158,9 +162,9 @@ public class UnitWalkingResolver
         return nearestPoint;
     }
 
-    private void SetUnitRotationTarget(Vector3 endPoint, bool isRotateWithChildFigure)
+    private void SetUnitRotationTarget(Vector3 endPoint)
     {
-        _currentUnit.SetTargetRotation(endPoint, isRotateWithChildFigure);
+        _currentUnit.SetTargetRotation(endPoint);
     }
 
     private void CreateGhost()

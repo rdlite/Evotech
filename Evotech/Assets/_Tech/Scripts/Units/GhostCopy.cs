@@ -57,11 +57,12 @@ namespace Core.Units
         {
             Destroy(GetComponent<BaseUnit>());
 
-            Spirit childSpirit = GetComponentInChildren<Spirit>();
+            AbstractFigure childFigure = GetComponentInChildren<AbstractFigure>();
 
-            if (childSpirit != null)
+            if (childFigure != null)
             {
-                Destroy(childSpirit);
+                childFigure.transform.localRotation = Quaternion.identity;
+                Destroy(childFigure);
             }
 
             DestroyComponents<SpriteRenderer>();

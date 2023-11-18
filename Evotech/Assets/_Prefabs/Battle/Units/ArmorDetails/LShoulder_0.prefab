@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3264702614894197466}
   - component: {fileID: -8875399836213632643}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LShoulder_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 3355764140453679115}
   - component: {fileID: 6280452819284368526}
   - component: {fileID: 4921673260637708444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

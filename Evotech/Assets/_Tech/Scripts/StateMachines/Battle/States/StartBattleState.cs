@@ -76,6 +76,16 @@ namespace Core.StateMachines.Battle
 
                 node.NonwalkableFactors++;
             }
+            else if (tag == StringConstants.PLAYER_ALLY_MAP_TAG)
+            {
+                BaseUnit unit = _unitsFactory.Create(
+                    node, Enums.UnitType.PlayerAlly, Enums.UnitClass.MeleeOneHandSword, 
+                    Enums.OutlineType.PlayerAlly);
+
+                _battleObserver.AddUnit(unit);
+
+                node.NonwalkableFactors++;
+            }
         }
     }
 }

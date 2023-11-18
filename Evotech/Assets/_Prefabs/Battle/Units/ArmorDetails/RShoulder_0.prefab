@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7241427957321491019}
   - component: {fileID: 4123885764736634246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RShoulder_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 6632623368450337787}
   - component: {fileID: 2716085002652100478}
   - component: {fileID: 3950947399610588012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -112,20 +112,31 @@ namespace QOutline.Core
 
         private void DisposeBatch(OutlineBatch batch)
         {
-            SetRenderersLayer(batch.Data.Renderers, batch.Data.DefaultLayerID);
+            SetRenderersLayer(batch.Data.Renderers, batch.Data.RendererLayers);
 
             _renderFeature.RemoveLayerFromRender(batch);
 
             _batches.Remove(batch);
         }
 
-        private static void SetRenderersLayer(List<Renderer> renderers, int layer)
+        private static void SetRenderersLayer(List<Renderer> renderers, int rendererLayer)
         {
             for (int i = 0; i < renderers.Count; i++)
             {
                 if (renderers[i] != null)
                 {
-                    renderers[i].gameObject.layer = layer;
+                    renderers[i].gameObject.layer = rendererLayer;
+                }
+            }
+        }
+
+        private static void SetRenderersLayer(List<Renderer> renderers, List<int> rendererLayers)
+        {
+            for (int i = 0; i < renderers.Count; i++)
+            {
+                if (renderers[i] != null)
+                {
+                    renderers[i].gameObject.layer = rendererLayers[i];
                 }
             }
         }
@@ -153,14 +164,14 @@ namespace QOutline.Core
             public int IDCounter;
             public OutlineConfigs Configs;
             public List<Renderer> Renderers;
-            public int DefaultLayerID;
+            public List<int> RendererLayers;
 
-            public OutlineDataToStore(int id, OutlineConfigs configs, List<Renderer> renderers, int defaultLayerMask)
+            public OutlineDataToStore(int id, OutlineConfigs configs, List<Renderer> renderers, List<int> childLayers)
             {
                 IDCounter = id;
                 Configs = configs;
                 Renderers = renderers;
-                DefaultLayerID = defaultLayerMask;
+                RendererLayers = childLayers;
             }
         }
 

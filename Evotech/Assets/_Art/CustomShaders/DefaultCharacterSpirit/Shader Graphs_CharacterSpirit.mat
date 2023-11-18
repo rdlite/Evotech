@@ -60,7 +60,9 @@ Material:
     - _BottomHeight: 1.4
     - _BottomHeight1: 0.15
     - _BottomHeight2: 0.6
+    - _EmissionIntensity: 3
     - _EmissionPower: 3
+    - _MainAlpha: 1
     - _NoiseTexturePower: 0.3
     - _QueueControl: 1
     - _QueueOffset: 0

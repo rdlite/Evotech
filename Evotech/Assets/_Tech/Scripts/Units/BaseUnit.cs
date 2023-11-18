@@ -2,7 +2,6 @@
 using Qnject;
 using System;
 using Core.Data;
-using Extensions;
 using UnityEngine;
 using QOutline.Configs;
 using Core.Battle.Outline;
@@ -13,7 +12,7 @@ namespace Core.Units
     [RequireComponent(typeof(BaseUnitAnimator))]
     public abstract class BaseUnit : MonoBehaviour
     {
-        public event Action OnDead;
+        public event Action<BaseUnit> OnDead;
 
         public bool IsDead { get; private set; }
         public Enums.UnitType UnitType { get; private set; }
@@ -34,9 +33,7 @@ namespace Core.Units
         protected Vector3 _targetToRotate;
         protected UnitAnimationEventsCatcher _animationEventsCatcher;
         protected UnitSettingsContainer _unitSettingsContainer;
-        protected float _lastRotationTarget;
-        protected bool _isRotateToTarget;
-        protected bool _isRotateWithChildFigure;
+        protected bool _isRotateChildFigure;
 
         [Inject]
         private void Construct(
@@ -67,8 +64,6 @@ namespace Core.Units
 
             _unitSettings = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass);
 
-            _lastRotationTarget = transform.eulerAngles.y;
-
             CreateStatsModel();
         }
 
@@ -84,39 +79,30 @@ namespace Core.Units
 
         protected virtual void Tick()
         {
-            if (_isRotateToTarget)
-            {
-                Vector3 lookDirection = (_targetToRotate - transform.position).FlatY().normalized;
+            //if (_isRotateToTarget)
+            //{
+            //    Vector3 lookDirection = (_targetToRotate - transform.position).FlatY().normalized;
 
-                if (lookDirection != Vector3.zero)
-                {
-                    float yRotation = Quaternion.LookRotation(lookDirection, Vector3.up).eulerAngles.y;
-                    yRotation = (int)yRotation / 60;
-                    yRotation = (int)yRotation * 60;
-                    _lastRotationTarget = yRotation;
-                }
-            }
+            //    if (lookDirection != Vector3.zero)
+            //    {
+            //        float yRotation = Quaternion.LookRotation(lookDirection, Vector3.up).eulerAngles.y;
+            //        yRotation = (int)yRotation / 60;
+            //        yRotation = (int)yRotation * 60;
+            //        _lastRotationTarget = yRotation;
+            //    }
+            //}
 
-            transform.rotation =
-                Quaternion.Slerp(
-                    transform.rotation,
-                    Quaternion.Euler(transform.rotation.eulerAngles.x, _lastRotationTarget, transform.rotation.eulerAngles.z),
-                    10f * Time.deltaTime);
+            //transform.rotation =
+            //    Quaternion.Slerp(
+            //        transform.rotation,
+            //        Quaternion.Euler(transform.rotation.eulerAngles.x, _lastRotationTarget, transform.rotation.eulerAngles.z),
+            //        10f * Time.deltaTime);
         }
 
-        public void SetTargetRotation(Vector3 targetPoint, bool isRotateWithChildFigure)
+        public void SetTargetRotation(Vector3 targetPoint)
         {
-            _isRotateWithChildFigure = isRotateWithChildFigure;
-
-            if (targetPoint != Vector3.zero)
-            {
-                _isRotateToTarget = true;
-                _targetToRotate = targetPoint;
-            }
-            else
-            {
-                _isRotateToTarget = false;
-            }
+            _isRotateChildFigure = targetPoint != Vector3.zero;
+            _targetToRotate = targetPoint;
         }
 
         public void SetActiveOutline(bool value, bool interactWithSnap)
@@ -143,9 +129,8 @@ namespace Core.Units
 
         public virtual void KillUnit()
         {
-            OnDead?.Invoke();
+            OnDead?.Invoke(this);
             IsDead = true;
-            Destroy(gameObject);
         }
 
         public abstract void PerformMeleeAttack();

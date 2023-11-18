@@ -15,4 +15,5 @@ MonoBehaviour:
   WeaponID: 0
   HealthMultiplier: 1
   MoveRangeMultiplier: 1
-  AttackDamage: 5
+  AttackDamage: 100
+  AttackRandom: 2

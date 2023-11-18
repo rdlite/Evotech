@@ -7,16 +7,17 @@ using Core.Particles;
 
 namespace Core.Units
 {
-    public class Spirit : MonoBehaviour
+    public class Spirit : AbstractFigure
     {
         [SerializeField] private List<ArmorPoint> _points;
-        [SerializeField] private Renderer _mainSkinRenderer;
 
         private OneWeaponLeftHandPoint _oneWeaponLeftHandPoint;
-        private SpiritAnimator _animator;
         private GameObject _weapon;
         private StylesContainer _stylesContainer;
         private AssetsContainer _assetsContainer;
+
+        private int MAIN_COLOR_HASH = Shader.PropertyToID("_MainColor");
+        private int MAIN_ALPHA_HASH = Shader.PropertyToID("_MainAlpha");
 
         [Inject]
         private void Construct(
@@ -50,6 +51,35 @@ namespace Core.Units
             _weapon.transform.ResetLocals();
         }
 
+        public void SetDead()
+        {
+            _animator.PlayDead();
+            _mainSkinRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
+
+        public void SetSpiritTransparency(float t)
+        {
+            _mainSkinRenderer.material.SetFloat(MAIN_ALPHA_HASH, Mathf.Clamp01(t));
+        }
+
+        public void PlayDeathParticle()
+        {
+            ParticleSystem deathParticle = Instantiate(_assetsContainer.UnitAssets.SpiritEvaporationParticle);
+            var mainModule = deathParticle.main;
+            var shapeModule = deathParticle.shape;
+
+            mainModule.startColor = _mainSkinRenderer.material.GetColor(MAIN_COLOR_HASH).SetAlpha(mainModule.startColor.color.a);
+            shapeModule.skinnedMeshRenderer = _mainSkinRenderer as SkinnedMeshRenderer;
+
+            deathParticle.Play();
+        }
+
+        public void DestroyWeapon()
+        {
+            _weapon.transform.SetParent(null);
+            _weapon.GetComponentInChildren<ThreeDObjectExploder>().SmoothGravityFalling(true, 5f);
+        }
+
         public List<ThreeDObjectExploder> CreateArmor()
         {
             List<ThreeDObjectExploder> objects = new List<ThreeDObjectExploder>();
@@ -63,11 +93,6 @@ namespace Core.Units
             }
 
             return objects;
-        }
-
-        public SpiritAnimator GetAnimator()
-        {
-            return _animator;
         }
     }
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2983659958774110976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1431157719150554462}
-  m_Layer: 0
+  - component: {fileID: -5109143415585050848}
+  m_Layer: 7
   m_Name: OneHandSword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,8 +63,20 @@ Transform:
   m_Children:
   - {fileID: 2983659958774110976}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5109143415585050848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844574920131073422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80f0ae29ac2f8249a56479dc5e53e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5027977120008335666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,10 +160,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestSword1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4a8b8af70ff021744a1a06b00c459fb3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a8b8af70ff021744a1a06b00c459fb3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3385275142750275041}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a8b8af70ff021744a1a06b00c459fb3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2543895270593844158}
   m_SourcePrefab: {fileID: 100100000, guid: 4a8b8af70ff021744a1a06b00c459fb3, type: 3}
 --- !u!4 &4777281198527223513 stripped
 Transform:
@@ -158,3 +184,58 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5027977120008335666}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5262349910395472995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a8b8af70ff021744a1a06b00c459fb3,
+    type: 3}
+  m_PrefabInstance: {fileID: 5027977120008335666}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &3385275142750275041
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262349910395472995}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: 4a8b8af70ff021744a1a06b00c459fb3, type: 3}
+--- !u!54 &2543895270593844158
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5262349910395472995}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

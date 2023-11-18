@@ -26,7 +26,7 @@ namespace Core.Battle
                 _actionDesc.Actor.PerformMeleeAttack();
                 if (_actionDesc.SubjectUnits.Count == 1)
                 {
-                    _actionDesc.SubjectUnits[0].SetTargetRotation(_actionDesc.Actor.transform.position, false);
+                    _actionDesc.SubjectUnits[0].SetTargetRotation(_actionDesc.Actor.transform.position);
                 }
             }
         }
@@ -40,7 +40,7 @@ namespace Core.Battle
                 _actionDesc.Actor.GetEventsCatcher().OnAttacked -= ActionEvent;
                 if (_actionDesc.SubjectUnits.Count == 1)
                 {
-                    _actionDesc.SubjectUnits[0].SetTargetRotation(Vector3.zero, false);
+                    _actionDesc.SubjectUnits[0].SetTargetRotation(Vector3.zero);
                 }
             }
 
@@ -52,13 +52,13 @@ namespace Core.Battle
         {
             if (_actionDesc.SubjectUnits.Count == 1)
             {
-                _actionDesc.Actor.SetTargetRotation(_actionDesc.SubjectUnits[0].transform.position, true);
+                _actionDesc.Actor.SetTargetRotation(_actionDesc.SubjectUnits[0].transform.position);
             }
         }
 
         private void UnsnapActorRotation()
         {
-            _actionDesc.Actor.SetTargetRotation(Vector3.zero, false);
+            _actionDesc.Actor.SetTargetRotation(Vector3.zero);
         }
 
         private void ActionEvent()

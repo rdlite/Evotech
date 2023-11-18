@@ -54,8 +54,8 @@ namespace QOutline.Tools
             List<Renderer> renderers = new List<Renderer>();
             renderers.AddRange(GetComponentsInChildren<Renderer>());
 
-            OutlineBatchesResolver.OutlineDataToStore batch = new OutlineBatchesResolver.OutlineDataToStore(_currentBatchID, _outlineConfig, renderers, _defaultLayer);
-            _currentBatchID = OutlineBatchesResolver.AddBacth(batch);
+            //OutlineBatchesResolver.OutlineDataToStore batch = new OutlineBatchesResolver.OutlineDataToStore(_currentBatchID, _outlineConfig, renderers, _defaultLayer);
+            //_currentBatchID = OutlineBatchesResolver.AddBacth(batch);
         }
 
         private void RemoveObjectsFromBatch()
