@@ -22,7 +22,7 @@ namespace Core.Units
         public IUnitStaticStatsProvider StaticStatsProvider { get; private set; }
 
         [SerializeField] private Enums.UnitGeneralType _unitGeneralType;
-        [SerializeField] private Transform _upperHeadPoint;
+        [SerializeField] private Transform _upperHeadPoint, _impactVFXPoint;
         [SerializeField] protected Transform _stand;
 
         protected ClassSettings _unitSettings;
@@ -136,7 +136,11 @@ namespace Core.Units
 
         public abstract void PerformMeleeAttack();
 
-        public abstract void PerformAttackedImpact();
+        public virtual void PerformAttackedImpact(ParticleSystem impactVFX)
+        {
+            ParticleSystem newImpactVFX = Instantiate(impactVFX);
+            newImpactVFX.transform.position = _impactVFXPoint.transform.position;
+        }
 
         private void CreateStatsModel()
         {

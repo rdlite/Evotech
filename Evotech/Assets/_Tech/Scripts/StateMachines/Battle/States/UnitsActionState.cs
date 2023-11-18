@@ -1,5 +1,6 @@
 using Core.Battle;
 using Core.Cameras;
+using Core.Data;
 
 namespace Core.StateMachines.Battle
 {
@@ -11,11 +12,12 @@ namespace Core.StateMachines.Battle
         private UnitActionResolver _actionResolver;
 
         public UnitsActionState(
-            BattleObserver battleObserver, StateMachine battleSM, ICameraShaker cameraShaker)
+            BattleObserver battleObserver, StateMachine battleSM, ICameraShaker cameraShaker,
+            AssetsContainer assetsContainer)
         {
             _battleObserver = battleObserver;
             _battleSM = battleSM;
-            _actionResolver = new UnitActionResolver(cameraShaker);
+            _actionResolver = new UnitActionResolver(cameraShaker, assetsContainer);
             _actionResolver.OnFinished += ActionFinish;
         }
 

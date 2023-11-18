@@ -27,6 +27,7 @@ namespace Core.Data
     {
         public BaseUnit TestUnit;
         public ParticleSystem SpiritEvaporationParticle;
+        public ParticleSystem SimpleHitParticle;
     }
 
     [System.Serializable]

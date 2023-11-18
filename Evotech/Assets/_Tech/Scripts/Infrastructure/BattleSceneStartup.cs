@@ -150,7 +150,7 @@ namespace Core.Infrastructure
                 unitsFactory, _mapDataProvider, camera,
                 battleObserver, _raycaster, _input,
                 _walkFieldVisualizer, _gameSettings.BattleSettings, _battleLinesFactory,
-                _canvasesResolver, cameraShaker);
+                _canvasesResolver, cameraShaker, _assetsContainer);
         }
 
         private IBattleLinesFactory CreateBattleLinesFactory(StylesContainer stylesContainer, AssetsContainer assetsContainer)

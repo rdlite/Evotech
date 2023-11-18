@@ -25,6 +25,8 @@ MonoBehaviour:
       type: 3}
     SpiritEvaporationParticle: {fileID: 8811491217643194160, guid: d48b92e008e4fe142850a3dbbdd1292e,
       type: 3}
+    SimpleHitParticle: {fileID: 455961262019028391, guid: a5aa5e05dcd5e13469d4279109ef2968,
+      type: 3}
   BattlePrefabs:
     HexagonalDefaultDecal: {fileID: 6013305342398799963, guid: 0c48b232cafefb548935d8a19894fcf9,
       type: 3}

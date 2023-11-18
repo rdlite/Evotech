@@ -11,10 +11,12 @@ namespace Core.Battle
 
         private ActionInfo _actionDesc;
         private ICameraShaker _cameraShaker;
+        private AssetsContainer _assetsContainer;
 
-        public UnitActionResolver(ICameraShaker cameraShaker)
+        public UnitActionResolver(ICameraShaker cameraShaker, AssetsContainer assetsContainer)
         {
             _cameraShaker = cameraShaker;
+            _assetsContainer = assetsContainer;
         }
 
         public void Resolve(ActionInfo actionDesc)
@@ -84,7 +86,7 @@ namespace Core.Battle
                         _cameraShaker.Shake("AttackImpact_Soft");
                     }
 
-                    unitsInAttack.PerformAttackedImpact();
+                    unitsInAttack.PerformAttackedImpact(_assetsContainer.UnitAssets.SimpleHitParticle);
                 }
             }
         }

@@ -67,8 +67,10 @@ namespace Core.Units
             _spirit.GetAnimator().PlayMeleeAttack();
         }
 
-        public override void PerformAttackedImpact()
+        public override void PerformAttackedImpact(ParticleSystem impactVFX)
         {
+            base.PerformAttackedImpact(impactVFX);
+
             _spirit.GetAnimator().PlayAttackedImpact();
         }
 
@@ -85,8 +87,6 @@ namespace Core.Units
         private async void DestructionRoutine(bool isExplodeDeath)
         {
             Destroy(_raycastTrigger);
-
-            await UniTask.Delay(500);
 
             _spirit.SetDead();
 
