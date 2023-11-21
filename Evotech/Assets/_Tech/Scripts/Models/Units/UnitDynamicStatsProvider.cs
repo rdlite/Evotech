@@ -23,17 +23,17 @@ namespace Core.Data
             }
 
             float damage = damageInfo.Damage;
+            float armorCurr = _stats.CurrentArmor;
 
-            float damageToHealth = (damage - _stats.CurrentArmor);
+            _stats.CurrentArmor -= damage;
+            _stats.CurrentArmor = Mathf.Max(0f, _stats.CurrentArmor);
 
-            damageToHealth = Mathf.Max(0, damageToHealth);
-
-            _stats.CurrentArmor -= (damage - damageToHealth);
-            _stats.CurrentArmor = Mathf.Max(0, _stats.CurrentArmor);
+            float damageToHealth =
+                damage - (armorCurr / _stats.MaxArmor) * damage;
 
             if (damageToHealth > 0f)
             {
-                _stats.CurrentHealth -= damage;
+                _stats.CurrentHealth -= damageToHealth;
             }
 
             OnModelChanged?.Invoke(_stats);

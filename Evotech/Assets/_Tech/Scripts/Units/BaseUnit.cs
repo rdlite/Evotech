@@ -21,8 +21,8 @@ namespace Core.Units
         public IUnitDynamicStatsProvider DynamicStatsProvider { get; private set; }
         public IUnitStaticStatsProvider StaticStatsProvider { get; private set; }
 
-        [SerializeField] private Enums.UnitGeneralType _unitGeneralType;
-        [SerializeField] private Transform _upperHeadPoint, _impactVFXPoint;
+        [SerializeField] protected Enums.UnitGeneralType _unitGeneralType;
+        [SerializeField] protected Transform _upperHeadPoint, _impactVFXPoint;
         [SerializeField] protected Transform _stand;
 
         protected ClassSettings _unitSettings;
@@ -148,8 +148,8 @@ namespace Core.Units
             {
                 MaxHealth = StaticStatsProvider.GetMaxHealth(_unitGeneralType, UnitClass),
                 CurrentHealth = StaticStatsProvider.GetMaxHealth(_unitGeneralType, UnitClass),
-                MaxArmor = 10f,
-                CurrentArmor = 10f,
+                MaxArmor = StaticStatsProvider.GetMaxArmor(_unitGeneralType, UnitClass),
+                CurrentArmor = StaticStatsProvider.GetMaxArmor(_unitGeneralType, UnitClass),
                 WalkRange = StaticStatsProvider.GetWalkRange(_unitGeneralType, UnitClass)
             };
 

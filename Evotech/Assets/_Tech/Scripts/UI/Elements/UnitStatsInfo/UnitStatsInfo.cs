@@ -26,10 +26,10 @@ namespace Core.UI.Elements
         {
             _damageInfoPanel.SetActive(true);
 
-            float damageToHealth = (damage - _currentStatsModel.CurrentArmor);
-            damageToHealth = Mathf.Max(0, damageToHealth);
-
-            float damageToArmor = (damage - damageToHealth);
+            float damageToArmor = damage;
+            float armorCurr = _currentStatsModel.CurrentArmor;
+            float damageToHealth =
+                damage - (armorCurr / _currentStatsModel.MaxArmor) * damage;
 
             if (damageToHealth > 0f && _currentStatsModel.CurrentHealth > 0f)
             {

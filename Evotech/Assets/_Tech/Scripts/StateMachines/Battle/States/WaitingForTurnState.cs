@@ -198,7 +198,7 @@ namespace Core.StateMachines.Battle
         {
             return 
                 _unitWalkingResolver.IsHaveUnitToWalk() && _currentHoverUnit != null &&
-                Utils.Battle.BattleUtils.GetRelationForUnits(Enums.UnitType.Player, _currentHoverUnit.UnitType) == Enums.UnitRelation.Enemy &&
+                BattleUtils.GetRelationForUnits(Enums.UnitType.Player, _currentHoverUnit.UnitType) == Enums.UnitRelation.Enemy &&
                 _timeForClick <= 1f;
         }
 
@@ -214,7 +214,8 @@ namespace Core.StateMachines.Battle
         {
             return 
                 _unitWalkingResolver.IsHaveUnitToWalk() && 
-                _currentHoverUnit == null && 
+                (_currentHoverUnit == null ||
+                BattleUtils.GetRelationForUnits(Enums.UnitType.Player, _currentHoverUnit.UnitType) != Enums.UnitRelation.Enemy) && 
                 _timeForClick <= 1f;
         }
 

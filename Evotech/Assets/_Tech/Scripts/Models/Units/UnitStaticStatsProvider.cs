@@ -24,6 +24,13 @@ namespace Core.Data
             float healthMultiplier = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).HealthMultiplier;
             return defaultHealth * healthMultiplier;
         }
+        
+        public float GetMaxArmor(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
+        {
+            float defaultArmor = _unitSettingsContainer.GetUnitGeneralSettingsType(unitType).DefaultArmor;
+            float armorMultiplier = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).ArmorMultiplier;
+            return defaultArmor * armorMultiplier;
+        }
 
         public float GetRandomizedAttackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
         {
@@ -45,6 +52,7 @@ namespace Core.Data
     {
         public float GetWalkRange(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public float GetMaxHealth(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
+        public float GetMaxArmor(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public float GetRandomizedAttackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public (float, float) GetDecomposedDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
     }
