@@ -150,8 +150,21 @@ namespace Core.Units
                 CurrentHealth = StaticStatsProvider.GetMaxHealth(_unitGeneralType, UnitClass),
                 MaxArmor = StaticStatsProvider.GetMaxArmor(_unitGeneralType, UnitClass),
                 CurrentArmor = StaticStatsProvider.GetMaxArmor(_unitGeneralType, UnitClass),
-                WalkRange = StaticStatsProvider.GetWalkRange(_unitGeneralType, UnitClass)
+                WalkRange = StaticStatsProvider.GetWalkRange(_unitGeneralType, UnitClass),
+                MaxInitiative = StaticStatsProvider.GetMaxInitiative(_unitGeneralType, UnitClass),
+                CurrentInitiative = StaticStatsProvider.GetMaxInitiative(_unitGeneralType, UnitClass),
             };
+
+            if (UnitType == Enums.UnitType.Player)
+            {
+                statsModel.MaxInitiative *= 2f;
+                statsModel.CurrentInitiative = statsModel.MaxInitiative;
+            }
+            else if (UnitType == Enums.UnitType.EnemyRed || UnitType == Enums.UnitType.EnemyNeutral)
+            {
+                statsModel.MaxInitiative *= 1.5f * UnityEngine.Random.Range(.8f, 1.2f);
+                statsModel.CurrentInitiative = statsModel.MaxInitiative;
+            }
 
             DynamicStatsProvider = new UnitDynamicStatsProvider(statsModel);
             DynamicStatsProvider.OnHealthZeroed += KillUnit;

@@ -31,12 +31,19 @@ namespace Core.Data
             float armorMultiplier = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).ArmorMultiplier;
             return defaultArmor * armorMultiplier;
         }
+        
+        public float GetMaxInitiative(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
+        {
+            float defaultInitiative = _unitSettingsContainer.GetUnitGeneralSettingsType(unitType).DefaultInitiative;
+            float initiativeMultiplier = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).InitiativeMultiplier;
+            return defaultInitiative * initiativeMultiplier;
+        }
 
         public float GetRandomizedAttackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
         {
             float attack = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).AttackDamage;
             float attackRandom = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass).AttackRandom;
-            return attack + UnityEngine.Random.Range(-attackRandom, attackRandom);
+            return attack + Random.Range(-attackRandom, attackRandom);
         }
 
         public (float, float) GetDecomposedDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass)
@@ -53,6 +60,7 @@ namespace Core.Data
         public float GetWalkRange(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public float GetMaxHealth(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public float GetMaxArmor(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
+        public float GetMaxInitiative(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public float GetRandomizedAttackDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
         public (float, float) GetDecomposedDamage(Enums.UnitGeneralType unitType, Enums.UnitClass unitClass);
     }

@@ -55,6 +55,11 @@ namespace Core.Data
         {
             return Mathf.Clamp01(_stats.CurrentArmor / _stats.MaxArmor);
         }
+        
+        public float GetCurrentInitiative()
+        {
+            return _stats.CurrentInitiative;
+        }
 
         public UnitStatsModel GetStatsModel()
         {
@@ -70,6 +75,7 @@ namespace Core.Data
         public bool TakeDamage(InstantDamageInfo damageInfo);
         public float GetHealthPercentage();
         public float GetArmorPercentage();
+        public float GetCurrentInitiative();
         public UnitStatsModel GetStatsModel();
     }
 
@@ -80,5 +86,7 @@ namespace Core.Data
         public float MaxArmor;
         public float CurrentArmor;
         public float WalkRange;
+        public float MaxInitiative;
+        public float CurrentInitiative;
     }
 }

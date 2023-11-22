@@ -6,7 +6,7 @@ namespace Qnject
 {
     public class QnjectPrefabsFactory
     {
-        public static GameObject CreatePrefab(
+        public static GameObject Instantiate(
             GameObject instance, 
             Vector3 position = new Vector3(), 
             Quaternion rotation = new Quaternion(), 
@@ -20,7 +20,7 @@ namespace Qnject
             return newObject;
         }
 
-        public static T CreatePrefab<T>(
+        public static T Instantiate<T>(
             T instance, 
             Vector3 position = new Vector3(), 
             Quaternion rotation = new Quaternion(), 

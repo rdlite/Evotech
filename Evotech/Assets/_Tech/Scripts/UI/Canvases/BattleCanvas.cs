@@ -13,7 +13,7 @@ namespace Core.UI
             _canvasGroup = GetComponent<CanvasGroup>();
         }
 
-        public override void FirstShow()
+        public override void Show()
         {
             AppearAnimation();
         }

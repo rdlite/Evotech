@@ -66,7 +66,7 @@ namespace Core.Data
 
         private HexagonNode CreateMainHex(Vector2Int point, Transform parent)
         {
-            HexagonNode newHex = QnjectPrefabsFactory.CreatePrefab<HexagonNode>(_landscapeSettings.MainHex);
+            HexagonNode newHex = QnjectPrefabsFactory.Instantiate<HexagonNode>(_landscapeSettings.MainHex);
             newHex.transform.SetParent(parent);
             newHex.transform.localPosition = HexGridUtility.ConvertHexCoordToWorldPoint(point);
             return newHex;

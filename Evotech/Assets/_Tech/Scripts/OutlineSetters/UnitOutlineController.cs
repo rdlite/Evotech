@@ -13,6 +13,7 @@ namespace Core.Battle.Outline
         private OutlineConfigs _outlineConfig;
         private int _defaultLayer;
         private int _currentBatchID;
+        private int _outlineRequestersAmount;
         private bool _isActive;
         private bool _isSnapped;
 
@@ -27,21 +28,31 @@ namespace Core.Battle.Outline
 
         public void AddObjectsToBatch()
         {
+            _outlineRequestersAmount++;
+
             if (_isActive || _isSnapped) return;
 
             _isActive = true;
 
-            OutlineBatchesResolver.OutlineDataToStore batch = new OutlineBatchesResolver.OutlineDataToStore(_currentBatchID, _outlineConfig, _childRenderers, _childRendererLayers);
-            _currentBatchID = OutlineBatchesResolver.AddBacth(batch);
+            if (_outlineRequestersAmount == 1)
+            {
+                OutlineBatchesResolver.OutlineDataToStore batch = new OutlineBatchesResolver.OutlineDataToStore(_currentBatchID, _outlineConfig, _childRenderers, _childRendererLayers);
+                _currentBatchID = OutlineBatchesResolver.AddBacth(batch);
+            }
         }
 
         public void RemoveObjectsFromBatch()
         {
+            _outlineRequestersAmount--;
+
             if (!_isActive || _isSnapped) return;
 
             _isActive = false;
 
-            OutlineBatchesResolver.RemoveBatch(_currentBatchID);
+            if (_outlineRequestersAmount == 0)
+            {
+                OutlineBatchesResolver.RemoveBatch(_currentBatchID);
+            }
         }
 
         public void SnapOutline(bool isSnap)

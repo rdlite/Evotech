@@ -16,7 +16,7 @@ namespace Core.Factories
 
         public BaseUnit Create(NodeBase spawnNode, Enums.UnitType unitType, Enums.UnitClass unitClass, Enums.OutlineType outlineType)
         {
-            BaseUnit newUnit = QnjectPrefabsFactory.CreatePrefab(_assetsContainer.UnitAssets.TestUnit);
+            BaseUnit newUnit = QnjectPrefabsFactory.Instantiate(_assetsContainer.UnitAssets.TestUnit);
             newUnit.transform.position = spawnNode.WorldPos + spawnNode.SurfaceOffset;
             newUnit.transform.forward = spawnNode.WorldObject.forward;
             newUnit.Init(unitType, unitClass, outlineType);

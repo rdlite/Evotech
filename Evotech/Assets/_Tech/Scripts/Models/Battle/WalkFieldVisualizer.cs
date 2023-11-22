@@ -50,7 +50,7 @@ namespace Core.Battle
                 DecalData newDecal = new DecalData();
                 newDecal.Delay = Vector3.Distance(node.WorldPos.FlatY(), startNode.WorldPos.FlatY()) / 40f;
                 newDecal.Node = node;
-                newDecal.DecalWrapper = QnjectPrefabsFactory.CreatePrefab(_assetsContainer.BattlePrefabs.HexagonalDefaultDecal);
+                newDecal.DecalWrapper = QnjectPrefabsFactory.Instantiate(_assetsContainer.BattlePrefabs.HexagonalDefaultDecal);
                 newDecal.DecalWrapper.transform.position = node.WorldPos + node.SurfaceOffset + Vector3.up * .05f;
                 newDecal.DecalWrapper.SetMinScale();
                 newDecal.DecalWrapper.Show(.3f, newDecal.Delay, DG.Tweening.Ease.OutBack);

@@ -58,7 +58,7 @@ namespace Core.Units
                 Destroy(_weapon);
             }
 
-            _weapon = QnjectPrefabsFactory.CreatePrefab(weapon);
+            _weapon = QnjectPrefabsFactory.Instantiate(weapon);
             _weapon.transform.SetParent(_oneWeaponLeftHandPoint.transform);
             _weapon.transform.ResetLocals();
             _weaponEffectsSetter = _weapon.GetComponent<WeaponEffectsSetter>();
@@ -108,7 +108,7 @@ namespace Core.Units
 
             for (int i = 0; i < _points.Count; i++)
             {
-                ThreeDObjectExploder obj = QnjectPrefabsFactory.CreatePrefab(_assetsContainer.ArmorPrebafs.GetRandomObjectByType(_points[i].PointType));
+                ThreeDObjectExploder obj = QnjectPrefabsFactory.Instantiate(_assetsContainer.ArmorPrebafs.GetRandomObjectByType(_points[i].PointType));
                 obj.transform.SetParent(_points[i].Point);
                 obj.transform.ResetLocals();
                 objects.Add(obj);

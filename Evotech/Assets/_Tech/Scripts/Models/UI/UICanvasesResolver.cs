@@ -1,4 +1,5 @@
 using Core.Data;
+using Qnject;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,18 +20,22 @@ namespace Core.UI
             _currentCanvases = new Dictionary<Enums.UICanvasType, AbstractCanvas>();
         }
 
-        public void OpenCanvas(Enums.UICanvasType canvasType, bool withDontDestroy)
+        public void CreateCanvas(Enums.UICanvasType canvasType, bool withDontDestroy)
+        {
+            AbstractCanvas newCanvas = QnjectPrefabsFactory.Instantiate(_canvasPrefabs[canvasType]);
+            _currentCanvases.Add(canvasType, newCanvas);
+            _canvasPrefabs[canvasType].gameObject.SetActive(false);
+            if (withDontDestroy)
+            {
+                Object.DontDestroyOnLoad(_canvasPrefabs[canvasType].gameObject);
+            }
+        }
+
+        public void OpenCanvas(Enums.UICanvasType canvasType)
         {
             if (_currentCanvases.ContainsKey(canvasType)) return;
 
-            AbstractCanvas newCanvas = Object.Instantiate(_canvasPrefabs[canvasType]);
-            _currentCanvases.Add(canvasType, newCanvas);
-            newCanvas.FirstShow();
-
-            if (withDontDestroy)
-            {
-                Object.DontDestroyOnLoad(newCanvas.gameObject);
-            }
+            _canvasPrefabs[canvasType].Show();
         }
 
         public AbstractCanvas GetCanvas<TCanvas>() where TCanvas : AbstractCanvas
@@ -59,7 +64,8 @@ namespace Core.UI
 
     public interface IUICanvasesResolver
     {
-        void OpenCanvas(Enums.UICanvasType canvasType, bool withDontDestroy);
+        void OpenCanvas(Enums.UICanvasType canvasType);
+        void CreateCanvas(Enums.UICanvasType canvasType, bool withDontDestroy);
         AbstractCanvas GetCanvas<TCanvas>() where TCanvas : AbstractCanvas;
         void Clear();
     }

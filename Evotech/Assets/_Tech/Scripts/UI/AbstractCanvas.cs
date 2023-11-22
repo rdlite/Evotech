@@ -13,7 +13,7 @@ namespace Core.UI
             GatherPanels();
         }
 
-        public abstract void FirstShow();
+        public abstract void Show();
 
         public void SetActivePanel<TPanel>(bool value)
         {

@@ -9,6 +9,7 @@ using Core.Cameras;
 using Utils.Battle;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
+using Core.UI.Elements;
 
 public class UnitWalkingResolver
 {
@@ -18,6 +19,7 @@ public class UnitWalkingResolver
     private IBattleLinesFactory _battleLinesFactory;
     private IMapDataProvider _mapDataProvider;
     private IWalkFieldVisualizer _walkFieldVisualizer;
+    private UnitsSequencePanel _unitsSequencePanel;
     private IRaycaster _raycaster;
     private CameraController _camera;
     private Vector3 _lastRaycastPos;
@@ -28,9 +30,10 @@ public class UnitWalkingResolver
 
     public UnitWalkingResolver(
         IRaycaster raycaster, CameraController camera, IWalkFieldVisualizer walkFieldVisualizer,
-        IBattleLinesFactory battleLinesFactory, IMapDataProvider mapDataProvider)
+        IBattleLinesFactory battleLinesFactory, IMapDataProvider mapDataProvider, UnitsSequencePanel unitsSequencePanel)
     {
         _walkFieldVisualizer = walkFieldVisualizer;
+        _unitsSequencePanel = unitsSequencePanel;
         _raycaster = raycaster;
         _camera = camera;
         _battleLinesFactory = battleLinesFactory;
@@ -42,6 +45,7 @@ public class UnitWalkingResolver
         if (unit == null && _currentUnit != null)
         {
             _currentUnit.SetActiveOutline(false, true);
+            _unitsSequencePanel.SetHighlightedPulsate(_currentUnit, false);
 
             SetUnitRotationTarget(Vector3.zero);
             ClearGhost();
@@ -51,7 +55,11 @@ public class UnitWalkingResolver
         _currentUnit = unit;
         _nodesToWalk = nodesToWalk;
 
-        _currentUnit?.SetActiveOutline(true, true);
+        if (_currentUnit != null)
+        {
+            _unitsSequencePanel.SetHighlightedPulsate(_currentUnit, true);
+            _currentUnit.SetActiveOutline(true, true);
+        }
     }
 
     public void Update()

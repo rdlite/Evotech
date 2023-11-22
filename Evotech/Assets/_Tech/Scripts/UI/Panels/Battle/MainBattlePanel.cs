@@ -1,4 +1,5 @@
 using Core.Battle;
+using Core.UI.Elements;
 using Extensions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ namespace Core.UI
     {
         [SerializeField] private Button _unitStatsAllSwitcher;
         [SerializeField] private Image _switchStatsIcon;
+        [SerializeField] private UnitsSequencePanel _unitsSequencePanel;
         [SerializeField] private float _deactivatedStatsIconAlpha = .5f;
 
         private BattleObserver _battleObserver;
@@ -43,6 +45,11 @@ namespace Core.UI
         {
             bool isActive = _battleObserver.SwitchStatsState();
             _switchStatsIcon.SetAlpha(isActive ? 1f : _deactivatedStatsIconAlpha);
+        }
+
+        public UnitsSequencePanel GetUnitsSequencePanel()
+        {
+            return _unitsSequencePanel;
         }
     }
 }

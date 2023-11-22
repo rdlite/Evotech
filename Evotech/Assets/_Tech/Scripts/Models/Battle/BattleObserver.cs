@@ -2,12 +2,13 @@ using Core.Data;
 using Core.Units;
 using Core.UI.Models;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Core.Battle
 {
     public class BattleObserver
     {
+        public event System.Action<BaseUnit> OnUnitAdded, OnUnitRemoved;
+
         private List<BaseUnit> _unitsOnMap = new List<BaseUnit>();
         private List<BaseUnit> _currentShowingUnitsStatsInfo = new List<BaseUnit>();
         private IUnitsUIStatsController _uiStatsController;
@@ -30,6 +31,7 @@ namespace Core.Battle
             _unitsOnMap.Add(newUnit);
             newUnit.OnDead += (unit) => HideStatsInfo(unit, false, true);
             newUnit.OnDead += (unit) => RemoveUnit(unit);
+            OnUnitAdded?.Invoke(newUnit);
         }
         
         public void RemoveUnit(BaseUnit newUnit)
@@ -40,6 +42,8 @@ namespace Core.Battle
 
             newUnit.OnDead -= (unit) => HideStatsInfo(unit, false, true);
             newUnit.OnDead -= (unit) => RemoveUnit(unit);
+
+            OnUnitRemoved?.Invoke(newUnit);
         }
 
         public void ClearAdditionalInfo()
@@ -104,6 +108,11 @@ namespace Core.Battle
             }
 
             return _isAlwaysShowStats;
+        }
+
+        public List<BaseUnit> GetUnitsOnMap()
+        {
+            return new List<BaseUnit>(_unitsOnMap);
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Core.Factories
 
         public CameraController CreateCamera(Vector3 position)
         {
-            CameraController camera = QnjectPrefabsFactory.CreatePrefab(_assetsContainer.CameraPrefab, position);
+            CameraController camera = QnjectPrefabsFactory.Instantiate(_assetsContainer.CameraPrefab, position);
             CameraBaseContainer = camera.GetComponent<CameraBaseContainer>();
             MainCamera = camera;
             return camera;

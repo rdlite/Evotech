@@ -34,7 +34,7 @@ namespace Core.StateMachines.Battle
         {
             CreateUnits();
             _camera.SetInstanLookupPoint(_playerNodeToLookup.position.FlatY());
-            _battleSM.Enter<WaitingForTurnState>();
+            _battleSM.Enter<StartRoundState>();
         }
 
         public void Exit() { }

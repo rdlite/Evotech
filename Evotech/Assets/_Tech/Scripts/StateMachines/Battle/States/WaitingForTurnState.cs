@@ -8,6 +8,7 @@ using Core.Cameras;
 using Core.InputSystem;
 using System.Collections.Generic;
 using Utils.Battle;
+using Core.UI.Elements;
 
 namespace Core.StateMachines.Battle
 {
@@ -21,6 +22,7 @@ namespace Core.StateMachines.Battle
         private readonly IWalkFieldVisualizer _walkFieldVisualizer;
         private readonly IMapDataProvider _mapDataProvider;
         private readonly IBattleLinesFactory _battleLinesFactory;
+        private UnitsSequencePanel _unitsSequencePanel;
 
         private BaseUnit _currentHoverUnit;
         private UnitWalkingResolver _unitWalkingResolver;
@@ -30,7 +32,7 @@ namespace Core.StateMachines.Battle
         public WaitingForTurnState(
             BattleObserver battleObserver, IRaycaster raycaster, CameraController camera, 
             IInput input, StateMachine battleSM, IWalkFieldVisualizer walkFieldVisualizer,
-            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory)
+            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory, UnitsSequencePanel unitSequencePanel)
         {
             _battleObserver = battleObserver;
             _raycaster = raycaster;
@@ -40,9 +42,10 @@ namespace Core.StateMachines.Battle
             _walkFieldVisualizer = walkFieldVisualizer;
             _mapDataProvider = mapDataProvider;
             _battleLinesFactory = battleLinesFactory;
+            _unitsSequencePanel = unitSequencePanel;
             _unitWalkingResolver = new UnitWalkingResolver(
                 raycaster, camera, walkFieldVisualizer,
-                battleLinesFactory, mapDataProvider);
+                battleLinesFactory, mapDataProvider, unitSequencePanel);
         }
 
         public void Enter()
@@ -88,6 +91,7 @@ namespace Core.StateMachines.Battle
              
             if (_currentHoverUnit != null && (unitUnderPointer != null && unitUnderPointer.ParentUnit != _currentHoverUnit || unitUnderPointer == null))
             {
+                _unitsSequencePanel.SetHighlightedSelected(_currentHoverUnit, false);
                 _currentHoverUnit.SetActiveOutline(false, false);
                 _battleObserver.HideStatsInfo(_currentHoverUnit, false, false);
                 _currentHoverUnit = null;
@@ -96,6 +100,7 @@ namespace Core.StateMachines.Battle
             {
                 _currentHoverUnit = unitUnderPointer.ParentUnit;
                 _currentHoverUnit.SetActiveOutline(true, false);
+                _unitsSequencePanel.SetHighlightedSelected(_currentHoverUnit, true);
                 _battleObserver.HighlightUIStatsInfo(_currentHoverUnit, true);
 
                 if (_unitWalkingResolver.GetCurrenUnit() != null)

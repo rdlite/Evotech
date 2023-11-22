@@ -21,7 +21,7 @@ namespace Core.Battle
 
         public BattlePointedLine CreateLine(Vector3 start, Vector3 end, Enums.PointedLineType pointedLineType)
         {
-            BattlePointedLine newLine = QnjectPrefabsFactory.CreatePrefab(_assetsContainer.BattlePrefabs.Line);
+            BattlePointedLine newLine = QnjectPrefabsFactory.Instantiate(_assetsContainer.BattlePrefabs.Line);
             newLine.Create(start, end, _stylesContainer.GetStyleOfLineType(pointedLineType));
             _createdLines.Add(newLine);
             return newLine;
