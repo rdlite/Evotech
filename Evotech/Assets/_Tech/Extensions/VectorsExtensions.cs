@@ -24,5 +24,26 @@ namespace Extensions
 
             return value;
         }
+
+        public static Vector3 SetX(this Vector3 value, float target)
+        {
+            value.x = target;
+
+            return value;
+        }
+
+        public static Vector3 SetY(this Vector3 value, float target)
+        {
+            value.y = target;
+
+            return value;
+        }
+
+        public static Vector3 SetZ(this Vector3 value, float target)
+        {
+            value.z = target;
+
+            return value;
+        }
     }
 }

@@ -46,16 +46,58 @@ namespace Core.StateMachines.Battle
         {
             _t += Time.deltaTime / _battleSettings.MovementDuration;
 
+            //MoveWithGap();
+            MoveByArc();
+        }
+
+        public void Exit() { }
+
+        private void MoveByArc()
+        {
+            _unitToAnimate.transform.position = Vector3.Lerp(
+                new Vector3(
+                        _startNode.WorldPos.x,
+                        (_startNode.WorldPos + _startNode.SurfaceOffset).y,
+                        _startNode.WorldPos.z), 
+                new Vector3(
+                        _endNode.WorldPos.x,
+                        (_endNode.WorldPos + _endNode.SurfaceOffset).y,
+                        _endNode.WorldPos.z),
+                _t) + Vector3.up * 3f * _battleSettings.ArcMovementCurve.Evaluate(_t);
+
+            if (!_isCameraMoved)
+            {
+                _isCameraMoved = true;
+                _camera.SetSmoothLookupPoint(
+                    new Vector3(
+                        _endNode.WorldPos.x,
+                        (_endNode.WorldPos + _endNode.SurfaceOffset).y,
+                        _endNode.WorldPos.z));
+            }
+
+            if (_t >= 1f)
+            {
+                FinishMovement();
+            }
+            else if (_t >= .95f && !_isPlayedShakeAnimation)
+            {
+                _isPlayedShakeAnimation = true;
+                _unitToAnimate.GetBaseAnimator().PlayPlacedShake();
+            }
+        }
+
+        private void MoveWithGap()
+        {
             if (_t < .3f)
             {
                 _unitToAnimate.transform.position = Vector3.Lerp(
                     new Vector3(
-                        _unitToAnimate.transform.position.x, 
-                        (_startNode.WorldPos + _startNode.SurfaceOffset).y, 
+                        _unitToAnimate.transform.position.x,
+                        (_startNode.WorldPos + _startNode.SurfaceOffset).y,
                         _unitToAnimate.transform.position.z),
                     new Vector3(
-                        _unitToAnimate.transform.position.x, 
-                        (_startNode.WorldPos + _startNode.SurfaceOffset).y + _battleSettings.MaxUpMovementHeight, 
+                        _unitToAnimate.transform.position.x,
+                        (_startNode.WorldPos + _startNode.SurfaceOffset).y + _battleSettings.MaxUpMovementHeight,
                         _unitToAnimate.transform.position.z),
                     _battleSettings.MovementSmoothToUp.Evaluate(Mathf.InverseLerp(0f, .3f, _t)));
             }
@@ -76,11 +118,11 @@ namespace Core.StateMachines.Battle
 
                 _unitToAnimate.transform.position = Vector3.Lerp(
                     new Vector3(
-                        _endNode.WorldPos.x, 
+                        _endNode.WorldPos.x,
                         (_endNode.WorldPos + _endNode.SurfaceOffset).y + _battleSettings.MaxUpMovementHeight,
                         _endNode.WorldPos.z),
                     new Vector3(
-                        _endNode.WorldPos.x, 
+                        _endNode.WorldPos.x,
                         (_endNode.WorldPos + _endNode.SurfaceOffset).y,
                         _endNode.WorldPos.z),
                     _battleSettings.MovementSmoothToDown.Evaluate(Mathf.InverseLerp(.7f, 1f, _t)));
@@ -98,8 +140,6 @@ namespace Core.StateMachines.Battle
                 }
             }
         }
-
-        public void Exit() { }
 
         private void FinishMovement()
         {

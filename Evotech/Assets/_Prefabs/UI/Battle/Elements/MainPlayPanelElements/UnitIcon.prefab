@@ -86,9 +86,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1285633644185946525}
   - component: {fileID: 1246322787582665868}
-  - component: {fileID: 3900709063523389033}
   - component: {fileID: 2574891446950197915}
   - component: {fileID: 8747380490587861295}
+  - component: {fileID: 609359561509594401}
   m_Layer: 5
   m_Name: UnitIcon
   m_TagString: Untagged
@@ -127,19 +127,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992501153091106570}
   m_CullTransparentMesh: 0
---- !u!114 &3900709063523389033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1992501153091106570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
 --- !u!114 &2574891446950197915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +171,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthRect: {fileID: 8163359774853573648}
   _highlightImage: {fileID: 6744017790539413025}
+  _canvasGroup: {fileID: 609359561509594401}
+--- !u!225 &609359561509594401
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992501153091106570}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2355554243450618918
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
+  m_ShowMaskGraphic: 0
 --- !u!1 &8185957982643373154
 GameObject:
   m_ObjectHideFlags: 0

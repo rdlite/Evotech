@@ -49,6 +49,7 @@ namespace Core.Settings
         public float MovementDuration = .6f;
         public float MaxUpMovementHeight = 3f;
         public AnimationCurve MovementSmoothToUp;
+        public AnimationCurve ArcMovementCurve;
         public AnimationCurve MovementSmoothToDown;
         public ParticleSystem PlacingParticle;
     }

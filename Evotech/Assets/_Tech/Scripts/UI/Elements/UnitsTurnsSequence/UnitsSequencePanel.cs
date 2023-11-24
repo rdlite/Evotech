@@ -53,7 +53,7 @@ namespace Core.UI.Elements
 
         public void RemoveIconOfUnit(BaseUnit unit)
         {
-            Destroy(_createdUnitIcons[unit].gameObject);
+            _createdUnitIcons[unit].Remove();
         }
 
         public void SortIconsAccordingly(List<BaseUnit> sortedUnitsList)
