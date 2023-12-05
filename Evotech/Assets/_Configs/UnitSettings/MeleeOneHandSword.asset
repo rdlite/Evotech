@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponID: 0
   HealthMultiplier: 1
+  ArmorMultiplier: 1
   MoveRangeMultiplier: 1
+  InitiativeMultiplier: 1
   AttackDamage: 5
   AttackRandom: 2
+  UnitSkills:
+  - {fileID: 11400000, guid: 6b1458adeb6f6b54c89d708fea9da7bc, type: 2}

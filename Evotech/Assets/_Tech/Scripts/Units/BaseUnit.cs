@@ -3,8 +3,10 @@ using Qnject;
 using System;
 using Core.Data;
 using UnityEngine;
+using Core.Data.Skills;
 using QOutline.Configs;
 using Core.Battle.Outline;
+using System.Collections.Generic;
 
 namespace Core.Units
 {
@@ -25,7 +27,7 @@ namespace Core.Units
         [SerializeField] protected Transform _upperHeadPoint, _impactVFXPoint;
         [SerializeField] protected Transform _stand;
 
-        protected ClassSettings _unitSettings;
+        protected ClassSettings _classSettings;
         protected BaseUnitAnimator _baseAnimator;
         protected StylesContainer _stylesContainer;
         protected IUpdateProvider _updatesProvider;
@@ -63,7 +65,7 @@ namespace Core.Units
             UnitClass = unitClass;
             OutlineType = outlineType;
 
-            _unitSettings = _unitSettingsContainer.GetUnitSettingsOfClassType(unitClass);
+            _classSettings = _unitSettingsContainer.GetSettingsOfClassType(unitClass);
 
             CreateStatsModel();
         }
@@ -203,6 +205,22 @@ namespace Core.Units
         public Transform GetUpperHeadPoint()
         {
             return _upperHeadPoint;
+        }
+
+        public List<UnitBaseSkill> GetCurrentSkills()
+        {
+            List<UnitBaseSkill> skills = new List<UnitBaseSkill>();
+            skills.AddRange(_unitSettingsContainer.GetUnitGeneralSettingsType(_unitGeneralType).UnitSkills);
+
+            foreach (var skill in _unitSettingsContainer.GetSettingsOfClassType(UnitClass).UnitSkills)
+            {
+                if (!skills.Contains(skill))
+                {
+                    skills.Add(skill);
+                }
+            }
+
+            return skills;
         }
     }
 }

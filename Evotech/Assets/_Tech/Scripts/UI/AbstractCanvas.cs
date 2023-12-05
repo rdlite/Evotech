@@ -44,7 +44,7 @@ namespace Core.UI
         {
             _childPanels = new Dictionary<Type, Panel>();
 
-            foreach (var childPanel in GetComponentsInChildren<Panel>())
+            foreach (var childPanel in GetComponentsInChildren<Panel>(true))
             {
                 _childPanels.Add(childPanel.GetType(), childPanel);
             }

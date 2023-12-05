@@ -1,4 +1,6 @@
 using UnityEngine;
+using Core.Data.Skills;
+using System.Collections.Generic;
 
 namespace Core.Data
 {
@@ -9,5 +11,6 @@ namespace Core.Data
         public float DefaultArmor = 0;
         public float DefaultWalkRange = 0;
         public float DefaultInitiative = 0;
+        public List<UnitBaseSkill> UnitSkills;
     }
 }

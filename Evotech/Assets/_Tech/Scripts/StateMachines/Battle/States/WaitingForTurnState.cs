@@ -9,6 +9,7 @@ using Core.InputSystem;
 using System.Collections.Generic;
 using Utils.Battle;
 using Core.UI.Elements;
+using Core.UI;
 
 namespace Core.StateMachines.Battle
 {
@@ -23,16 +24,17 @@ namespace Core.StateMachines.Battle
         private readonly IMapDataProvider _mapDataProvider;
         private readonly IBattleLinesFactory _battleLinesFactory;
         private UnitsSequencePanel _unitsSequencePanel;
-
         private BaseUnit _currentHoverUnit;
         private UnitWalkingResolver _unitWalkingResolver;
+        private IUICanvasesResolver _canvasesResolver;
         private float _timeForClick;
         private bool _isClicked;
 
         public WaitingForTurnState(
             BattleObserver battleObserver, IRaycaster raycaster, CameraController camera, 
             IInput input, StateMachine battleSM, IWalkFieldVisualizer walkFieldVisualizer,
-            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory, UnitsSequencePanel unitSequencePanel)
+            IMapDataProvider mapDataProvider, IBattleLinesFactory battleLinesFactory, UnitsSequencePanel unitSequencePanel,
+            IUICanvasesResolver canvasesResolver)
         {
             _battleObserver = battleObserver;
             _raycaster = raycaster;
@@ -46,6 +48,7 @@ namespace Core.StateMachines.Battle
             _unitWalkingResolver = new UnitWalkingResolver(
                 raycaster, camera, walkFieldVisualizer,
                 battleLinesFactory, mapDataProvider, unitSequencePanel);
+            _canvasesResolver = canvasesResolver;
         }
 
         public void Enter()
@@ -167,7 +170,11 @@ namespace Core.StateMachines.Battle
             }
             else
             {
-                if (IsClickedOnPossibleWalkinUnit())
+                if (IsClickedOnFieldWithSelectedWalkingUnit())
+                {
+                    MoveUnit(null);
+                }
+                else if (_currentHoverUnit != null)
                 {
                     _walkFieldVisualizer.Hide();
 
@@ -177,18 +184,20 @@ namespace Core.StateMachines.Battle
                         unitNode,
                         nodesWalkingRange);
 
-                    _unitWalkingResolver.SetCurrentWalkingUnit(_currentHoverUnit, nodesWalkingRange);
-                }
-                else if (IsClickedOnFieldWithSelectedWalkingUnit())
-                {
-                    MoveUnit(null);
+                    _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().FillInfo(_currentHoverUnit);
+                    _canvasesResolver.GetCanvas<BattleCanvas>().SetActivePanel<UnitManagementPanel>(true);
+
+                    if (IsClickedOnPossibleWalkinUnit())
+                    {
+                        _unitWalkingResolver.SetCurrentWalkingUnit(_currentHoverUnit, nodesWalkingRange);
+                    }
                 }
             }
         }
 
         private void MoveUnit(System.Action callback)
         {
-            UnitMovementState.MovementData movementData = new UnitMovementState.MovementData(
+            UnitActionState.MovementData movementData = new UnitActionState.MovementData(
                 _unitWalkingResolver.GetCurrenUnit(),
                 _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetCurrenUnit().transform.position),
                 _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint()),
@@ -196,7 +205,7 @@ namespace Core.StateMachines.Battle
 
             ResetWalkSelection();
 
-            _battleSM.Enter<UnitMovementState, UnitMovementState.MovementData>(movementData);
+            _battleSM.Enter<UnitActionState, UnitActionState.MovementData>(movementData);
         }
 
         private bool IsWalkingAndClickedOnEnemy()
@@ -239,6 +248,7 @@ namespace Core.StateMachines.Battle
         {
             _unitWalkingResolver.SetCurrentWalkingUnit(null, null);
             _walkFieldVisualizer.Hide();
+            _canvasesResolver.GetCanvas<BattleCanvas>().SetActivePanel<UnitManagementPanel>(false);
         }
     }
 }

@@ -1,4 +1,6 @@
 using UnityEngine;
+using Core.Data.Skills;
+using System.Collections.Generic;
 
 namespace Core.Data
 {
@@ -12,5 +14,6 @@ namespace Core.Data
         public float InitiativeMultiplier = 1f;
         public float AttackDamage = 10f;
         public float AttackRandom = 2f;
+        public List<UnitBaseSkill> UnitSkills;
     }
 }

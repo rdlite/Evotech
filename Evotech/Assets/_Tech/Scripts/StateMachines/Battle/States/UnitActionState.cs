@@ -7,7 +7,7 @@ using Core.Settings;
 
 namespace Core.StateMachines.Battle
 {
-    public class UnitMovementState : IUpdateState, IPayloadState<UnitMovementState.MovementData>
+    public class UnitActionState : IUpdateState, IPayloadState<UnitActionState.MovementData>
     {
         private readonly StateMachine _battleSM;
         private readonly BattleSettings _battleSettings;
@@ -19,7 +19,7 @@ namespace Core.StateMachines.Battle
         private bool _isCameraMoved;
         private bool _isPlayedShakeAnimation;
 
-        public UnitMovementState(
+        public UnitActionState(
             StateMachine battleSM, BattleSettings battleSettings, CameraController camera)
         {
             _battleSM = battleSM;

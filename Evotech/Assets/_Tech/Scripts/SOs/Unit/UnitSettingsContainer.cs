@@ -9,7 +9,7 @@ namespace Core.Data
         [SerializeField] private List<ClassSettingsMap> _classSettingsMap;
         [SerializeField] private List<UnitSettingsMap> _unitGeneralSettingsMap;
 
-        public ClassSettings GetUnitSettingsOfClassType(Enums.UnitClass classType)
+        public ClassSettings GetSettingsOfClassType(Enums.UnitClass classType)
         {
             for (int i = 0; i < _classSettingsMap.Count; i++)
             {

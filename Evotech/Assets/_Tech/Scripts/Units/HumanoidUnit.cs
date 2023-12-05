@@ -25,7 +25,7 @@ namespace Core.Units
             _raycastTrigger = GetComponentInChildren<UnitRaycastTrigger>();
             _raycastTrigger.OnClicked += () => OnUnitClicked?.Invoke();
 
-            _weaponStyle = _stylesContainer.GetStyleOfWeaponType(_unitSettings.WeaponID);
+            _weaponStyle = _stylesContainer.GetStyleOfWeaponType(_classSettings.WeaponID);
 
             _spirit = GetComponentInChildren<Spirit>();
             _spirit.Init(_weaponStyle, unitType, this);

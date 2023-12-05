@@ -31,8 +31,9 @@ namespace Core.StateMachines
                 [typeof(WaitingForTurnState)] = new WaitingForTurnState(
                     battleObserver, raycaster, camera,
                     input, this, walkFieldVisualizer,
-                    mapDataProvider, battleLinesFactory, canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<MainBattlePanel>().GetUnitsSequencePanel()),
-                [typeof(UnitMovementState)] = new UnitMovementState(
+                    mapDataProvider, battleLinesFactory, canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<MainBattlePanel>().GetUnitsSequencePanel(),
+                    canvasesResolver),
+                [typeof(UnitActionState)] = new UnitActionState(
                     this, battleSettings, camera),
                 [typeof(UnitsActionState)] = new UnitsActionState(
                     battleObserver, this, cameraShaker,
