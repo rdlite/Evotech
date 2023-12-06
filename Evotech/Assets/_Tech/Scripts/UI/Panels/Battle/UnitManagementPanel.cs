@@ -11,6 +11,8 @@ namespace Core.UI
 {
     public class UnitManagementPanel : Panel
     {
+        public event Action<UnitBaseSkill> OnSkillButtonPressed;
+
         [SerializeField] private SkillButton _skillButtonPrefab;
         [SerializeField] private Transform _skillsLayout;
         [SerializeField] private Image _untiIconImage;
@@ -19,13 +21,13 @@ namespace Core.UI
         private List<SkillButton> _createdSkillButtons = new List<SkillButton>();
         private BaseUnit _currentUnit;
 
-        public void FillInfo(BaseUnit unit)
+        public void FillInfo(BaseUnit unit, bool isCurrentWalkingUnit)
         {
             _currentUnit = unit;
             StatsModelChangedCaller = null;
             unit.DynamicStatsProvider.OnModelChanged += (statsModel) => StatsModelChangedCaller?.Invoke(statsModel);
 
-            RecreateSkills();
+            RecreateSkills(isCurrentWalkingUnit);
         }
 
         private void OnDisable()
@@ -33,7 +35,7 @@ namespace Core.UI
             StatsModelChangedCaller = null;
         }
 
-        private void RecreateSkills()
+        private void RecreateSkills(bool isCurrentWalkingUnit)
         {
             foreach (var item in _createdSkillButtons)
             {
@@ -48,7 +50,14 @@ namespace Core.UI
                 newSkillButton.transform.SetParent(_skillsLayout);
                 newSkillButton.transform.ResetLocals();
                 newSkillButton.Init(_currentUnit, skill);
-                newSkillButton.AddListener(OnSkillPressed);
+                if (isCurrentWalkingUnit)
+                {
+                    newSkillButton.AddListener(OnSkillPressed);
+                }
+                else
+                {
+                    newSkillButton.Disable();
+                }
                 _createdSkillButtons.Add(newSkillButton);
             }
         }
@@ -60,7 +69,7 @@ namespace Core.UI
 
         private void OnSkillPressed(UnitBaseSkill skill)
         {
-            Debug.Log(skill.SkillName);
+            OnSkillButtonPressed?.Invoke(skill);
         }
     }
 }

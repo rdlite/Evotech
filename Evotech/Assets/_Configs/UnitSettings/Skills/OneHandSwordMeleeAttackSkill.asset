@@ -15,3 +15,6 @@ MonoBehaviour:
   SkillName: Sword attack
   SkillDescription: The simplest attack, but because of this, the most fail-safe!
   Icon: {fileID: 21300000, guid: baeba51edffa7ad48bf449eae4cd118f, type: 3}
+  SortingOrder: 1
+  IsRangeAttack: 0
+  IsAttackOnOneUnit: 1

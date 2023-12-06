@@ -1,4 +1,5 @@
 using Utils;
+using System;
 using Core.Data;
 using Core.Units;
 using Extensions;
@@ -7,9 +8,8 @@ using UnityEngine;
 using Core.Battle;
 using Core.Cameras;
 using Utils.Battle;
-using System.Collections.Generic;
-using UnityEngine.Rendering;
 using Core.UI.Elements;
+using System.Collections.Generic;
 
 public class UnitWalkingResolver
 {
@@ -25,8 +25,9 @@ public class UnitWalkingResolver
     private Vector3 _lastRaycastPos;
     private Vector3 _lastEndPoint;
     private GhostCopy _currentWalkingUnitGhost;
-    private bool _isCurrentlyPointingOnEnemy;
     private bool _isCreatedLines;
+    private bool _isChoosingWalkPoint;
+    private bool _isChoosingAttackTarget;
 
     public UnitWalkingResolver(
         IRaycaster raycaster, CameraController camera, IWalkFieldVisualizer walkFieldVisualizer,
@@ -40,10 +41,13 @@ public class UnitWalkingResolver
         _mapDataProvider = mapDataProvider;
     }
 
-    public void SetCurrentWalkingUnit(BaseUnit unit, List<NodeBase> nodesToWalk)
+    public void SetCurrentUnit(BaseUnit unit, List<NodeBase> nodesToWalk)
     {
         if (unit == null && _currentUnit != null)
         {
+            _isChoosingWalkPoint = false;
+            _isChoosingAttackTarget = false;
+
             _currentUnit.SetActiveOutline(false, true);
             _unitsSequencePanel.SetHighlightedPulsate(_currentUnit, false);
 
@@ -62,11 +66,23 @@ public class UnitWalkingResolver
         }
     }
 
+    public void SwitchCurrentUnitWalk()
+    {
+        _isChoosingWalkPoint = !_isChoosingWalkPoint;
+        _isChoosingAttackTarget = false;
+    }
+
+    public void SwitchAttackOnTarget()
+    {
+        _isChoosingWalkPoint = false;
+        _isChoosingAttackTarget = !_isChoosingAttackTarget;
+    }
+
     public void Update()
     {
         int pathCount = 0;
 
-        if (_currentUnit != null && _nodesToWalk != null && _nodesToWalk.Count > 0)
+        if (IsHaveSomeAction() && _currentUnit != null && _nodesToWalk != null && _nodesToWalk.Count > 0)
         {
             Vector3 pointToSearch = Vector3.zero;
 
@@ -90,15 +106,21 @@ public class UnitWalkingResolver
 
             List<NodeBase> path = HexPathfindingGrid.SetDesination(startPoint, endPoint);
 
+            bool isPointerOverUI = _raycaster.IsPointerOverUI();
+
+            if (isPointerOverUI)
+            {
+                path.Clear();
+            }
+
             pathCount = path.Count;
 
-            if (_hoverUnit != null && _currentUnit != _hoverUnit && BattleUtils.GetRelationForUnits(_currentUnit.UnitType, _hoverUnit.UnitType) == Enums.UnitRelation.Enemy)
+            if (!isPointerOverUI && _hoverUnit != null && _currentUnit != _hoverUnit && BattleUtils.GetRelationForUnits(_currentUnit.UnitType, _hoverUnit.UnitType) == Enums.UnitRelation.Enemy)
             {
                 int distanceBetweenUnitsInNodes = HexPathfindingGrid.GetDistanceBetweenPointsInNodes(_currentUnit.transform.position, _hoverUnit.transform.position);
 
-                if (distanceBetweenUnitsInNodes < 2)
+                if (_isChoosingAttackTarget && distanceBetweenUnitsInNodes < 2)
                 {
-                    _isCurrentlyPointingOnEnemy = BattleUtils.GetRelationForUnits(Enums.UnitType.Player, _hoverUnit.UnitType) == Enums.UnitRelation.Enemy;
                     _lastEndPoint = _hoverUnit.transform.position;
                     _walkFieldVisualizer.ProcessPathScale(null);
 
@@ -107,29 +129,42 @@ public class UnitWalkingResolver
                 }
                 else if (path[path.Count - 1].Neighbours.Contains(_mapDataProvider.GetNearestNodeOfWorldPoint(_hoverUnit.transform.position)))
                 {
-                    CreateGhost();
-
-                    _currentWalkingUnitGhost.transform.position = path[path.Count - 1].WorldPos + path[path.Count - 1].SurfaceOffset;
-
-                    Vector3 targetLook = (_hoverUnit.transform.position - _currentWalkingUnitGhost.transform.position).FlatY().normalized;
-
-                    if (targetLook != Vector3.zero)
+                    if (_isChoosingAttackTarget)
                     {
-                        _currentWalkingUnitGhost.transform.rotation =
-                            Quaternion.LookRotation(targetLook, Vector3.up);
+                        CreateGhost();
+
+                        _currentWalkingUnitGhost.transform.position = path[path.Count - 1].WorldPos + path[path.Count - 1].SurfaceOffset;
+
+                        Vector3 targetLook = (_hoverUnit.transform.position - _currentWalkingUnitGhost.transform.position).FlatY().normalized;
+
+                        if (targetLook != Vector3.zero)
+                        {
+                            _currentWalkingUnitGhost.transform.rotation =
+                                Quaternion.LookRotation(targetLook, Vector3.up);
+                        }
                     }
 
                     _walkFieldVisualizer.ProcessPathScale(path);
 
-                    ClearAllLines();
-                    ShowAttackLine(_currentWalkingUnitGhost.transform.position, _hoverUnit.transform.position);
+                    if (_isChoosingAttackTarget)
+                    {
+                        ClearAllLines();
+                        ShowAttackLine(_currentWalkingUnitGhost.transform.position, _hoverUnit.transform.position);
+                    }
                 }
+            }
+            else if (_isChoosingWalkPoint)
+            {
+                _walkFieldVisualizer.ProcessPathScale(path);
+
+                ClearAllLines();
+                ClearGhost();
             }
             else
             {
-                _isCurrentlyPointingOnEnemy = false;
-                _walkFieldVisualizer.ProcessPathScale(path);
-
+                path.Clear();
+                pathCount = 0;
+                _walkFieldVisualizer.ProcessPathScale(null);
                 ClearAllLines();
                 ClearGhost();
             }
@@ -213,6 +248,21 @@ public class UnitWalkingResolver
     public bool IsHaveUnitToWalk()
     {
         return _currentUnit != null;
+    }
+
+    public bool IsChoosingWalkPoint()
+    {
+        return _isChoosingWalkPoint || _isChoosingAttackTarget;
+    }
+
+    public bool IsChoosingAttackTarget()
+    {
+        return _isChoosingAttackTarget;
+    }
+
+    public bool IsHaveSomeAction()
+    {
+        return _isChoosingAttackTarget || _isChoosingWalkPoint;
     }
 
     public BaseUnit GetCurrenUnit()

@@ -7,5 +7,6 @@ namespace Utils
     {
         UnitRaycastTrigger GetUnitTrigger(Camera camera);
         bool GetGroundPos(Camera camera, out Vector3 groundPos);
+        bool IsPointerOverUI();
     }
 }

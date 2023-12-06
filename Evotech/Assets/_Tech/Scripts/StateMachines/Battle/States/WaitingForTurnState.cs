@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using Utils.Battle;
 using Core.UI.Elements;
 using Core.UI;
+using Core.Data.Skills;
 
 namespace Core.StateMachines.Battle
 {
@@ -23,10 +24,10 @@ namespace Core.StateMachines.Battle
         private readonly IWalkFieldVisualizer _walkFieldVisualizer;
         private readonly IMapDataProvider _mapDataProvider;
         private readonly IBattleLinesFactory _battleLinesFactory;
-        private UnitsSequencePanel _unitsSequencePanel;
+        private readonly UnitsSequencePanel _unitsSequencePanel;
+        private readonly IUICanvasesResolver _canvasesResolver;
         private BaseUnit _currentHoverUnit;
         private UnitWalkingResolver _unitWalkingResolver;
-        private IUICanvasesResolver _canvasesResolver;
         private float _timeForClick;
         private bool _isClicked;
 
@@ -57,6 +58,7 @@ namespace Core.StateMachines.Battle
             _input.OnLMBUp += LMBUp;
             _input.OnRMBUp += ResetWalkSelection;
             _input.OnMMBDown += ResetWalkSelection;
+            _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().OnSkillButtonPressed += OnSkillPressed;
         }
 
         public void Update()
@@ -80,6 +82,7 @@ namespace Core.StateMachines.Battle
             _battleLinesFactory.ClearLines();
             _currentHoverUnit?.SetActiveOutline(false, false);
             _battleObserver.ClearAdditionalInfo();
+            _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().OnSkillButtonPressed -= OnSkillPressed;
         }
 
         private void LMBDown()
@@ -106,7 +109,7 @@ namespace Core.StateMachines.Battle
                 _unitsSequencePanel.SetHighlightedSelected(_currentHoverUnit, true);
                 _battleObserver.HighlightUIStatsInfo(_currentHoverUnit, true);
 
-                if (_unitWalkingResolver.GetCurrenUnit() != null)
+                if (_unitWalkingResolver.GetCurrenUnit() != null && _unitWalkingResolver.IsChoosingAttackTarget())
                 {
                     BaseUnit currentWalkingUnit = _unitWalkingResolver.GetCurrenUnit();
                     (float, float) damage = currentWalkingUnit.GetDecomposedAttackDamage();
@@ -132,8 +135,16 @@ namespace Core.StateMachines.Battle
         {
             _isClicked = false;
 
+            if (_raycaster.IsPointerOverUI())
+            {
+                return;
+            }
+
             if (IsWalkingAndClickedOnEnemy())
             {
+                bool isAttacking = _unitWalkingResolver.IsChoosingAttackTarget();
+                bool isMoving = _unitWalkingResolver.IsChoosingWalkPoint();
+
                 BaseUnit currentWalkingUnit = _unitWalkingResolver.GetCurrenUnit();
                 BaseUnit currentHoverUnit = _currentHoverUnit;
 
@@ -153,30 +164,34 @@ namespace Core.StateMachines.Battle
 
                 if (!isNearEnemy)
                 {
-                    if (IsLastWalkPointNearEnemy())
+                    if (IsLastWalkPointNearEnemy() && isAttacking)
                     {
                         MoveUnit(attackCallback);
                     }
-                    else
+                    else if (isMoving || isAttacking)
                     {
                         MoveUnit(null);
                     }
                 }
                 else
                 {
-                    ResetWalkSelection();
-                    attackCallback?.Invoke();
+                    if (isAttacking)
+                    {
+                        ResetWalkSelection();
+                        attackCallback?.Invoke();
+                    }
                 }
             }
             else
             {
-                if (IsClickedOnFieldWithSelectedWalkingUnit())
+                if (IsClickedOnFieldWithSelectedWalkingUnit() && _unitWalkingResolver.IsChoosingWalkPoint())
                 {
                     MoveUnit(null);
                 }
                 else if (_currentHoverUnit != null)
                 {
                     _walkFieldVisualizer.Hide();
+                    _unitWalkingResolver.SetCurrentUnit(null, null);
 
                     NodeBase unitNode = _mapDataProvider.GetNearestNodeOfWorldPoint(_currentHoverUnit.transform.position);
                     List<NodeBase> nodesWalkingRange = HexPathfindingGrid.GetWalkRange(unitNode, _currentHoverUnit.GetWalkRange());
@@ -184,12 +199,14 @@ namespace Core.StateMachines.Battle
                         unitNode,
                         nodesWalkingRange);
 
-                    _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().FillInfo(_currentHoverUnit);
+                    bool isCurrentWalkingUnit = IsClickedOnPossibleWalkinUnit();
+
+                    _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().FillInfo(_currentHoverUnit, isCurrentWalkingUnit);
                     _canvasesResolver.GetCanvas<BattleCanvas>().SetActivePanel<UnitManagementPanel>(true);
 
-                    if (IsClickedOnPossibleWalkinUnit())
+                    if (isCurrentWalkingUnit)
                     {
-                        _unitWalkingResolver.SetCurrentWalkingUnit(_currentHoverUnit, nodesWalkingRange);
+                        _unitWalkingResolver.SetCurrentUnit(_currentHoverUnit, nodesWalkingRange);
                     }
                 }
             }
@@ -246,9 +263,21 @@ namespace Core.StateMachines.Battle
 
         private void ResetWalkSelection()
         {
-            _unitWalkingResolver.SetCurrentWalkingUnit(null, null);
+            _unitWalkingResolver.SetCurrentUnit(null, null);
             _walkFieldVisualizer.Hide();
             _canvasesResolver.GetCanvas<BattleCanvas>().SetActivePanel<UnitManagementPanel>(false);
+        }
+
+        private void OnSkillPressed(UnitBaseSkill skill)
+        {
+            if (skill is UnitDefaultWalkSkill)
+            {
+                _unitWalkingResolver.SwitchCurrentUnitWalk();
+            }
+            else if ((skill as UnitAttackBaseSkill) != null && (skill as UnitAttackBaseSkill).IsAttackOnOneUnit)
+            {
+                _unitWalkingResolver.SwitchAttackOnTarget();
+            }
         }
     }
 }

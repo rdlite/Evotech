@@ -23,5 +23,10 @@ namespace Core.UI.Elements
         {
             _button.onClick.AddListener(() => action?.Invoke(_skill));
         }
+
+        public void Disable()
+        {
+            _button.enabled = false;
+        }
     }
 }

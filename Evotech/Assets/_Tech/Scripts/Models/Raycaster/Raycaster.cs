@@ -2,6 +2,9 @@ using Core.InputSystem;
 using Core.Settings;
 using Core.Units;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 namespace Utils
 {
@@ -42,6 +45,20 @@ namespace Utils
             }
 
             return hitInfo.transform != null;
+        }
+
+        public bool IsPointerOverUI()
+        {
+            return GetEventSystemRaycastResults().Count > 0;
+        }
+
+        private List<RaycastResult> GetEventSystemRaycastResults()
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = _input.GetMousePos();
+            List<RaycastResult> raysastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, raysastResults);
+            return raysastResults;
         }
     }
 }

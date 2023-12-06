@@ -220,6 +220,8 @@ namespace Core.Units
                 }
             }
 
+            skills.Sort((s1, s2) => s1.SortingOrder > s2.SortingOrder ? 1 : (s1.SortingOrder < s2.SortingOrder ? -1 : 0));
+
             return skills;
         }
     }
