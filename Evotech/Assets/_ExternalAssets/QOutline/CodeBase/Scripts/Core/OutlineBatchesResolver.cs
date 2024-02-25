@@ -44,7 +44,7 @@ namespace QOutline.Core
 #if UNITY_EDITOR
             batchMaterial = CoreUtils.CreateEngineMaterial("Custom/Outline/OverrideObjectsTransparentMaterial");
 #else
-        batchMaterial = Object.Instantiate(data.Configs.OverrideMaterial);
+            batchMaterial = Object.Instantiate(data.Configs.OverrideMaterial);
 #endif
 
             batchMaterial.SetColor(BASE_COLOR_HASH, data.Configs.Color * data.Configs.Intensity);

@@ -43,12 +43,12 @@ namespace Core.Battle.Outline
 
         public void RemoveObjectsFromBatch()
         {
-            _outlineRequestersAmount--;
+            _outlineRequestersAmount = Mathf.Clamp(_outlineRequestersAmount - 1, 0, int.MaxValue);
 
             if (!_isActive || _isSnapped) return;
 
             _isActive = false;
-
+            
             if (_outlineRequestersAmount == 0)
             {
                 OutlineBatchesResolver.RemoveBatch(_currentBatchID);

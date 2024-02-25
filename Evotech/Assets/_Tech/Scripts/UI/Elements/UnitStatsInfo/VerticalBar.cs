@@ -1,3 +1,4 @@
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,6 +47,11 @@ namespace Core.UI.Elements
             _possibleDamageAmount.sizeDelta = new Vector2(_barRect.sizeDelta.x, _maxHeight * _currentPercentage);
             _currentPercentage = targetPercentage;
             UpdateRectHeight();
+        }
+
+        public void HideDamageInfo(float percentage)
+        {
+            SetValue(percentage);
         }
 
         public void SetValue(float percentage)

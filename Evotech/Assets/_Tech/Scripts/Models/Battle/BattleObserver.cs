@@ -1,5 +1,7 @@
+using Core.UI;
 using Core.Data;
 using Core.Units;
+using Core.Cameras;
 using Core.UI.Models;
 using System.Collections.Generic;
 
@@ -13,12 +15,18 @@ namespace Core.Battle
         private List<BaseUnit> _currentShowingUnitsStatsInfo = new List<BaseUnit>();
         private IUnitsUIStatsController _uiStatsController;
         private IMapDataProvider _mapDataProvider;
+        private CameraController _cameraController;
         private bool _isAlwaysShowStats;
 
-        public BattleObserver(IUnitsUIStatsController uiStatsController, IMapDataProvider mapDataProvider)
+        public BattleObserver(
+            IUICanvasesResolver uICanvasesResolver, IUnitsUIStatsController uiStatsController, IMapDataProvider mapDataProvider,
+            CameraController cameraController)
         {
             _uiStatsController = uiStatsController;
             _mapDataProvider = mapDataProvider;
+            _cameraController = cameraController;
+
+            uICanvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<MainBattlePanel>().GetUnitsSequencePanel().OnUnitIconClicked += MoveCameraToUnit;
         }
 
         public void Tick()
@@ -113,6 +121,11 @@ namespace Core.Battle
         public List<BaseUnit> GetUnitsOnMap()
         {
             return new List<BaseUnit>(_unitsOnMap);
+        }
+
+        private void MoveCameraToUnit(BaseUnit unit)
+        {
+            _cameraController.SetSmoothLookupPoint(unit.transform.position);
         }
     }
 }

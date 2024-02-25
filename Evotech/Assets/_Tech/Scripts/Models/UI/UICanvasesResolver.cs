@@ -1,7 +1,7 @@
-using Core.Data;
 using Qnject;
-using System.Collections.Generic;
+using Core.Data;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Core.UI
 {
@@ -25,6 +25,8 @@ namespace Core.UI
             AbstractCanvas newCanvas = QnjectPrefabsFactory.Instantiate(_canvasPrefabs[canvasType]);
             _currentCanvases.Add(canvasType, newCanvas);
             _canvasPrefabs[canvasType].gameObject.SetActive(false);
+            newCanvas.GatherPanels();
+            newCanvas.Init();
             if (withDontDestroy)
             {
                 Object.DontDestroyOnLoad(_canvasPrefabs[canvasType].gameObject);
@@ -60,6 +62,22 @@ namespace Core.UI
 
             _currentCanvases.Clear();
         }
+
+        public void BlockAllUIInteraction()
+        {
+            foreach (AbstractCanvas canvas in _currentCanvases.Values)
+            {
+                canvas.Freeze();
+            }
+        }
+
+        public void ReturnUIInteraction()
+        {
+            foreach (AbstractCanvas canvas in _currentCanvases.Values)
+            {
+                canvas.Unfreeze();
+            }
+        }
     }
 
     public interface IUICanvasesResolver
@@ -68,5 +86,7 @@ namespace Core.UI
         void CreateCanvas(Enums.UICanvasType canvasType, bool withDontDestroy);
         AbstractCanvas GetCanvas<TCanvas>() where TCanvas : AbstractCanvas;
         void Clear();
+        void BlockAllUIInteraction();
+        void ReturnUIInteraction();
     }
 }

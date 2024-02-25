@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3729284222380220142}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -86,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3729284222380220142}
   - component: {fileID: 6541536142089572851}
+  - component: {fileID: 8749935174579684974}
   m_Layer: 5
   m_Name: SkillButton
   m_TagString: Untagged
@@ -108,7 +108,6 @@ RectTransform:
   - {fileID: 8116997723858963457}
   - {fileID: 480487066016427250}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -129,6 +128,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _button: {fileID: 3218334713423703697}
   _iconImg: {fileID: 6199403716961094565}
+  _canvasGroup: {fileID: 8749935174579684974}
+--- !u!225 &8749935174579684974
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7010903151273678750}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &9207233769794303066
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +173,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3729284222380220142}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

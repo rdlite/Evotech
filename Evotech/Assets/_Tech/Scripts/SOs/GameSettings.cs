@@ -33,7 +33,7 @@ namespace Core.Settings
         public float DefaultFOV = 40f;
         public float MaxRotationCameraOnZoom = 30f;
         public Vector3 PositionOffset;
-        public Vector3 RotationOffset;
+        public Vector3 ParentStartRotationOffset, RotationOffset;
     }
 
     [System.Serializable]

@@ -5,14 +5,6 @@ namespace Core.UI
 {
     public class BattleCanvas : AbstractCanvas
     {
-        [SerializeField] private CanvasGroup _canvasGroup;
-
-        protected override void Awake()
-        {
-            base.Awake();
-            _canvasGroup = GetComponent<CanvasGroup>();
-        }
-
         public override void Show()
         {
             AppearAnimation();

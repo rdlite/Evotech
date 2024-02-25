@@ -1,3 +1,4 @@
+using System;
 using Core.Units;
 using Extensions;
 using UnityEngine;
@@ -8,9 +9,12 @@ namespace Core.UI.Elements
 {
     public class UnitIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
+        public event Action<BaseUnit> OnIconClicked;
+
         [SerializeField] private RectTransform _healthRect;
         [SerializeField] private Image _highlightImage;
         [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private Button _button;
 
         private BaseUnit _correspondingUnit;
         private float _maxHealthRectHeight;
@@ -29,6 +33,7 @@ namespace Core.UI.Elements
             _healthRect.sizeDelta = new Vector2(_healthRect.sizeDelta.x, 0f);
             unit.DynamicStatsProvider.OnModelChanged += OnStatsModelChange;
             _healthPercentageTarget = _correspondingUnit.DynamicStatsProvider.GetHealthPercentage();
+            _button.onClick.AddListener(() => OnIconClicked?.Invoke(_correspondingUnit));
         }
 
         public void Tick()

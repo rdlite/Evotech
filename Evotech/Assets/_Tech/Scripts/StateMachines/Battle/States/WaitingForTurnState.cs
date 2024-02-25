@@ -1,16 +1,16 @@
 using Utils;
+using Core.UI;
 using Core.Data;
 using Core.Units;
 using Hexnav.Core;
 using Core.Battle;
 using UnityEngine;
 using Core.Cameras;
-using Core.InputSystem;
-using System.Collections.Generic;
 using Utils.Battle;
 using Core.UI.Elements;
-using Core.UI;
 using Core.Data.Skills;
+using Core.InputSystem;
+using System.Collections.Generic;
 
 namespace Core.StateMachines.Battle
 {
@@ -57,8 +57,14 @@ namespace Core.StateMachines.Battle
             _input.OnLMBDown += LMBDown;
             _input.OnLMBUp += LMBUp;
             _input.OnRMBUp += ResetWalkSelection;
-            _input.OnMMBDown += ResetWalkSelection;
+            _input.OnRMBUp += UnselectUnit;
             _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().OnSkillButtonPressed += OnSkillPressed;
+
+            if (_unitWalkingResolver.GetCurrenUnit() != null)
+            {
+                List<NodeBase> nodesWalkingRange = ShowMovementRange();
+                _unitWalkingResolver.SetCurrentUnit(_unitWalkingResolver.GetCurrenUnit(), nodesWalkingRange);
+            }
         }
 
         public void Update()
@@ -78,9 +84,8 @@ namespace Core.StateMachines.Battle
             _input.OnLMBDown -= LMBDown;
             _input.OnLMBUp -= LMBUp;
             _input.OnRMBUp -= ResetWalkSelection;
-            _input.OnMMBDown -= ResetWalkSelection;
+            _input.OnRMBUp -= UnselectUnit;
             _battleLinesFactory.ClearLines();
-            _currentHoverUnit?.SetActiveOutline(false, false);
             _battleObserver.ClearAdditionalInfo();
             _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().OnSkillButtonPressed -= OnSkillPressed;
         }
@@ -94,12 +99,13 @@ namespace Core.StateMachines.Battle
         private void HandleHover()
         {
             UnitRaycastTrigger unitUnderPointer = _raycaster.GetUnitTrigger(_camera.GetCamera());
-             
+
             if (_currentHoverUnit != null && (unitUnderPointer != null && unitUnderPointer.ParentUnit != _currentHoverUnit || unitUnderPointer == null))
             {
-                _unitsSequencePanel.SetHighlightedSelected(_currentHoverUnit, false);
                 _currentHoverUnit.SetActiveOutline(false, false);
+                _unitsSequencePanel.SetHighlightedSelected(_currentHoverUnit, false);
                 _battleObserver.HideStatsInfo(_currentHoverUnit, false, false);
+                _battleObserver.DeactivateDamageInfo(_currentHoverUnit);
                 _currentHoverUnit = null;
             }
             else if (unitUnderPointer != null && _currentHoverUnit != unitUnderPointer.ParentUnit && !_input.IsWheelPressed())
@@ -140,7 +146,7 @@ namespace Core.StateMachines.Battle
                 return;
             }
 
-            if (IsWalkingAndClickedOnEnemy())
+            if (_unitWalkingResolver.IsChoosingAttackTarget() && IsWalkingAndClickedOnEnemy())
             {
                 bool isAttacking = _unitWalkingResolver.IsChoosingAttackTarget();
                 bool isMoving = _unitWalkingResolver.IsChoosingWalkPoint();
@@ -182,24 +188,24 @@ namespace Core.StateMachines.Battle
                     }
                 }
             }
-            else
+            else if (!_unitWalkingResolver.IsChoosingAttackTarget())
             {
                 if (IsClickedOnFieldWithSelectedWalkingUnit() && _unitWalkingResolver.IsChoosingWalkPoint())
                 {
-                    MoveUnit(null);
+                    if (IsPointingOnPossiblePointToMove())
+                    {
+                        MoveUnit(null);
+                    }
                 }
-                else if (_currentHoverUnit != null)
+                else if (_currentHoverUnit != null && _unitWalkingResolver.GetCurrenUnit() != _currentHoverUnit)
                 {
                     _walkFieldVisualizer.Hide();
                     _unitWalkingResolver.SetCurrentUnit(null, null);
+                    _unitWalkingResolver.ClearOldHighlights();
 
-                    NodeBase unitNode = _mapDataProvider.GetNearestNodeOfWorldPoint(_currentHoverUnit.transform.position);
-                    List<NodeBase> nodesWalkingRange = HexPathfindingGrid.GetWalkRange(unitNode, _currentHoverUnit.GetWalkRange());
-                    _walkFieldVisualizer.Show(
-                        unitNode,
-                        nodesWalkingRange);
+                    List<NodeBase> nodesWalkingRange = ShowMovementRange();
 
-                    bool isCurrentWalkingUnit = IsClickedOnPossibleWalkinUnit();
+                    bool isCurrentWalkingUnit = IsClickedOnPossibleWalkingUnit();
 
                     _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().FillInfo(_currentHoverUnit, isCurrentWalkingUnit);
                     _canvasesResolver.GetCanvas<BattleCanvas>().SetActivePanel<UnitManagementPanel>(true);
@@ -208,13 +214,15 @@ namespace Core.StateMachines.Battle
                     {
                         _unitWalkingResolver.SetCurrentUnit(_currentHoverUnit, nodesWalkingRange);
                     }
+
+                    _unitWalkingResolver.SetHighlightedUnit(_currentHoverUnit);
                 }
             }
         }
 
         private void MoveUnit(System.Action callback)
         {
-            UnitActionState.MovementData movementData = new UnitActionState.MovementData(
+            UnitsMovementState.MovementData movementData = new UnitsMovementState.MovementData(
                 _unitWalkingResolver.GetCurrenUnit(),
                 _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetCurrenUnit().transform.position),
                 _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint()),
@@ -222,7 +230,29 @@ namespace Core.StateMachines.Battle
 
             ResetWalkSelection();
 
-            _battleSM.Enter<UnitActionState, UnitActionState.MovementData>(movementData);
+            _battleSM.Enter<UnitsMovementState, UnitsMovementState.MovementData>(movementData);
+        }
+
+        private List<NodeBase> ShowMovementRange()
+        {
+            BaseUnit unit = _currentHoverUnit;
+
+            if (unit == null)
+            {
+                unit = _unitWalkingResolver.GetCurrenUnit();
+            }
+
+            NodeBase unitNode = _mapDataProvider.GetNearestNodeOfWorldPoint(unit.transform.position);
+            List<NodeBase> nodesWalkingRange = HexPathfindingGrid.GetWalkRange(unitNode, unit.GetWalkRange());
+            _walkFieldVisualizer.Show(
+                unitNode,
+                nodesWalkingRange);
+            return nodesWalkingRange;
+        }
+
+        private bool IsPointingOnPossiblePointToMove()
+        {
+            return _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetCurrenUnit().transform.position) != _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint());
         }
 
         private bool IsWalkingAndClickedOnEnemy()
@@ -233,7 +263,7 @@ namespace Core.StateMachines.Battle
                 _timeForClick <= 1f;
         }
 
-        private bool IsClickedOnPossibleWalkinUnit()
+        private bool IsClickedOnPossibleWalkingUnit()
         {
             return
                 !_unitWalkingResolver.IsHaveUnitToWalk() &&
@@ -263,8 +293,13 @@ namespace Core.StateMachines.Battle
 
         private void ResetWalkSelection()
         {
-            _unitWalkingResolver.SetCurrentUnit(null, null);
             _walkFieldVisualizer.Hide();
+            _unitWalkingResolver.ResetMoving();
+        }
+
+        private void UnselectUnit()
+        {
+            _unitWalkingResolver.SetCurrentUnit(null, null);
             _canvasesResolver.GetCanvas<BattleCanvas>().SetActivePanel<UnitManagementPanel>(false);
         }
 

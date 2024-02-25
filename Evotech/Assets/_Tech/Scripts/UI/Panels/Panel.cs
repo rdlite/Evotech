@@ -18,5 +18,9 @@ namespace Core.UI
         {
             gameObject.SetActive(false);
         }
+
+        public virtual void Freeze() { }
+
+        public virtual void Unfreeze() { }
     }
 }

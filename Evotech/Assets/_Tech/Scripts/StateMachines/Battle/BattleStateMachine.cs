@@ -33,11 +33,12 @@ namespace Core.StateMachines
                     input, this, walkFieldVisualizer,
                     mapDataProvider, battleLinesFactory, canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<MainBattlePanel>().GetUnitsSequencePanel(),
                     canvasesResolver),
-                [typeof(UnitActionState)] = new UnitActionState(
-                    this, battleSettings, camera),
+                [typeof(UnitsMovementState)] = new UnitsMovementState(
+                    this, battleSettings, camera,
+                    canvasesResolver),
                 [typeof(UnitsActionState)] = new UnitsActionState(
                     battleObserver, this, cameraShaker,
-                    assetsContainer),
+                    assetsContainer, canvasesResolver),
             };
         }
     }

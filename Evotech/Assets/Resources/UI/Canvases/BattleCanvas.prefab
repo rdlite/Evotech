@@ -37,7 +37,6 @@ RectTransform:
   - {fileID: 7862574246540017505}
   - {fileID: 1734173409516793887}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -205,6 +204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 2025191630849113821, guid: 0997e52b3dcc2434a94aaf52c58617ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2325588402852312496, guid: 0997e52b3dcc2434a94aaf52c58617ba,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -248,7 +252,7 @@ PrefabInstance:
     - target: {fileID: 4861319900814337391, guid: 0997e52b3dcc2434a94aaf52c58617ba,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5806580498958087152, guid: 0997e52b3dcc2434a94aaf52c58617ba,
         type: 3}
@@ -787,6 +791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnitsHealthInfoPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615470621281715946, guid: eb5b42f1998a52d46b0e841943e0aac9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8256323693367212360, guid: eb5b42f1998a52d46b0e841943e0aac9,
         type: 3}

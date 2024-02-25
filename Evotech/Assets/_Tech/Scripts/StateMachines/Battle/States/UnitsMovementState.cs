@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.UI;
 using Core.Units;
 using Hexnav.Core;
 using UnityEngine;
@@ -7,8 +8,9 @@ using Core.Settings;
 
 namespace Core.StateMachines.Battle
 {
-    public class UnitActionState : IUpdateState, IPayloadState<UnitActionState.MovementData>
+    public class UnitsMovementState : IUpdateState, IPayloadState<UnitsMovementState.MovementData>
     {
+        private readonly IUICanvasesResolver _canvasesResolver;
         private readonly StateMachine _battleSM;
         private readonly BattleSettings _battleSettings;
         private readonly CameraController _camera;
@@ -19,9 +21,11 @@ namespace Core.StateMachines.Battle
         private bool _isCameraMoved;
         private bool _isPlayedShakeAnimation;
 
-        public UnitActionState(
-            StateMachine battleSM, BattleSettings battleSettings, CameraController camera)
+        public UnitsMovementState(
+            StateMachine battleSM, BattleSettings battleSettings, CameraController camera,
+            IUICanvasesResolver canvasesResolver)
         {
+            _canvasesResolver = canvasesResolver;
             _battleSM = battleSM;
             _battleSettings = battleSettings;
             _camera = camera;
@@ -40,6 +44,8 @@ namespace Core.StateMachines.Battle
             _t = 0f;
             _isCameraMoved = false;
             _isPlayedShakeAnimation = false;
+
+            _canvasesResolver.BlockAllUIInteraction();
         }
 
         public void Update()
@@ -147,6 +153,7 @@ namespace Core.StateMachines.Battle
             ParticleSystem dustFX = UnityEngine.Object.Instantiate(_battleSettings.PlacingParticle);
             dustFX.transform.position = _unitToAnimate.transform.position;
             _movementData.Callback?.Invoke();
+            _canvasesResolver.ReturnUIInteraction();
         }
 
         public class MovementData

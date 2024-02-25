@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace Core.UI
 {
+    [RequireComponent(typeof(CanvasGroup))]
     public abstract class AbstractCanvas : MonoBehaviour
     {
+        protected CanvasGroup _canvasGroup;
+
         private Dictionary<Type, Panel> _childPanels;
 
-        protected virtual void Awake()
+        public virtual void Init()
         {
-            GatherPanels();
+            _canvasGroup = GetComponent<CanvasGroup>();
         }
 
         public abstract void Show();
@@ -40,13 +43,33 @@ namespace Core.UI
             return _childPanels[typeof(TPanel)] as TPanel;
         }
 
-        private void GatherPanels()
+        public void GatherPanels()
         {
             _childPanels = new Dictionary<Type, Panel>();
 
             foreach (var childPanel in GetComponentsInChildren<Panel>(true))
             {
                 _childPanels.Add(childPanel.GetType(), childPanel);
+            }
+        }
+
+        public virtual void Freeze()
+        {
+            _canvasGroup.interactable = false;
+
+            foreach (Panel panel in _childPanels.Values)
+            {
+                panel.Freeze();
+            }
+        }
+
+        public virtual void Unfreeze()
+        {
+            _canvasGroup.interactable = true;
+
+            foreach (Panel panel in _childPanels.Values)
+            {
+                panel.Unfreeze();
             }
         }
     }

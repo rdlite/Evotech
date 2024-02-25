@@ -96,7 +96,12 @@ namespace Core.Infrastructure
 
             CameraController camera = CreateCamera(Vector3.zero);
 
-            _battleObserver = new BattleObserver(_uiStatsController, _mapDataProvider);
+            _battleObserver = new BattleObserver(
+                _canvasesResolver, _uiStatsController, _mapDataProvider,
+                camera);
+
+            _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<MainBattlePanel>().Show();
+            _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitsInfoPanel>().Show();
             _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<MainBattlePanel>().InitBattleObserver(_battleObserver);
 
             _battleLinesFactory = CreateBattleLinesFactory(_stylesContainer, _assetsContainer);
@@ -151,12 +156,14 @@ namespace Core.Infrastructure
             IUnitsFactory unitsFactory, CameraController camera, BattleObserver battleObserver,
             IBattleLinesFactory battleLinesFactory, ICameraShaker cameraShaker, ITurnsSequencer turnsSequencer)
         {
-            return new BattleStateMachine(
+            BattleStateMachine battleSM = new BattleStateMachine(
                 unitsFactory, _mapDataProvider, camera,
                 battleObserver, _raycaster, _input,
                 _walkFieldVisualizer, _gameSettings.BattleSettings, _battleLinesFactory,
                 _canvasesResolver, cameraShaker, _assetsContainer,
-                turnsSequencer);
+                turnsSequencer);;
+
+            return battleSM;
         }
 
         private IBattleLinesFactory CreateBattleLinesFactory(StylesContainer stylesContainer, AssetsContainer assetsContainer)

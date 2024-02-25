@@ -11,7 +11,7 @@ namespace Core.UI.Elements
         [SerializeField] private TextMeshProUGUI _damageText;
 
         private IUnitDynamicStatsProvider _unitStatsProvider;
-        private UnitStatsModel _currentStatsModel;
+        private float _currentArmor, _maxArmor, _currentHealth, _maxHealth;
 
         public void Init(IUnitDynamicStatsProvider unitStatsProvider)
         {
@@ -19,7 +19,11 @@ namespace Core.UI.Elements
             _armorBar.Init(unitStatsProvider.GetArmorPercentage());
             _unitStatsProvider = unitStatsProvider;
             _unitStatsProvider.OnModelChanged += UpdateModel;
-            _currentStatsModel = _unitStatsProvider.GetStatsModel();
+
+            _currentHealth = unitStatsProvider.GetStatsModel().CurrentHealth;
+            _maxHealth = unitStatsProvider.GetStatsModel().MaxHealth;
+            _currentArmor = unitStatsProvider.GetStatsModel().CurrentArmor;
+            _maxArmor = unitStatsProvider.GetStatsModel().MaxArmor;
         }
 
         public void ActivateDamageInfo(int damage, int random)
@@ -27,18 +31,18 @@ namespace Core.UI.Elements
             _damageInfoPanel.SetActive(true);
 
             float damageToArmor = damage;
-            float armorCurr = _currentStatsModel.CurrentArmor;
+            float armorCurr = _currentArmor;
             float damageToHealth =
-                damage - (armorCurr / _currentStatsModel.MaxArmor) * damage;
+                damage - (armorCurr / _maxArmor) * damage;
 
-            if (damageToHealth > 0f && _currentStatsModel.CurrentHealth > 0f)
+            if (damageToHealth > 0f && _currentHealth > 0f)
             {
-                _healthBar.SetPossibleDamageValue((_currentStatsModel.CurrentHealth - damageToHealth) / _currentStatsModel.MaxHealth);
+                _healthBar.SetPossibleDamageValue((_currentHealth - damageToHealth) / _maxHealth);
             }
 
-            if (damageToArmor > 0f && _currentStatsModel.CurrentArmor > 0f)
+            if (damageToArmor > 0f && _currentArmor > 0f)
             {
-                _armorBar.SetPossibleDamageValue((_currentStatsModel.CurrentArmor - damageToArmor) / _currentStatsModel.MaxArmor);
+                _armorBar.SetPossibleDamageValue((_currentArmor - damageToArmor) / _maxArmor);
             }
 
             if (random > 0)
@@ -54,6 +58,8 @@ namespace Core.UI.Elements
         public void DeactivateDamageInfo()
         {
             _damageInfoPanel.SetActive(false);
+            _healthBar.HideDamageInfo(_currentHealth / _maxHealth);
+            _armorBar.HideDamageInfo(_currentArmor / _maxArmor);
         }
 
         private void OnDestroy()
@@ -76,8 +82,12 @@ namespace Core.UI.Elements
 
         private void UpdateModel(UnitStatsModel statsModel)
         {
-            SetHealthPercentage(_unitStatsProvider.GetHealthPercentage());
-            SetArmorPercentage(_unitStatsProvider.GetArmorPercentage());
+            _currentHealth = statsModel.CurrentHealth;
+            _maxHealth = statsModel.MaxHealth;
+            _currentArmor = statsModel.CurrentArmor;
+            _maxArmor = statsModel.MaxArmor;
+            SetHealthPercentage(_currentHealth / _maxHealth);
+            SetArmorPercentage(_currentArmor / _maxArmor);
         }
     }
 }

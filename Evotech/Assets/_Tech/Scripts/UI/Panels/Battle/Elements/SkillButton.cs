@@ -10,7 +10,8 @@ namespace Core.UI.Elements
     {
         [SerializeField] private Button _button;
         [SerializeField] private Image _iconImg;
-
+        [SerializeField] private CanvasGroup _canvasGroup;
+        
         private UnitBaseSkill _skill;
 
         public void Init(BaseUnit unit, UnitBaseSkill skill)
@@ -24,9 +25,26 @@ namespace Core.UI.Elements
             _button.onClick.AddListener(() => action?.Invoke(_skill));
         }
 
+        public void Enable()
+        {
+            _button.enabled = true;
+            _canvasGroup.alpha = 1f;
+        }
+
         public void Disable()
         {
             _button.enabled = false;
+            _canvasGroup.alpha = .5f;
+        }
+
+        public void Freeze()
+        {
+            Disable();
+        }
+
+        public void Unfreeze()
+        {
+            Enable();
         }
     }
 }

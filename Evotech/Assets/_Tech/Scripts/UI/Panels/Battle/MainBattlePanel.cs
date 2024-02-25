@@ -51,5 +51,17 @@ namespace Core.UI
         {
             return _unitsSequencePanel;
         }
+
+        public override void Freeze()
+        {
+            base.Freeze();
+            _unitsSequencePanel.Freeze();
+        }
+
+        public override void Unfreeze()
+        {
+            base.Unfreeze();
+            _unitsSequencePanel.Unfreeze();
+        }
     }
 }

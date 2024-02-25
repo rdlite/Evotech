@@ -1,4 +1,5 @@
 using Utils;
+using System;
 using Qnject;
 using Core.Units;
 using Extensions;
@@ -9,11 +10,14 @@ namespace Core.UI.Elements
 {
     public class UnitsSequencePanel : MonoBehaviour
     {
+        public event Action<BaseUnit> OnUnitIconClicked;
+
         [SerializeField] private UnitIcon _unitIconPrefab;
         [SerializeField] private Transform _layout;
 
         private Dictionary<BaseUnit, UnitIcon> _createdUnitIcons = new Dictionary<BaseUnit, UnitIcon>();
         private IUpdateProvider _updatesProvider;
+        private bool _isFreezed;
 
         [Inject]
         private void Construct(IUpdateProvider updatesProvider)
@@ -44,16 +48,27 @@ namespace Core.UI.Elements
 
         public void AddUnitsIcon(BaseUnit unit)
         {
-            UnitIcon newUnitIcon = Instantiate(_unitIconPrefab);
+            UnitIcon newUnitIcon = QnjectPrefabsFactory.Instantiate(_unitIconPrefab);
             newUnitIcon.transform.SetParent(_layout);
             newUnitIcon.transform.ResetLocals();
             newUnitIcon.Init(unit);
             _createdUnitIcons.Add(unit, newUnitIcon);
+            newUnitIcon.OnIconClicked += RaiseIconClickedEvent;
         }
 
         public void RemoveIconOfUnit(BaseUnit unit)
         {
             _createdUnitIcons[unit].Remove();
+        }
+
+        public void Freeze()
+        {
+            _isFreezed = true;
+        }
+
+        public void Unfreeze()
+        {
+            _isFreezed = false;
         }
 
         public void SortIconsAccordingly(List<BaseUnit> sortedUnitsList)
@@ -79,6 +94,14 @@ namespace Core.UI.Elements
                 {
                     item.Value.Tick();
                 }
+            }
+        }
+
+        private void RaiseIconClickedEvent(BaseUnit unit)
+        {
+            if (!_isFreezed)
+            {
+                OnUnitIconClicked?.Invoke(unit);
             }
         }
     }

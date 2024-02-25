@@ -36,6 +36,7 @@ namespace Core.Cameras
             _updateProvider = updateProvider;
             _mapDataProvider = mapDataProvider;
 
+            transform.rotation = Quaternion.Euler(_cameraSettings.ParentStartRotationOffset);
             _cameraRotationContainer.localRotation = Quaternion.Euler(_cameraSettings.RotationOffset);
             _camera.fieldOfView = _cameraSettings.DefaultFOV;
             _updateProvider.AddLateUpdate(LateTick);
@@ -84,7 +85,7 @@ namespace Core.Cameras
             _currentZooming = Mathf.Clamp(_currentZooming, _cameraSettings.MinZoom, _cameraSettings.MaxZoom);
             _currentZoomingVelocity = Mathf.Lerp(_currentZoomingVelocity, _currentZooming, _cameraSettings.ZoomSmooth * Time.deltaTime);
 
-            _cameraRotationContainer.localPosition = _cameraSettings.PositionOffset * _currentZoomingVelocity;
+            _cameraRotationContainer.localPosition = (_cameraSettings.PositionOffset) * _currentZoomingVelocity - Vector3.forward * 7.5f;
             _camera.transform.localRotation = Quaternion.Lerp(
                 _camera.transform.localRotation,
                 Quaternion.Euler(
@@ -124,11 +125,11 @@ namespace Core.Cameras
 
         private void HandleSmoothMovementToPoint()
         {
-            Vector3 movemetnDirection = (_smoothLookupPoint - transform.position).FlatY().normalized;
-            _targetVelocityMovement = Vector3.Lerp(_targetVelocityMovement, movemetnDirection, _cameraSettings.MovementSmooth * Time.deltaTime);
+            Vector3 movementDirection = Vector3.ClampMagnitude((_smoothLookupPoint - transform.position).FlatY(), 1f);
+            _targetVelocityMovement = movementDirection;
             transform.position += _targetVelocityMovement.FlatY() * _cameraSettings.MovementSpeed * _currentZoomingVelocity * Time.deltaTime * 2f;
 
-            if (Vector3.Distance(transform.position.FlatY(), _smoothLookupPoint.FlatY()) < .5f)
+            if (Vector3.Distance(transform.position.FlatY(), _smoothLookupPoint.FlatY()) < 2f)
             {
                 BreakSmoothLookup();
             }
@@ -152,7 +153,7 @@ namespace Core.Cameras
                 _cursorController.SetLockedCursor(false);
             }
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, _cameraSettings.RotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, _cameraSettings.RotationSpeed);
         }
 
         private void HandleHeight()

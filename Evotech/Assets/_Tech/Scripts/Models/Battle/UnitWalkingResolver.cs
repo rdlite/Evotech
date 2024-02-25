@@ -15,6 +15,7 @@ public class UnitWalkingResolver
 {
     private List<NodeBase> _nodesToWalk;
     private BaseUnit _currentUnit;
+    private BaseUnit _currentHighlightedUnit;
     private BaseUnit _hoverUnit;
     private IBattleLinesFactory _battleLinesFactory;
     private IMapDataProvider _mapDataProvider;
@@ -51,6 +52,7 @@ public class UnitWalkingResolver
             _currentUnit.SetActiveOutline(false, true);
             _unitsSequencePanel.SetHighlightedPulsate(_currentUnit, false);
 
+            ClearOldHighlights();
             SetUnitRotationTarget(Vector3.zero);
             ClearGhost();
             ClearAllLines();
@@ -64,6 +66,34 @@ public class UnitWalkingResolver
             _unitsSequencePanel.SetHighlightedPulsate(_currentUnit, true);
             _currentUnit.SetActiveOutline(true, true);
         }
+    }
+
+    public void ResetMoving()
+    {
+        if (_currentUnit != null)
+        {
+            _isChoosingWalkPoint = false;
+            _isChoosingAttackTarget = false;
+
+            ClearOldHighlights();
+            SetUnitRotationTarget(Vector3.zero);
+            ClearGhost();
+            ClearAllLines();
+        }
+    }
+
+    public void ClearOldHighlights()
+    {
+        if (_currentHighlightedUnit != null)
+        {
+            _currentHighlightedUnit.SetActiveOutline(false, true);
+        }
+    }
+
+    public void SetHighlightedUnit(BaseUnit unit)
+    {
+        _currentHighlightedUnit = unit;
+        unit.SetActiveOutline(true, true);
     }
 
     public void SwitchCurrentUnitWalk()
@@ -268,6 +298,11 @@ public class UnitWalkingResolver
     public BaseUnit GetCurrenUnit()
     {
         return _currentUnit;
+    }
+
+    public bool IsUnitHighlighted(BaseUnit unit)
+    {
+        return _currentHighlightedUnit == unit;
     }
 
     public Vector3 GetLastWalkPoint()

@@ -1,11 +1,11 @@
+using System;
 using Core.Units;
+using Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 using Core.UI.Elements;
-using System;
-using System.Collections.Generic;
-using Extensions;
 using Core.Data.Skills;
+using System.Collections.Generic;
 
 namespace Core.UI
 {
@@ -70,6 +70,26 @@ namespace Core.UI
         private void OnSkillPressed(UnitBaseSkill skill)
         {
             OnSkillButtonPressed?.Invoke(skill);
+        }
+
+        public override void Freeze()
+        {
+            base.Freeze();
+
+            foreach (SkillButton button in _createdSkillButtons)
+            {
+                button.Freeze();
+            }
+        }
+
+        public override void Unfreeze()
+        {
+            base.Unfreeze();
+
+            foreach (SkillButton button in _createdSkillButtons)
+            {
+                button.Unfreeze();
+            }
         }
     }
 }
