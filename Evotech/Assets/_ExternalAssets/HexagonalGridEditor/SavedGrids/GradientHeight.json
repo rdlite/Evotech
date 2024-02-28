@@ -1,7 +1,88 @@
 {
     "Places": [
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -11,
+            "HexY": -9,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -11,
+            "HexY": -7,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -11,
+            "HexY": -3,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -11,
+            "HexY": -1,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -10,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -10,
             "Height": 0,
@@ -16,7 +97,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -9,
             "Height": 0,
@@ -31,16 +113,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.3663893938064575,
+                        "x": -0.3663902282714844,
                         "y": 0.0,
-                        "z": -0.1264500617980957
+                        "z": -0.1264495849609375
                     }
                 ]
             },
@@ -54,7 +137,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -7,
             "Height": 0,
@@ -69,7 +153,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -6,
             "Height": 0,
@@ -84,7 +169,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -5,
             "Height": 0,
@@ -99,7 +185,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -4,
             "Height": 0,
@@ -114,16 +201,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -3,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.2792697548866272,
+                        "x": -0.2792701721191406,
                         "y": 0.0,
-                        "z": -0.39617496728897097
+                        "z": -0.39617490768432619
                     }
                 ]
             },
@@ -137,7 +225,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -2,
             "Height": 0,
@@ -152,7 +241,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": -1,
             "Height": 0,
@@ -167,7 +257,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 0,
             "Height": 0,
@@ -182,7 +273,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 1,
             "Height": 0,
@@ -197,7 +289,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 2,
             "Height": 0,
@@ -212,7 +305,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 3,
             "Height": 0,
@@ -227,16 +321,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 4,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.22493019700050355,
+                        "x": 0.2249298095703125,
                         "y": 0.0,
-                        "z": 0.24207429587841035
+                        "z": 0.24207448959350587
                     }
                 ]
             },
@@ -250,16 +345,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 5,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.015558233484625817,
+                        "x": 0.015558242797851563,
                         "y": 0.0,
-                        "z": -0.029440203681588174
+                        "z": -0.02944040298461914
                     }
                 ]
             },
@@ -273,16 +369,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 6,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.23975245654582978,
+                        "x": 0.23975181579589845,
                         "y": 0.0,
-                        "z": -0.036236025393009189
+                        "z": -0.036235809326171878
                     }
                 ]
             },
@@ -296,16 +393,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.1028899997472763,
+                        "x": 0.1028900146484375,
                         "y": 0.0,
-                        "z": -0.09652433544397354
+                        "z": -0.09652423858642578
                     }
                 ]
             },
@@ -319,16 +417,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.0021362043917179109,
+                        "x": -0.00213623046875,
                         "y": 0.0,
-                        "z": -0.05271053686738014
+                        "z": -0.052710533142089847
                     }
                 ]
             },
@@ -342,16 +441,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.2594480514526367,
+                        "x": -0.2594490051269531,
                         "y": 0.0,
-                        "z": 0.36382219195365908
+                        "z": 0.36382198333740237
                     }
                 ]
             },
@@ -365,16 +465,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -10,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.47588562965393069,
+                        "x": 0.47588539123535159,
                         "y": 0.0,
-                        "z": -0.4041735529899597
+                        "z": -0.4041738510131836
                     }
                 ]
             },
@@ -388,7 +489,24 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -9,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -10,
             "Height": 0,
@@ -403,7 +521,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -9,
             "Height": 0,
@@ -418,7 +537,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -8,
             "Height": 0,
@@ -433,7 +553,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -7,
             "Height": 0,
@@ -448,16 +569,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -6,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.2341800034046173,
+                        "x": 0.23418045043945313,
                         "y": 0.0,
-                        "z": 0.4859395921230316
+                        "z": 0.48593997955322268
                     }
                 ]
             },
@@ -471,7 +593,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -5,
             "Height": 0,
@@ -486,7 +609,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -4,
             "Height": 0,
@@ -501,7 +625,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -3,
             "Height": 0,
@@ -516,7 +641,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": -2,
             "Height": 0,
@@ -531,7 +657,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -9,
             "HexY": -1,
             "Height": 0,
@@ -546,7 +673,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 0,
             "Height": 0,
@@ -561,7 +689,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -9,
             "HexY": 1,
             "Height": 0,
@@ -578,7 +707,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 2,
             "Height": 0,
@@ -593,7 +723,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -9,
             "HexY": 3,
             "Height": 0,
@@ -608,16 +739,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 4,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.18119406700134278,
+                        "x": 0.18119430541992188,
                         "y": 0.0,
-                        "z": 0.16428367793560029
+                        "z": 0.16428375244140626
                     }
                 ]
             },
@@ -631,7 +763,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -9,
             "HexY": 5,
             "Height": 0,
@@ -646,16 +779,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 6,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.3883575201034546,
+                        "x": -0.38835716247558596,
                         "y": 0.0,
-                        "z": 0.22182881832122804
+                        "z": 0.22182846069335938
                     }
                 ]
             },
@@ -669,7 +803,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 7,
             "Height": 0,
@@ -684,16 +819,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.41716399788856509,
+                        "x": 0.4171638488769531,
                         "y": 0.0,
-                        "z": 0.04751597344875336
+                        "z": 0.047515869140625
                     }
                 ]
             },
@@ -707,16 +843,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.1482226848602295,
+                        "x": 0.1482229232788086,
                         "y": 0.0,
-                        "z": 0.41545799374580386
+                        "z": 0.41545772552490237
                     }
                 ]
             },
@@ -730,16 +867,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -9,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.08023734390735626,
+                        "x": 0.08023738861083985,
                         "y": 0.0,
-                        "z": 0.3099662959575653
+                        "z": 0.3099660873413086
                     }
                 ]
             },
@@ -753,7 +891,24 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -8,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -10,
             "Height": 0,
@@ -768,7 +923,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -9,
             "Height": 0,
@@ -783,16 +939,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.11824996769428253,
+                        "x": 0.11824989318847656,
                         "y": 0.0,
-                        "z": -0.21257604658603669
+                        "z": -0.21257591247558595
                     }
                 ]
             },
@@ -806,7 +963,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -7,
             "Height": 0,
@@ -821,7 +979,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -6,
             "Height": 0,
@@ -836,7 +995,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -5,
             "Height": 0,
@@ -851,7 +1011,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -4,
             "Height": 0,
@@ -866,7 +1027,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": -3,
             "Height": 0,
@@ -881,7 +1043,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": -2,
             "Height": 0,
@@ -896,7 +1059,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": -1,
             "Height": 0,
@@ -911,7 +1075,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": 0,
             "Height": 0,
@@ -926,7 +1091,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": 1,
             "Height": 0,
@@ -941,7 +1107,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": 2,
             "Height": 0,
@@ -956,7 +1123,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": 3,
             "Height": 0,
@@ -971,7 +1139,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": 4,
             "Height": 0,
@@ -986,7 +1155,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": 5,
             "Height": 0,
@@ -995,7 +1165,7 @@
                     {
                         "x": 0.24715232849121095,
                         "y": 0.0,
-                        "z": -0.08961781859397888
+                        "z": -0.08961772918701172
                     }
                 ]
             },
@@ -1009,16 +1179,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -8,
             "HexY": 6,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.22223582863807679,
+                        "x": -0.22223567962646485,
                         "y": 0.0,
-                        "z": 0.15143786370754243
+                        "z": 0.15143775939941407
                     }
                 ]
             },
@@ -1032,7 +1203,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": 7,
             "Height": 0,
@@ -1047,16 +1219,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": 8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.376813143491745,
+                        "x": 0.3768129348754883,
                         "y": 0.0,
-                        "z": 0.1540726274251938
+                        "z": 0.15407276153564454
                     }
                 ]
             },
@@ -1070,7 +1243,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": 9,
             "Height": 0,
@@ -1085,21 +1259,22 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -8,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.3758428990840912,
+                        "x": -0.3758430480957031,
                         "y": 0.0,
-                        "z": 0.08988750725984574
+                        "z": 0.08988761901855469
                     },
                     {
-                        "x": -0.04123569652438164,
+                        "x": -0.041235923767089847,
                         "y": 0.0,
-                        "z": -0.19235444068908692
+                        "z": -0.1923542022705078
                     }
                 ]
             },
@@ -1114,7 +1289,24 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -7,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -10,
             "Height": 0,
@@ -1129,7 +1321,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -9,
             "Height": 0,
@@ -1144,7 +1337,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -8,
             "Height": 0,
@@ -1159,7 +1353,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -7,
             "Height": 0,
@@ -1174,7 +1369,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -6,
             "Height": 0,
@@ -1191,7 +1387,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -5,
             "Height": 0,
@@ -1206,7 +1403,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -4,
             "Height": 0,
@@ -1221,7 +1419,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": -3,
             "Height": 0,
@@ -1236,7 +1435,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": -2,
             "Height": 0,
@@ -1251,7 +1451,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": -1,
             "Height": 0,
@@ -1266,7 +1467,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": 0,
             "Height": 0,
@@ -1281,7 +1483,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": 1,
             "Height": 0,
@@ -1296,7 +1499,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": 2,
             "Height": 0,
@@ -1311,7 +1515,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": 3,
             "Height": 0,
@@ -1326,16 +1531,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": 4,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.011734653264284134,
+                        "x": 0.011734962463378907,
                         "y": 0.0,
-                        "z": 0.4775749742984772
+                        "z": 0.47757482528686526
                     }
                 ]
             },
@@ -1349,7 +1555,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": 5,
             "Height": 0,
@@ -1364,7 +1571,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": 6,
             "Height": 0,
@@ -1379,7 +1587,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -7,
             "HexY": 7,
             "Height": 0,
@@ -1394,7 +1603,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": 8,
             "Height": 0,
@@ -1409,7 +1619,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": 9,
             "Height": 0,
@@ -1424,16 +1635,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -7,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.4338690936565399,
+                        "x": -0.4338693618774414,
                         "y": 0.0,
-                        "z": -0.015323684550821782
+                        "z": -0.015323638916015625
                     }
                 ]
             },
@@ -1447,16 +1659,33 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -6,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -6,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.22303591668605805,
+                        "x": -0.2230358123779297,
                         "y": 0.0,
-                        "z": 0.09167887270450592
+                        "z": 0.09167861938476563
                     }
                 ]
             },
@@ -1470,7 +1699,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": -9,
             "Height": 0,
@@ -1485,7 +1715,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": -8,
             "Height": 0,
@@ -1500,7 +1731,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": -7,
             "Height": 0,
@@ -1515,7 +1747,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": -6,
             "Height": 0,
@@ -1530,7 +1763,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": -5,
             "Height": 0,
@@ -1545,7 +1779,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -6,
             "HexY": -4,
             "Height": 0,
@@ -1560,7 +1795,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": -3,
             "Height": 0,
@@ -1575,7 +1811,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -6,
             "HexY": -2,
             "Height": 0,
@@ -1590,7 +1827,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": -1,
             "Height": 0,
@@ -1605,7 +1843,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -6,
             "HexY": 0,
             "Height": 0,
@@ -1620,7 +1859,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 1,
             "Height": 0,
@@ -1635,7 +1875,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 2,
             "Height": 0,
@@ -1650,7 +1891,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 3,
             "Height": 0,
@@ -1665,7 +1907,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 4,
             "Height": 0,
@@ -1680,7 +1923,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 5,
             "Height": 0,
@@ -1695,7 +1939,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -6,
             "HexY": 6,
             "Height": 0,
@@ -1710,7 +1955,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -6,
             "HexY": 7,
             "Height": 0,
@@ -1725,16 +1971,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.30705273151397707,
+                        "x": 0.3070526123046875,
                         "y": 0.0,
-                        "z": -0.3537743091583252
+                        "z": -0.3537740707397461
                     }
                 ]
             },
@@ -1748,7 +1995,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 9,
             "Height": 0,
@@ -1763,16 +2011,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -6,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.10040859133005142,
+                        "x": -0.10040855407714844,
                         "y": 0.0,
-                        "z": -0.2842769920825958
+                        "z": -0.28427696228027346
                     }
                 ]
             },
@@ -1786,7 +2035,40 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -5,
+            "HexY": -12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -5,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -5,
             "HexY": -10,
             "Height": 0,
@@ -1801,16 +2083,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.36747002601623537,
+                        "x": 0.36746978759765627,
                         "y": 0.0,
-                        "z": -0.4564814865589142
+                        "z": -0.45648193359375
                     }
                 ]
             },
@@ -1824,7 +2107,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -8,
             "Height": 0,
@@ -1839,7 +2123,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -7,
             "Height": 0,
@@ -1854,16 +2139,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -6,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.2727593183517456,
+                        "x": 0.27275943756103518,
                         "y": 0.0,
-                        "z": -0.48765116930007937
+                        "z": -0.48765087127685549
                     }
                 ]
             },
@@ -1877,7 +2163,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -5,
             "Height": 0,
@@ -1892,7 +2179,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -4,
             "Height": 0,
@@ -1907,7 +2195,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -3,
             "Height": 0,
@@ -1922,7 +2211,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": -2,
             "Height": 0,
@@ -1937,7 +2227,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -5,
             "HexY": -1,
             "Height": 0,
@@ -1952,7 +2243,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 0,
             "Height": 0,
@@ -1967,7 +2259,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 1,
             "Height": 0,
@@ -1984,7 +2277,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 2,
             "Height": 0,
@@ -1999,7 +2293,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 3,
             "Height": 1,
@@ -2014,7 +2309,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 4,
             "Height": 0,
@@ -2029,7 +2325,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 5,
             "Height": 0,
@@ -2044,7 +2341,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -5,
             "HexY": 6,
             "Height": 0,
@@ -2059,7 +2357,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -5,
             "HexY": 7,
             "Height": 0,
@@ -2074,7 +2373,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 8,
             "Height": 0,
@@ -2089,7 +2389,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 9,
             "Height": 0,
@@ -2104,16 +2405,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -5,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.05778934806585312,
+                        "x": -0.05778980255126953,
                         "y": 0.0,
-                        "z": 0.06834060698747635
+                        "z": 0.06834030151367188
                     }
                 ]
             },
@@ -2127,7 +2429,56 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -4,
+            "HexY": -13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -4,
+            "HexY": -12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
+            "HexX": -4,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -4,
             "HexY": -10,
             "Height": 0,
@@ -2142,16 +2493,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.11964783817529679,
+                        "x": 0.11964797973632813,
                         "y": 0.0,
-                        "z": 0.05176357924938202
+                        "z": 0.05176353454589844
                     }
                 ]
             },
@@ -2165,7 +2517,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -8,
             "Height": 0,
@@ -2180,7 +2533,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -7,
             "Height": 0,
@@ -2195,7 +2549,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -6,
             "Height": 0,
@@ -2210,7 +2565,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -5,
             "Height": 1,
@@ -2225,7 +2581,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -4,
             "Height": 1,
@@ -2240,7 +2597,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -4,
             "HexY": -3,
             "Height": 1,
@@ -2255,7 +2613,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -2,
             "Height": 0,
@@ -2270,7 +2629,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": -1,
             "Height": 0,
@@ -2285,7 +2645,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 0,
             "Height": 0,
@@ -2300,7 +2661,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 1,
             "Height": 0,
@@ -2315,7 +2677,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 2,
             "Height": 1,
@@ -2330,7 +2693,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 3,
             "Height": 1,
@@ -2345,7 +2709,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -4,
             "HexY": 4,
             "Height": 2,
@@ -2360,7 +2725,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 5,
             "Height": 0,
@@ -2375,7 +2741,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 6,
             "Height": 0,
@@ -2390,7 +2757,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 7,
             "Height": 0,
@@ -2405,16 +2773,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.060921844094991687,
+                        "x": 0.060921669006347659,
                         "y": 0.0,
-                        "z": -0.44863662123680117
+                        "z": -0.4486370086669922
                     }
                 ]
             },
@@ -2428,7 +2797,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 9,
             "Height": 0,
@@ -2443,16 +2813,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -4,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.13134369254112245,
+                        "x": -0.13134384155273438,
                         "y": 0.0,
-                        "z": -0.19822624325752259
+                        "z": -0.1982259750366211
                     }
                 ]
             },
@@ -2466,7 +2837,56 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -3,
+            "HexY": -13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -3,
+            "HexY": -12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -3,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -3,
             "HexY": -10,
             "Height": 0,
@@ -2481,7 +2901,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": -9,
             "Height": 0,
@@ -2496,7 +2917,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": -8,
             "Height": 0,
@@ -2511,7 +2933,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": -7,
             "Height": 0,
@@ -2526,7 +2949,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": -6,
             "Height": 1,
@@ -2543,7 +2967,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -3,
             "HexY": -5,
             "Height": 1,
@@ -2558,7 +2983,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -3,
             "HexY": -4,
             "Height": 1,
@@ -2573,7 +2999,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -3,
             "HexY": -3,
             "Height": 2,
@@ -2588,7 +3015,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": -2,
             "Height": 1,
@@ -2603,7 +3031,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": -1,
             "Height": 1,
@@ -2618,7 +3047,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 0,
             "Height": 0,
@@ -2633,7 +3063,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 1,
             "Height": 0,
@@ -2648,7 +3079,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 2,
             "Height": 1,
@@ -2663,7 +3095,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -3,
             "HexY": 3,
             "Height": 2,
@@ -2678,7 +3111,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -3,
             "HexY": 4,
             "Height": 2,
@@ -2693,7 +3127,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 5,
             "Height": 1,
@@ -2708,7 +3143,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 6,
             "Height": 0,
@@ -2723,16 +3159,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.4745546281337738,
+                        "x": -0.47455453872680666,
                         "y": 0.0,
-                        "z": -0.04478522390127182
+                        "z": -0.044785499572753909
                     }
                 ]
             },
@@ -2746,7 +3183,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 8,
             "Height": 0,
@@ -2761,7 +3199,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 9,
             "Height": 0,
@@ -2776,16 +3215,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -3,
             "HexY": 10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.23415212333202363,
+                        "x": 0.23415231704711915,
                         "y": 0.0,
-                        "z": 0.04850456491112709
+                        "z": 0.04850482940673828
                     }
                 ]
             },
@@ -2799,16 +3239,49 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -2,
+            "HexY": -12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -2,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.19914422929286958,
+                        "x": -0.1991441249847412,
                         "y": 0.0,
-                        "z": 0.34778526425361636
+                        "z": 0.34778499603271487
                     }
                 ]
             },
@@ -2822,7 +3295,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": -9,
             "Height": 0,
@@ -2837,7 +3311,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": -8,
             "Height": 0,
@@ -2852,7 +3327,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": -7,
             "Height": 0,
@@ -2867,7 +3343,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": -6,
             "Height": 1,
@@ -2882,7 +3359,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": -5,
             "Height": 2,
@@ -2897,7 +3375,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": -4,
             "Height": 2,
@@ -2912,7 +3391,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": -3,
             "Height": 2,
@@ -2927,7 +3407,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": -2,
             "Height": 2,
@@ -2942,7 +3423,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": -1,
             "Height": 2,
@@ -2957,7 +3439,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": 0,
             "Height": 1,
@@ -2972,7 +3455,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": 1,
             "Height": 1,
@@ -2987,7 +3471,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": 2,
             "Height": 1,
@@ -3002,7 +3487,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -2,
             "HexY": 3,
             "Height": 1,
@@ -3017,7 +3503,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": 4,
             "Height": 0,
@@ -3032,7 +3519,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": 5,
             "Height": 0,
@@ -3047,7 +3535,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": 6,
             "Height": 0,
@@ -3062,7 +3551,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "EmptyHex",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/EmptyHex.prefab",
             "HexX": -2,
             "HexY": 7,
             "Height": 0,
@@ -3085,21 +3575,22 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": 8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.025024808943271638,
+                        "x": -0.025024890899658204,
                         "y": 0.0,
-                        "z": -0.04691798612475395
+                        "z": -0.04691791534423828
                     },
                     {
-                        "x": 0.32471364736557009,
+                        "x": 0.32471370697021487,
                         "y": 0.0,
-                        "z": -0.04918135330080986
+                        "z": -0.04918098449707031
                     }
                 ]
             },
@@ -3114,16 +3605,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": 9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.29682958126068118,
+                        "x": -0.2968294620513916,
                         "y": 0.0,
-                        "z": 0.09108516573905945
+                        "z": 0.09108543395996094
                     }
                 ]
             },
@@ -3137,7 +3629,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -2,
             "HexY": 10,
             "Height": 0,
@@ -3152,7 +3645,56 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -1,
+            "HexY": -13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -1,
+            "HexY": -12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": -1,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": -10,
             "Height": 0,
@@ -3167,7 +3709,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": -9,
             "Height": 0,
@@ -3182,7 +3725,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": -8,
             "Height": 2,
@@ -3197,7 +3741,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": -7,
             "Height": 0,
@@ -3212,7 +3757,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": -6,
             "Height": 1,
@@ -3227,7 +3773,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": -5,
             "Height": 2,
@@ -3242,7 +3789,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": -4,
             "Height": 5,
@@ -3259,7 +3807,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": -3,
             "Height": 4,
@@ -3274,7 +3823,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": -2,
             "Height": 3,
@@ -3289,7 +3839,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": -1,
             "Height": 3,
@@ -3304,7 +3855,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 0,
             "Height": 2,
@@ -3319,7 +3871,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": 1,
             "Height": 1,
@@ -3334,7 +3887,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": 2,
             "Height": 1,
@@ -3349,7 +3903,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": -1,
             "HexY": 3,
             "Height": 2,
@@ -3364,7 +3919,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 4,
             "Height": 1,
@@ -3379,7 +3935,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 5,
             "Height": -1,
@@ -3394,7 +3951,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 6,
             "Height": 0,
@@ -3409,7 +3967,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 7,
             "Height": 0,
@@ -3424,7 +3983,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 8,
             "Height": 0,
@@ -3439,7 +3999,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 9,
             "Height": 0,
@@ -3454,7 +4015,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": -1,
             "HexY": 10,
             "Height": 0,
@@ -3469,7 +4031,56 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 0,
+            "HexY": -13,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 0,
+            "HexY": -12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 0,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": -10,
             "Height": 0,
@@ -3484,7 +4095,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": -9,
             "Height": 0,
@@ -3499,7 +4111,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": -8,
             "Height": 2,
@@ -3514,7 +4127,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": -7,
             "Height": 0,
@@ -3529,7 +4143,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": -6,
             "Height": 1,
@@ -3544,7 +4159,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": -5,
             "Height": 2,
@@ -3559,7 +4175,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": -4,
             "Height": 3,
@@ -3574,7 +4191,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": -3,
             "Height": 3,
@@ -3589,7 +4207,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": -2,
             "Height": 5,
@@ -3604,7 +4223,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": -1,
             "Height": 3,
@@ -3619,7 +4239,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": 0,
             "Height": 2,
@@ -3634,7 +4255,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 0,
             "HexY": 1,
             "Height": 1,
@@ -3649,7 +4271,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 2,
             "Height": 1,
@@ -3664,7 +4287,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 3,
             "Height": 0,
@@ -3679,7 +4303,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 4,
             "Height": 1,
@@ -3694,7 +4319,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 5,
             "Height": 0,
@@ -3709,7 +4335,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 6,
             "Height": 0,
@@ -3724,7 +4351,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 7,
             "Height": 0,
@@ -3739,7 +4367,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 8,
             "Height": 0,
@@ -3754,7 +4383,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 0,
             "HexY": 9,
             "Height": 0,
@@ -3769,7 +4399,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "EmptyHex",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/EmptyHex.prefab",
             "HexX": 0,
             "HexY": 10,
             "Height": 0,
@@ -3784,16 +4415,49 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 1,
+            "HexY": -12,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 1,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.2962116599082947,
+                        "x": 0.2962116003036499,
                         "y": 0.0,
-                        "z": 0.00914151780307293
+                        "z": 0.009141921997070313
                     }
                 ]
             },
@@ -3807,7 +4471,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": -9,
             "Height": 0,
@@ -3822,7 +4487,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": -8,
             "Height": 3,
@@ -3837,7 +4503,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": -7,
             "Height": 0,
@@ -3852,7 +4519,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": -6,
             "Height": 1,
@@ -3867,7 +4535,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 1,
             "HexY": -5,
             "Height": 1,
@@ -3882,7 +4551,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 1,
             "HexY": -4,
             "Height": 2,
@@ -3897,7 +4567,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 1,
             "HexY": -3,
             "Height": 3,
@@ -3912,7 +4583,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 1,
             "HexY": -2,
             "Height": 3,
@@ -3927,7 +4599,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 1,
             "HexY": -1,
             "Height": 3,
@@ -3942,7 +4615,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 0,
             "Height": 2,
@@ -3957,7 +4631,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 1,
             "Height": 2,
@@ -3972,7 +4647,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 2,
             "Height": 1,
@@ -3987,7 +4663,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 3,
             "Height": 1,
@@ -4002,7 +4679,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 4,
             "Height": 0,
@@ -4017,7 +4695,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 1,
             "HexY": 5,
             "Height": -1,
@@ -4032,7 +4711,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 6,
             "Height": -1,
@@ -4047,7 +4727,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 7,
             "Height": 0,
@@ -4062,7 +4743,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 8,
             "Height": 0,
@@ -4077,7 +4759,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 9,
             "Height": 0,
@@ -4092,7 +4775,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 1,
             "HexY": 10,
             "Height": 0,
@@ -4107,7 +4791,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": -10,
             "Height": 0,
@@ -4122,7 +4807,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": -9,
             "Height": 0,
@@ -4137,7 +4823,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": -8,
             "Height": 0,
@@ -4152,7 +4839,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": -7,
             "Height": 0,
@@ -4167,7 +4855,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": -6,
             "Height": 1,
@@ -4182,7 +4871,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": -5,
             "Height": 1,
@@ -4197,7 +4887,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 2,
             "HexY": -4,
             "Height": 2,
@@ -4212,7 +4903,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 2,
             "HexY": -3,
             "Height": 2,
@@ -4227,7 +4919,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 2,
             "HexY": -2,
             "Height": 3,
@@ -4242,7 +4935,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 2,
             "HexY": -1,
             "Height": 2,
@@ -4257,7 +4951,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 0,
             "Height": 2,
@@ -4272,7 +4967,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 1,
             "Height": 2,
@@ -4287,16 +4983,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 2,
             "Height": 2,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.0263406690210104,
+                        "x": 0.026340723037719728,
                         "y": 0.0,
-                        "z": 0.35817858576774599
+                        "z": 0.35817861557006838
                     }
                 ]
             },
@@ -4310,7 +5007,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 3,
             "Height": 1,
@@ -4325,7 +5023,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 4,
             "Height": 1,
@@ -4340,7 +5039,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 2,
             "HexY": 5,
             "Height": -1,
@@ -4355,7 +5055,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 2,
             "HexY": 6,
             "Height": -1,
@@ -4370,7 +5071,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 2,
             "HexY": 7,
             "Height": 0,
@@ -4385,7 +5087,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 8,
             "Height": 0,
@@ -4400,7 +5103,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 9,
             "Height": 0,
@@ -4415,7 +5119,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 2,
             "HexY": 10,
             "Height": 0,
@@ -4430,16 +5135,33 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 3,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.06028744950890541,
+                        "x": -0.0602874755859375,
                         "y": 0.0,
-                        "z": 0.1566884070634842
+                        "z": 0.15668869018554688
                     }
                 ]
             },
@@ -4453,7 +5175,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": -9,
             "Height": 0,
@@ -4468,7 +5191,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": -8,
             "Height": 3,
@@ -4483,7 +5207,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": -7,
             "Height": 0,
@@ -4498,7 +5223,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": -6,
             "Height": 0,
@@ -4513,16 +5239,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": -5,
             "Height": 1,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.048114459961652759,
-                        "y": 0.0,
-                        "z": 0.05719219893217087
+                        "x": -0.04811429977416992,
+                        "y": -5.960464477539063e-8,
+                        "z": 0.057192325592041019
                     }
                 ]
             },
@@ -4536,7 +5263,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": -4,
             "Height": 1,
@@ -4551,7 +5279,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": -3,
             "Height": 1,
@@ -4566,7 +5295,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": -2,
             "Height": 2,
@@ -4581,7 +5311,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": -1,
             "Height": 2,
@@ -4596,7 +5327,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": 0,
             "Height": 1,
@@ -4611,7 +5343,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": 1,
             "Height": 1,
@@ -4626,7 +5359,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": 2,
             "Height": 1,
@@ -4641,7 +5375,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": 3,
             "Height": 0,
@@ -4656,7 +5391,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": 4,
             "Height": -1,
@@ -4671,7 +5407,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": 5,
             "Height": -2,
@@ -4686,7 +5423,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": 6,
             "Height": -1,
@@ -4701,7 +5439,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 3,
             "HexY": 7,
             "Height": 0,
@@ -4716,7 +5455,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": 8,
             "Height": 0,
@@ -4731,7 +5471,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": 9,
             "Height": 0,
@@ -4746,7 +5487,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 3,
             "HexY": 10,
             "Height": 0,
@@ -4761,21 +5503,38 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 4,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.10047227889299393,
+                        "x": -0.10047245025634766,
                         "y": 0.0,
-                        "z": -0.229079931974411
+                        "z": -0.2290802001953125
                     },
                     {
-                        "x": 0.2140827775001526,
+                        "x": 0.2140827178955078,
                         "y": 0.0,
-                        "z": -0.44126424193382265
+                        "z": -0.44126415252685549
                     }
                 ]
             },
@@ -4790,21 +5549,22 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": -9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.19173504412174226,
+                        "x": -0.19173526763916017,
                         "y": 0.0,
-                        "z": -0.22175483405590058
+                        "z": -0.2217550277709961
                     },
                     {
-                        "x": -0.15730828046798707,
+                        "x": -0.15730810165405274,
                         "y": 0.0,
-                        "z": -0.035031337291002277
+                        "z": -0.03503131866455078
                     }
                 ]
             },
@@ -4819,7 +5579,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 4,
             "HexY": -8,
             "Height": 2,
@@ -4834,7 +5595,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 4,
             "HexY": -7,
             "Height": 2,
@@ -4849,7 +5611,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": -6,
             "Height": 0,
@@ -4864,7 +5627,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": -5,
             "Height": 0,
@@ -4879,16 +5643,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": -4,
             "Height": 1,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.24268631637096406,
-                        "y": 0.0,
-                        "z": -0.20335732400417329
+                        "x": -0.24268627166748048,
+                        "y": -5.960464477539063e-8,
+                        "z": -0.20335721969604493
                     }
                 ]
             },
@@ -4902,7 +5667,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": -3,
             "Height": 1,
@@ -4917,7 +5683,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 4,
             "HexY": -2,
             "Height": 1,
@@ -4932,7 +5699,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": -1,
             "Height": 2,
@@ -4947,7 +5715,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 0,
             "Height": 1,
@@ -4962,7 +5731,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 1,
             "Height": 0,
@@ -4977,7 +5747,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 2,
             "Height": 1,
@@ -4992,7 +5763,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 3,
             "Height": 0,
@@ -5007,7 +5779,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 4,
             "Height": -2,
@@ -5022,7 +5795,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 4,
             "HexY": 5,
             "Height": -1,
@@ -5037,7 +5811,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 4,
             "HexY": 6,
             "Height": 0,
@@ -5052,7 +5827,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 7,
             "Height": 0,
@@ -5067,16 +5843,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.06529776751995087,
+                        "x": 0.06529760360717774,
                         "y": 0.0,
-                        "z": 0.2929822504520416
+                        "z": 0.2929821014404297
                     }
                 ]
             },
@@ -5090,7 +5867,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 9,
             "Height": 0,
@@ -5105,7 +5883,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 4,
             "HexY": 10,
             "Height": 0,
@@ -5120,16 +5899,33 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 5,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.18115665018558503,
+                        "x": 0.18115711212158204,
                         "y": 0.0,
-                        "z": -0.36045289039611819
+                        "z": -0.36045265197753909
                     }
                 ]
             },
@@ -5143,7 +5939,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": -9,
             "Height": 0,
@@ -5158,16 +5955,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 5,
             "HexY": -8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.2840515375137329,
+                        "x": -0.28405189514160159,
                         "y": 0.0,
-                        "z": -0.28742021322250368
+                        "z": -0.28742027282714846
                     }
                 ]
             },
@@ -5181,7 +5979,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 5,
             "HexY": -7,
             "Height": 0,
@@ -5196,7 +5995,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 5,
             "HexY": -6,
             "Height": 2,
@@ -5211,7 +6011,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": -5,
             "Height": 0,
@@ -5226,7 +6027,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": -4,
             "Height": 0,
@@ -5241,16 +6043,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": -3,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.3259947896003723,
+                        "x": 0.32599449157714846,
                         "y": 0.0,
-                        "z": -0.23613671958446504
+                        "z": -0.23613691329956056
                     }
                 ]
             },
@@ -5264,7 +6067,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": -2,
             "Height": 1,
@@ -5279,7 +6083,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": -1,
             "Height": 1,
@@ -5294,7 +6099,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 0,
             "Height": 1,
@@ -5309,7 +6115,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 1,
             "Height": 0,
@@ -5324,7 +6131,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 2,
             "Height": 1,
@@ -5339,7 +6147,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 3,
             "Height": 2,
@@ -5354,7 +6163,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 4,
             "Height": 1,
@@ -5369,7 +6179,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 5,
             "HexY": 5,
             "Height": -1,
@@ -5384,7 +6195,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 5,
             "HexY": 6,
             "Height": 0,
@@ -5399,7 +6211,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 7,
             "Height": 0,
@@ -5414,7 +6227,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 8,
             "Height": 0,
@@ -5429,7 +6243,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 9,
             "Height": 0,
@@ -5444,7 +6259,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 5,
             "HexY": 10,
             "Height": 0,
@@ -5459,7 +6275,40 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 5,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 6,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -10,
             "Height": 0,
@@ -5474,16 +6323,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.33136603236198428,
+                        "x": 0.33136558532714846,
                         "y": 0.0,
-                        "z": -0.3900855779647827
+                        "z": -0.39008522033691409
                     }
                 ]
             },
@@ -5497,7 +6347,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -8,
             "Height": 0,
@@ -5512,16 +6363,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.3233429491519928,
+                        "x": -0.32334327697753909,
                         "y": 0.0,
-                        "z": -0.27396801114082339
+                        "z": -0.2739677429199219
                     }
                 ]
             },
@@ -5535,7 +6387,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 6,
             "HexY": -6,
             "Height": 2,
@@ -5550,7 +6403,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 6,
             "HexY": -5,
             "Height": 2,
@@ -5565,7 +6419,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -4,
             "Height": 0,
@@ -5580,16 +6435,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -3,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.4865027964115143,
+                        "x": -0.48650264739990237,
                         "y": 0.0,
-                        "z": -0.06549089401960373
+                        "z": -0.06549072265625
                     }
                 ]
             },
@@ -5603,7 +6459,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -2,
             "Height": 0,
@@ -5618,7 +6475,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": -1,
             "Height": 0,
@@ -5633,7 +6491,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 0,
             "Height": 0,
@@ -5648,7 +6507,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 1,
             "Height": 0,
@@ -5663,7 +6523,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 2,
             "Height": 0,
@@ -5678,7 +6539,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 3,
             "Height": 0,
@@ -5693,7 +6555,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 4,
             "Height": 0,
@@ -5708,7 +6571,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 6,
             "HexY": 5,
             "Height": 0,
@@ -5723,7 +6587,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 6,
             "Height": 0,
@@ -5738,16 +6603,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.2857731878757477,
+                        "x": 0.28577327728271487,
                         "y": 0.0,
-                        "z": -0.3008906841278076
+                        "z": -0.3008909225463867
                     }
                 ]
             },
@@ -5761,7 +6627,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 8,
             "Height": 0,
@@ -5776,7 +6643,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 9,
             "Height": 0,
@@ -5791,7 +6659,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 6,
             "HexY": 10,
             "Height": 0,
@@ -5806,16 +6675,49 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 6,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 7,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.1787644475698471,
+                        "x": -0.17876434326171876,
                         "y": 0.0,
-                        "z": -0.24245740473270417
+                        "z": -0.24245738983154298
                     }
                 ]
             },
@@ -5829,16 +6731,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.30985715985298159,
+                        "x": 0.3098573684692383,
                         "y": 0.0,
-                        "z": -0.2197958379983902
+                        "z": -0.21979618072509767
                     }
                 ]
             },
@@ -5852,7 +6755,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -8,
             "Height": 0,
@@ -5867,7 +6771,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -7,
             "Height": 0,
@@ -5882,7 +6787,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -6,
             "Height": 1,
@@ -5897,7 +6803,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 7,
             "HexY": -5,
             "Height": 0,
@@ -5912,7 +6819,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -4,
             "Height": 2,
@@ -5927,7 +6835,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -3,
             "Height": 2,
@@ -5942,7 +6851,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -2,
             "Height": 0,
@@ -5957,7 +6867,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": -1,
             "Height": 0,
@@ -5972,7 +6883,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 0,
             "Height": 0,
@@ -5987,7 +6899,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 1,
             "Height": 0,
@@ -6002,16 +6915,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 2,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.08743120729923248,
+                        "x": 0.08743095397949219,
                         "y": 0.0,
-                        "z": 0.331624299287796
+                        "z": 0.33162426948547366
                     }
                 ]
             },
@@ -6025,7 +6939,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 3,
             "Height": 0,
@@ -6040,7 +6955,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 4,
             "Height": 0,
@@ -6055,7 +6971,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 5,
             "Height": 0,
@@ -6070,7 +6987,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 6,
             "Height": 0,
@@ -6085,7 +7003,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 7,
             "Height": 0,
@@ -6100,7 +7019,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 8,
             "Height": 0,
@@ -6115,7 +7035,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 9,
             "Height": 0,
@@ -6130,7 +7051,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 7,
             "HexY": 10,
             "Height": 0,
@@ -6145,16 +7067,49 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 7,
+            "HexY": 11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 8,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.2685824930667877,
+                        "x": -0.2685823440551758,
                         "y": 0.0,
-                        "z": -0.14060229063034059
+                        "z": -0.14060211181640626
                     }
                 ]
             },
@@ -6168,7 +7123,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -9,
             "Height": 0,
@@ -6183,7 +7139,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -8,
             "Height": 0,
@@ -6198,16 +7155,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.18064241111278535,
+                        "x": -0.18064212799072267,
                         "y": 0.0,
-                        "z": -0.11392278224229813
+                        "z": -0.1139230728149414
                     }
                 ]
             },
@@ -6221,7 +7179,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -6,
             "Height": 0,
@@ -6236,7 +7195,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -5,
             "Height": 0,
@@ -6251,16 +7211,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "RockHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/RockHex_0.prefab",
             "HexX": 8,
             "HexY": -4,
             "Height": 1,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.1949305385351181,
-                        "y": 0.0,
-                        "z": -0.27265477180480959
+                        "x": -0.1949300765991211,
+                        "y": -5.960464477539063e-8,
+                        "z": -0.27265453338623049
                     }
                 ]
             },
@@ -6274,7 +7235,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -3,
             "Height": 2,
@@ -6289,7 +7251,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -2,
             "Height": 1,
@@ -6304,16 +7267,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": -1,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.45563381910324099,
+                        "x": -0.45563411712646487,
                         "y": 0.0,
-                        "z": 0.31184765696525576
+                        "z": 0.3118476867675781
                     }
                 ]
             },
@@ -6327,7 +7291,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 0,
             "Height": 0,
@@ -6342,7 +7307,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 1,
             "Height": 0,
@@ -6357,7 +7323,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 2,
             "Height": 0,
@@ -6372,7 +7339,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 3,
             "Height": 0,
@@ -6387,7 +7355,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 4,
             "Height": 0,
@@ -6402,7 +7371,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 5,
             "Height": 0,
@@ -6417,7 +7387,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 6,
             "Height": 0,
@@ -6432,16 +7403,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.22680307924747468,
+                        "x": -0.22680282592773438,
                         "y": 0.0,
-                        "z": -0.4192045331001282
+                        "z": -0.4192047119140625
                     }
                 ]
             },
@@ -6455,7 +7427,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 8,
             "Height": 0,
@@ -6470,7 +7443,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 9,
             "Height": 0,
@@ -6485,7 +7459,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 8,
             "HexY": 10,
             "Height": 0,
@@ -6500,7 +7475,24 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 9,
+            "HexY": -11,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -10,
             "Height": 0,
@@ -6509,7 +7501,7 @@
                     {
                         "x": 0.44008350372314455,
                         "y": 0.0,
-                        "z": 0.3157755732536316
+                        "z": 0.31577587127685549
                     }
                 ]
             },
@@ -6523,16 +7515,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.21179232001304627,
+                        "x": -0.2117919921875,
                         "y": 0.0,
-                        "z": -0.3519432246685028
+                        "z": -0.3519430160522461
                     }
                 ]
             },
@@ -6546,16 +7539,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.2068176418542862,
+                        "x": 0.206817626953125,
                         "y": 0.0,
-                        "z": -0.1360689401626587
+                        "z": -0.13606929779052735
                     }
                 ]
             },
@@ -6569,16 +7563,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.19887515902519227,
+                        "x": 0.19887542724609376,
                         "y": 0.0,
-                        "z": 0.23100018501281739
+                        "z": 0.23099994659423829
                     }
                 ]
             },
@@ -6592,16 +7587,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -6,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.13431382179260255,
+                        "x": 0.13431358337402345,
                         "y": 0.0,
-                        "z": -0.0847020372748375
+                        "z": -0.0847024917602539
                     }
                 ]
             },
@@ -6615,7 +7611,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -5,
             "Height": 0,
@@ -6630,7 +7627,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -4,
             "Height": 0,
@@ -6645,7 +7643,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -3,
             "Height": 0,
@@ -6660,7 +7659,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -2,
             "Height": 0,
@@ -6675,7 +7675,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": -1,
             "Height": 0,
@@ -6690,7 +7691,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 0,
             "Height": 0,
@@ -6705,7 +7707,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 1,
             "Height": 0,
@@ -6720,7 +7723,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 2,
             "Height": 0,
@@ -6735,16 +7739,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 3,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.04739924892783165,
+                        "x": -0.04739952087402344,
                         "y": 0.0,
-                        "z": -0.08898823708295822
+                        "z": -0.0889883041381836
                     }
                 ]
             },
@@ -6758,7 +7763,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 4,
             "Height": 0,
@@ -6773,7 +7779,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 5,
             "Height": 0,
@@ -6788,7 +7795,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 6,
             "Height": 0,
@@ -6803,7 +7811,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 7,
             "Height": 0,
@@ -6818,7 +7827,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "EmptyHex",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/EmptyHex.prefab",
             "HexX": 9,
             "HexY": 8,
             "Height": 0,
@@ -6833,7 +7843,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 9,
             "Height": 0,
@@ -6848,7 +7859,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 9,
             "HexY": 10,
             "Height": 0,
@@ -6863,16 +7875,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -10,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.4074283540248871,
+                        "x": 0.4074287414550781,
                         "y": 0.0,
-                        "z": -0.38314035534858706
+                        "z": -0.38314056396484377
                     }
                 ]
             },
@@ -6886,16 +7899,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.09058487415313721,
+                        "x": -0.09058570861816406,
                         "y": 0.0,
-                        "z": -0.10190591216087342
+                        "z": -0.10190582275390625
                     }
                 ]
             },
@@ -6909,16 +7923,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -8,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.4253132939338684,
+                        "x": 0.42531394958496096,
                         "y": 0.0,
-                        "z": 0.39311379194259646
+                        "z": 0.3931140899658203
                     }
                 ]
             },
@@ -6932,16 +7947,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -7,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": -0.1222846657037735,
+                        "x": -0.122283935546875,
                         "y": 0.0,
-                        "z": 0.40953943133354189
+                        "z": 0.40953922271728518
                     }
                 ]
             },
@@ -6955,7 +7971,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -6,
             "Height": 0,
@@ -6970,16 +7987,17 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -5,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": [
                     {
-                        "x": 0.2590007483959198,
+                        "x": 0.2590007781982422,
                         "y": 0.0,
-                        "z": 0.263651043176651
+                        "z": 0.26365089416503909
                     }
                 ]
             },
@@ -6993,7 +8011,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -4,
             "Height": 0,
@@ -7008,7 +8027,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -3,
             "Height": 0,
@@ -7023,7 +8043,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": -2,
             "Height": 0,
@@ -7038,7 +8059,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "EmptyHex",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/EmptyHex.prefab",
             "HexX": 10,
             "HexY": -1,
             "Height": 0,
@@ -7061,7 +8083,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "EmptyHex",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/EmptyHex.prefab",
             "HexX": 10,
             "HexY": 0,
             "Height": 0,
@@ -7076,7 +8099,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 1,
             "Height": 0,
@@ -7091,7 +8115,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 2,
             "Height": 0,
@@ -7106,7 +8131,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 3,
             "Height": 0,
@@ -7121,7 +8147,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 4,
             "Height": 0,
@@ -7136,7 +8163,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 5,
             "Height": 0,
@@ -7151,7 +8179,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 6,
             "Height": 0,
@@ -7166,7 +8195,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 7,
             "Height": 0,
@@ -7181,7 +8211,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 8,
             "Height": 0,
@@ -7196,7 +8227,8 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 9,
             "Height": 0,
@@ -7211,9 +8243,154 @@
             }
         },
         {
-            "HexagonName": "TestHex",
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
             "HexX": 10,
             "HexY": 10,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": -8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": -7,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": -6,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": -4,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": 2,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": 3,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": 6,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": 8,
+            "Height": 0,
+            "ObstaclesOffsets": {
+                "Vectors": []
+            },
+            "Tags": {
+                "Strings": []
+            },
+            "ObstacleNames": {
+                "Strings": []
+            }
+        },
+        {
+            "HexagonName": "GrassHex_0",
+            "HexagonPath": "Assets/_ExternalAssets/HexagonalGridEditor/Prefabs/Hexagons/GrassHex_0.prefab",
+            "HexX": 11,
+            "HexY": 9,
             "Height": 0,
             "ObstaclesOffsets": {
                 "Vectors": []

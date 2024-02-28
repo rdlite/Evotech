@@ -152,8 +152,11 @@ namespace Core.StateMachines.Battle
             _battleSM.Enter<WaitingForTurnState>();
             ParticleSystem dustFX = UnityEngine.Object.Instantiate(_battleSettings.PlacingParticle);
             dustFX.transform.position = _unitToAnimate.transform.position;
+            if (_movementData.Callback == null)
+            {
+                _canvasesResolver.ReturnUIInteraction();
+            }
             _movementData.Callback?.Invoke();
-            _canvasesResolver.ReturnUIInteraction();
         }
 
         public class MovementData

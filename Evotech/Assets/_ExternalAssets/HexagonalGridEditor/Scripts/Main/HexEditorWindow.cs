@@ -36,6 +36,7 @@ namespace HexEditor
         private bool _isObstaclesPaintMode = false;
         private bool _isDrawingPrefabs = false;
         private bool _isChangingHeight = false;
+        private bool _isEditorMode = true;
         private int _targetHeight;
 
         [MenuItem("Window/HexEditor")]
@@ -75,6 +76,11 @@ namespace HexEditor
                 if (GUILayout.Button("Switch grid view"))
                 {
                     SwitchGridView();
+                }
+
+                if (GUILayout.Button("Switch draw mode"))
+                {
+                    SwitchDrawMode();
                 }
                 GUILayout.EndHorizontal();
             }
@@ -195,6 +201,9 @@ namespace HexEditor
             SceneView.duringSceneGui -= OnSceneGUI;
             SceneView.duringSceneGui += OnSceneGUI;
             RefreshPalette();
+
+            _isEditorMode = true;
+            UpdateDrawMode();
         }
 
         void OnDestroy()
@@ -378,6 +387,17 @@ namespace HexEditor
         {
             _isShowGrid = !_isShowGrid;
             _isChangedGridView = true;
+        }
+
+        private void SwitchDrawMode()
+        {
+            _isEditorMode = !_isEditorMode;
+            UpdateDrawMode();
+        }
+
+        private void UpdateDrawMode()
+        {
+
         }
 
         private void HandleGridView()

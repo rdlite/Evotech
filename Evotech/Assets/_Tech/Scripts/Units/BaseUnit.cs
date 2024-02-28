@@ -29,6 +29,7 @@ namespace Core.Units
 
         protected ClassSettings _classSettings;
         protected BaseUnitAnimator _baseAnimator;
+        protected UnitAssets _unitAssets;
         protected StylesContainer _stylesContainer;
         protected IUpdateProvider _updatesProvider;
         protected GhostCreator _ghostCreator;
@@ -42,8 +43,9 @@ namespace Core.Units
         [Inject]
         private void Construct(
             StylesContainer stylesContainer, IUpdateProvider updatesProvider, OutlinesContainer outlinesContainer,
-            UnitSettingsContainer unitSettingsContainer, IUnitStaticStatsProvider statsProvider)
+            UnitSettingsContainer unitSettingsContainer, IUnitStaticStatsProvider statsProvider, AssetsContainer assetsContainer)
         {
+            _unitAssets = assetsContainer.UnitAssets;
             _stylesContainer = stylesContainer;
             _updatesProvider = updatesProvider;
             _unitSettingsContainer = unitSettingsContainer;
@@ -137,6 +139,8 @@ namespace Core.Units
         }
 
         public abstract void PerformMeleeAttack();
+
+        public abstract void SetAttackPreparationAnimation(bool isActive);
 
         public virtual void PerformAttackedImpact(ParticleSystem impactVFX)
         {

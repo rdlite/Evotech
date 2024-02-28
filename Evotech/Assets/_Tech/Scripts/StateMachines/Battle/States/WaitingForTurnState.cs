@@ -88,6 +88,7 @@ namespace Core.StateMachines.Battle
             _battleLinesFactory.ClearLines();
             _battleObserver.ClearAdditionalInfo();
             _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().OnSkillButtonPressed -= OnSkillPressed;
+            _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().RemoveSelection();
         }
 
         private void LMBDown()
@@ -146,7 +147,7 @@ namespace Core.StateMachines.Battle
                 return;
             }
 
-            if (_unitWalkingResolver.IsChoosingAttackTarget() && IsWalkingAndClickedOnEnemy())
+            if (_unitWalkingResolver.IsChoosingAttackTarget() && IsWalkingAndClickedOnEnemy() && IsPointerNearTarget())
             {
                 bool isAttacking = _unitWalkingResolver.IsChoosingAttackTarget();
                 bool isMoving = _unitWalkingResolver.IsChoosingWalkPoint();
@@ -253,6 +254,17 @@ namespace Core.StateMachines.Battle
         private bool IsPointingOnPossiblePointToMove()
         {
             return _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetCurrenUnit().transform.position) != _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint());
+        }
+
+        private bool IsPointerNearTarget()
+        {
+            return
+                _currentHoverUnit != null &&
+                BattleUtils.GetRelationForUnits(Enums.UnitType.Player, _currentHoverUnit.UnitType) == Enums.UnitRelation.Enemy &&
+                (_mapDataProvider.GetNearestNodeOfWorldPoint(_currentHoverUnit.transform.position).Neighbours.Contains(
+                    _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint())) ||
+                _mapDataProvider.GetNearestNodeOfWorldPoint(_currentHoverUnit.transform.position) ==
+                    _mapDataProvider.GetNearestNodeOfWorldPoint(_unitWalkingResolver.GetLastWalkPoint()));
         }
 
         private bool IsWalkingAndClickedOnEnemy()

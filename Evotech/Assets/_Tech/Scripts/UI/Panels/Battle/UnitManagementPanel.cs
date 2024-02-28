@@ -1,3 +1,4 @@
+using Qnject;
 using System;
 using Core.Units;
 using Extensions;
@@ -46,7 +47,7 @@ namespace Core.UI
 
             foreach (var skill in _currentUnit.GetCurrentSkills())
             {
-                SkillButton newSkillButton = Instantiate(_skillButtonPrefab);
+                SkillButton newSkillButton = QnjectPrefabsFactory.Instantiate(_skillButtonPrefab);
                 newSkillButton.transform.SetParent(_skillsLayout);
                 newSkillButton.transform.ResetLocals();
                 newSkillButton.Init(_currentUnit, skill);
@@ -69,7 +70,27 @@ namespace Core.UI
 
         private void OnSkillPressed(UnitBaseSkill skill)
         {
+            foreach (SkillButton button in _createdSkillButtons)
+            {
+                if (button.IsSkill(skill))
+                {
+                    button.SwitchSelection();
+                }
+                else
+                {
+                    button.SetSelected(false);
+                }
+            }
+
             OnSkillButtonPressed?.Invoke(skill);
+        }
+
+        public void RemoveSelection()
+        {
+            foreach (SkillButton button in _createdSkillButtons)
+            {
+                button.SetSelected(false);
+            }
         }
 
         public override void Freeze()

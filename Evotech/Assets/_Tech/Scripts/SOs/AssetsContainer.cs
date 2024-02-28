@@ -13,7 +13,6 @@ namespace Core.Data
     public class AssetsContainer : ScriptableObject
     {
         public CameraController CameraPrefab;
-        public HexagonsContainer HexagonsContainer;
         public MapTextsContainer MapTextsContainer;
         public Curtain CurtainPrefab;
         public UnitAssets UnitAssets;
@@ -28,6 +27,7 @@ namespace Core.Data
         public BaseUnit TestUnit;
         public ParticleSystem SpiritEvaporationParticle;
         public ParticleSystem SimpleHitParticle;
+        public ParticleSystem SimpleAttackPrepareParticle;
     }
 
     [System.Serializable]

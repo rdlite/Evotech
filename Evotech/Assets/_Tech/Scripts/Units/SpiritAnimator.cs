@@ -13,6 +13,7 @@ namespace Core.Units
         private int DEATH_ID_HASH = Animator.StringToHash("DeathID");
         private int DEATH_TRIGGER_HASH = Animator.StringToHash("DeathTrigger");
         private int ATTACKED_TRIGGER_HASH = Animator.StringToHash("AttackedTrigger");
+        private int IS_PREPARE_TO_ATTACK_HASH = Animator.StringToHash("IsPrepareToAttack");
 
         private WeaponStyle _weaponStyle;
         private Animator _animator;
@@ -42,6 +43,11 @@ namespace Core.Units
         {
             _animator.SetFloat(DEATH_ID_HASH, Random.Range(0, 3));
             _animator.SetTrigger(DEATH_TRIGGER_HASH);
+        }
+
+        public void SetAttackPreparationAnimation(bool isActive)
+        {
+            _animator.SetBool(IS_PREPARE_TO_ATTACK_HASH, isActive);
         }
     }
 }

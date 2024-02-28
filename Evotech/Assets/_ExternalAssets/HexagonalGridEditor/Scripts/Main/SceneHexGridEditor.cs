@@ -40,43 +40,75 @@ namespace HexEditor
 
         public MapHexagon TryPlaceHexGroundAtPoint(Vector2Int point, bool withUndoRegister)
         {
-            if (GetHexInfoByAbsoleteCoord(point).HexObject == null)
+            if (GetHexInfoByAbsoleteCoord(point) != null && GetHexInfoByAbsoleteCoord(point).HexagonName == _currentPrefab.transform.name)
             {
-                if (_currentPrefab.GetComponent<MapHexagon>() == null)
+                return null;
+            }
+
+            StringsContainer tags = new StringsContainer();
+            List<GameObject> obstacles = new List<GameObject>();
+            int prevHexHeight = 0;
+
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                prevHexHeight = GetHexInfoByAbsoleteCoord(point).Height;
+
+                foreach (var tag in GetHexInfoByAbsoleteCoord(point).Tags.Strings)
                 {
-                    Debug.LogWarning("Not valid prefab!!..");
-                    return null;
+                    tags.Strings.Add(tag);
                 }
 
-                MapHexagon createdHex = (PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject).GetComponent<MapHexagon>();
-
-                createdHex.transform.SetParent(_hexesPrefabsContainer);
-                createdHex.transform.position = HexGridUtility.ConvertHexCoordToWorldPoint(point);
-
-                if (withUndoRegister)
+                foreach (var obstacle in GetHexInfoByAbsoleteCoord(point).Obstacles)
                 {
-                    Undo.RegisterCreatedObjectUndo(createdHex, "Create object");
+                    obstacle.transform.SetParent(null);
+                    obstacles.Add(obstacle);
                 }
 
-                GetHexInfoByAbsoleteCoord(point).HexObject = createdHex;
-                GetHexInfoByAbsoleteCoord(point).HexagonName = createdHex.transform.name;
-                GetHexInfoByAbsoleteCoord(point).HexX = point.x;
-                GetHexInfoByAbsoleteCoord(point).HexY = point.y;
-                GetHexInfoByAbsoleteCoord(point).Obstacles = new List<GameObject>();
-                GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets = new Vector3Container();
-                GetHexInfoByAbsoleteCoord(point).ObstacleNames = new StringsContainer();
+                TryRemoveHexFromPoint(point, withUndoRegister);
+            }
 
-                return createdHex;
-            }
-            else
+            if (_currentPrefab.GetComponent<MapHexagon>() == null)
             {
-                return GetHexInfoByAbsoleteCoord(point).HexObject;
+                Debug.LogWarning("Not valid prefab!!..");
+                return null;
             }
+
+            MapHexagon createdHex = (PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject).GetComponent<MapHexagon>();
+
+            createdHex.transform.SetParent(_hexesPrefabsContainer);
+            createdHex.transform.position = HexGridUtility.ConvertHexCoordToWorldPoint(point);
+
+            if (withUndoRegister)
+            {
+                Undo.RegisterCreatedObjectUndo(createdHex, "Create object");
+            }
+
+            GetHexInfoByAbsoleteCoord(point).HexObject = createdHex;
+            GetHexInfoByAbsoleteCoord(point).HexagonName = createdHex.transform.name;
+            GetHexInfoByAbsoleteCoord(point).HexagonPath = PrefabUtility.GetPrefabAssetPathOfNearestInstanceRoot(createdHex);
+            GetHexInfoByAbsoleteCoord(point).HexX = point.x;
+            GetHexInfoByAbsoleteCoord(point).HexY = point.y;
+            SetHeight(point, prevHexHeight);
+            GetHexInfoByAbsoleteCoord(point).Obstacles = new List<GameObject>();
+            GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets = new Vector3Container();
+            GetHexInfoByAbsoleteCoord(point).ObstacleNames = new StringsContainer();
+
+            foreach (var obstacle in obstacles)
+            {
+                AddObstacle(obstacle, point, true);
+            }
+
+            foreach (var tag in tags.Strings)
+            {
+                AddTag(point, tag);
+            }
+
+            return createdHex;
         }
 
         public void TryRemoveHexFromPoint(Vector2Int point, bool withUndoRegister)
         {
-            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            if (GetHexInfoByAbsoleteCoord(point) != null && GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
                 if (withUndoRegister)
                 {
@@ -101,10 +133,10 @@ namespace HexEditor
 
         public GameObject AddObstacle(Vector2Int point, bool withUndoRegister)
         {
-            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            if (GetHexInfoByAbsoleteCoord(point) != null && GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
                 GameObject createdObstacle = PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject;
-                GetHexInfoByAbsoleteCoord(point).HexObject.AddObstacle(createdObstacle.transform);
+                GetHexInfoByAbsoleteCoord(point).HexObject.AddObstacle(createdObstacle.transform, true);
 
                 if (withUndoRegister)
                 {
@@ -116,6 +148,27 @@ namespace HexEditor
                 GetHexInfoByAbsoleteCoord(point).ObstacleNames.Strings.Add(createdObstacle.name);
 
                 return createdObstacle;
+            }
+
+            return null;
+        }
+
+        public GameObject AddObstacle(GameObject preciseObstacle, Vector2Int point, bool withUndoRegister)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).HexObject.AddObstacle(preciseObstacle.transform, false);
+
+                if (withUndoRegister)
+                {
+                    Undo.RegisterCreatedObjectUndo(preciseObstacle, "Create obstacle");
+                }
+
+                GetHexInfoByAbsoleteCoord(point).Obstacles.Add(preciseObstacle);
+                GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets.Vectors.Add(preciseObstacle.transform.localPosition);
+                GetHexInfoByAbsoleteCoord(point).ObstacleNames.Strings.Add(preciseObstacle.name);
+
+                return preciseObstacle;
             }
 
             return null;
@@ -163,23 +216,23 @@ namespace HexEditor
                 Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex change height");
             }
         }
-        
+
+        public void SetHeight(Vector2Int point, int height)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).Height = height;
+                GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * _heightStep * height;
+                Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex set height");
+            }
+        }
+
         public void FlatHeight(Vector2Int point)
         {
             if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
                 GetHexInfoByAbsoleteCoord(point).Height = 0;
                 GetHexInfoByAbsoleteCoord(point).HexObject.transform.position = GetHexInfoByAbsoleteCoord(point).HexObject.transform.position.FlatY();
-                Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex flat height");
-            }
-        }
-
-        public void SetHeight(Vector2Int point, int value)
-        {
-            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
-            {
-                GetHexInfoByAbsoleteCoord(point).Height = value;
-                GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * _heightStep * value;
                 Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex flat height");
             }
         }
@@ -359,6 +412,7 @@ namespace HexEditor
         {
             [NonSerialized] public MapHexagon HexObject;
             public string HexagonName;
+            public string HexagonPath;
             public int HexX;
             public int HexY;
             [NonSerialized] public List<GameObject> Obstacles = new List<GameObject>();

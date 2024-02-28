@@ -50,6 +50,7 @@ public class UnitWalkingResolver
             _isChoosingAttackTarget = false;
 
             _currentUnit.SetActiveOutline(false, true);
+            _currentUnit.SetAttackPreparationAnimation(false);
             _unitsSequencePanel.SetHighlightedPulsate(_currentUnit, false);
 
             ClearOldHighlights();
@@ -74,6 +75,8 @@ public class UnitWalkingResolver
         {
             _isChoosingWalkPoint = false;
             _isChoosingAttackTarget = false;
+
+            _currentUnit.SetAttackPreparationAnimation(false);
 
             ClearOldHighlights();
             SetUnitRotationTarget(Vector3.zero);
@@ -100,12 +103,14 @@ public class UnitWalkingResolver
     {
         _isChoosingWalkPoint = !_isChoosingWalkPoint;
         _isChoosingAttackTarget = false;
+        _currentUnit.SetAttackPreparationAnimation(false);
     }
 
     public void SwitchAttackOnTarget()
     {
         _isChoosingWalkPoint = false;
         _isChoosingAttackTarget = !_isChoosingAttackTarget;
+        _currentUnit.SetAttackPreparationAnimation(_isChoosingAttackTarget);
     }
 
     public void Update()
@@ -138,12 +143,15 @@ public class UnitWalkingResolver
 
             bool isPointerOverUI = _raycaster.IsPointerOverUI();
 
-            if (isPointerOverUI)
+            if (path != null)
             {
-                path.Clear();
-            }
+                if (isPointerOverUI)
+                {
+                    path.Clear();
+                }
 
-            pathCount = path.Count;
+                pathCount = path.Count;
+            }
 
             if (!isPointerOverUI && _hoverUnit != null && _currentUnit != _hoverUnit && BattleUtils.GetRelationForUnits(_currentUnit.UnitType, _hoverUnit.UnitType) == Enums.UnitRelation.Enemy)
             {
@@ -192,7 +200,10 @@ public class UnitWalkingResolver
             }
             else
             {
-                path.Clear();
+                if (path != null)
+                {
+                    path.Clear();
+                }
                 pathCount = 0;
                 _walkFieldVisualizer.ProcessPathScale(null);
                 ClearAllLines();

@@ -1,5 +1,4 @@
 ﻿using Core.Map;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Core.Data
@@ -7,28 +6,19 @@ namespace Core.Data
     [CreateAssetMenu(fileName = "New landscape", menuName = "Add/Landscape/Default landscape")]
     public class LandscapeSettings : ScriptableObject
     {
-        public LandscapeTypes LandType;
-        public HexagonNode MainHex;
+        public HexagonNode[] HexagonsDatabase;
         public MapObstacle[] NonwalkableObstacles;
         public MapObstacle[] WalkableObstacles;
-    }
 
-    [System.Serializable]
-    public class HexagonsContainer
-    {
-        public List<LandscapeSettings> Landscapes;
-
-        public LandscapeSettings GetSettingsOfType(LandscapeTypes type)
+        public HexagonNode GetHexPrefabByName(string hexagonName)
         {
-            for (int i = 0; i < Landscapes.Count; i++)
+            foreach (HexagonNode hex in HexagonsDatabase)
             {
-                if (Landscapes[i].LandType == type)
+                if (hex.transform.name == hexagonName)
                 {
-                    return Landscapes[i];
+                    return hex;
                 }
             }
-
-            Debug.LogError($"There's no landscape of type {type}!..");
 
             return null;
         }

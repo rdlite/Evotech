@@ -8,10 +8,13 @@ namespace HexEditor
         [SerializeField] private Transform _obstaclesContainer;
         [SerializeField] private GameObject _tagPoint;
 
-        public void AddObstacle(Transform obstacle)
+        public void AddObstacle(Transform obstacle, bool withRandom)
         {
             obstacle.SetParent(_obstaclesContainer);
-            obstacle.transform.localPosition = Vector3.zero + new Vector3(Random.insideUnitCircle.x * .5f, 0f, Random.insideUnitCircle.y * .5f);
+            if (withRandom)
+            {
+                obstacle.transform.localPosition = Vector3.zero + new Vector3(Random.insideUnitCircle.x * .5f, 0f, Random.insideUnitCircle.y * .5f);
+            }
         }
 
         public void RemoveLastObstacle(bool withUndoRegister)

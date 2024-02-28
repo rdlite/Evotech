@@ -18,7 +18,8 @@ namespace Core.Units
         private WeaponStyle _weaponStyle;
         private float _lastLocalRotationTarget;
 
-        public override void Init(Enums.UnitType unitType, Enums.UnitClass unitClass, Enums.OutlineType outlineType)
+        public override void Init(
+            Enums.UnitType unitType, Enums.UnitClass unitClass, Enums.OutlineType outlineType)
         {
             base.Init(unitType, unitClass, outlineType);
 
@@ -67,6 +68,17 @@ namespace Core.Units
             _spirit.GetAnimator().PlayMeleeAttack();
         }
 
+        public override void SetAttackPreparationAnimation(bool isActive)
+        {
+            if (isActive)
+            {
+                ParticleSystem prepareParticle = Instantiate(_unitAssets.SimpleAttackPrepareParticle);
+                prepareParticle.transform.position = _impactVFXPoint.transform.position;
+            }
+
+            _spirit.GetAnimator().SetAttackPreparationAnimation(isActive);
+        }
+        
         public override void PerformAttackedImpact(ParticleSystem impactVFX)
         {
             base.PerformAttackedImpact(impactVFX);

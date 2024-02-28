@@ -33,7 +33,7 @@ namespace Core.Data
             {
                 Vector2Int point = new Vector2Int(hexesWrapper.Places[i].HexX, hexesWrapper.Places[i].HexY);
 
-                HexagonNode hex = CreateMainHex(point, mapParent.transform);
+                HexagonNode hex = CreateHex(_landscapeSettings.GetHexPrefabByName(hexesWrapper.Places[i].HexagonName), point, mapParent.transform);
                 SetHexagonHeight(hex, hexesWrapper.Places[i].Height);
 
                 bool hasNonwalkableObstacles = false;
@@ -64,9 +64,9 @@ namespace Core.Data
             return map;
         }
 
-        private HexagonNode CreateMainHex(Vector2Int point, Transform parent)
+        private HexagonNode CreateHex(HexagonNode hexPrefab, Vector2Int point, Transform parent)
         {
-            HexagonNode newHex = QnjectPrefabsFactory.Instantiate<HexagonNode>(_landscapeSettings.MainHex);
+            HexagonNode newHex = QnjectPrefabsFactory.Instantiate<HexagonNode>(hexPrefab);
             newHex.transform.SetParent(parent);
             newHex.transform.localPosition = HexGridUtility.ConvertHexCoordToWorldPoint(point);
             return newHex;

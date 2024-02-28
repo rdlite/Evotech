@@ -29,6 +29,7 @@ namespace Core.Infrastructure
         private BattleObserver _battleObserver;
         private BattleStateMachine _battleSM;
         private ICameraShaker _cameraShaker;
+        private LandscapeSettings _landscapeSettings;
         private ITurnsSequencer _turnsSequencer;
         private GameSettings _gameSettings;
         private Container _sceneInstaller;
@@ -42,7 +43,7 @@ namespace Core.Infrastructure
             AssetsContainer assetsContainer, GameSettings gameSettings, MapTextsContainer mapsContainer,
             IGameFactory gameFactory, ICurtain curtain, IRaycaster raycaster,
             IUpdateProvider updateProvider, IInput input, StylesContainer stylesContainer,
-            IUICanvasesResolver canvasesResolver, ICameraShaker cameraShaker)
+            IUICanvasesResolver canvasesResolver, ICameraShaker cameraShaker, LandscapeSettings landscapeSettings)
         {
             _stylesContainer = stylesContainer;
             _assetsContainer = assetsContainer;
@@ -55,6 +56,7 @@ namespace Core.Infrastructure
             _input = input;
             _canvasesResolver = canvasesResolver;
             _cameraShaker = cameraShaker;
+            _landscapeSettings = landscapeSettings;
 
             _updateProvider.AddUpdate(Tick);
             _updateProvider.AddFixedUpdate(FixedTick);
@@ -85,7 +87,7 @@ namespace Core.Infrastructure
         {
             _canvasesResolver.CreateCanvas(Enums.UICanvasType.Battle, false);
 
-            LandscapeSettings landscapeSettings = _assetsContainer.HexagonsContainer.GetSettingsOfType(LandscapeTypes.DefaultGrass);
+            LandscapeSettings landscapeSettings = _landscapeSettings;
 
             IUnitsFactory unitsFactory = new UnitsFactory(_assetsContainer);
 
