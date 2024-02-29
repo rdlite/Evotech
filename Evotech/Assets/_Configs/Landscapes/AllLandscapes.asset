@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AllLandscapes
   m_EditorClassIdentifier: 
   HexagonsDatabase:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 242870400493668164, guid: e6c4494f119be1c4e92fa52c738085ca, type: 3}
+  - {fileID: 2870110217692203964, guid: ec12b0d403bafbc468dcc8779a64ef35, type: 3}
+  - {fileID: -1638840847340829148, guid: e9bb4dfb4d94c5b47b6a22a25c35bf67, type: 3}
   NonwalkableObstacles:
   - {fileID: -1472955478897205267, guid: 7234deea2e5dd1e45a4abdeee84d777f, type: 3}
   WalkableObstacles:

@@ -139,3 +139,4 @@ MonoBehaviour:
   - {fileID: 8681908942310833425}
   _scriptableObjectsToInstall:
   - {fileID: 11400000, guid: 09bba610f1d5c91469f113a3b89d7036, type: 2}
+  - {fileID: 11400000, guid: b7e33fafb07b25144be16e193d943af8, type: 2}

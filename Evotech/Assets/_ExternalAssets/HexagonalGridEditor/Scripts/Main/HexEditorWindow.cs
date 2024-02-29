@@ -4,6 +4,7 @@ using UnityEditor;
 using System.Collections.Generic;
 using static HexEditor.SceneHexGridEditor;
 using System.Linq;
+using Core.Map;
 
 namespace HexEditor
 {
@@ -31,11 +32,13 @@ namespace HexEditor
         private bool _isShowGrid;
         private bool _isChangedGridView;
         private bool _isHeightEditMode = false;
+        private bool _isRotationEditMode = false;
         private bool _isHexagonsPaintMode = false;
         private bool _isTagsEditorMode = false;
         private bool _isObstaclesPaintMode = false;
         private bool _isDrawingPrefabs = false;
         private bool _isChangingHeight = false;
+        private bool _isChangingRotation = false;
         private bool _isEditorMode = true;
         private int _targetHeight;
 
@@ -115,7 +118,7 @@ namespace HexEditor
             }
 
             DefaultSpace();
-            EditorGUILayout.LabelField("Height editor", headerStyle);
+            EditorGUILayout.LabelField("Transformation editor", headerStyle);
             HalfDefaultSpace();
 
             using (new GUILayout.VerticalScope(EditorStyles.helpBox))
@@ -127,6 +130,15 @@ namespace HexEditor
                 {
                     ToggleModes();
                     _isHeightEditMode = true;
+                }
+
+                bool oldRotationEditMode = _isRotationEditMode;
+                _isRotationEditMode = GUILayout.Toggle(_isRotationEditMode, "Rotation edit mode", "Button", GUILayout.Height(60f));
+
+                if (oldRotationEditMode != _isRotationEditMode && _isRotationEditMode)
+                {
+                    ToggleModes();
+                    _isRotationEditMode = true;
                 }
             }
 
@@ -158,7 +170,7 @@ namespace HexEditor
 
         private void OnSceneGUI(SceneView sceneView)
         {
-            if (_isHexagonsPaintMode || _isHeightEditMode || _isObstaclesPaintMode || _isTagsEditorMode)
+            if (_isHexagonsPaintMode || _isHeightEditMode || _isObstaclesPaintMode || _isTagsEditorMode || _isRotationEditMode)
             {
                 CalculateSelectedHex();
                 HandleSceneViewInputs();
@@ -189,6 +201,10 @@ namespace HexEditor
                         {
                             GetSceneEditor().ChangeHeight(_selectedHexCoord, Event.current.shift ? -1 : 1);
                         }
+                    }
+                    else if (_isChangingRotation)
+                    {
+                        GetSceneEditor().ChangeRotation(_selectedHexCoord, Event.current.shift ? -1 : 1);
                     }
                 }
 
@@ -362,6 +378,19 @@ namespace HexEditor
                 else if (_isChangingHeight && Event.current.type == EventType.MouseUp && Event.current.button == 0)
                 {
                     _isChangingHeight = false;
+                }
+            }
+            else if (_isRotationEditMode)
+            {
+                if (!_isChangingRotation && Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                {
+                    _isChangingRotation = true;
+
+                    GetSceneEditor().ChangeRotation(_selectedHexCoord, Event.current.shift ? -1 : 1);
+                }
+                else if (_isChangingRotation && Event.current.type == EventType.MouseUp && Event.current.button == 0)
+                {
+                    _isChangingRotation = false;
                 }
             }
             else if (_isTagsEditorMode)
@@ -715,7 +744,7 @@ namespace HexEditor
                 {
                     for (int j = 0; j < _totalPalette.Count; j++)
                     {
-                        if (_totalPalette[j].GetComponent<MapHexagon>() != null)
+                        if (_totalPalette[j].GetComponent<HexagonNode>() != null)
                         {
                             hexPaletteID = j;
                             break;
@@ -772,6 +801,7 @@ namespace HexEditor
             _isHexagonsPaintMode = false;
             _isHeightEditMode = false;
             _isObstaclesPaintMode = false;
+            _isRotationEditMode = false;
         }
 
         private int FindAssetIndexByName(string name)

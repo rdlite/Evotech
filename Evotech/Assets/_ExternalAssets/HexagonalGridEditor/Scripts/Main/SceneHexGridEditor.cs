@@ -2,6 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
+using Core.Map;
 
 namespace HexEditor
 {
@@ -38,7 +39,7 @@ namespace HexEditor
             }
         }
 
-        public MapHexagon TryPlaceHexGroundAtPoint(Vector2Int point, bool withUndoRegister)
+        public HexagonNode TryPlaceHexGroundAtPoint(Vector2Int point, bool withUndoRegister)
         {
             if (GetHexInfoByAbsoleteCoord(point) != null && GetHexInfoByAbsoleteCoord(point).HexagonName == _currentPrefab.transform.name)
             {
@@ -48,10 +49,12 @@ namespace HexEditor
             StringsContainer tags = new StringsContainer();
             List<GameObject> obstacles = new List<GameObject>();
             int prevHexHeight = 0;
+            int prevHexRotation = 0;
 
             if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
                 prevHexHeight = GetHexInfoByAbsoleteCoord(point).Height;
+                prevHexRotation = GetHexInfoByAbsoleteCoord(point).Rotation;
 
                 foreach (var tag in GetHexInfoByAbsoleteCoord(point).Tags.Strings)
                 {
@@ -67,13 +70,13 @@ namespace HexEditor
                 TryRemoveHexFromPoint(point, withUndoRegister);
             }
 
-            if (_currentPrefab.GetComponent<MapHexagon>() == null)
+            if (_currentPrefab.GetComponent<HexagonNode>() == null)
             {
                 Debug.LogWarning("Not valid prefab!!..");
                 return null;
             }
 
-            MapHexagon createdHex = (PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject).GetComponent<MapHexagon>();
+            HexagonNode createdHex = (PrefabUtility.InstantiatePrefab(_currentPrefab) as GameObject).GetComponent<HexagonNode>();
 
             createdHex.transform.SetParent(_hexesPrefabsContainer);
             createdHex.transform.position = HexGridUtility.ConvertHexCoordToWorldPoint(point);
@@ -89,6 +92,7 @@ namespace HexEditor
             GetHexInfoByAbsoleteCoord(point).HexX = point.x;
             GetHexInfoByAbsoleteCoord(point).HexY = point.y;
             SetHeight(point, prevHexHeight);
+            SetRotation(point, prevHexRotation);
             GetHexInfoByAbsoleteCoord(point).Obstacles = new List<GameObject>();
             GetHexInfoByAbsoleteCoord(point).ObstaclesOffsets = new Vector3Container();
             GetHexInfoByAbsoleteCoord(point).ObstacleNames = new StringsContainer();
@@ -217,12 +221,32 @@ namespace HexEditor
             }
         }
 
+        public void ChangeRotation(Vector2Int point, int direction)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).Rotation += direction;
+                GetHexInfoByAbsoleteCoord(point).HexObject.transform.rotation *= Quaternion.Euler(0f, 60f * direction, 0f);
+                Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex change height");
+            }
+        }
+
         public void SetHeight(Vector2Int point, int height)
         {
             if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
             {
                 GetHexInfoByAbsoleteCoord(point).Height = height;
                 GetHexInfoByAbsoleteCoord(point).HexObject.transform.position += Vector3.up * _heightStep * height;
+                Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex set height");
+            }
+        }
+
+        public void SetRotation(Vector2Int point, int rotation)
+        {
+            if (GetHexInfoByAbsoleteCoord(point).HexObject != null)
+            {
+                GetHexInfoByAbsoleteCoord(point).Rotation = rotation;
+                GetHexInfoByAbsoleteCoord(point).HexObject.transform.rotation *= Quaternion.Euler(0f, 60f * rotation, 0f);
                 Undo.RegisterCompleteObjectUndo(GetHexInfoByAbsoleteCoord(point).HexObject, "Hex set height");
             }
         }
@@ -286,7 +310,7 @@ namespace HexEditor
             SetTagsMode(true);
         }
 
-        private void SetTagIconForHex(MapHexagon hex, string tagName, int idx, bool isBigIcon)
+        private void SetTagIconForHex(HexagonNode hex, string tagName, int idx, bool isBigIcon)
         {
             if (idx == -1)
             {
@@ -410,13 +434,14 @@ namespace HexEditor
         [System.Serializable]
         public class HexPlaceInfo
         {
-            [NonSerialized] public MapHexagon HexObject;
+            [NonSerialized] public HexagonNode HexObject;
             public string HexagonName;
             public string HexagonPath;
             public int HexX;
             public int HexY;
             [NonSerialized] public List<GameObject> Obstacles = new List<GameObject>();
             public int Height = 0;
+            public int Rotation = 0;
             public Vector3Container ObstaclesOffsets = new Vector3Container();
             public StringsContainer Tags = new StringsContainer();
             public StringsContainer ObstacleNames = new StringsContainer();

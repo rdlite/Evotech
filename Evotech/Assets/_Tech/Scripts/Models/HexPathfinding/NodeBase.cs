@@ -18,6 +18,7 @@ namespace Hexnav.Core
         public Vector3 WorldPos;
         public Vector2Int Point;
         public float Height;
+        public float Rotation;
         public int NonwalkableFactors = 0;
         public bool IsWalkable
         {
@@ -31,12 +32,13 @@ namespace Hexnav.Core
 
         public NodeBase(
             Vector3 worldPos, Vector2Int point, float height,
-            Transform worldRepresent, Vector3 surfaceOffset, List<string> tags, 
-            List<string> obstacleNames)
+            float rotation, Transform worldRepresent, Vector3 surfaceOffset, 
+            List<string> tags, List<string> obstacleNames)
         {
             WorldPos = worldPos;
             Point = point;
             Height = height;
+            Rotation = rotation;
             Neighbours = new List<NodeBase>();
             WorldObject = worldRepresent;
             SurfaceOffset = surfaceOffset;

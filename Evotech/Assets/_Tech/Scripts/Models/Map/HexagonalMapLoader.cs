@@ -1,11 +1,11 @@
 ﻿using Utils;
 using Qnject;
 using System;
+using Core.Map;
+using Hexnav.Core;
 using UnityEngine;
 using Core.Settings;
 using System.Collections.Generic;
-using Hexnav.Core;
-using Core.Map;
 
 namespace Core.Data
 {
@@ -35,6 +35,7 @@ namespace Core.Data
 
                 HexagonNode hex = CreateHex(_landscapeSettings.GetHexPrefabByName(hexesWrapper.Places[i].HexagonName), point, mapParent.transform);
                 SetHexagonHeight(hex, hexesWrapper.Places[i].Height);
+                SetHexagonRotation(hex, hexesWrapper.Places[i].Rotation);
 
                 bool hasNonwalkableObstacles = false;
 
@@ -48,6 +49,7 @@ namespace Core.Data
                     hex.transform.position,
                     point,
                     hexesWrapper.Places[i].Height,
+                    hexesWrapper.Places[i].Rotation,
                     hex.transform,
                     hex.GetSurfaceOffset(),
                     hexesWrapper.Places[i].Tags.Strings,
@@ -112,6 +114,11 @@ namespace Core.Data
             hex.transform.position += Vector3.up * height * _mapSettings.HeightOffset;
         }
 
+        private void SetHexagonRotation(HexagonNode hex, int rotation)
+        {
+            hex.transform.rotation = Quaternion.Euler(0f, 60f * rotation, 0f);
+        }
+
         [Serializable]
         public class HexesWrapper
         {
@@ -126,6 +133,7 @@ namespace Core.Data
             public int HexX;
             public int HexY;
             public int Height = 0;
+            public int Rotation = 0;
             public Vector3Container ObstaclesOffsets = new Vector3Container();
             public StringsContainer Tags = new StringsContainer();
             public StringsContainer ObstacleNames = new StringsContainer();
