@@ -56,8 +56,7 @@ namespace Core.StateMachines.Battle
         {
             _input.OnLMBDown += LMBDown;
             _input.OnLMBUp += LMBUp;
-            _input.OnRMBUp += ResetWalkSelection;
-            _input.OnRMBUp += UnselectUnit;
+            _input.OnRMBUp += RMBUp;
             _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().OnSkillButtonPressed += OnSkillPressed;
 
             if (_unitWalkingResolver.GetCurrenUnit() != null)
@@ -83,8 +82,7 @@ namespace Core.StateMachines.Battle
         {
             _input.OnLMBDown -= LMBDown;
             _input.OnLMBUp -= LMBUp;
-            _input.OnRMBUp -= ResetWalkSelection;
-            _input.OnRMBUp -= UnselectUnit;
+            _input.OnRMBUp -= RMBUp;
             _battleLinesFactory.ClearLines();
             _battleObserver.ClearAdditionalInfo();
             _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().OnSkillButtonPressed -= OnSkillPressed;
@@ -210,14 +208,27 @@ namespace Core.StateMachines.Battle
 
                     _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().FillInfo(_currentHoverUnit, isCurrentWalkingUnit);
                     _canvasesResolver.GetCanvas<BattleCanvas>().SetActivePanel<UnitManagementPanel>(true);
-
-                    if (isCurrentWalkingUnit)
-                    {
-                        _unitWalkingResolver.SetCurrentUnit(_currentHoverUnit, nodesWalkingRange);
-                    }
-
-                    _unitWalkingResolver.SetHighlightedUnit(_currentHoverUnit);
+                    _unitWalkingResolver.SetCurrentUnit(_currentHoverUnit, nodesWalkingRange);
                 }
+            }
+        }
+
+        private void RMBUp()
+        {
+            StopCurrentAction();
+        }
+
+        private void StopCurrentAction()
+        {
+            if (_unitWalkingResolver.IsHaveSomeAction())
+            {
+                _unitWalkingResolver.StopCurrentAction();
+                _canvasesResolver.GetCanvas<BattleCanvas>().GetPanelOfType<UnitManagementPanel>().RemoveSelection();
+            }
+            else
+            {
+                ResetWalkSelection();
+                UnselectUnit();
             }
         }
 

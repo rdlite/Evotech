@@ -68,13 +68,13 @@ namespace Utils.Decal
         public void SetMediumScale()
         {
             _currentScale = .5f;
-            _decal.fadeFactor = .5f;
+            _decal.fadeFactor = .8f;
         }
 
         public void SetMinScale()
         {
             _currentScale = .2f;
-            _decal.fadeFactor = .2f;
+            _decal.fadeFactor = .7f;
         }
     }
 }

@@ -113,6 +113,20 @@ public class UnitWalkingResolver
         _currentUnit.SetAttackPreparationAnimation(_isChoosingAttackTarget);
     }
 
+    public void StopCurrentAction()
+    {
+        _walkFieldVisualizer.ProcessPathScale(null);
+
+        if (_isChoosingWalkPoint)
+        {
+            SwitchCurrentUnitWalk();
+        }
+        else if (_isChoosingAttackTarget)
+        {
+            SwitchAttackOnTarget();
+        }
+    }
+
     public void Update()
     {
         int pathCount = 0;
